@@ -565,23 +565,77 @@ h3 {
 }
 
 .leaderboard-pill {
-  padding: 16px 18px;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.78);
+  position: relative;
+  overflow: hidden;
+  padding: 18px 20px 20px;
+  border-radius: 22px;
   border: 1px solid rgba(23, 48, 64, 0.07);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.82));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.58),
+    0 12px 28px rgba(52, 81, 102, 0.08);
+}
+
+.leaderboard-pill::after {
+  content: "";
+  position: absolute;
+  inset: auto -2rem -2.8rem auto;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 999px;
+  opacity: 0.9;
+}
+
+.leaderboard-pill-attempts {
+  background:
+    radial-gradient(circle at top right, rgba(244, 109, 82, 0.16), transparent 36%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.82));
+}
+
+.leaderboard-pill-attempts::after {
+  background: rgba(244, 109, 82, 0.12);
+}
+
+.leaderboard-pill-study {
+  background:
+    radial-gradient(circle at top right, rgba(42, 157, 143, 0.16), transparent 36%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.82));
+}
+
+.leaderboard-pill-study::after {
+  background: rgba(42, 157, 143, 0.12);
 }
 
 .leaderboard-pill-label {
   display: block;
-  margin-bottom: 6px;
-  font-size: 0.82rem;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
   color: var(--ink-soft);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
 }
 
 .leaderboard-pill strong {
-  font-size: 1.35rem;
+  position: relative;
+  z-index: 1;
+  display: block;
+  margin-bottom: 6px;
+  font-family: "Palatino Linotype", "Book Antiqua", "Georgia", serif;
+  font-size: clamp(2rem, 3vw, 2.55rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+.leaderboard-pill-note {
+  position: relative;
+  z-index: 1;
+  display: block;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
 }
 
 .table-wrap {

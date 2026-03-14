@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Russian Key Coach</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=5" />
   </head>
   <body>
     <div class="background-orb orb-a"></div>
@@ -181,13 +181,15 @@
             </span>
           </div>
           <div class="leaderboard-summary">
-            <div class="leaderboard-pill">
+            <div class="leaderboard-pill leaderboard-pill-attempts">
               <span class="leaderboard-pill-label">Lifetime attempts</span>
               <strong id="leaderboard-total-attempts">0</strong>
+              <span class="leaderboard-pill-note">All logged prompts</span>
             </div>
-            <div class="leaderboard-pill">
+            <div class="leaderboard-pill leaderboard-pill-study">
               <span class="leaderboard-pill-label">Total study time</span>
               <strong id="leaderboard-total-study-time">0s</strong>
+              <span class="leaderboard-pill-note">Measured until the correct key</span>
             </div>
           </div>
           <div class="table-wrap">
@@ -210,6 +212,6 @@
       </section>
     </main>
 
-    <script src="app.js"></script>
+    <script src="app.js?v=5"></script>
   </body>
 </html>
