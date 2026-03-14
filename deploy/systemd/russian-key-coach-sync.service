@@ -1,0 +1,28 @@
+[Unit]
+Description=Russian Key Coach sync service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+DynamicUser=yes
+WorkingDirectory=/opt/russian-key-coach
+StateDirectory=russian-key-coach
+ExecStart=/usr/bin/python3 /opt/russian-key-coach/backend/russian_key_coach_sync.py serve --host 127.0.0.1 --port 8786 --data-dir /var/lib/russian-key-coach
+Restart=on-failure
+RestartSec=2
+NoNewPrivileges=yes
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectSystem=strict
+ProtectHome=yes
+ProtectControlGroups=yes
+ProtectKernelModules=yes
+ProtectKernelTunables=yes
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+SystemCallArchitectures=native
+
+[Install]
+WantedBy=multi-user.target

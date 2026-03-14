@@ -1,4 +1,5 @@
-const STORAGE_KEY = "russian-key-coach/v1";
+const API_PROGRESS_URL = "/api/progress";
+const SAVE_RETRY_MS = 2500;
 const RECENT_PER_LETTER = 20;
 const HISTORY_LIMIT = 500;
 const PRIOR_ATTEMPTS = 5;
@@ -95,9 +96,18 @@ const elements = {
   statsTableBody: document.getElementById("stats-table-body"),
 };
 
-let data = loadData();
+let data = createDefaultData();
 let session = createSession();
 let timerFrame = 0;
+let serverUpdatedAt = 0;
+const appState = {
+  ready: false,
+  saveQueued: false,
+  saveInFlight: false,
+  retryTimer: 0,
+  serverError: false,
+  lastSaveOutcome: "idle",
+};
 
 function createLetterStats() {
   return {
@@ -201,23 +211,112 @@ function ensureNumber(value, fallback) {
   return Number.isFinite(value) ? Number(value) : fallback;
 }
 
-function loadData() {
+async function fetchProgress() {
+  const response = await fetch(API_PROGRESS_URL, {
+    cache: "no-store",
+    headers: {
+      Accept: "application/json",
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error(`Progress load failed with ${response.status}.`);
+  }
+
+  return sanitizeData(await response.json());
+}
+
+async function putProgress(progress) {
+  const response = await fetch(API_PROGRESS_URL, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Expected-Updated-At": String(serverUpdatedAt || 0),
+    },
+    body: JSON.stringify(progress),
+  });
+
+  if (response.status === 409) {
+    const latest = sanitizeData(await response.json());
+    data = latest;
+    serverUpdatedAt = latest.updatedAt;
+    appState.lastSaveOutcome = "conflict";
+    pauseSession("Another tab updated the server first. The latest saved progress is loaded.");
+    setFeedback("This tab was stale, so the newer server copy won.");
+    render();
+    return null;
+  }
+
+  if (!response.ok) {
+    throw new Error(`Progress save failed with ${response.status}.`);
+  }
+
+  const saved = sanitizeData(await response.json());
+  serverUpdatedAt = saved.updatedAt;
+  return saved;
+}
+
+async function flushSaveQueue() {
+  if (appState.saveInFlight || !appState.saveQueued || !appState.ready) {
+    return;
+  }
+
+  appState.saveInFlight = true;
+  window.clearTimeout(appState.retryTimer);
+
   try {
-    const raw = window.localStorage.getItem(STORAGE_KEY);
-    if (!raw) {
-      return createDefaultData();
+    while (appState.saveQueued && appState.ready) {
+      appState.saveQueued = false;
+      const saved = await putProgress(data);
+
+      if (!saved) {
+        appState.serverError = false;
+        return;
+      }
+
+      data = saved;
+      appState.lastSaveOutcome = "saved";
     }
 
-    return sanitizeData(JSON.parse(raw));
+    if (appState.serverError) {
+      setFeedback("Server save recovered.");
+    }
+    appState.serverError = false;
   } catch (error) {
-    console.warn("Falling back to empty progress store.", error);
-    return createDefaultData();
+    appState.serverError = true;
+    appState.lastSaveOutcome = "error";
+    appState.saveQueued = true;
+    console.error(error);
+    setFeedback("Could not save to the server. Retrying in the background.");
+    appState.retryTimer = window.setTimeout(() => {
+      void flushSaveQueue();
+    }, SAVE_RETRY_MS);
+  } finally {
+    appState.saveInFlight = false;
+    render();
+
+    if (!appState.serverError && appState.saveQueued && appState.ready) {
+      void flushSaveQueue();
+    }
   }
 }
 
-function saveData() {
-  data.updatedAt = Date.now();
-  window.localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+async function saveData() {
+  if (!appState.ready) {
+    return "not-ready";
+  }
+
+  appState.saveQueued = true;
+  await flushSaveQueue();
+  return appState.lastSaveOutcome;
+}
+
+async function loadServerData() {
+  const loaded = await fetchProgress();
+  data = loaded;
+  serverUpdatedAt = loaded.updatedAt;
+  appState.ready = true;
+  appState.serverError = false;
 }
 
 function createSession() {
@@ -460,7 +559,7 @@ function registerAttempt(letter, timeMs, errors) {
   data.totals.bestStreak = Math.max(data.totals.bestStreak, session.currentStreak);
   data.history.push({ letter, timeMs, errors, at: now });
   data.history = data.history.slice(-HISTORY_LIMIT);
-  saveData();
+  void saveData();
 }
 
 function advancePrompt() {
@@ -550,6 +649,10 @@ function handleKeydown(event) {
     return;
   }
 
+  if (!appState.ready) {
+    return;
+  }
+
   if (event.key === "Escape") {
     pauseSession();
     return;
@@ -597,22 +700,30 @@ function exportData() {
 
 function importData(file) {
   const reader = new FileReader();
-  reader.onload = () => {
+  reader.onload = async () => {
     try {
       data = sanitizeData(JSON.parse(String(reader.result)));
-      saveData();
-      pauseSession("Imported progress. Start when ready.");
-      setFeedback("Progress imported.");
-      render();
     } catch (error) {
       console.error(error);
       setFeedback("Import failed. Pick a valid export file.");
+      render();
+      return;
     }
+
+    const outcome = await saveData();
+    if (outcome === "saved") {
+      pauseSession("Imported progress. Start when ready.");
+      setFeedback("Progress imported.");
+    } else if (outcome === "error") {
+      pauseSession("Imported progress is waiting to reach the server.");
+      setFeedback("Import loaded in this tab, but the server save is retrying.");
+    }
+    render();
   };
   reader.readAsText(file);
 }
 
-function resetData() {
+async function resetData() {
   const confirmed = window.confirm(
     "Reset all saved progress for Russian Key Coach?",
   );
@@ -621,9 +732,15 @@ function resetData() {
   }
 
   data = createDefaultData();
-  saveData();
-  session = createSession();
-  pauseSession("Progress reset. Start a new run.");
+  const outcome = await saveData();
+  if (outcome === "saved") {
+    session = createSession();
+    pauseSession("Progress reset. Start a new run.");
+    setFeedback("Progress reset.");
+  } else if (outcome === "error") {
+    pauseSession("Reset is waiting to reach the server.");
+    setFeedback("Reset is queued, but the server save is retrying.");
+  }
   render();
 }
 
@@ -844,12 +961,18 @@ function renderSummary() {
   elements.leaderboardTotalStudyTime.textContent = formatStudyDuration(
     data.totals.totalTimeMs,
   );
-  elements.startButton.textContent = session.active
-    ? "New session"
-    : session.attempts > 0
-      ? "Resume"
-      : "Start";
-  elements.pauseButton.disabled = !session.active;
+  elements.startButton.textContent = !appState.ready
+    ? "Loading..."
+    : session.active
+      ? "New session"
+      : session.attempts > 0
+        ? "Resume"
+        : "Start";
+  elements.startButton.disabled = !appState.ready;
+  elements.pauseButton.disabled = !appState.ready || !session.active;
+  elements.exportButton.disabled = !appState.ready;
+  elements.importButton.disabled = !appState.ready;
+  elements.resetButton.disabled = !appState.ready;
 }
 
 function renderAttemptPanel() {
@@ -873,6 +996,9 @@ function render() {
 
 function attachEvents() {
   elements.startButton.addEventListener("click", () => {
+    if (!appState.ready) {
+      return;
+    }
     const fresh = session.active || session.attempts === 0;
     startSession({ fresh });
   });
@@ -892,5 +1018,20 @@ function attachEvents() {
 }
 
 attachEvents();
-pauseSession("Press Start, switch your keyboard layout to Russian, and type the letter shown.");
+pauseSession("Loading saved progress from the server...");
 render();
+
+async function initialize() {
+  try {
+    await loadServerData();
+    pauseSession("Press Start, switch your keyboard layout to Russian, and type the letter shown.");
+    render();
+  } catch (error) {
+    console.error(error);
+    pauseSession("Could not load saved progress from the server. Refresh to try again.");
+    setFeedback("Server load failed, so the app stayed read-only.");
+    render();
+  }
+}
+
+void initialize();

@@ -1,0 +1,10 @@
+typing.macchiatolabs.ai {
+    encode gzip
+
+    handle_path /api/* {
+        reverse_proxy 127.0.0.1:8786
+    }
+
+    root * /srv/typing.macchiatolabs.ai
+    file_server
+}
