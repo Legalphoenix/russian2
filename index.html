@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Russian Key Coach</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="background-orb orb-a"></div>
+    <div class="background-orb orb-b"></div>
+    <div class="background-grid"></div>
+
+    <main class="app-shell">
+      <section class="hero card reveal">
+        <div class="hero-copy">
+          <p class="eyebrow">Russian typing practice</p>
+          <h1>Russian Key Coach</h1>
+          <p class="hero-text">
+            Train one letter at a time. The app tracks reaction time, wrong-key
+            count, and keeps permanent progress in your browser.
+          </p>
+          <div class="hero-actions">
+            <button id="start-button" class="button button-primary">Start</button>
+            <button id="pause-button" class="button button-secondary">
+              Pause
+            </button>
+            <button id="export-button" class="button button-ghost">
+              Export data
+            </button>
+            <button id="import-button" class="button button-ghost">
+              Import data
+            </button>
+            <button id="reset-button" class="button button-danger">
+              Reset progress
+            </button>
+            <input
+              id="import-input"
+              type="file"
+              accept="application/json"
+              hidden
+            />
+          </div>
+        </div>
+        <div class="hero-metrics">
+          <div class="metric-block">
+            <span class="metric-label">Letters covered</span>
+            <strong id="coverage-count">0 / 33</strong>
+            <span id="coverage-detail" class="metric-detail">
+              Start training to fill the alphabet.
+            </span>
+          </div>
+          <div class="metric-block">
+            <span class="metric-label">Recent trend</span>
+            <strong id="recent-trend">Waiting for attempts</strong>
+            <span id="recent-trend-detail" class="metric-detail">
+              The last 20 attempts are compared with the 20 before them.
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section class="top-grid">
+        <article class="practice card reveal">
+          <div class="practice-header">
+            <div>
+              <p class="section-label">Current target</p>
+              <h2>Find the matching key</h2>
+            </div>
+            <div id="status-pill" class="status-pill idle">Paused</div>
+          </div>
+
+          <div id="target-display" class="target-display idle">
+            <span id="target-letter">Ж</span>
+          </div>
+
+          <div class="attempt-strip">
+            <div class="attempt-stat">
+              <span class="attempt-label">Timer</span>
+              <strong id="live-timer">0 ms</strong>
+            </div>
+            <div class="attempt-stat">
+              <span class="attempt-label">Errors this round</span>
+              <strong id="attempt-errors">0</strong>
+            </div>
+            <div class="attempt-stat">
+              <span class="attempt-label">Streak</span>
+              <strong id="current-streak">0</strong>
+            </div>
+          </div>
+
+          <div class="practice-feedback">
+            <p id="feedback-message" class="feedback-message">
+              Press Start, switch your keyboard layout to Russian, and type the
+              letter you see.
+            </p>
+            <p id="layout-hint" class="layout-hint hidden">
+              Latin letters detected. Switch your OS keyboard layout to Russian.
+            </p>
+          </div>
+        </article>
+
+        <article class="session card reveal">
+          <div class="session-header">
+            <div>
+              <p class="section-label">Session snapshot</p>
+              <h2>See your rhythm</h2>
+            </div>
+            <div id="session-badge" class="session-badge">Fresh run</div>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-tile accent-coral">
+              <span class="tile-label">Attempts</span>
+              <strong id="session-attempts">0</strong>
+              <span class="tile-foot" id="session-clean-rate">0% clean hits</span>
+            </div>
+            <div class="stat-tile accent-mint">
+              <span class="tile-label">Avg response</span>
+              <strong id="session-average-time">0 ms</strong>
+              <span class="tile-foot" id="session-average-time-detail">
+                Session average
+              </span>
+            </div>
+            <div class="stat-tile accent-sand">
+              <span class="tile-label">Avg errors</span>
+              <strong id="session-average-errors">0.00</strong>
+              <span class="tile-foot" id="session-best-streak">
+                Best streak: 0
+              </span>
+            </div>
+            <div class="stat-tile accent-ink">
+              <span class="tile-label">Lifetime avg</span>
+              <strong id="lifetime-average-time">0 ms</strong>
+              <span class="tile-foot" id="lifetime-average-errors">
+                0.00 avg errors
+              </span>
+              <span class="tile-foot" id="lifetime-totals">
+                0 attempts | 0s studied
+              </span>
+            </div>
+          </div>
+
+          <div class="focus-panel">
+            <div class="panel-header">
+              <div>
+                <p class="section-label">Adaptive focus</p>
+                <h3>Keys receiving extra practice</h3>
+              </div>
+              <span class="focus-caption">
+                Weighted by smoothed speed, errors, freshness, and coverage.
+              </span>
+            </div>
+            <div id="focus-letters" class="focus-letters"></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="bottom-grid">
+        <article class="keyboard card reveal">
+          <div class="panel-header">
+            <div>
+              <p class="section-label">Keyboard heatmap</p>
+              <h2>Watch weak spots cool down over time</h2>
+            </div>
+            <span class="focus-caption">
+              Hotter keys need more work. The current target glows.
+            </span>
+          </div>
+          <div id="keyboard-map" class="keyboard-map"></div>
+        </article>
+
+        <article class="leaderboard card reveal">
+          <div class="panel-header">
+            <div>
+              <p class="section-label">Per-key progress</p>
+              <h2>Lifetime averages plus recent form</h2>
+            </div>
+            <span class="focus-caption">
+              Sorted by current challenge so problem keys stay visible.
+            </span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Letter</th>
+                  <th>Attempts</th>
+                  <th>Avg ms</th>
+                  <th>Recent ms</th>
+                  <th>Avg errors</th>
+                  <th>Recent errors</th>
+                  <th>Trend</th>
+                </tr>
+              </thead>
+              <tbody id="stats-table-body"></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
