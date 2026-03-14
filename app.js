@@ -88,6 +88,8 @@ const elements = {
   lifetimeAverageTime: document.getElementById("lifetime-average-time"),
   lifetimeAverageErrors: document.getElementById("lifetime-average-errors"),
   lifetimeTotals: document.getElementById("lifetime-totals"),
+  leaderboardTotalAttempts: document.getElementById("leaderboard-total-attempts"),
+  leaderboardTotalStudyTime: document.getElementById("leaderboard-total-study-time"),
   focusLetters: document.getElementById("focus-letters"),
   keyboardMap: document.getElementById("keyboard-map"),
   statsTableBody: document.getElementById("stats-table-body"),
@@ -838,6 +840,10 @@ function renderSummary() {
   elements.lifetimeTotals.textContent = `${data.totals.attempts} attempts | ${formatStudyDuration(
     data.totals.totalTimeMs,
   )} studied`;
+  elements.leaderboardTotalAttempts.textContent = String(data.totals.attempts);
+  elements.leaderboardTotalStudyTime.textContent = formatStudyDuration(
+    data.totals.totalTimeMs,
+  );
   elements.startButton.textContent = session.active
     ? "New session"
     : session.attempts > 0
