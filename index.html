@@ -3,9 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Russian Key Coach</title>
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" />
-    <link rel="stylesheet" href="styles.css?v=8" />
+    <title>Russian Conjugation Coach</title>
+    <link rel="stylesheet" href="styles.css?v=conjugation1" />
   </head>
   <body>
     <div class="background-orb orb-a"></div>
@@ -15,48 +14,53 @@
     <main class="app-shell">
       <section class="hero card reveal">
         <div class="hero-copy">
-          <p class="eyebrow">Russian typing practice</p>
-          <h1>Russian Key Coach</h1>
+          <p class="eyebrow">Russian conjugation practice</p>
+          <h1>Russian Conjugation Coach</h1>
           <p class="hero-text">
-            Train one letter at a time. The app tracks reaction time, wrong-key
-            count, and keeps permanent progress on your server so every device
-            sees the same history.
+            Keep the same obsessive reps philosophy from the keyboard trainer,
+            but apply it to present-tense conjugation. Train one verb-person cell
+            at a time, watch exact weak spots cool down, and climb from preview
+            to sentence production.
           </p>
+
           <div class="hero-actions">
             <button id="start-button" class="button button-primary">Start</button>
-            <button id="pause-button" class="button button-secondary">
-              Pause
-            </button>
-            <button id="export-button" class="button button-ghost">
-              Export data
-            </button>
-            <button id="import-button" class="button button-ghost">
-              Import data
-            </button>
-            <button id="reset-button" class="button button-danger">
-              Reset progress
-            </button>
-            <input
-              id="import-input"
-              type="file"
-              accept="application/json"
-              hidden
-            />
+            <button id="pause-button" class="button button-secondary">Pause</button>
+            <button id="export-button" class="button button-ghost">Export data</button>
+            <button id="import-button" class="button button-ghost">Import data</button>
+            <button id="reset-button" class="button button-danger">Reset progress</button>
+            <input id="import-input" type="file" accept="application/json" hidden />
+          </div>
+
+          <div class="filter-stack">
+            <div>
+              <p class="section-label">Modules</p>
+              <div id="module-tabs" class="module-tabs"></div>
+            </div>
+            <div>
+              <p class="section-label">Sub-decks</p>
+              <div id="subdeck-tabs" class="subdeck-tabs"></div>
+            </div>
+            <div>
+              <p class="section-label">Person focus</p>
+              <div id="person-chips" class="person-chip-row"></div>
+            </div>
           </div>
         </div>
+
         <div class="hero-metrics">
           <div class="metric-block">
-            <span class="metric-label">Letters covered</span>
-            <strong id="coverage-count">0 / 33</strong>
+            <span class="metric-label">Cells covered</span>
+            <strong id="coverage-count">0 / 0</strong>
             <span id="coverage-detail" class="metric-detail">
-              Start training to fill the alphabet.
+              Start training to fill the current module.
             </span>
           </div>
           <div class="metric-block">
             <span class="metric-label">Recent trend</span>
             <strong id="recent-trend">Waiting for attempts</strong>
             <span id="recent-trend-detail" class="metric-detail">
-              The last 20 attempts are compared with the 20 before them.
+              The last 20 solved prompts are compared with the 20 before them.
             </span>
           </div>
         </div>
@@ -67,13 +71,23 @@
           <div class="practice-header">
             <div>
               <p class="section-label">Current target</p>
-              <h2>Find the matching key</h2>
+              <h2 id="practice-title">Conjugate the highlighted cell</h2>
             </div>
             <div id="status-pill" class="status-pill idle">Paused</div>
           </div>
 
-          <div id="target-display" class="target-display idle">
-            <span id="target-letter">Ж</span>
+          <div id="stage-rail" class="stage-rail"></div>
+
+          <div id="irregular-banner" class="coach-banner hidden"></div>
+
+          <div id="target-display" class="target-display lesson idle">
+            <div class="prompt-empty">
+              <strong>Ready when you are.</strong>
+              <p>
+                Choose a module, then press Start. The app will keep drilling the
+                weakest verb-person cells until they cool down.
+              </p>
+            </div>
           </div>
 
           <div class="attempt-strip">
@@ -91,14 +105,13 @@
             </div>
           </div>
 
+          <div id="answer-area" class="answer-area"></div>
+
           <div class="practice-feedback">
             <p id="feedback-message" class="feedback-message">
-              Press Start, switch your keyboard layout to Russian, and type the
-              letter you see.
+              Press Start to begin. This build stores progress locally in your browser.
             </p>
-            <p id="layout-hint" class="layout-hint hidden">
-              Latin letters detected. Switch your OS keyboard layout to Russian.
-            </p>
+            <p id="layout-hint" class="layout-hint hidden"></p>
           </div>
         </article>
 
@@ -120,26 +133,18 @@
             <div class="stat-tile accent-mint">
               <span class="tile-label">Avg response</span>
               <strong id="session-average-time">0 ms</strong>
-              <span class="tile-foot" id="session-average-time-detail">
-                Session average
-              </span>
+              <span class="tile-foot" id="session-average-time-detail">Session average</span>
             </div>
             <div class="stat-tile accent-sand">
               <span class="tile-label">Avg errors</span>
               <strong id="session-average-errors">0.00</strong>
-              <span class="tile-foot" id="session-best-streak">
-                Best streak: 0
-              </span>
+              <span class="tile-foot" id="session-best-streak">Best streak: 0</span>
             </div>
             <div class="stat-tile accent-ink">
               <span class="tile-label">Lifetime avg</span>
               <strong id="lifetime-average-time">0 ms</strong>
-              <span class="tile-foot" id="lifetime-average-errors">
-                0.00 avg errors
-              </span>
-              <span class="tile-foot" id="lifetime-totals">
-                0 attempts | 0s studied
-              </span>
+              <span class="tile-foot" id="lifetime-average-errors">0.00 avg errors</span>
+              <span class="tile-foot" id="lifetime-totals">0 attempts | 0s studied</span>
             </div>
           </div>
 
@@ -147,10 +152,10 @@
             <div class="panel-header">
               <div>
                 <p class="section-label">Adaptive focus</p>
-                <h3>Keys receiving extra practice</h3>
+                <h3>Cells receiving extra practice</h3>
               </div>
               <span class="focus-caption">
-                Weighted by smoothed speed, errors, freshness, and coverage.
+                Weighted by stage-specific speed, misses, freshness, and coverage.
               </span>
             </div>
             <div id="focus-letters" class="focus-letters"></div>
@@ -162,48 +167,49 @@
         <article class="keyboard card reveal">
           <div class="panel-header">
             <div>
-              <p class="section-label">Keyboard heatmap</p>
-              <h2>Watch weak spots cool down over time</h2>
+              <p class="section-label">Verb × person heatmap</p>
+              <h2 id="heatmap-title">Watch exact weak spots cool down</h2>
             </div>
             <span class="focus-caption">
-              Hotter keys need more work. The current target glows.
+              Hotter cells need more work. The current target glows.
             </span>
           </div>
-          <div id="keyboard-map" class="keyboard-map"></div>
+          <div id="keyboard-map" class="conjugation-heatmap"></div>
         </article>
 
         <article class="leaderboard card reveal">
           <div class="panel-header">
             <div>
-              <p class="section-label">Per-key progress</p>
+              <p class="section-label">Per-cell progress</p>
               <h2>Lifetime averages plus recent form</h2>
             </div>
             <span class="focus-caption">
-              Sorted by current challenge so problem keys stay visible.
+              Sorted by current challenge so weak conjugations stay visible.
             </span>
           </div>
           <div class="leaderboard-summary">
             <div class="leaderboard-pill leaderboard-pill-attempts">
               <span class="leaderboard-pill-label">Lifetime attempts</span>
               <strong id="leaderboard-total-attempts">0</strong>
-              <span class="leaderboard-pill-note">All logged prompts</span>
+              <span class="leaderboard-pill-note">All solved prompts</span>
             </div>
             <div class="leaderboard-pill leaderboard-pill-study">
               <span class="leaderboard-pill-label">Total study time</span>
               <strong id="leaderboard-total-study-time">0s</strong>
-              <span class="leaderboard-pill-note">Measured until the correct key</span>
+              <span class="leaderboard-pill-note">Measured until the correct form</span>
             </div>
           </div>
           <div class="table-wrap">
             <table>
               <thead>
                 <tr>
-                  <th>Letter</th>
+                  <th>Verb</th>
+                  <th>Person</th>
+                  <th>Stage</th>
                   <th>Attempts</th>
                   <th>Avg ms</th>
                   <th>Recent ms</th>
                   <th>Avg errors</th>
-                  <th>Recent errors</th>
                   <th>Trend</th>
                 </tr>
               </thead>
@@ -214,6 +220,7 @@
       </section>
     </main>
 
-    <script src="app.js?v=8"></script>
+    <script src="decks.js"></script>
+    <script src="app.js?v=conjugation1"></script>
   </body>
 </html>

@@ -1,0 +1,1115 @@
+{
+  "moduleId": "second_conjugation",
+  "title": "2nd Conjugation",
+  "purpose": "Train present-tense 2nd-conjugation verbs with explicit isolation of irregular я-forms and exception-shape verbs.",
+  "defaultStageProfileId": "grammar_full",
+  "heatmap": "verb x person",
+  "referenceEndings": {
+    "1sg": "-ю / -у",
+    "2sg": "-ишь",
+    "3sg": "-ит",
+    "1pl": "-им",
+    "2pl": "-ите",
+    "3pl": "-ят / -ат"
+  },
+  "subdecks": [
+    {
+      "id": "sc_regular_core",
+      "title": "Core 2nd-conjugation verbs",
+      "defaultEntry": true,
+      "mixIntoDefaultResume": true,
+      "status": "active",
+      "whyThisExists": "Main everyday 2nd-conjugation practice deck, still flagging irregular я-forms inline.",
+      "teachingRules": [
+        "Choose2 / Choose4 / FullChoice options must come only from the same verb paradigm.",
+        "If showIrregularYaBanner is true, show the banner only in Preview and the first two Guided attempts.",
+        "Do not add perfective-future verbs in this pass."
+      ],
+      "verbs": [
+        {
+          "id": "govorit",
+          "lemma": "говорить",
+          "translation": "to speak / to say",
+          "regularityTag": "regular",
+          "previewSplit": {
+            "stable": "говор",
+            "mutable": "ить"
+          },
+          "fragmentBaseByPerson": {
+            "1sg": "говор",
+            "2sg": "говор",
+            "3sg": "говор",
+            "1pl": "говор",
+            "2pl": "говор",
+            "3pl": "говор"
+          },
+          "forms": {
+            "1sg": "говорю",
+            "2sg": "говоришь",
+            "3sg": "говорит",
+            "1pl": "говорим",
+            "2pl": "говорите",
+            "3pl": "говорят"
+          },
+          "contextFrames": [
+            {
+              "beforeVerbRu": "",
+              "afterVerbRu": "по телефону",
+              "beforeVerbEn": "",
+              "afterVerbEn": "on the phone"
+            },
+            {
+              "beforeVerbRu": "немного",
+              "afterVerbRu": "по-русски",
+              "beforeVerbEn": "a little",
+              "afterVerbEn": "Russian"
+            },
+            {
+              "beforeVerbRu": "",
+              "afterVerbRu": "с друзьями",
+              "beforeVerbEn": "",
+              "afterVerbEn": "with friends"
+            }
+          ],
+          "coachNote": "Core 2nd conjugation.",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "showIrregularYaBanner": false,
+          "irregularYaBannerText": null,
+          "exampleSentences": [
+            {
+              "ru": "В четверг он говорит по телефону.",
+              "en": "On Thursday he speaks on the phone."
+            },
+            {
+              "ru": "Я немного говорю по-русски.",
+              "en": "I speak a little Russian."
+            }
+          ],
+          "tags": [
+            "second",
+            "core"
+          ]
+        },
+        {
+          "id": "uchit",
+          "lemma": "учить",
+          "translation": "to learn / study / teach",
+          "regularityTag": "regular_ya_special",
+          "previewSplit": {
+            "stable": "уч",
+            "mutable": "ить"
+          },
+          "fragmentBaseByPerson": {
+            "1sg": "уч",
+            "2sg": "уч",
+            "3sg": "уч",
+            "1pl": "уч",
+            "2pl": "уч",
+            "3pl": "уч"
+          },
+          "forms": {
+            "1sg": "учу",
+            "2sg": "учишь",
+            "3sg": "учит",
+            "1pl": "учим",
+            "2pl": "учите",
+            "3pl": "учат"
+          },
+          "contextFrames": [
+            {
+              "beforeVerbRu": "",
+              "afterVerbRu": "новые слова",
+              "beforeVerbEn": "",
+              "afterVerbEn": "new words"
+            }
+          ],
+          "coachNote": "Watch the я-form.",
+          "irregularYa": true,
+          "irregularPattern": "учить -> учу",
+          "showIrregularYaBanner": true,
+          "irregularYaBannerText": "Watch the я-form: учить -> учу.",
+          "exampleSentences": [
+            {
+              "ru": "В среду мы учим новые слова.",
+              "en": "On Wednesday we learn new words."
+            }
+          ],
+          "tags": [
+            "second",
+            "core",
+            "irregular-ya"
+          ]
+        },
+        {
+          "id": "gotovit",
+          "lemma": "готовить",
+          "translation": "to cook / to prepare",
+          "regularityTag": "irregular_ya_cluster",
+          "previewSplit": {
+            "stable": "готов",
+            "mutable": "ить"
+          },
+          "fragmentBaseByPerson": {
+            "1sg": "готовл",
+            "2sg": "готов",
+            "3sg": "готов",
+            "1pl": "готов",
+            "2pl": "готов",
+            "3pl": "готов"
+          },
+          "forms": {
+            "1sg": "готовлю",
+            "2sg": "готовишь",
+            "3sg": "готовит",
+            "1pl": "готовим",
+            "2pl": "готовите",
+            "3pl": "готовят"
+          },
+          "contextFrames": [
+            {
+              "beforeVerbRu": "",
+              "afterVerbRu": "завтрак",
+              "beforeVerbEn": "",
+              "afterVerbEn": "breakfast"
+            }
+          ],
+          "coachNote": "Watch the я-form: готовить -> готовлю.",
+          "irregularYa": true,
+          "irregularPattern": "в -> вл in 1sg",
+          "showIrregularYaBanner": true,
+          "irregularYaBannerText": "Watch the я-form: готовить -> готовлю (в -> вл).",
+          "exampleSentences": [
+            {
+              "ru": "В субботу я готовлю завтрак.",
+              "en": "On Saturday I cook breakfast."
+            }
+          ],
+          "tags": [
+            "second",
+            "core",
+            "irregular-ya"
+          ]
+        },
+        {
+          "id": "zvonit",
+          "lemma": "звонить",
+          "translation": "to call (by phone)",
+          "regularityTag": "regular",
+          "previewSplit": {
+            "stable": "звон",
+            "mutable": "ить"
+          },
+          "fragmentBaseByPerson": {
+            "1sg": "звон",
+            "2sg": "звон",
+            "3sg": "звон",
+            "1pl": "звон",
+            "2pl": "звон",
+            "3pl": "звон"
+          },
+          "forms": {
+            "1sg": "звоню",
+            "2sg": "звонишь",
+            "3sg": "звонит",
+            "1pl": "звоним",
+            "2pl": "звоните",
+            "3pl": "звонят"
+          },
+          "contextFrames": [
+            {
+              "beforeVerbRu": "",
+              "afterVerbRu": "сестре",
+              "beforeVerbEn": "",
+              "afterVerbEn": "your sister"
+            }
+          ],
+          "coachNote": "Core 2nd conjugation.",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "showIrregularYaBanner": false,
+          "irregularYaBannerText": null,
+          "exampleSentences": [
+            {
+              "ru": "В понедельник ты звонишь сестре?",
+              "en": "On Monday do you call your sister?"
+            }
+          ],
+          "tags": [
+            "second",
+            "core"
+          ]
+        },
+        {
+          "id": "prosit",
+          "lemma": "просить",
+          "translation": "to ask for / request",
+          "regularityTag": "irregular_ya",
+          "previewSplit": {
+            "stable": "прос",
+            "mutable": "ить"
+          },
+          "fragmentBaseByPerson": {
+            "1sg": "прош",
+            "2sg": "прос",
+            "3sg": "прос",
+            "1pl": "прос",
+            "2pl": "прос",
+            "3pl": "прос"
+          },
+          "forms": {
+            "1sg": "прошу",
+            "2sg": "просишь",
+            "3sg": "просит",
+            "1pl": "просим",
+            "2pl": "просите",
+            "3pl": "просят"
+          },
+          "contextFrames": [
+            {
+              "beforeVerbRu": "",
+              "afterVerbRu": "помощи",
+              "beforeVerbEn": "",
+              "afterVerbEn": "for help"
+            }
+          ],
+          "coachNote": "Treat this as an irregular я-form watchlist item because the canonical 1sg form is прошу.",
+          "irregularYa": true,
+          "irregularPattern": "с -> ш in 1sg",
+          "showIrregularYaBanner": true,
+          "irregularYaBannerText": "Watch the я-form: просить -> прошу (с -> ш).",
+          "exampleSentences": [
+            {
+              "ru": "В воскресенье вы просите помощи?",
+              "en": "On Sunday do you ask for help?"
+            }
+          ],
+          "tags": [
+            "second",
+            "core",
+            "irregular-ya"
+          ]
+        },
+        {
+          "id": "hodit",
+          "lemma": "ходить",
+          "translation": "to go (on foot, regularly)",
+          "regularityTag": "irregular_ya",
+          "previewSplit": {
+            "stable": "ход",
+            "mutable": "ить"
+          },
+          "fragmentBaseByPerson": {
+            "1sg": "хож",
+            "2sg": "ход",
+            "3sg": "ход",
+            "1pl": "ход",
+            "2pl": "ход",
+            "3pl": "ход"
+          },
+          "forms": {
+            "1sg": "хожу",
+            "2sg": "ходишь",
+            "3sg": "ходит",
+            "1pl": "ходим",
+            "2pl": "ходите",
+            "3pl": "ходят"
+          },
+          "contextFrames": [
+            {
+              "beforeVerbRu": "",
+              "afterVerbRu": "в спортзал",
+              "beforeVerbEn": "",
+              "afterVerbEn": "to the gym"
+            }
+          ],
+          "coachNote": "Watch the я-form.",
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "showIrregularYaBanner": true,
+          "irregularYaBannerText": "Watch the я-form: ходить -> хожу (д -> ж).",
+          "exampleSentences": [
+            {
+              "ru": "По вечерам мы ходим в спортзал.",
+              "en": "In the evenings we go to the gym."
+            }
+          ],
+          "tags": [
+            "second",
+            "core",
+            "irregular-ya"
+          ]
+        },
+        {
+          "id": "nosit",
+          "lemma": "носить",
+          "translation": "to wear / to carry",
+          "regularityTag": "irregular_ya",
+          "previewSplit": {
+            "stable": "нос",
+            "mutable": "ить"
+          },
+          "fragmentBaseByPerson": {
+            "1sg": "нош",
+            "2sg": "нос",
+            "3sg": "нос",
+            "1pl": "нос",
+            "2pl": "нос",
+            "3pl": "нос"
+          },
+          "forms": {
+            "1sg": "ношу",
+            "2sg": "носишь",
+            "3sg": "носит",
+            "1pl": "носим",
+            "2pl": "носите",
+            "3pl": "носят"
+          },
+          "contextFrames": [
+            {
+              "beforeVerbRu": "обычно",
+              "afterVerbRu": "чёрную куртку",
+              "beforeVerbEn": "usually",
+              "afterVerbEn": "a black jacket"
+            }
+          ],
+          "coachNote": "Watch the я-form.",
+          "irregularYa": true,
+          "irregularPattern": "с -> ш in 1sg",
+          "showIrregularYaBanner": true,
+          "irregularYaBannerText": "Watch the я-form: носить -> ношу (с -> ш).",
+          "exampleSentences": [
+            {
+              "ru": "Обычно он носит чёрную куртку.",
+              "en": "He usually wears a black jacket."
+            }
+          ],
+          "tags": [
+            "second",
+            "core",
+            "irregular-ya"
+          ]
+        },
+        {
+          "id": "varit",
+          "lemma": "варить",
+          "translation": "to boil / to cook by boiling",
+          "regularityTag": "regular",
+          "previewSplit": {
+            "stable": "вар",
+            "mutable": "ить"
+          },
+          "fragmentBaseByPerson": {
+            "1sg": "вар",
+            "2sg": "вар",
+            "3sg": "вар",
+            "1pl": "вар",
+            "2pl": "вар",
+            "3pl": "вар"
+          },
+          "forms": {
+            "1sg": "варю",
+            "2sg": "варишь",
+            "3sg": "варит",
+            "1pl": "варим",
+            "2pl": "варите",
+            "3pl": "варят"
+          },
+          "contextFrames": [
+            {
+              "beforeVerbRu": "",
+              "afterVerbRu": "суп",
+              "beforeVerbEn": "",
+              "afterVerbEn": "soup"
+            }
+          ],
+          "coachNote": "Core 2nd conjugation.",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "showIrregularYaBanner": false,
+          "irregularYaBannerText": null,
+          "exampleSentences": [
+            {
+              "ru": "Во вторник она варит суп.",
+              "en": "On Tuesday she cooks soup."
+            }
+          ],
+          "tags": [
+            "second",
+            "core"
+          ]
+        },
+        {
+          "id": "solit",
+          "lemma": "солить",
+          "translation": "to salt / add salt",
+          "regularityTag": "regular",
+          "previewSplit": {
+            "stable": "сол",
+            "mutable": "ить"
+          },
+          "fragmentBaseByPerson": {
+            "1sg": "сол",
+            "2sg": "сол",
+            "3sg": "сол",
+            "1pl": "сол",
+            "2pl": "сол",
+            "3pl": "сол"
+          },
+          "forms": {
+            "1sg": "солю",
+            "2sg": "солишь",
+            "3sg": "солит",
+            "1pl": "солим",
+            "2pl": "солите",
+            "3pl": "солят"
+          },
+          "contextFrames": [
+            {
+              "beforeVerbRu": "",
+              "afterVerbRu": "рыбу",
+              "beforeVerbEn": "",
+              "afterVerbEn": "the fish"
+            }
+          ],
+          "coachNote": "Core 2nd conjugation.",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "showIrregularYaBanner": false,
+          "irregularYaBannerText": null,
+          "exampleSentences": [
+            {
+              "ru": "В пятницу они солят рыбу.",
+              "en": "On Friday they salt the fish."
+            }
+          ],
+          "tags": [
+            "second",
+            "core"
+          ]
+        },
+        {
+          "id": "darit",
+          "lemma": "дарить",
+          "translation": "to give as a gift",
+          "regularityTag": "regular",
+          "previewSplit": {
+            "stable": "дар",
+            "mutable": "ить"
+          },
+          "fragmentBaseByPerson": {
+            "1sg": "дар",
+            "2sg": "дар",
+            "3sg": "дар",
+            "1pl": "дар",
+            "2pl": "дар",
+            "3pl": "дар"
+          },
+          "forms": {
+            "1sg": "дарю",
+            "2sg": "даришь",
+            "3sg": "дарит",
+            "1pl": "дарим",
+            "2pl": "дарите",
+            "3pl": "дарят"
+          },
+          "contextFrames": [
+            {
+              "beforeVerbRu": "иногда",
+              "afterVerbRu": "цветы",
+              "beforeVerbEn": "sometimes",
+              "afterVerbEn": "flowers"
+            }
+          ],
+          "coachNote": "Core 2nd conjugation.",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "showIrregularYaBanner": false,
+          "irregularYaBannerText": null,
+          "exampleSentences": [
+            {
+              "ru": "Иногда она дарит цветы маме.",
+              "en": "Sometimes she gives flowers to her mother."
+            }
+          ],
+          "tags": [
+            "second",
+            "core"
+          ]
+        },
+        {
+          "id": "stroit",
+          "lemma": "строить",
+          "translation": "to build",
+          "regularityTag": "regular",
+          "previewSplit": {
+            "stable": "стро",
+            "mutable": "ить"
+          },
+          "fragmentBaseByPerson": {
+            "1sg": "стро",
+            "2sg": "стро",
+            "3sg": "стро",
+            "1pl": "стро",
+            "2pl": "стро",
+            "3pl": "стро"
+          },
+          "forms": {
+            "1sg": "строю",
+            "2sg": "строишь",
+            "3sg": "строит",
+            "1pl": "строим",
+            "2pl": "строите",
+            "3pl": "строят"
+          },
+          "contextFrames": [
+            {
+              "beforeVerbRu": "",
+              "afterVerbRu": "планы",
+              "beforeVerbEn": "",
+              "afterVerbEn": "plans"
+            }
+          ],
+          "coachNote": "Core 2nd conjugation.",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "showIrregularYaBanner": false,
+          "irregularYaBannerText": null,
+          "exampleSentences": [
+            {
+              "ru": "В четверг мы строим планы на выходные.",
+              "en": "On Thursday we make plans for the weekend."
+            }
+          ],
+          "tags": [
+            "second",
+            "core"
+          ]
+        },
+        {
+          "id": "blagodarit",
+          "lemma": "благодарить",
+          "translation": "to thank",
+          "regularityTag": "regular",
+          "previewSplit": {
+            "stable": "благодар",
+            "mutable": "ить"
+          },
+          "fragmentBaseByPerson": {
+            "1sg": "благодар",
+            "2sg": "благодар",
+            "3sg": "благодар",
+            "1pl": "благодар",
+            "2pl": "благодар",
+            "3pl": "благодар"
+          },
+          "forms": {
+            "1sg": "благодарю",
+            "2sg": "благодаришь",
+            "3sg": "благодарит",
+            "1pl": "благодарим",
+            "2pl": "благодарите",
+            "3pl": "благодарят"
+          },
+          "contextFrames": [
+            {
+              "beforeVerbRu": "всегда",
+              "afterVerbRu": "преподавателя",
+              "beforeVerbEn": "always",
+              "afterVerbEn": "the teacher"
+            }
+          ],
+          "coachNote": "Core 2nd conjugation.",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "showIrregularYaBanner": false,
+          "irregularYaBannerText": null,
+          "exampleSentences": [
+            {
+              "ru": "Мы всегда благодарим преподавателя за урок.",
+              "en": "We always thank the teacher for the lesson."
+            }
+          ],
+          "tags": [
+            "second",
+            "core"
+          ]
+        },
+        {
+          "id": "perevodit",
+          "lemma": "переводить",
+          "translation": "to translate",
+          "regularityTag": "irregular_ya_special",
+          "previewSplit": {
+            "stable": "перевод",
+            "mutable": "ить"
+          },
+          "fragmentBaseByPerson": {
+            "1sg": "перевож",
+            "2sg": "перевод",
+            "3sg": "перевод",
+            "1pl": "перевод",
+            "2pl": "перевод",
+            "3pl": "перевод"
+          },
+          "forms": {
+            "1sg": "перевожу",
+            "2sg": "переводишь",
+            "3sg": "переводит",
+            "1pl": "переводим",
+            "2pl": "переводите",
+            "3pl": "переводят"
+          },
+          "contextFrames": [
+            {
+              "beforeVerbRu": "",
+              "afterVerbRu": "текст",
+              "beforeVerbEn": "",
+              "afterVerbEn": "a text"
+            }
+          ],
+          "coachNote": "Watch the я-form.",
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "showIrregularYaBanner": true,
+          "irregularYaBannerText": "Watch the я-form: переводить -> перевожу (д -> ж).",
+          "exampleSentences": [
+            {
+              "ru": "В среду она переводит текст с английского.",
+              "en": "On Wednesday she translates a text from English."
+            }
+          ],
+          "tags": [
+            "second",
+            "core",
+            "irregular-ya"
+          ]
+        },
+        {
+          "id": "prihodit",
+          "lemma": "приходить",
+          "translation": "to come / arrive",
+          "regularityTag": "irregular_ya",
+          "previewSplit": {
+            "stable": "приход",
+            "mutable": "ить"
+          },
+          "fragmentBaseByPerson": {
+            "1sg": "прихож",
+            "2sg": "приход",
+            "3sg": "приход",
+            "1pl": "приход",
+            "2pl": "приход",
+            "3pl": "приход"
+          },
+          "forms": {
+            "1sg": "прихожу",
+            "2sg": "приходишь",
+            "3sg": "приходит",
+            "1pl": "приходим",
+            "2pl": "приходите",
+            "3pl": "приходят"
+          },
+          "contextFrames": [
+            {
+              "beforeVerbRu": "",
+              "afterVerbRu": "в офис рано",
+              "beforeVerbEn": "",
+              "afterVerbEn": "to the office early"
+            }
+          ],
+          "coachNote": "Watch the я-form.",
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "showIrregularYaBanner": true,
+          "irregularYaBannerText": "Watch the я-form: приходить -> прихожу (д -> ж).",
+          "exampleSentences": [
+            {
+              "ru": "В понедельник я прихожу в офис рано.",
+              "en": "On Monday I arrive at the office early."
+            }
+          ],
+          "tags": [
+            "second",
+            "core",
+            "irregular-ya"
+          ]
+        },
+        {
+          "id": "vyhodit",
+          "lemma": "выходить",
+          "translation": "to go out / to leave",
+          "regularityTag": "irregular_ya",
+          "previewSplit": {
+            "stable": "выход",
+            "mutable": "ить"
+          },
+          "fragmentBaseByPerson": {
+            "1sg": "выхож",
+            "2sg": "выход",
+            "3sg": "выход",
+            "1pl": "выход",
+            "2pl": "выход",
+            "3pl": "выход"
+          },
+          "forms": {
+            "1sg": "выхожу",
+            "2sg": "выходишь",
+            "3sg": "выходит",
+            "1pl": "выходим",
+            "2pl": "выходите",
+            "3pl": "выходят"
+          },
+          "contextFrames": [
+            {
+              "beforeVerbRu": "",
+              "afterVerbRu": "из дома рано",
+              "beforeVerbEn": "",
+              "afterVerbEn": "out of the house early"
+            }
+          ],
+          "coachNote": "Watch the я-form.",
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "showIrregularYaBanner": true,
+          "irregularYaBannerText": "Watch the я-form: выходить -> выхожу (д -> ж).",
+          "exampleSentences": [
+            {
+              "ru": "В пятницу они выходят из дома в восемь утра.",
+              "en": "On Friday they leave home at eight in the morning."
+            }
+          ],
+          "tags": [
+            "second",
+            "core",
+            "irregular-ya"
+          ]
+        },
+        {
+          "id": "smotret",
+          "lemma": "смотреть",
+          "translation": "to watch / to look at",
+          "regularityTag": "regular_exception_shape",
+          "previewSplit": {
+            "stable": "смотр",
+            "mutable": "еть"
+          },
+          "fragmentBaseByPerson": {
+            "1sg": "смотр",
+            "2sg": "смотр",
+            "3sg": "смотр",
+            "1pl": "смотр",
+            "2pl": "смотр",
+            "3pl": "смотр"
+          },
+          "forms": {
+            "1sg": "смотрю",
+            "2sg": "смотришь",
+            "3sg": "смотрит",
+            "1pl": "смотрим",
+            "2pl": "смотрите",
+            "3pl": "смотрят"
+          },
+          "contextFrames": [
+            {
+              "beforeVerbRu": "",
+              "afterVerbRu": "фильм",
+              "beforeVerbEn": "",
+              "afterVerbEn": "a film"
+            }
+          ],
+          "coachNote": "Keep this in the core deck for this user-facing module.",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "showIrregularYaBanner": false,
+          "irregularYaBannerText": null,
+          "exampleSentences": [
+            {
+              "ru": "Ты смотришь фильм.",
+              "en": "You are watching a film."
+            }
+          ],
+          "tags": [
+            "second",
+            "core",
+            "exception-shape"
+          ]
+        },
+        {
+          "id": "lyubit",
+          "lemma": "любить",
+          "translation": "to love / like",
+          "regularityTag": "irregular_ya_cluster",
+          "previewSplit": {
+            "stable": "люб",
+            "mutable": "ить"
+          },
+          "fragmentBaseByPerson": {
+            "1sg": "любл",
+            "2sg": "люб",
+            "3sg": "люб",
+            "1pl": "люб",
+            "2pl": "люб",
+            "3pl": "люб"
+          },
+          "forms": {
+            "1sg": "люблю",
+            "2sg": "любишь",
+            "3sg": "любит",
+            "1pl": "любим",
+            "2pl": "любите",
+            "3pl": "любят"
+          },
+          "contextFrames": [
+            {
+              "beforeVerbRu": "",
+              "afterVerbRu": "спорт",
+              "beforeVerbEn": "",
+              "afterVerbEn": "sport"
+            },
+            {
+              "beforeVerbRu": "всегда",
+              "afterVerbRu": "пить кофе",
+              "beforeVerbEn": "always",
+              "afterVerbEn": "to drink coffee"
+            },
+            {
+              "beforeVerbRu": "",
+              "afterVerbRu": "пиццу",
+              "beforeVerbEn": "",
+              "afterVerbEn": "pizza"
+            },
+            {
+              "beforeVerbRu": "",
+              "afterVerbRu": "танцевать",
+              "beforeVerbEn": "",
+              "afterVerbEn": "to dance"
+            }
+          ],
+          "coachNote": "Watch the я-form.",
+          "irregularYa": true,
+          "irregularPattern": "б -> бл in 1sg",
+          "showIrregularYaBanner": true,
+          "irregularYaBannerText": "Watch the я-form: любить -> люблю (б -> бл).",
+          "exampleSentences": [
+            {
+              "ru": "Я люблю пиццу.",
+              "en": "I love pizza."
+            }
+          ],
+          "tags": [
+            "second",
+            "core",
+            "irregular-ya"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sc_exception_shapes",
+      "title": "2nd-conjugation exception-shape verbs",
+      "defaultEntry": false,
+      "mixIntoDefaultResume": false,
+      "status": "active",
+      "whyThisExists": "Lets the learner isolate verbs that are pedagogically noisy because their infinitives do not look like the core pattern or because they are often taught as exceptions.",
+      "teachingRules": [
+        "Keep this as a dedicated subdeck so the learner can isolate exception-shape verbs.",
+        "видеть must still show the irregular я-banner.",
+        "Do not auto-mix this subdeck into the default core resume flow."
+      ],
+      "verbs": [
+        {
+          "id": "pomnit",
+          "lemma": "помнить",
+          "translation": "to remember",
+          "regularityTag": "core_alt_shape",
+          "previewSplit": {
+            "stable": "помн",
+            "mutable": "ить"
+          },
+          "fragmentBaseByPerson": {
+            "1sg": "помн",
+            "2sg": "помн",
+            "3sg": "помн",
+            "1pl": "помн",
+            "2pl": "помн",
+            "3pl": "помн"
+          },
+          "forms": {
+            "1sg": "помню",
+            "2sg": "помнишь",
+            "3sg": "помнит",
+            "1pl": "помним",
+            "2pl": "помните",
+            "3pl": "помнят"
+          },
+          "contextFrames": [
+            {
+              "beforeVerbRu": "",
+              "afterVerbRu": "о встрече",
+              "beforeVerbEn": "",
+              "afterVerbEn": "about the meeting"
+            },
+            {
+              "beforeVerbRu": "",
+              "afterVerbRu": "это правило",
+              "beforeVerbEn": "",
+              "afterVerbEn": "this rule"
+            },
+            {
+              "beforeVerbRu": "",
+              "afterVerbRu": "это",
+              "beforeVerbEn": "",
+              "afterVerbEn": "this"
+            }
+          ],
+          "coachNote": "Keep in the exception deck so the learner can isolate non-plain textbook patterns.",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "showIrregularYaBanner": false,
+          "irregularYaBannerText": null,
+          "exampleSentences": [
+            {
+              "ru": "В понедельник ты помнишь о встрече?",
+              "en": "On Monday do you remember the meeting?"
+            }
+          ],
+          "tags": [
+            "second",
+            "exception"
+          ]
+        },
+        {
+          "id": "slyshat",
+          "lemma": "слышать",
+          "translation": "to hear",
+          "regularityTag": "exception_non_it",
+          "previewSplit": {
+            "stable": "слыш",
+            "mutable": "ать"
+          },
+          "fragmentBaseByPerson": {
+            "1sg": "слыш",
+            "2sg": "слыш",
+            "3sg": "слыш",
+            "1pl": "слыш",
+            "2pl": "слыш",
+            "3pl": "слыш"
+          },
+          "forms": {
+            "1sg": "слышу",
+            "2sg": "слышишь",
+            "3sg": "слышит",
+            "1pl": "слышим",
+            "2pl": "слышите",
+            "3pl": "слышат"
+          },
+          "contextFrames": [
+            {
+              "beforeVerbRu": "иногда",
+              "afterVerbRu": "шум",
+              "beforeVerbEn": "sometimes",
+              "afterVerbEn": "a noise"
+            },
+            {
+              "beforeVerbRu": "обычно",
+              "afterVerbRu": "твой голос",
+              "beforeVerbEn": "usually",
+              "afterVerbEn": "your voice"
+            },
+            {
+              "beforeVerbRu": "",
+              "afterVerbRu": "музыку",
+              "beforeVerbEn": "",
+              "afterVerbEn": "the music"
+            },
+            {
+              "beforeVerbRu": "",
+              "afterVerbRu": "собаку",
+              "beforeVerbEn": "",
+              "afterVerbEn": "the dog"
+            }
+          ],
+          "coachNote": "True 2nd-conjugation exception shape.",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "showIrregularYaBanner": false,
+          "irregularYaBannerText": null,
+          "exampleSentences": [
+            {
+              "ru": "Вы слышите музыку?",
+              "en": "Do you hear the music?"
+            }
+          ],
+          "tags": [
+            "second",
+            "exception"
+          ]
+        },
+        {
+          "id": "videt",
+          "lemma": "видеть",
+          "translation": "to see",
+          "regularityTag": "exception_irregular_ya",
+          "previewSplit": {
+            "stable": "вид",
+            "mutable": "еть"
+          },
+          "fragmentBaseByPerson": {
+            "1sg": "виж",
+            "2sg": "вид",
+            "3sg": "вид",
+            "1pl": "вид",
+            "2pl": "вид",
+            "3pl": "вид"
+          },
+          "forms": {
+            "1sg": "вижу",
+            "2sg": "видишь",
+            "3sg": "видит",
+            "1pl": "видим",
+            "2pl": "видите",
+            "3pl": "видят"
+          },
+          "contextFrames": [
+            {
+              "beforeVerbRu": "",
+              "afterVerbRu": "машину",
+              "beforeVerbEn": "",
+              "afterVerbEn": "the car"
+            },
+            {
+              "beforeVerbRu": "",
+              "afterVerbRu": "тебя",
+              "beforeVerbEn": "",
+              "afterVerbEn": "you"
+            }
+          ],
+          "coachNote": "Exception verb with an irregular я-form.",
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "showIrregularYaBanner": true,
+          "irregularYaBannerText": "Watch the я-form: видеть -> вижу (д -> ж).",
+          "exampleSentences": [
+            {
+              "ru": "Я вижу тебя.",
+              "en": "I see you."
+            }
+          ],
+          "tags": [
+            "second",
+            "exception",
+            "irregular-ya"
+          ]
+        }
+      ]
+    }
+  ],
+  "acceptanceChecks": [
+    "Total verbs = 20.",
+    "Total atoms after generation = 120.",
+    "Perfective future reference verbs are omitted entirely from this tightened pass.",
+    "просить is treated as an irregular я-form watchlist item.",
+    "Second-conjugation irregular я watchlist must include: учить, готовить, просить, ходить, носить, переводить, приходить, выходить, видеть, любить."
+  ]
+}
