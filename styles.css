@@ -750,6 +750,68 @@ h3 {
   gap: 6px;
 }
 
+.stage-progress {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+  padding: 18px 20px;
+  border-radius: 24px;
+  border: 1px solid rgba(23, 48, 64, 0.08);
+  background:
+    radial-gradient(circle at top right, rgba(244, 109, 82, 0.09), transparent 34%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.82));
+}
+
+.stage-progress.compact {
+  margin-top: 16px;
+  padding: 16px 18px;
+}
+
+.stage-progress-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.stage-progress-title {
+  margin: 0;
+  font-family: "Palatino Linotype", "Book Antiqua", "Georgia", serif;
+  font-size: 1.32rem;
+  line-height: 1.05;
+}
+
+.stage-goal-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.stage-goal {
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(23, 48, 64, 0.07);
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.stage-goal.met {
+  background: linear-gradient(145deg, rgba(42, 157, 143, 0.16), rgba(255, 255, 255, 0.9));
+  border-color: rgba(42, 157, 143, 0.18);
+}
+
+.stage-goal-label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+}
+
+.stage-goal-value {
+  display: block;
+  font-size: 1.08rem;
+  line-height: 1.3;
+}
+
 .grammar-lemma-title {
   font-family: "Palatino Linotype", "Book Antiqua", "Georgia", serif;
   font-size: clamp(2.1rem, 5vw, 3rem);
@@ -795,6 +857,14 @@ h3 {
 
 .grammar-display.idle span {
   opacity: 1;
+}
+
+.grammar-display.correct {
+  animation-duration: 0.28s;
+}
+
+.grammar-display.wrong {
+  animation-duration: 0.24s;
 }
 
 .prompt-copy,
@@ -1225,6 +1295,10 @@ td strong {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .stage-goal-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .keyboard-key {
     min-width: 44px;
     min-height: 58px;
@@ -1243,7 +1317,8 @@ td strong {
 
   .practice-header,
   .session-header,
-  .panel-header {
+  .panel-header,
+  .stage-progress-head {
     flex-direction: column;
   }
 
@@ -1273,6 +1348,10 @@ td strong {
   .paradigm-grid,
   .answer-options,
   .answer-options.full {
+    grid-template-columns: 1fr;
+  }
+
+  .stage-goal-list {
     grid-template-columns: 1fr;
   }
 

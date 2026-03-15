@@ -886,6 +886,122 @@ function displayErrors(value) {
   return value === null || value === undefined ? "—" : formatErrors(value);
 }
 
+function getGrammarStageRule(stageId) {
+  return SHARED_CONFIG.stageProfiles.grammar_full.unlockRules[STAGE_UNLOCK_KEYS[stageId]];
+}
+
+function getStageAverages(stageStats) {
+  const recentSet = stageStats.recent.length
+    ? stageStats.recent
+    : stageStats.attempts
+      ? [
+          {
+            timeMs: stageStats.totalTimeMs / stageStats.attempts,
+            errors: stageStats.totalErrors / stageStats.attempts,
+          },
+        ]
+      : [];
+
+  return {
+    recentAvgTime: recentSet.length ? average(recentSet, (item) => item.timeMs) : null,
+    recentAvgErrors: recentSet.length ? average(recentSet, (item) => item.errors) : null,
+  };
+}
+
+function buildGrammarStageProgress(atomProgress) {
+  const stageId = atomProgress.currentStageId;
+  const rule = getGrammarStageRule(stageId);
+  const stageStats = atomProgress.stageStats[stageId];
+  const stageIndex = STAGE_SEQUENCE.indexOf(stageId);
+  const nextStageId =
+    stageIndex >= 0 && stageIndex < STAGE_SEQUENCE.length - 1
+      ? STAGE_SEQUENCE[stageIndex + 1]
+      : null;
+  const { recentAvgTime, recentAvgErrors } = getStageAverages(stageStats);
+
+  return {
+    stageId,
+    targetLabel: atomProgress.mastered
+      ? "Mastered"
+      : nextStageId
+        ? STAGE_LABELS[nextStageId]
+        : "Mastered",
+    attemptsDone: stageStats.attempts,
+    attemptsNeeded: ensureNumber(rule?.minCorrect, 0),
+    recentAvgTime,
+    maxRecentAvgTimeMs:
+      rule?.maxRecentAvgTimeMs === undefined ? null : ensureNumber(rule.maxRecentAvgTimeMs, null),
+    recentAvgErrors,
+    maxRecentAvgErrors:
+      rule?.maxRecentAvgErrors === undefined ? null : ensureNumber(rule.maxRecentAvgErrors, null),
+    attemptsMet: stageStats.attempts >= ensureNumber(rule?.minCorrect, Infinity),
+    timeMet:
+      rule?.maxRecentAvgTimeMs === undefined
+        ? true
+        : recentAvgTime !== null && recentAvgTime <= ensureNumber(rule.maxRecentAvgTimeMs, recentAvgTime),
+    errorsMet:
+      rule?.maxRecentAvgErrors === undefined
+        ? true
+        : recentAvgErrors !== null &&
+          recentAvgErrors <= ensureNumber(rule.maxRecentAvgErrors, recentAvgErrors),
+  };
+}
+
+function renderStageProgressBlock(stageProgress, { compact = false } = {}) {
+  if (!stageProgress) {
+    return "";
+  }
+
+  const title = stageProgress.targetLabel === "Mastered"
+    ? "Mastery threshold"
+    : `Next unlock: ${stageProgress.targetLabel}`;
+  const subtitle = `Measured on this atom in ${STAGE_LABELS[stageProgress.stageId]}.`;
+
+  return `
+    <div class="stage-progress ${compact ? "compact" : ""}">
+      <div class="stage-progress-head">
+        <div>
+          <p class="section-label">Stage progress</p>
+          <h3 class="stage-progress-title">${escapeHtml(title)}</h3>
+        </div>
+        <span class="list-note">${escapeHtml(subtitle)}</span>
+      </div>
+      <div class="stage-goal-list">
+        <div class="stage-goal ${stageProgress.attemptsMet ? "met" : ""}">
+          <span class="stage-goal-label">Correct reps</span>
+          <strong class="stage-goal-value">
+            ${stageProgress.attemptsDone} / ${stageProgress.attemptsNeeded}
+          </strong>
+        </div>
+        ${
+          stageProgress.maxRecentAvgTimeMs === null
+            ? ""
+            : `
+              <div class="stage-goal ${stageProgress.timeMet ? "met" : ""}">
+                <span class="stage-goal-label">Recent avg ms</span>
+                <strong class="stage-goal-value">
+                  ${displayMs(stageProgress.recentAvgTime)} / ${formatMs(stageProgress.maxRecentAvgTimeMs)}
+                </strong>
+              </div>
+            `
+        }
+        ${
+          stageProgress.maxRecentAvgErrors === null
+            ? ""
+            : `
+              <div class="stage-goal ${stageProgress.errorsMet ? "met" : ""}">
+                <span class="stage-goal-label">Recent avg errors</span>
+                <strong class="stage-goal-value">
+                  ${displayErrors(stageProgress.recentAvgErrors)} / ${formatErrors(stageProgress.maxRecentAvgErrors)}
+                </strong>
+              </div>
+            `
+        }
+      </div>
+    </div>
+  `;
+}
+
 function escapeHtml(value) {
   return String(value)
     .replaceAll("&", "&amp;")
@@ -1959,6 +2075,9 @@ function renderKeyboardHero() {
   const trend = computeKeyboardTrendSummary();
   const saveStatus = getSaveStatus();
   const startLabel = getKeyboardProgress().totals.attempts ? "Resume" : "Start";
+  const sessionAction = keyboardSession.active ? "keyboard-pause" : "keyboard-resume";
+  const sessionLabel = keyboardSession.active ? "Pause" : startLabel;
+  const sessionClass = keyboardSession.active ? "button button-secondary" : "button button-primary";
 
   return `
     <section class="hero card reveal">
@@ -1971,11 +2090,8 @@ function renderKeyboardHero() {
         </p>
         ${renderModuleTabs()}
         <div class="hero-actions">
-          <button class="button button-primary" data-action="keyboard-resume" ${!appState.ready ? "disabled" : ""}>
-            ${startLabel}
-          </button>
-          <button class="button button-secondary" data-action="keyboard-pause" ${!appState.ready || !keyboardSession.active ? "disabled" : ""}>
-            Pause
+          <button class="${sessionClass}" data-action="${sessionAction}" ${!appState.ready ? "disabled" : ""}>
+            ${sessionLabel}
           </button>
           ${renderUtilityButtons()}
         </div>
@@ -2027,6 +2143,9 @@ function renderGrammarHero(moduleId) {
     return { person, score };
   }).sort((left, right) => right.score - left.score)[0];
   const mastered = focusAtomIds.filter((atomId) => moduleProgress.atoms[atomId].mastered).length;
+  const sessionAction = session.active ? "grammar-pause" : "grammar-resume";
+  const sessionLabel = session.active ? "Pause" : "Resume";
+  const sessionClass = session.active ? "button button-secondary" : "button button-primary";
 
   return `
     <section class="hero card reveal">
@@ -2036,11 +2155,13 @@ function renderGrammarHero(moduleId) {
         <p class="hero-text">${escapeHtml(moduleDef.purpose)}</p>
         ${renderModuleTabs()}
         <div class="hero-actions">
-          <button class="button button-primary" data-action="grammar-resume" data-module-id="${moduleId}" ${!appState.ready ? "disabled" : ""}>
-            Resume
-          </button>
-          <button class="button button-secondary" data-action="grammar-pause" data-module-id="${moduleId}" ${!appState.ready || !session.active ? "disabled" : ""}>
-            Pause
+          <button
+            class="${sessionClass}"
+            data-action="${sessionAction}"
+            data-module-id="${moduleId}"
+            ${!appState.ready ? "disabled" : ""}
+          >
+            ${sessionLabel}
           </button>
           ${renderUtilityButtons()}
         </div>
@@ -2362,6 +2483,18 @@ function renderKeyboardModule() {
               <h2>Lifetime averages plus recent form</h2>
             </div>
             <span class="focus-caption">Sorted by current challenge so weak keys stay visible.</span>
+          </div>
+          <div class="leaderboard-summary">
+            <div class="leaderboard-pill leaderboard-pill-attempts">
+              <span class="leaderboard-pill-label">Lifetime attempts</span>
+              <strong>${keyboard.totals.attempts}</strong>
+              <span class="leaderboard-pill-note">All logged prompts</span>
+            </div>
+            <div class="leaderboard-pill leaderboard-pill-study">
+              <span class="leaderboard-pill-label">Total study time</span>
+              <strong>${formatStudyDuration(keyboard.totals.totalTimeMs)}</strong>
+              <span class="leaderboard-pill-note">Measured until the correct key</span>
+            </div>
           </div>
           <div class="table-wrap">
             <table class="stats-table">
@@ -2715,13 +2848,13 @@ function renderGrammarPromptBody(moduleId, atom, prompt, canInteract) {
       ${renderParadigmGrid(moduleId, atom, canInteract)}
     `;
   } else if (stageId === "choose2") {
-    promptCopy = "Choose between two forms from the same verb only.";
+    promptCopy = "Recognition stage: tap the correct full form. Both options come from this verb only.";
     body = renderChoiceOptions(moduleId, prompt, canInteract);
   } else if (stageId === "choose4") {
-    promptCopy = "Find the correct form among four forms of the same verb.";
+    promptCopy = "Recognition stage: tap the correct full form. All four options stay inside this verb.";
     body = renderChoiceOptions(moduleId, prompt, canInteract);
   } else if (stageId === "fullChoice") {
-    promptCopy = "Choose the exact form from the full six-form paradigm.";
+    promptCopy = "Recognition stage: tap the correct full form from the six-form paradigm.";
     body = renderChoiceOptions(moduleId, prompt, canInteract);
   } else if (stageId === "typeFragment") {
     promptCopy = "Type only the remaining tail fragment after the provided base.";
@@ -2783,9 +2916,10 @@ function renderGrammarPracticeCard(moduleId) {
         : session.active
           ? "live"
           : "idle";
+  const stageProgress = atom ? buildGrammarStageProgress(moduleProgress.atoms[atom.id]) : null;
 
   return `
-    <article class="practice card grammar-practice ${session.flashTone === "correct" ? "flash-correct" : session.flashTone === "wrong" ? "flash-wrong" : ""}">
+    <article class="practice card grammar-practice">
       <div class="practice-header">
         <div>
           <p class="section-label">Current rep</p>
@@ -2812,6 +2946,7 @@ function renderGrammarPracticeCard(moduleId) {
           ${stageId ? renderChip(STAGE_LABELS[stageId], "active") : renderChip("Ready")}
         </div>
       </div>
+      ${stageProgress ? renderStageProgressBlock(stageProgress) : ""}
       <div class="target-display grammar-display ${displayClass}">
         <div class="grammar-display-inner">
           ${
@@ -2860,6 +2995,7 @@ function renderAtomDetail(moduleId, atomId) {
   const recentAvgErrors = atomProgress.recent.length
     ? average(atomProgress.recent, (item) => item.errors)
     : null;
+  const stageProgress = buildGrammarStageProgress(atomProgress);
 
   return `
     <div class="detail-panel">
@@ -2899,6 +3035,7 @@ function renderAtomDetail(moduleId, atomId) {
           <strong class="detail-value">${escapeHtml(STAGE_LABELS[atomProgress.currentStageId])}</strong>
         </div>
       </div>
+      ${renderStageProgressBlock(stageProgress, { compact: true })}
     </div>
   `;
 }
