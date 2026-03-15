@@ -2,6 +2,7 @@ const STORAGE_KEY = "russian-conjugation-coach-v1";
 const RECENT_PER_STAGE = 12;
 const MODULE_HISTORY_LIMIT = 600;
 const PICK_TOP_N = 8;
+const PROMPT_ADVANCE_DELAY_MS = 650;
 
 const SUCCESS_LINES = [
   "Clean hit.",
@@ -52,6 +53,7 @@ const elements = {
   recentTrendDetail: document.getElementById("recent-trend-detail"),
   practiceTitle: document.getElementById("practice-title"),
   stageRail: document.getElementById("stage-rail"),
+  practiceProgress: document.getElementById("practice-progress"),
   irregularBanner: document.getElementById("irregular-banner"),
   statusPill: document.getElementById("status-pill"),
   targetDisplay: document.getElementById("target-display"),
@@ -369,7 +371,7 @@ function createSession() {
     transitioning: false,
     currentAtomId: null,
     currentPrompt: null,
-    promptStartedAt: 0,
+    promptStartedAt: null,
     errorsThisAttempt: 0,
     currentStreak: 0,
     bestStreak: 0,
@@ -741,10 +743,20 @@ function setFeedback(message) {
   renderFeedback();
 }
 
+function flashInteractiveChoice(element, className) {
+  if (!element) {
+    return;
+  }
+  element.classList.add(className);
+  window.setTimeout(() => {
+    element.classList.remove(className);
+  }, 420);
+}
+
 function startTimerLoop() {
   cancelAnimationFrame(timerFrame);
   const tick = () => {
-    if (!session.active || !session.promptStartedAt) {
+    if (!session.active || session.promptStartedAt === null) {
       return;
     }
     elements.liveTimer.textContent = formatMs(performance.now() - session.promptStartedAt);
@@ -803,7 +815,7 @@ function startSession({ fresh = false } = {}) {
 function pauseSession(message = "Paused. Resume when ready.") {
   session.active = false;
   session.transitioning = false;
-  session.promptStartedAt = 0;
+  session.promptStartedAt = null;
   session.errorsThisAttempt = 0;
   session.message = message;
   cancelAnimationFrame(timerFrame);
@@ -882,7 +894,7 @@ function maybeAdvanceStage(atomProgress, stage) {
 }
 
 function completeCurrentPrompt() {
-  if (!session.active || !session.currentPrompt || !session.promptStartedAt) {
+  if (!session.active || !session.currentPrompt || session.promptStartedAt === null) {
     return;
   }
 
@@ -907,7 +919,7 @@ function completeCurrentPrompt() {
 
   session.previousAtomIds = [prompt.atomId, ...session.previousAtomIds].slice(0, 5);
   session.transitioning = true;
-  session.promptStartedAt = 0;
+  session.promptStartedAt = null;
   cancelAnimationFrame(timerFrame);
 
   elements.targetDisplay.classList.remove("wrong");
@@ -933,7 +945,7 @@ function completeCurrentPrompt() {
       return;
     }
     generateNextPrompt();
-  }, 320);
+  }, PROMPT_ADVANCE_DELAY_MS);
 }
 
 function showYoHint(expected) {
@@ -958,7 +970,9 @@ function handleWrongAttempt(message, yoHint = "") {
     showYoHint(yoHint);
   }
 
-  render();
+  renderAttemptPanel();
+  renderSummary();
+  renderFeedback();
 }
 
 function answerLooksLikeYeForYo(answer, expected) {
@@ -986,16 +1000,37 @@ function submitTextAnswer(rawValue) {
   handleWrongAttempt(`Not ${session.currentPrompt.answer}.`, yoHint);
 }
 
-function handleChoiceSelection(correct) {
+function handlePreviewSelection(selectedPersonId, button) {
+  if (!session.active || !session.currentPrompt || session.transitioning) {
+    return;
+  }
+
+  const promptAtom = session.currentPrompt.atom;
+  if (selectedPersonId === promptAtom.personId) {
+    flashInteractiveChoice(button, "is-correct");
+    completeCurrentPrompt();
+    return;
+  }
+
+  const selectedForm = promptAtom.forms[selectedPersonId];
+  flashInteractiveChoice(button, "is-wrong");
+  handleWrongAttempt(
+    `${selectedForm} is not the target. Find ${promptAtom.person.pronoun} ${promptAtom.form}.`,
+  );
+}
+
+function handleChoiceSelection(correct, button) {
   if (!session.active || !session.currentPrompt || session.transitioning) {
     return;
   }
 
   if (correct) {
+    flashInteractiveChoice(button, "is-correct");
     completeCurrentPrompt();
     return;
   }
 
+  flashInteractiveChoice(button, "is-wrong");
   handleWrongAttempt(`Not ${session.currentPrompt.answer}.`);
 }
 
@@ -1088,7 +1123,18 @@ function computeTrendSummary() {
 }
 
 function buildFocusCells() {
-  return getEligibleAtoms().map(buildAtomProfile).sort((a, b) => b.difficulty - a.difficulty).slice(0, 6);
+  const profiles = getEligibleAtoms().map(buildAtomProfile).sort((a, b) => b.difficulty - a.difficulty);
+  const currentAtomId = session.currentPrompt?.atomId;
+  if (!currentAtomId) {
+    return profiles.slice(0, 6);
+  }
+
+  const currentProfile = profiles.find((profile) => profile.atom.id === currentAtomId);
+  if (!currentProfile) {
+    return profiles.slice(0, 6);
+  }
+
+  return [currentProfile, ...profiles.filter((profile) => profile.atom.id !== currentAtomId)].slice(0, 6);
 }
 
 function colorForProfile(profile) {
@@ -1221,6 +1267,22 @@ function renderStageRail() {
   });
 }
 
+function renderPracticeProgress() {
+  const coverage = computeCoverage();
+  const currentAtom = session.currentPrompt?.atom;
+  const focusLabel =
+    activePersonFilter() === "all" ? "All persons" : `Focus: ${PERSONS_BY_ID[activePersonFilter()]?.pronoun}`;
+  const currentLine = currentAtom
+    ? `Current target: ${currentAtom.lemma} · ${currentAtom.person.pronoun} -> ${currentAtom.form}`
+    : `Filter: ${focusLabel}`;
+
+  elements.practiceProgress.innerHTML = `
+    <strong>${coverage.practiced} / ${coverage.total} cells touched</strong>
+    <span>${coverage.solid} stabilized</span>
+    <span>${escapeHtml(currentLine)}</span>
+  `;
+}
+
 function splitWordHtml(split) {
   return `<span class="split-word"><span>${escapeHtml(split.stable)}</span><span class="mutable-piece">${escapeHtml(split.mutable)}</span></span>`;
 }
@@ -1242,6 +1304,11 @@ function renderPreviewPrompt(prompt) {
   elements.targetDisplay.innerHTML = `
     <div class="prompt-card preview-card">
       ${getPromptBadges(atom, prompt.stage)}
+      <div class="preview-target-callout">
+        <span class="preview-target-label">Current target</span>
+        <strong>${escapeHtml(atom.person.pronoun)} -> ${escapeHtml(atom.form)}</strong>
+        <span>Tap this exact cell to clear the preview rep. Wrong taps count as one strike.</span>
+      </div>
       <div class="lemma-row">
         <div class="prompt-lemma">${splitWordHtml(atom.previewSplit)}</div>
         <span class="preview-badge">Tap the highlighted cell to continue</span>
@@ -1252,8 +1319,13 @@ function renderPreviewPrompt(prompt) {
           const form = atom.forms[person.id];
           const target = person.id === atom.personId;
           return `
-            <button type="button" class="paradigm-cell ${target ? "is-target is-clickable" : ""}" data-preview-person="${escapeHtml(person.id)}">
-              <small>${escapeHtml(person.pronoun)}</small>
+            <button
+              type="button"
+              class="paradigm-cell is-clickable ${target ? "is-target" : ""}"
+              data-preview-person="${escapeHtml(person.id)}"
+              aria-label="${escapeHtml(`${person.pronoun} ${form}${target ? ", current target" : ""}`)}"
+            >
+              <small>${escapeHtml(person.pronoun)}${target ? '<span class="paradigm-target-flag">Target</span>' : ""}</small>
               <strong>${escapeHtml(form)}</strong>
             </button>
           `;
@@ -1266,9 +1338,7 @@ function renderPreviewPrompt(prompt) {
 
   elements.targetDisplay.querySelectorAll("[data-preview-person]").forEach((button) => {
     button.addEventListener("click", () => {
-      if (button.dataset.previewPerson === atom.personId) {
-        completeCurrentPrompt();
-      }
+      handlePreviewSelection(button.dataset.previewPerson, button);
     });
   });
 }
@@ -1310,7 +1380,7 @@ function renderChoicePrompt(prompt) {
 
   elements.answerArea.querySelectorAll("[data-choice-index]").forEach((button) => {
     const index = Number(button.dataset.choiceIndex);
-    button.addEventListener("click", () => handleChoiceSelection(Boolean(prompt.choices[index]?.correct)));
+    button.addEventListener("click", () => handleChoiceSelection(Boolean(prompt.choices[index]?.correct), button));
   });
 }
 
@@ -1495,11 +1565,19 @@ function renderFocusCells() {
 
   profiles.forEach((profile) => {
     const chip = document.createElement("div");
-    chip.className = "focus-chip";
+    const isCurrent = profile.atom.id === session.currentPrompt?.atomId;
+    chip.className = `focus-chip ${isCurrent ? "is-current" : ""}`.trim();
+    const summary = profile.attempts
+      ? `${escapeHtml(STAGE_LABELS[profile.stage])} · ${displayMs(profile.avgTime)} · ${displayErrors(profile.avgErrors)} avg errors`
+      : `${escapeHtml(STAGE_LABELS[profile.stage])} · No solved attempts yet`;
+    const detail = profile.attempts
+      ? `${profile.attempts} attempts logged`
+      : "Fresh cell";
     chip.innerHTML = `
+      <p class="focus-kicker">${isCurrent ? "Current cell" : "Needs attention"}</p>
       <strong class="focus-main">${escapeHtml(profile.atom.lemma)} · ${escapeHtml(profile.atom.person.pronoun)}</strong>
-      <p class="focus-sub">${escapeHtml(STAGE_LABELS[profile.stage])} · ${displayMs(profile.avgTime)} · ${displayErrors(profile.avgErrors)} avg errors</p>
-      <p class="focus-sub">${profile.attempts ? `${profile.attempts} attempts logged` : "Fresh cell"}</p>
+      <p class="focus-sub">${summary}</p>
+      <p class="focus-sub">${detail}</p>
     `;
     elements.focusLetters.appendChild(chip);
   });
@@ -1599,7 +1677,9 @@ function renderSummary() {
   elements.coverageDetail.textContent = `${coverage.solid} cells are at fragment stage or beyond.`;
   elements.recentTrend.textContent = trend.title;
   elements.recentTrendDetail.textContent = trend.detail;
-  elements.practiceTitle.textContent = `Conjugate ${activeModule().title}`;
+  elements.practiceTitle.textContent = session.currentPrompt
+    ? `${STAGE_LABELS[session.currentPrompt.stage]} · ${session.currentPrompt.atom.lemma} × ${session.currentPrompt.atom.person.pronoun}`
+    : `Conjugate ${activeModule().title}`;
 
   elements.sessionBadge.textContent =
     session.currentStreak >= 8 ? "Hot streak" : session.attempts >= 1 ? "In session" : "Fresh run";
@@ -1620,9 +1700,9 @@ function renderSummary() {
   elements.startButton.textContent = !appState.ready
     ? "Loading..."
     : session.active
-      ? "New session"
+      ? "New run"
       : session.attempts > 0
-        ? "Resume"
+        ? "Resume run"
         : "Start";
   elements.startButton.disabled = !appState.ready;
   elements.pauseButton.disabled = !appState.ready || !session.active;
@@ -1635,7 +1715,7 @@ function renderAttemptPanel() {
   elements.attemptErrors.textContent = String(session.errorsThisAttempt);
   elements.currentStreak.textContent = String(session.currentStreak);
   elements.liveTimer.textContent =
-    session.active && session.promptStartedAt ? formatMs(performance.now() - session.promptStartedAt) : "0 ms";
+    session.active && session.promptStartedAt !== null ? formatMs(performance.now() - session.promptStartedAt) : "0 ms";
 }
 
 function render() {
@@ -1643,6 +1723,7 @@ function render() {
   renderSubdeckTabs();
   renderPersonChips();
   renderStageRail();
+  renderPracticeProgress();
   renderPracticePrompt();
   renderAttemptPanel();
   renderSummary();
