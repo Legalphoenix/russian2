@@ -1,0 +1,232 @@
+{
+  "version": 1,
+  "title": "Russian Skill Coach Tight Conjugation Pack",
+  "scope": "Only first and second conjugation present-tense modules.",
+  "nonNegotiables": [
+    "Everything is trained at atom level: one verb + one person + one exact canonical answer.",
+    "Every scored attempt stores timeToCorrectMs and errorStrikesBeforeCorrect.",
+    "Outside the Keyboard module, one wrong click or one wrong submitted answer equals one error strike. Do not count each mistyped character.",
+    "Do not introduce vocabulary beyond what appears in the deck files.",
+    "Do not mix irregular decks into regular decks by default.",
+    "Do not implement perfective-future reference verbs in this pass. This pack is present tense only.",
+    "Use the deck files as the source of truth for content. Do not infer new Russian forms beyond those files."
+  ],
+  "persons": [
+    {
+      "id": "1sg",
+      "pronoun": "я",
+      "label": "I"
+    },
+    {
+      "id": "2sg",
+      "pronoun": "ты",
+      "label": "you (singular, informal)"
+    },
+    {
+      "id": "3sg",
+      "pronoun": "он / она / оно",
+      "label": "he / she / it"
+    },
+    {
+      "id": "1pl",
+      "pronoun": "мы",
+      "label": "we"
+    },
+    {
+      "id": "2pl",
+      "pronoun": "вы",
+      "label": "you (plural or formal)"
+    },
+    {
+      "id": "3pl",
+      "pronoun": "они",
+      "label": "they"
+    }
+  ],
+  "personOrder": [
+    "1sg",
+    "2sg",
+    "3sg",
+    "1pl",
+    "2pl",
+    "3pl"
+  ],
+  "confusionPriority": {
+    "1sg": [
+      "2sg",
+      "1pl",
+      "3pl",
+      "3sg",
+      "2pl"
+    ],
+    "2sg": [
+      "3sg",
+      "1sg",
+      "2pl",
+      "3pl",
+      "1pl"
+    ],
+    "3sg": [
+      "2sg",
+      "3pl",
+      "1pl",
+      "1sg",
+      "2pl"
+    ],
+    "1pl": [
+      "2pl",
+      "1sg",
+      "3pl",
+      "3sg",
+      "2sg"
+    ],
+    "2pl": [
+      "1pl",
+      "2sg",
+      "3pl",
+      "3sg",
+      "1sg"
+    ],
+    "3pl": [
+      "3sg",
+      "1pl",
+      "2pl",
+      "2sg",
+      "1sg"
+    ]
+  },
+  "atomIdPattern": "<moduleId>__<subdeckId>__<verbId>__<personId>",
+  "stageProfiles": {
+    "grammar_full": {
+      "sequence": [
+        "preview",
+        "choose2",
+        "choose4",
+        "fullChoice",
+        "typeFragment",
+        "typeFull",
+        "sentenceGuided",
+        "sentenceFree"
+      ],
+      "unlockRules": {
+        "preview_to_choose2": {
+          "minCorrect": 2
+        },
+        "choose2_to_choose4": {
+          "minCorrect": 4,
+          "maxRecentAvgErrors": 0.25,
+          "maxRecentAvgTimeMs": 2200
+        },
+        "choose4_to_fullChoice": {
+          "minCorrect": 5,
+          "maxRecentAvgErrors": 0.4,
+          "maxRecentAvgTimeMs": 2800
+        },
+        "fullChoice_to_typeFragment": {
+          "minCorrect": 6,
+          "maxRecentAvgErrors": 0.5,
+          "maxRecentAvgTimeMs": 3400
+        },
+        "typeFragment_to_typeFull": {
+          "minCorrect": 5,
+          "maxRecentAvgErrors": 0.5,
+          "maxRecentAvgTimeMs": 3200
+        },
+        "typeFull_to_sentenceGuided": {
+          "minCorrect": 5,
+          "maxRecentAvgErrors": 0.6,
+          "maxRecentAvgTimeMs": 4300
+        },
+        "sentenceGuided_to_sentenceFree": {
+          "minCorrect": 4,
+          "maxRecentAvgErrors": 0.75,
+          "maxRecentAvgTimeMs": 5500
+        },
+        "sentenceFree_mastered": {
+          "minCorrect": 4,
+          "maxRecentAvgErrors": 0.75,
+          "maxRecentAvgTimeMs": 7000
+        }
+      },
+      "uiCues": {
+        "preview": "Show full paradigm and the exact target cell. User taps the highlighted correct form to continue. Count as correct with 0 errors.",
+        "choose2": "Exactly 2 options. The distractor must come from the same verb only.",
+        "choose4": "Exactly 4 options. Distractors must come from the same verb only and follow confusionPriority.",
+        "fullChoice": "Show all 6 forms of the same verb. The user clicks the correct one.",
+        "typeFragment": "Show fragmentBaseByPerson and require only the remaining tail fragment. Compare exact canonical text.",
+        "typeFull": "User types the full Russian form exactly.",
+        "sentenceGuided": "Show pronoun chip plus a context frame. Put the infinitive or mutable form in a coral/red pill so the changing part is visually obvious.",
+        "sentenceFree": "Show pronoun chip plus the context frame with a blank verb slot. No structural coloring before the answer."
+      }
+    }
+  },
+  "attemptScoring": {
+    "measurements": [
+      "timeToCorrectMs",
+      "errorStrikesBeforeCorrect"
+    ],
+    "typedStages": {
+      "submissionModel": "submission level",
+      "rule": "One wrong submitted fragment or one wrong submitted full answer = one error strike. Do not increment per character."
+    },
+    "specialCases": {
+      "yoRequired": "If canonical answer contains ё, require ё. If the learner enters е instead, mark wrong and show a hint that this form uses ё."
+    }
+  },
+  "resumeSelection": {
+    "description": "Use current keyboard-style weighted resurfacing, generalized to atoms. If reusing the existing weighting is hard, use the fallback formula below.",
+    "fallbackFormula": {
+      "weakness": "0.45 * clamp(avgTimeForCurrentStage / targetTimeForCurrentStage, 0, 2) + 0.35 * clamp(avgErrorsForCurrentStage / maxAllowedErrorsForCurrentStage, 0, 2) + 0.20 * (1 - min(totalAttempts / 8, 1))",
+      "recencyBoost": "min(hoursSinceLastSeen / 72, 1) * 0.35",
+      "newnessBoost": "0.40 if totalAttempts == 0 else 0",
+      "immediateRepeatPenalty": "0.60 if seen within the last 5 prompts else 0",
+      "score": "weakness + recencyBoost + newnessBoost - immediateRepeatPenalty",
+      "pickRule": "Compute score for all eligible atoms in the active module/subdeck. Sort descending. Weighted-random pick from the top 8."
+    },
+    "targetTimeByStageMs": {
+      "preview": 1800,
+      "choose2": 2200,
+      "choose4": 2800,
+      "fullChoice": 3400,
+      "typeFragment": 3200,
+      "typeFull": 4300,
+      "sentenceGuided": 5500,
+      "sentenceFree": 7000
+    }
+  },
+  "answerNormalization": {
+    "trimWhitespace": true,
+    "caseInsensitiveForCyrillic": true,
+    "stripTrailingPeriod": true,
+    "doNotNormalizeYoToYe": true
+  },
+  "moduleUiRules": {
+    "shared": [
+      "Keep the warm cream / mint / coral / sand palette and glass-card feeling of the current app.",
+      "Keep a top summary strip, a central practice card, a right analytics card, and a lower heatmap/list area.",
+      "The practice card must always show module/subdeck label, stage label, prompt, timer, error strikes, streak, and one-line feedback.",
+      "Use coral/red for removable letters and mutable slots. Use mint for correct feedback."
+    ],
+    "first_conjugation": [
+      "Top of page: six pronoun chips in fixed person order.",
+      "Bottom analytics: verb x person heatmap.",
+      "Sidebar: weakest verbs, weakest persons, separate irregular watchlist for писать and давать."
+    ],
+    "second_conjugation": [
+      "Top of page: six pronoun chips in fixed person order.",
+      "Bottom analytics: verb x person heatmap.",
+      "Sidebar: irregular я watchlist and exception-verb watchlist.",
+      "Whenever the current verb has showIrregularYaBanner=true, show a compact helper banner in Preview and the first two Guided attempts only. Hide it after that."
+    ]
+  },
+  "implementationNotes": [
+    "The 3sg pronoun label stays as one combined chip: он / она / оно. The form is the same, so do not split this into three separate atoms.",
+    "For sentence stages, render a pronoun chip above the context frame instead of forcing fully personalized subject words into every sentence.",
+    "Context frames are intentionally lightweight so they stay reusable across persons without introducing new vocabulary."
+  ],
+  "canonicalCorrections": [
+    "Treat просить as an irregular я-form watchlist item because the canonical 1sg form is прошу.",
+    "Do not implement perfective future reference verbs in this tightened pass.",
+    "Keep смотреть in the core second-conjugation deck for this user-facing module even though its infinitive is not -ить. The goal is fluent retrieval, not textbook taxonomy."
+  ]
+}

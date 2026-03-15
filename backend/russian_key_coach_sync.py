@@ -20,6 +20,8 @@ from urllib.parse import urlsplit
 
 RECENT_PER_LETTER = 20
 HISTORY_LIMIT = 500
+GRAMMAR_HISTORY_LIMIT = 600
+GRAMMAR_RECENT_LIMIT = 8
 MAX_REQUEST_BYTES = 2 * 1024 * 1024
 LETTERS = (
     "\u0430",
@@ -57,6 +59,20 @@ LETTERS = (
     "\u044f",
 )
 LETTER_SET = frozenset(LETTERS)
+GRAMMAR_MODULE_IDS = ("first_conjugation", "second_conjugation")
+GRAMMAR_STAGE_SEQUENCE = (
+    "preview",
+    "choose2",
+    "choose4",
+    "fullChoice",
+    "typeFragment",
+    "typeFull",
+    "sentenceGuided",
+    "sentenceFree",
+)
+GRAMMAR_STAGE_SET = frozenset(GRAMMAR_STAGE_SEQUENCE)
+GRAMMAR_PERSON_IDS = ("1sg", "2sg", "3sg", "1pl", "2pl", "3pl")
+GRAMMAR_PERSON_SET = frozenset(GRAMMAR_PERSON_IDS)
 LOG = logging.getLogger("russian_key_coach_sync")
 
 
@@ -119,7 +135,7 @@ def create_letter_stats() -> dict[str, Any]:
     }
 
 
-def create_default_progress(now_ms: int | None = None) -> dict[str, Any]:
+def create_default_keyboard_progress(now_ms: int | None = None) -> dict[str, Any]:
     timestamp = current_time_ms() if now_ms is None else now_ms
     return {
         "version": 1,
@@ -133,6 +149,87 @@ def create_default_progress(now_ms: int | None = None) -> dict[str, Any]:
         },
         "history": [],
         "letters": {letter: create_letter_stats() for letter in LETTERS},
+    }
+
+
+def create_default_grammar_stage_stats() -> dict[str, Any]:
+    return {
+        "attempts": 0,
+        "totalTimeMs": 0,
+        "totalErrors": 0,
+        "bestTimeMs": None,
+        "lastSeenAt": None,
+        "recent": [],
+    }
+
+
+def create_default_grammar_atom_stats() -> dict[str, Any]:
+    return {
+        "attempts": 0,
+        "totalTimeMs": 0,
+        "totalErrors": 0,
+        "bestTimeMs": None,
+        "lastSeenAt": None,
+        "recent": [],
+        "currentStageId": GRAMMAR_STAGE_SEQUENCE[0],
+        "mastered": False,
+        "stageStats": {
+            stage_id: create_default_grammar_stage_stats()
+            for stage_id in GRAMMAR_STAGE_SEQUENCE
+        },
+    }
+
+
+def create_default_grammar_subdeck_stats() -> dict[str, Any]:
+    return {
+        "attempts": 0,
+        "totalTimeMs": 0,
+        "totalErrors": 0,
+        "lastSeenAt": None,
+    }
+
+
+def create_default_grammar_module(module_id: str) -> dict[str, Any]:
+    return {
+        "moduleId": module_id,
+        "selectedSubdeckId": None,
+        "selectedPersonId": None,
+        "totals": {
+            "attempts": 0,
+            "totalTimeMs": 0,
+            "totalErrors": 0,
+            "bestStreak": 0,
+        },
+        "history": [],
+        "sessionStats": {
+            "attempts": 0,
+            "cleanAttempts": 0,
+            "totalTimeMs": 0,
+            "totalErrors": 0,
+            "bestStreak": 0,
+            "updatedAt": None,
+        },
+        "subdecks": {},
+        "atoms": {},
+        "lastUsedSettings": {
+            "selectedSubdeckId": None,
+            "selectedPersonId": None,
+            "pinnedAtomId": None,
+        },
+    }
+
+
+def create_default_progress(now_ms: int | None = None) -> dict[str, Any]:
+    timestamp = current_time_ms() if now_ms is None else now_ms
+    return {
+        "version": 2,
+        "createdAt": timestamp,
+        "updatedAt": timestamp,
+        "keyboard": create_default_keyboard_progress(timestamp),
+        "grammarModules": {
+            module_id: create_default_grammar_module(module_id)
+            for module_id in GRAMMAR_MODULE_IDS
+        },
     }
 
 
@@ -190,6 +287,239 @@ def sanitize_letter_stats(candidate: Any, now_ms: int) -> dict[str, Any]:
     }
 
 
+def sanitize_keyboard_progress(candidate: Any, now_ms: int) -> dict[str, Any]:
+    if not isinstance(candidate, dict):
+        raise ValidationError("Keyboard progress payload must be a JSON object.")
+
+    totals = candidate.get("totals")
+    letters = candidate.get("letters")
+    history = candidate.get("history")
+    if not isinstance(totals, dict):
+        raise ValidationError("Keyboard progress payload must include a totals object.")
+    if not isinstance(letters, dict):
+        raise ValidationError("Keyboard progress payload must include a letters object.")
+    if not isinstance(history, list):
+        raise ValidationError("Keyboard progress payload must include a history array.")
+
+    progress = create_default_keyboard_progress(now_ms)
+    progress["version"] = max(1, as_non_negative_int(candidate.get("version"), 1))
+    progress["createdAt"] = as_non_negative_int(candidate.get("createdAt"), progress["createdAt"])
+    progress["updatedAt"] = as_non_negative_int(candidate.get("updatedAt"), progress["updatedAt"])
+    progress["totals"] = {
+        "attempts": as_non_negative_int(totals.get("attempts"), 0),
+        "totalTimeMs": as_non_negative_int(totals.get("totalTimeMs"), 0),
+        "totalErrors": as_non_negative_int(totals.get("totalErrors"), 0),
+        "bestStreak": as_non_negative_int(totals.get("bestStreak"), 0),
+    }
+    progress["history"] = sanitize_history(history, now_ms)
+    progress["letters"] = {
+        letter: sanitize_letter_stats(letters.get(letter), now_ms) for letter in LETTERS
+    }
+    return progress
+
+
+def sanitize_grammar_recent(items: Any, now_ms: int) -> list[dict[str, int]]:
+    if not isinstance(items, list):
+        return []
+
+    sanitized: list[dict[str, int]] = []
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+        sanitized.append(
+            {
+                "timeMs": as_non_negative_int(item.get("timeMs"), 0),
+                "errors": as_non_negative_int(item.get("errors"), 0),
+                "at": as_non_negative_int(item.get("at"), now_ms),
+            }
+        )
+    return sanitized[-GRAMMAR_RECENT_LIMIT:]
+
+
+def sanitize_grammar_stage_stats(candidate: Any, now_ms: int) -> dict[str, Any]:
+    if not isinstance(candidate, dict):
+        candidate = {}
+
+    return {
+        "attempts": as_non_negative_int(candidate.get("attempts"), 0),
+        "totalTimeMs": as_non_negative_int(candidate.get("totalTimeMs"), 0),
+        "totalErrors": as_non_negative_int(candidate.get("totalErrors"), 0),
+        "bestTimeMs": as_nullable_non_negative_int(candidate.get("bestTimeMs")),
+        "lastSeenAt": as_nullable_non_negative_int(candidate.get("lastSeenAt")),
+        "recent": sanitize_grammar_recent(candidate.get("recent"), now_ms),
+    }
+
+
+def sanitize_grammar_atom_stats(candidate: Any, now_ms: int) -> dict[str, Any]:
+    if not isinstance(candidate, dict):
+        candidate = {}
+
+    atom_stats = create_default_grammar_atom_stats()
+    atom_stats["attempts"] = as_non_negative_int(
+        candidate.get("attempts", candidate.get("totalAttempts")), 0
+    )
+    atom_stats["totalTimeMs"] = as_non_negative_int(candidate.get("totalTimeMs"), 0)
+    atom_stats["totalErrors"] = as_non_negative_int(candidate.get("totalErrors"), 0)
+    atom_stats["bestTimeMs"] = as_nullable_non_negative_int(candidate.get("bestTimeMs"))
+    atom_stats["lastSeenAt"] = as_nullable_non_negative_int(candidate.get("lastSeenAt"))
+    atom_stats["recent"] = sanitize_grammar_recent(candidate.get("recent"), now_ms)
+    current_stage_id = candidate.get("currentStageId")
+    if current_stage_id not in GRAMMAR_STAGE_SET:
+        current_stage_id = GRAMMAR_STAGE_SEQUENCE[
+            min(
+                max(as_non_negative_int(candidate.get("currentStageIndex"), 0), 0),
+                len(GRAMMAR_STAGE_SEQUENCE) - 1,
+            )
+        ]
+    atom_stats["currentStageId"] = current_stage_id
+    atom_stats["mastered"] = bool(candidate.get("mastered", False))
+    atom_stats["stageStats"] = {
+        stage_id: sanitize_grammar_stage_stats(
+            candidate.get("stageStats", {}).get(stage_id), now_ms
+        )
+        for stage_id in GRAMMAR_STAGE_SEQUENCE
+    }
+    if atom_stats["mastered"]:
+        atom_stats["currentStageId"] = GRAMMAR_STAGE_SEQUENCE[-1]
+    return atom_stats
+
+
+def sanitize_grammar_subdeck_stats(candidate: Any) -> dict[str, Any]:
+    if not isinstance(candidate, dict):
+        candidate = {}
+
+    return {
+        "attempts": as_non_negative_int(candidate.get("attempts"), 0),
+        "totalTimeMs": as_non_negative_int(candidate.get("totalTimeMs"), 0),
+        "totalErrors": as_non_negative_int(candidate.get("totalErrors"), 0),
+        "lastSeenAt": as_nullable_non_negative_int(candidate.get("lastSeenAt")),
+    }
+
+
+def sanitize_grammar_history(items: Any, now_ms: int) -> list[dict[str, Any]]:
+    if not isinstance(items, list):
+        return []
+
+    sanitized: list[dict[str, Any]] = []
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+        atom_id = item.get("atomId")
+        stage_id = item.get("stageId")
+        if not isinstance(atom_id, str) or stage_id not in GRAMMAR_STAGE_SET:
+            continue
+        sanitized.append(
+            {
+                "atomId": atom_id,
+                "stageId": stage_id,
+                "timeMs": as_non_negative_int(item.get("timeMs"), 0),
+                "errors": as_non_negative_int(item.get("errors"), 0),
+                "at": as_non_negative_int(item.get("at"), now_ms),
+            }
+        )
+    return sanitized[-GRAMMAR_HISTORY_LIMIT:]
+
+
+def sanitize_grammar_module(module_id: str, candidate: Any, now_ms: int) -> dict[str, Any]:
+    if not isinstance(candidate, dict):
+        candidate = {}
+
+    module_state = create_default_grammar_module(module_id)
+    module_state["selectedSubdeckId"] = (
+        candidate.get("selectedSubdeckId")
+        if isinstance(candidate.get("selectedSubdeckId"), str)
+        else None
+    )
+    module_state["selectedPersonId"] = (
+        candidate.get("selectedPersonId")
+        if candidate.get("selectedPersonId") in GRAMMAR_PERSON_SET
+        else None
+    )
+    module_state["totals"] = {
+        "attempts": as_non_negative_int(candidate.get("totals", {}).get("attempts"), 0),
+        "totalTimeMs": as_non_negative_int(
+            candidate.get("totals", {}).get("totalTimeMs"), 0
+        ),
+        "totalErrors": as_non_negative_int(
+            candidate.get("totals", {}).get("totalErrors"), 0
+        ),
+        "bestStreak": as_non_negative_int(
+            candidate.get("totals", {}).get("bestStreak"), 0
+        ),
+    }
+    module_state["history"] = sanitize_grammar_history(candidate.get("history"), now_ms)
+    module_state["sessionStats"] = {
+        "attempts": as_non_negative_int(
+            candidate.get("sessionStats", {}).get("attempts"), 0
+        ),
+        "cleanAttempts": as_non_negative_int(
+            candidate.get("sessionStats", {}).get(
+                "cleanAttempts", candidate.get("sessionStats", {}).get("cleanHits")
+            ),
+            0,
+        ),
+        "totalTimeMs": as_non_negative_int(
+            candidate.get("sessionStats", {}).get("totalTimeMs"), 0
+        ),
+        "totalErrors": as_non_negative_int(
+            candidate.get("sessionStats", {}).get("totalErrors"), 0
+        ),
+        "bestStreak": as_non_negative_int(
+            candidate.get("sessionStats", {}).get("bestStreak"), 0
+        ),
+        "updatedAt": as_nullable_non_negative_int(
+            candidate.get("sessionStats", {}).get(
+                "updatedAt", candidate.get("sessionStats", {}).get("endedAt")
+            )
+        ),
+    }
+
+    raw_subdecks = candidate.get("subdecks")
+    if isinstance(raw_subdecks, dict):
+        module_state["subdecks"] = {
+            subdeck_id: sanitize_grammar_subdeck_stats(subdeck_candidate)
+            for subdeck_id, subdeck_candidate in raw_subdecks.items()
+            if isinstance(subdeck_id, str)
+        }
+
+    raw_atoms = candidate.get("atoms", candidate.get("atomStats"))
+    if isinstance(raw_atoms, dict):
+        module_state["atoms"] = {
+            atom_id: sanitize_grammar_atom_stats(atom_candidate, now_ms)
+            for atom_id, atom_candidate in raw_atoms.items()
+            if isinstance(atom_id, str)
+        }
+
+    last_used = candidate.get("lastUsedSettings")
+    if isinstance(last_used, dict):
+        module_state["lastUsedSettings"] = {
+            "selectedSubdeckId": (
+                last_used.get("selectedSubdeckId")
+                if isinstance(last_used.get("selectedSubdeckId"), str)
+                else module_state["selectedSubdeckId"]
+            ),
+            "selectedPersonId": (
+                last_used.get("selectedPersonId")
+                if last_used.get("selectedPersonId") in GRAMMAR_PERSON_SET
+                else module_state["selectedPersonId"]
+            ),
+            "pinnedAtomId": (
+                last_used.get("pinnedAtomId")
+                if isinstance(last_used.get("pinnedAtomId"), str)
+                else None
+            ),
+        }
+    else:
+        module_state["lastUsedSettings"]["selectedSubdeckId"] = module_state[
+            "selectedSubdeckId"
+        ]
+        module_state["lastUsedSettings"]["selectedPersonId"] = module_state[
+            "selectedPersonId"
+        ]
+
+    return module_state
+
+
 def sanitize_progress(
     candidate: Any,
     now_ms: int | None = None,
@@ -201,41 +531,50 @@ def sanitize_progress(
     if not isinstance(candidate, dict):
         raise ValidationError("Progress payload must be a JSON object.")
 
-    totals = candidate.get("totals")
-    letters = candidate.get("letters")
-    history = candidate.get("history")
-    if not isinstance(totals, dict):
-        raise ValidationError("Progress payload must include a totals object.")
-    if not isinstance(letters, dict):
-        raise ValidationError("Progress payload must include a letters object.")
-    if not isinstance(history, list):
-        raise ValidationError("Progress payload must include a history array.")
-
     progress = create_default_progress(timestamp)
-    progress["version"] = max(1, as_non_negative_int(candidate.get("version"), 1))
     progress["createdAt"] = as_non_negative_int(
         candidate.get("createdAt"),
         preserve_created_at if preserve_created_at is not None else progress["createdAt"],
     )
-    if refresh_updated_at:
-        progress["updatedAt"] = timestamp
-    else:
-        progress["updatedAt"] = as_non_negative_int(
-            candidate.get("updatedAt"),
-            progress["updatedAt"],
-        )
-    progress["totals"] = {
-        "attempts": as_non_negative_int(totals.get("attempts"), 0),
-        "totalTimeMs": as_non_negative_int(totals.get("totalTimeMs"), 0),
-        "totalErrors": as_non_negative_int(totals.get("totalErrors"), 0),
-        "bestStreak": as_non_negative_int(totals.get("bestStreak"), 0),
-    }
-    progress["history"] = sanitize_history(history, timestamp)
+    progress["updatedAt"] = (
+        timestamp
+        if refresh_updated_at
+        else as_non_negative_int(candidate.get("updatedAt"), progress["updatedAt"])
+    )
 
-    sanitized_letters: dict[str, Any] = {}
-    for letter in LETTERS:
-        sanitized_letters[letter] = sanitize_letter_stats(letters.get(letter), timestamp)
-    progress["letters"] = sanitized_letters
+    looks_like_v2 = isinstance(candidate.get("keyboard"), dict) and isinstance(
+        candidate.get("grammarModules"), dict
+    )
+    looks_like_v1 = (
+        isinstance(candidate.get("totals"), dict)
+        and isinstance(candidate.get("letters"), dict)
+        and isinstance(candidate.get("history"), list)
+    )
+
+    if looks_like_v2:
+        progress["version"] = max(2, as_non_negative_int(candidate.get("version"), 2))
+        progress["keyboard"] = sanitize_keyboard_progress(candidate.get("keyboard"), timestamp)
+        progress["grammarModules"] = {
+            module_id: sanitize_grammar_module(
+                module_id, candidate.get("grammarModules", {}).get(module_id), timestamp
+            )
+            for module_id in GRAMMAR_MODULE_IDS
+        }
+        return progress
+
+    if looks_like_v1:
+        progress["version"] = 2
+        progress["keyboard"] = sanitize_keyboard_progress(candidate, timestamp)
+        progress["grammarModules"] = {
+            module_id: sanitize_grammar_module(module_id, None, timestamp)
+            for module_id in GRAMMAR_MODULE_IDS
+        }
+        return progress
+
+    raise ValidationError(
+        "Progress payload must be either the legacy keyboard shape or the version 2 multi-module shape."
+    )
+
     return progress
 
 
@@ -270,6 +609,7 @@ class ProgressStore:
         with self.lock:
             self.ensure_layout()
             existing_created_at = None
+            current_progress: dict[str, Any] | None = None
             if self.progress_path.exists():
                 current_progress = self._read_current()
                 existing_created_at = current_progress.get("createdAt")
@@ -278,8 +618,15 @@ class ProgressStore:
                     and expected_updated_at != current_progress.get("updatedAt")
                 ):
                     raise ConflictError(current_progress)
+            replacement_timestamp = current_time_ms()
+            if current_progress is not None:
+                replacement_timestamp = max(
+                    replacement_timestamp,
+                    as_non_negative_int(current_progress.get("updatedAt"), 0) + 1,
+                )
             progress = sanitize_progress(
                 candidate,
+                now_ms=replacement_timestamp,
                 preserve_created_at=existing_created_at,
                 refresh_updated_at=True,
             )
