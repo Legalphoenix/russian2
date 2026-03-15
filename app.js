@@ -1,1037 +1,2241 @@
-const API_PROGRESS_URL = "/api/progress";
-const SAVE_RETRY_MS = 2500;
-const RECENT_PER_LETTER = 20;
-const HISTORY_LIMIT = 500;
-const PRIOR_ATTEMPTS = 5;
-const PRIOR_TIME_MS = 1600;
-const PRIOR_ERRORS = 0.8;
-const LETTERS = [
-  "а",
-  "б",
-  "в",
-  "г",
-  "д",
-  "е",
-  "ё",
-  "ж",
-  "з",
-  "и",
-  "й",
-  "к",
-  "л",
-  "м",
-  "н",
-  "о",
-  "п",
-  "р",
-  "с",
-  "т",
-  "у",
-  "ф",
-  "х",
-  "ц",
-  "ч",
-  "ш",
-  "щ",
-  "ъ",
-  "ы",
-  "ь",
-  "э",
-  "ю",
-  "я",
-];
-const KEYBOARD_ROWS = [
-  ["ё"],
-  ["й", "ц", "у", "к", "е", "н", "г", "ш", "щ", "з", "х", "ъ"],
-  ["ф", "ы", "в", "а", "п", "р", "о", "л", "д", "ж", "э"],
-  ["я", "ч", "с", "м", "и", "т", "ь", "б", "ю"],
-];
-const SUCCESS_LINES = [
-  "Clean hit.",
-  "Sharp.",
-  "Locked in.",
-  "That one landed well.",
-  "Smooth key find.",
-];
-const RECOVER_LINES = [
-  "Corrected.",
-  "Found it.",
-  "Recovered well.",
-  "Tracked it down.",
-];
+(function () {
+  const Coach = window.RussianSkillCoach;
+  const {
+    average,
+    clamp,
+    sample,
+    pickMany,
+    shuffle,
+    unique,
+    escapeHtml,
+    formatMs,
+    formatErrors,
+    formatPercent,
+    formatStudyDuration,
+    displayMs,
+    displayErrors,
+    answersMatch,
+    getStageLabel,
+    getPersonLabel,
+    getSlotLabel,
+    commonPrefix,
+    normalizeAnswer,
+  } = Coach.core;
+  const Progress = Coach.progress;
 
-const elements = {
-  startButton: document.getElementById("start-button"),
-  pauseButton: document.getElementById("pause-button"),
-  exportButton: document.getElementById("export-button"),
-  importButton: document.getElementById("import-button"),
-  importInput: document.getElementById("import-input"),
-  resetButton: document.getElementById("reset-button"),
-  coverageCount: document.getElementById("coverage-count"),
-  coverageDetail: document.getElementById("coverage-detail"),
-  recentTrend: document.getElementById("recent-trend"),
-  recentTrendDetail: document.getElementById("recent-trend-detail"),
-  statusPill: document.getElementById("status-pill"),
-  targetDisplay: document.getElementById("target-display"),
-  targetLetter: document.getElementById("target-letter"),
-  liveTimer: document.getElementById("live-timer"),
-  attemptErrors: document.getElementById("attempt-errors"),
-  currentStreak: document.getElementById("current-streak"),
-  feedbackMessage: document.getElementById("feedback-message"),
-  layoutHint: document.getElementById("layout-hint"),
-  sessionBadge: document.getElementById("session-badge"),
-  sessionAttempts: document.getElementById("session-attempts"),
-  sessionCleanRate: document.getElementById("session-clean-rate"),
-  sessionAverageTime: document.getElementById("session-average-time"),
-  sessionAverageTimeDetail: document.getElementById("session-average-time-detail"),
-  sessionAverageErrors: document.getElementById("session-average-errors"),
-  sessionBestStreak: document.getElementById("session-best-streak"),
-  lifetimeAverageTime: document.getElementById("lifetime-average-time"),
-  lifetimeAverageErrors: document.getElementById("lifetime-average-errors"),
-  lifetimeTotals: document.getElementById("lifetime-totals"),
-  leaderboardTotalAttempts: document.getElementById("leaderboard-total-attempts"),
-  leaderboardTotalStudyTime: document.getElementById("leaderboard-total-study-time"),
-  focusLetters: document.getElementById("focus-letters"),
-  keyboardMap: document.getElementById("keyboard-map"),
-  statsTableBody: document.getElementById("stats-table-body"),
-};
-
-let data = createDefaultData();
-let session = createSession();
-let timerFrame = 0;
-let serverUpdatedAt = 0;
-const appState = {
-  ready: false,
-  saveQueued: false,
-  saveInFlight: false,
-  retryTimer: 0,
-  serverError: false,
-  lastSaveOutcome: "idle",
-};
-
-function createLetterStats() {
-  return {
-    attempts: 0,
-    totalTimeMs: 0,
-    totalErrors: 0,
-    bestTimeMs: null,
-    lastSeenAt: null,
-    recent: [],
+  const state = {
+    root: null,
+    curriculum: null,
+    progress: null,
+    route: "home",
+    ready: false,
+    serverUpdatedAt: 0,
+    saveQueued: false,
+    saveInFlight: false,
+    retryTimer: 0,
+    serverError: false,
+    lastSaveOutcome: "idle",
+    keyboardController: null,
+    timerFrame: 0,
+    runtime: {
+      practice: {
+        key: null,
+        startedAt: 0,
+        errorsThisAttempt: 0,
+        orderSelection: [],
+      },
+      sessions: {},
+    },
   };
-}
 
-function createDefaultData() {
-  const letters = {};
-  LETTERS.forEach((letter) => {
-    letters[letter] = createLetterStats();
-  });
-
-  return {
-    version: 1,
-    createdAt: Date.now(),
-    updatedAt: Date.now(),
-    totals: {
-      attempts: 0,
-      totalTimeMs: 0,
-      totalErrors: 0,
-      bestStreak: 0,
-    },
-    history: [],
-    letters,
-  };
-}
-
-function sanitizeRecent(items) {
-  if (!Array.isArray(items)) {
-    return [];
+  function getSession(key) {
+    if (!state.runtime.sessions[key]) {
+      state.runtime.sessions[key] = {
+        attempts: 0,
+        cleanHits: 0,
+        totalTimeMs: 0,
+        totalErrors: 0,
+        currentStreak: 0,
+        bestStreak: 0,
+        feedback: "Choose a module and continue practicing.",
+        recentAtomIds: [],
+      };
+    }
+    return state.runtime.sessions[key];
   }
 
-  return items
-    .map((item) => ({
-      timeMs: ensureNumber(item.timeMs, 0),
-      errors: ensureNumber(item.errors, 0),
-      at: ensureNumber(item.at, Date.now()),
-    }))
-    .filter((item) => item.timeMs >= 0 && item.errors >= 0)
-    .slice(-RECENT_PER_LETTER);
-}
-
-function sanitizeHistory(items) {
-  if (!Array.isArray(items)) {
-    return [];
+  function renderLoading(message) {
+    state.root.innerHTML = `
+      <header class="app-header card shell-loading">
+        <p class="eyebrow">Russian Skill Coach</p>
+        <h1>Loading curriculum and progress</h1>
+        <p class="hero-text">${escapeHtml(message)}</p>
+      </header>
+    `;
   }
 
-  return items
-    .map((item) => ({
-      letter: LETTERS.includes(item.letter) ? item.letter : null,
-      timeMs: ensureNumber(item.timeMs, 0),
-      errors: ensureNumber(item.errors, 0),
-      at: ensureNumber(item.at, Date.now()),
-    }))
-    .filter((item) => item.letter)
-    .slice(-HISTORY_LIMIT);
-}
+  function routeFromHash() {
+    const raw = String(window.location.hash || "").replace(/^#/, "").trim();
+    if (!raw) {
+      return null;
+    }
 
-function sanitizeData(parsed) {
-  const base = createDefaultData();
-  if (!parsed || typeof parsed !== "object") {
-    return base;
+    if (raw === "mixed-review") {
+      return "mixed_review";
+    }
+
+    return raw;
   }
 
-  base.createdAt = ensureNumber(parsed.createdAt, base.createdAt);
-  base.updatedAt = ensureNumber(parsed.updatedAt, base.updatedAt);
-  base.totals.attempts = ensureNumber(parsed.totals?.attempts, 0);
-  base.totals.totalTimeMs = ensureNumber(parsed.totals?.totalTimeMs, 0);
-  base.totals.totalErrors = ensureNumber(parsed.totals?.totalErrors, 0);
-  base.totals.bestStreak = ensureNumber(parsed.totals?.bestStreak, 0);
-  base.history = sanitizeHistory(parsed.history);
+  function normalizeRoute(route) {
+    if (!route || route === "home") {
+      return "home";
+    }
 
-  LETTERS.forEach((letter) => {
-    const source = parsed.letters?.[letter] || {};
-    base.letters[letter] = {
-      attempts: ensureNumber(source.attempts, 0),
-      totalTimeMs: ensureNumber(source.totalTimeMs, 0),
-      totalErrors: ensureNumber(source.totalErrors, 0),
-      bestTimeMs:
-        source.bestTimeMs === null || source.bestTimeMs === undefined
-          ? null
-          : ensureNumber(source.bestTimeMs, null),
-      lastSeenAt:
-        source.lastSeenAt === null || source.lastSeenAt === undefined
-          ? null
-          : ensureNumber(source.lastSeenAt, null),
-      recent: sanitizeRecent(source.recent),
-    };
-  });
+    if (route === "keyboard" || route === "mixed_review") {
+      return route;
+    }
 
-  return base;
-}
+    if (state.curriculum?.modulesById[route]) {
+      return route;
+    }
 
-function ensureNumber(value, fallback) {
-  return Number.isFinite(value) ? Number(value) : fallback;
-}
-
-async function fetchProgress() {
-  const response = await fetch(API_PROGRESS_URL, {
-    cache: "no-store",
-    headers: {
-      Accept: "application/json",
-    },
-  });
-
-  if (!response.ok) {
-    throw new Error(`Progress load failed with ${response.status}.`);
+    return "home";
   }
 
-  return sanitizeData(await response.json());
-}
+  function isModuleRoute(route) {
+    return Boolean(state.curriculum?.modulesById[route]);
+  }
 
-async function putProgress(progress) {
-  const response = await fetch(API_PROGRESS_URL, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-      "X-Expected-Updated-At": String(serverUpdatedAt || 0),
-    },
-    body: JSON.stringify(progress),
-  });
+  function isGenericPracticeRoute(route) {
+    return isModuleRoute(route) || route === "mixed_review";
+  }
 
-  if (response.status === 409) {
-    const latest = sanitizeData(await response.json());
-    data = latest;
-    serverUpdatedAt = latest.updatedAt;
-    appState.lastSaveOutcome = "conflict";
-    pauseSession("Another tab updated the server first. The latest saved progress is loaded.");
-    setFeedback("This tab was stale, so the newer server copy won.");
-    render();
+  function stageSequenceForAtom(module, atom) {
+    return state.curriculum.stageProfiles[atom.stageProfileId] || module.stageProfile;
+  }
+
+  function getRouteKey() {
+    if (state.route === "mixed_review") {
+      return "mixed_review";
+    }
+
+    if (isModuleRoute(state.route)) {
+      return state.route;
+    }
+
     return null;
   }
 
-  if (!response.ok) {
-    throw new Error(`Progress save failed with ${response.status}.`);
+  function currentPromptKey() {
+    if (!isGenericPracticeRoute(state.route)) {
+      return null;
+    }
+
+    const prompt =
+      state.route === "mixed_review"
+        ? state.progress.mixedReview.pendingPrompt
+        : state.progress.modules[state.route].pendingPrompt;
+
+    if (!prompt) {
+      return null;
+    }
+
+    return `${getRouteKey()}:${prompt.atomId}:${prompt.stageId}:${prompt.promptType}:${prompt.contextId || ""}:${prompt.lineIndex ?? ""}`;
   }
 
-  const saved = sanitizeData(await response.json());
-  serverUpdatedAt = saved.updatedAt;
-  return saved;
-}
-
-async function flushSaveQueue() {
-  if (appState.saveInFlight || !appState.saveQueued || !appState.ready) {
-    return;
+  function stopGenericTimer() {
+    cancelAnimationFrame(state.timerFrame);
+    state.runtime.practice.startedAt = 0;
+    state.runtime.practice.key = null;
   }
 
-  appState.saveInFlight = true;
-  window.clearTimeout(appState.retryTimer);
+  function startGenericTimer(promptKey) {
+    if (!promptKey) {
+      stopGenericTimer();
+      return;
+    }
 
-  try {
-    while (appState.saveQueued && appState.ready) {
-      appState.saveQueued = false;
-      const saved = await putProgress(data);
+    if (state.runtime.practice.key === promptKey && state.runtime.practice.startedAt) {
+      return;
+    }
 
-      if (!saved) {
-        appState.serverError = false;
+    cancelAnimationFrame(state.timerFrame);
+    state.runtime.practice.key = promptKey;
+    state.runtime.practice.startedAt = performance.now();
+    state.runtime.practice.errorsThisAttempt = 0;
+    state.runtime.practice.orderSelection = [];
+
+    const tick = () => {
+      if (!state.runtime.practice.startedAt) {
         return;
       }
 
-      data = saved;
-      appState.lastSaveOutcome = "saved";
-    }
+      const timer = state.root.querySelector("[data-live-timer]");
+      if (timer) {
+        timer.textContent = formatMs(performance.now() - state.runtime.practice.startedAt);
+      }
+      state.timerFrame = requestAnimationFrame(tick);
+    };
 
-    if (appState.serverError) {
-      setFeedback("Server save recovered.");
-    }
-    appState.serverError = false;
-  } catch (error) {
-    appState.serverError = true;
-    appState.lastSaveOutcome = "error";
-    appState.saveQueued = true;
-    console.error(error);
-    setFeedback("Could not save to the server. Retrying in the background.");
-    appState.retryTimer = window.setTimeout(() => {
-      void flushSaveQueue();
-    }, SAVE_RETRY_MS);
-  } finally {
-    appState.saveInFlight = false;
-    render();
-
-    if (!appState.serverError && appState.saveQueued && appState.ready) {
-      void flushSaveQueue();
-    }
-  }
-}
-
-async function saveData() {
-  if (!appState.ready) {
-    return "not-ready";
+    state.timerFrame = requestAnimationFrame(tick);
   }
 
-  appState.saveQueued = true;
-  await flushSaveQueue();
-  return appState.lastSaveOutcome;
-}
+  function bumpError() {
+    state.runtime.practice.errorsThisAttempt += 1;
+    const session = getSession(getRouteKey());
+    session.currentStreak = 0;
+  }
 
-async function loadServerData() {
-  const loaded = await fetchProgress();
-  data = loaded;
-  serverUpdatedAt = loaded.updatedAt;
-  appState.ready = true;
-  appState.serverError = false;
-}
+  function setFeedback(ownerKey, message) {
+    getSession(ownerKey).feedback = message;
+  }
 
-function createSession() {
-  return {
-    active: false,
-    transitioning: false,
-    currentLetter: LETTERS[Math.floor(Math.random() * LETTERS.length)],
-    promptStartedAt: 0,
-    errorsThisAttempt: 0,
-    currentStreak: 0,
-    bestStreak: 0,
-    attempts: 0,
-    cleanHits: 0,
-    totalTimeMs: 0,
-    totalErrors: 0,
-    previousLetters: [],
-    layoutHintUntil: 0,
-    message: "Press Start, then type the letter shown.",
-  };
-}
+  function visibleSubdeckIds(moduleId) {
+    return Progress.getVisibleSubdeckIds(state.progress, state.curriculum.modulesById[moduleId]);
+  }
 
-function getLifetimeAverages() {
-  if (!data.totals.attempts) {
+  function visibleAtoms(moduleId, options = {}) {
+    const module = state.curriculum.modulesById[moduleId];
+    const moduleProgress = state.progress.modules[moduleId];
+    const allowedSubdecks = options.selectedOnly
+      ? [moduleProgress.selectedSubdeckId]
+      : visibleSubdeckIds(moduleId);
+
+    return module.atoms.filter((atom) => allowedSubdecks.includes(atom.subdeckId));
+  }
+
+  function atomProgress(moduleId, atomId, create = true) {
+    const moduleProgress = state.progress.modules[moduleId];
+    if (moduleProgress?.atoms?.[atomId]) {
+      return moduleProgress.atoms[atomId];
+    }
+    return create
+      ? Progress.ensureAtomProgress(state.progress, state.curriculum, moduleId, atomId)
+      : null;
+  }
+
+  function atomStageId(moduleId, atomId, create = false) {
+    const progress = atomProgress(moduleId, atomId, create);
+    const module = state.curriculum.modulesById[moduleId];
+    const atom = module.atomsById[atomId];
+    const sequence = stageSequenceForAtom(module, atom).sequence;
+    if (!progress) {
+      return sequence[0];
+    }
+    return sequence[progress.currentStageIndex] || sequence[0];
+  }
+
+  function atomDifficulty(moduleId, atomId, create = false) {
+    const progress = atomProgress(moduleId, atomId, create);
+    if (!progress) {
+      return 1.2;
+    }
+    return Progress.computeAtomDifficulty(state.progress, state.curriculum, moduleId, atomId);
+  }
+
+  function atomDisplayLabel(atom) {
+    switch (atom.kind) {
+      case "verb_form":
+        return `${atom.lemma} · ${atom.pronoun}`;
+      case "past_verb_form":
+        return `${atom.lemma} · ${getSlotLabel(atom.slot)}`;
+      case "pattern_form":
+        return `${atom.lemma} · ${atom.pronoun}`;
+      case "pattern_frame":
+        return atom.phrase;
+      case "possessive_form":
+        return `${atom.owner} · ${getSlotLabel(atom.slot)}`;
+      case "adjective_form":
+        return `${atom.lemma} · ${getSlotLabel(atom.slot)}`;
+      case "description_phrase":
+      case "age_phrase":
+      case "fixed_phrase":
+      case "routine_phrase":
+      case "vocabulary_word":
+        return atom.ru || atom.answer;
+      case "noun_gender":
+        return atom.ru;
+      case "plural_form":
+        return `${atom.singular} -> ${atom.plural}`;
+      case "number_mapping":
+      case "ordinal_mapping":
+        return String(atom.value);
+      case "dialogue_script":
+        return atom.title;
+      default:
+        return atom.answer || atom.ru || atom.id;
+    }
+  }
+
+  function moduleCoverage(moduleId) {
+    const atoms = visibleAtoms(moduleId);
+    const seen = atoms.filter((atom) => atomProgress(moduleId, atom.id, false)?.seen).length;
+    return atoms.length ? Math.round((seen / atoms.length) * 100) : 0;
+  }
+
+  function moduleDueAtoms(moduleId) {
+    const atoms = visibleAtoms(moduleId);
+    return atoms.filter((atom) => {
+      const progress = atomProgress(moduleId, atom.id, false);
+      const sequence = stageSequenceForAtom(state.curriculum.modulesById[moduleId], atom).sequence;
+      return (
+        !progress?.seen ||
+        progress.currentStageIndex < sequence.length - 1 ||
+        atomDifficulty(moduleId, atom.id, false) > 1.18
+      );
+    });
+  }
+
+  function moduleWeakAtoms(moduleId, limit = 5) {
+    return visibleAtoms(moduleId)
+      .filter((atom) => atomProgress(moduleId, atom.id, false)?.seen)
+      .sort(
+        (left, right) =>
+          atomDifficulty(moduleId, right.id, false) - atomDifficulty(moduleId, left.id, false),
+      )
+      .slice(0, limit);
+  }
+
+  function moduleTrend(moduleId) {
+    const history = state.progress.modules[moduleId].history;
+    const recent = history.slice(-20);
+    const previous = history.slice(-40, -20);
+
+    if (recent.length < 6 || previous.length < 6) {
+      return {
+        title: "Fresh module",
+        detail: "Trend appears after a stronger sample.",
+      };
+    }
+
+    const recentTime = average(recent, (item) => item.timeMs);
+    const previousTime = average(previous, (item) => item.timeMs);
+    const recentErrors = average(recent, (item) => item.errors);
+    const previousErrors = average(previous, (item) => item.errors);
+    const timeDiff = Math.round(recentTime - previousTime);
+    const errorDiff = recentErrors - previousErrors;
+
+    if (timeDiff < -50 || errorDiff < -0.08) {
+      return {
+        title: timeDiff < -50 ? `${Math.abs(timeDiff)} ms faster` : "Cleaner lately",
+        detail: `${Math.abs(errorDiff).toFixed(2)} fewer errors than the prior block.`,
+      };
+    }
+
+    if (timeDiff > 50 || errorDiff > 0.08) {
+      return {
+        title: timeDiff > 50 ? `${timeDiff} ms slower` : "More misses",
+        detail: `${errorDiff.toFixed(2)} more errors than the prior block.`,
+      };
+    }
+
     return {
-      avgTimeMs: 0,
-      avgErrors: 0,
+      title: "Holding steady",
+      detail: "Speed and error rate are close to the prior block.",
     };
   }
 
-  return {
-    avgTimeMs: data.totals.totalTimeMs / data.totals.attempts,
-    avgErrors: data.totals.totalErrors / data.totals.attempts,
-  };
-}
-
-function getBaseline() {
-  const lifetime = getLifetimeAverages();
-  return {
-    avgTimeMs: clamp(lifetime.avgTimeMs || PRIOR_TIME_MS, 700, 2800),
-    avgErrors: clamp(lifetime.avgErrors || PRIOR_ERRORS, 0.25, 2.8),
-  };
-}
-
-function clamp(value, min, max) {
-  return Math.min(Math.max(value, min), max);
-}
-
-function average(items, selector) {
-  if (!items.length) {
-    return 0;
+  function globalWeakSpots(limit = 8) {
+    return state.curriculum.moduleOrder
+      .flatMap((moduleId) =>
+        moduleWeakAtoms(moduleId, 6).map((atom) => ({
+          moduleId,
+          atom,
+          difficulty: atomDifficulty(moduleId, atom.id, false),
+        })),
+      )
+      .sort((left, right) => right.difficulty - left.difficulty)
+      .slice(0, limit);
   }
 
-  const total = items.reduce((sum, item) => sum + selector(item), 0);
-  return total / items.length;
-}
+  function pickNextAtom(moduleId) {
+    const session = getSession(moduleId);
+    const candidates = visibleAtoms(moduleId, { selectedOnly: true });
+    const fallback = visibleAtoms(moduleId);
+    const pool = candidates.length ? candidates : fallback;
 
-function formatMs(value) {
-  return `${Math.round(value)} ms`;
-}
+    if (!pool.length) {
+      return null;
+    }
 
-function formatErrors(value) {
-  return value.toFixed(2);
-}
+    const weighted = pool.map((atom) => {
+      let weight = 0.25 + atomDifficulty(moduleId, atom.id, false);
+      if (session.recentAtomIds.includes(atom.id)) {
+        weight *= 0.6;
+      }
+      return { atom, weight };
+    });
 
-function formatStudyDuration(totalMs) {
-  const totalSeconds = Math.max(0, Math.round(totalMs / 1000));
-  const hours = Math.floor(totalSeconds / 3600);
-  const minutes = Math.floor((totalSeconds % 3600) / 60);
-  const seconds = totalSeconds % 60;
+    const total = weighted.reduce((sum, entry) => sum + entry.weight, 0);
+    let threshold = Math.random() * total;
 
-  if (hours > 0) {
-    return `${hours}h ${String(minutes).padStart(2, "0")}m`;
+    for (const entry of weighted) {
+      threshold -= entry.weight;
+      if (threshold <= 0) {
+        return entry.atom;
+      }
+    }
+
+    return weighted[weighted.length - 1].atom;
   }
 
-  if (minutes > 0) {
-    return `${minutes}m ${String(seconds).padStart(2, "0")}s`;
-  }
-
-  return `${seconds}s`;
-}
-
-function displayMs(value) {
-  return value === null ? "—" : formatMs(value);
-}
-
-function displayErrors(value) {
-  return value === null ? "—" : formatErrors(value);
-}
-
-function buildLetterProfile(letter) {
-  const stats = data.letters[letter];
-  const baseline = getBaseline();
-  const attempts = stats.attempts;
-  const smoothedTime =
-    (stats.totalTimeMs + PRIOR_ATTEMPTS * baseline.avgTimeMs) /
-    (attempts + PRIOR_ATTEMPTS);
-  const smoothedErrors =
-    (stats.totalErrors + PRIOR_ATTEMPTS * baseline.avgErrors) /
-    (attempts + PRIOR_ATTEMPTS);
-  const recentAvgTime = stats.recent.length
-    ? average(stats.recent, (item) => item.timeMs)
-    : smoothedTime;
-  const recentAvgErrors = stats.recent.length
-    ? average(stats.recent, (item) => item.errors)
-    : smoothedErrors;
-  const noveltyBoost = 1 / Math.sqrt(attempts + 1);
-  const recencyMinutes = stats.lastSeenAt
-    ? (Date.now() - stats.lastSeenAt) / 60000
-    : 90;
-  const staleBoost = clamp(recencyMinutes / 120, 0.08, 0.42);
-  const timePressure = smoothedTime / baseline.avgTimeMs;
-  const errorPressure = smoothedErrors / (baseline.avgErrors + 0.35);
-  const difficulty =
-    0.58 * timePressure +
-    0.27 * errorPressure +
-    0.15 * noveltyBoost +
-    staleBoost;
-
-  let weight = 0.22 + difficulty;
-  if (session.currentLetter === letter) {
-    weight *= 0.46;
-  }
-  if (session.previousLetters.includes(letter)) {
-    weight *= 0.72;
-  }
-
-  return {
-    letter,
-    stats,
-    attempts,
-    smoothedTime,
-    smoothedErrors,
-    recentAvgTime,
-    recentAvgErrors,
-    difficulty,
-    weight,
-  };
-}
-
-function pickWeightedLetter() {
-  const profiles = LETTERS.map(buildLetterProfile);
-  const totalWeight = profiles.reduce((sum, profile) => sum + profile.weight, 0);
-  let threshold = Math.random() * totalWeight;
-
-  for (const profile of profiles) {
-    threshold -= profile.weight;
-    if (threshold <= 0) {
-      return profile.letter;
+  function familyAnswers(module, atom) {
+    switch (atom.kind) {
+      case "verb_form":
+        return module.subdeckById[atom.subdeckId].atoms.filter((item) => item.lemma === atom.lemma);
+      case "past_verb_form":
+        return module.subdeckById[atom.subdeckId].atoms.filter((item) => item.lemma === atom.lemma);
+      case "pattern_form":
+        return module.subdeckById[atom.subdeckId].atoms.filter((item) => item.pattern === atom.pattern);
+      case "pattern_frame":
+        return module.subdeckById[atom.subdeckId].atoms.filter((item) => item.pattern === atom.pattern);
+      case "possessive_form":
+        return module.subdeckById[atom.subdeckId].atoms.filter((item) => item.owner === atom.owner);
+      case "adjective_form":
+        return module.subdeckById[atom.subdeckId].atoms.filter((item) => item.lemma === atom.lemma);
+      default:
+        return module.subdeckById[atom.subdeckId].atoms;
     }
   }
 
-  return profiles[profiles.length - 1].letter;
-}
+  function fragmentAnswer(module, atom) {
+    const family = familyAnswers(module, atom)
+      .map((item) => item.answer)
+      .filter(Boolean)
+      .map(String);
 
-function startSession({ fresh = false } = {}) {
-  if (fresh) {
-    session = createSession();
+    if (family.length > 1) {
+      const prefix = commonPrefix(family);
+      const fragment = String(atom.answer).slice(prefix.length);
+      if (fragment) {
+        return fragment;
+      }
+    }
+
+    if (atom.stemHint && String(atom.answer).startsWith(atom.stemHint)) {
+      const suffix = String(atom.answer).slice(atom.stemHint.length);
+      if (suffix) {
+        return suffix;
+      }
+    }
+
+    return String(atom.answer);
   }
 
-  session.active = true;
-  session.transitioning = false;
-  session.errorsThisAttempt = 0;
-  session.layoutHintUntil = 0;
-  session.message = "Find the highlighted letter on your Russian keyboard.";
+  function pickSentenceContext(module, atom) {
+    if (Array.isArray(atom.sampleSentenceIds) && atom.sampleSentenceIds.length) {
+      return sample(atom.sampleSentenceIds);
+    }
 
-  if (!session.currentLetter) {
-    session.currentLetter = pickWeightedLetter();
+    if (module.sentenceBank?.length) {
+      if (atom.kind === "past_verb_form") {
+        const slotField = {
+          masc: "pastMasc",
+          fem: "pastFem",
+          neut: "pastNeut",
+          pl: "pastPl",
+        }[atom.slot];
+
+        const match = module.sentenceBank.find(
+          (entry) => entry.lemma === atom.lemma && entry[slotField],
+        );
+        return match?.id || null;
+      }
+
+      const byLemma = module.sentenceBank.filter((entry) => entry.lemma === atom.lemma);
+      if (byLemma.length) {
+        return sample(byLemma)?.id || null;
+      }
+    }
+
+    return null;
   }
 
-  session.promptStartedAt = performance.now();
-  updateStatusPill("Live", "live");
-  elements.targetDisplay.classList.remove("idle", "correct", "wrong");
-  elements.targetDisplay.classList.add("live");
-  render();
-  startTimerLoop();
-}
+  function buildChoiceOptions(module, atom, stageId, prompt) {
+    const targetCount = stageId === "choose2" ? 2 : stageId === "choose4" ? 4 : 12;
 
-function pauseSession(message = "Paused. Resume when ready.") {
-  session.active = false;
-  session.transitioning = false;
-  session.promptStartedAt = 0;
-  session.errorsThisAttempt = 0;
-  session.message = message;
-  cancelAnimationFrame(timerFrame);
-  updateStatusPill("Paused", "idle");
-  elements.targetDisplay.classList.remove("live", "correct", "wrong");
-  elements.targetDisplay.classList.add("idle");
-  render();
-}
+    if (atom.kind === "noun_gender") {
+      const options = [
+        { value: "masc", label: "masc" },
+        { value: "fem", label: "fem" },
+        { value: "neut", label: "neut" },
+      ];
+      const answerValue =
+        {
+          m: "masc",
+          f: "fem",
+          n: "neut",
+        }[atom.answer] || atom.answer;
+      if (stageId === "choose2") {
+        const distractor = sample(options.filter((option) => option.value !== answerValue));
+        return shuffle(
+          options.filter((option) => option.value === answerValue).concat(distractor),
+        );
+      }
+      if (stageId === "choose4") {
+        return options;
+      }
+      return options;
+    }
 
-function updateStatusPill(label, variant) {
-  elements.statusPill.textContent = label;
-  elements.statusPill.className = `status-pill ${variant}`;
-}
+    if (atom.kind === "dialogue_script") {
+      const lineIndex =
+        prompt.lineIndex === null || prompt.lineIndex === undefined
+          ? Math.max(1, Math.floor(Math.random() * (atom.lines.length - 1)))
+          : prompt.lineIndex;
+      const answer = atom.lines[lineIndex];
+      const distractors = pickMany(
+        atom.lines.filter((line) => normalizeAnswer(line) !== normalizeAnswer(answer)),
+        Math.max(1, targetCount - 1),
+      );
+      return shuffle([{ value: answer, label: answer }, ...distractors.map((value) => ({ value, label: value }))]);
+    }
 
-function flashStatus(label, variant) {
-  updateStatusPill(label, variant);
-  window.clearTimeout(flashStatus.timeoutId);
-  flashStatus.timeoutId = window.setTimeout(() => {
-    updateStatusPill(session.active ? "Live" : "Paused", session.active ? "live" : "idle");
-  }, 420);
-}
+    const family = familyAnswers(module, atom);
+    const uniqueOptions = unique(
+      family.map((item) => String(item.answer)).filter(Boolean),
+    ).map((value) => ({ value, label: value }));
 
-function setFeedback(message) {
-  session.message = message;
-  renderFeedback();
-}
+    if (stageId === "choose2" && uniqueOptions.length > 1) {
+      const distractor = sample(uniqueOptions.filter((option) => option.value !== atom.answer));
+      return shuffle(
+        uniqueOptions.filter((option) => option.value === atom.answer).concat(distractor),
+      );
+    }
 
-function startTimerLoop() {
-  cancelAnimationFrame(timerFrame);
+    if (stageId === "choose4" && uniqueOptions.length >= 4) {
+      const rest = pickMany(
+        uniqueOptions.filter((option) => option.value !== atom.answer),
+        3,
+      );
+      return shuffle([{ value: atom.answer, label: atom.answer }, ...rest]);
+    }
 
-  const tick = () => {
-    if (!session.active || !session.promptStartedAt) {
+    if (stageId === "fullChoice" && uniqueOptions.length > 1) {
+      return uniqueOptions;
+    }
+
+    const subdeckOptions = unique(
+      module.subdeckById[atom.subdeckId].atoms
+        .map((item) => String(item.answer))
+        .filter(Boolean),
+    ).map((value) => ({ value, label: value }));
+
+    if (stageId === "choose2") {
+      const distractor = sample(subdeckOptions.filter((option) => option.value !== atom.answer));
+      return shuffle([{ value: atom.answer, label: atom.answer }, distractor].filter(Boolean));
+    }
+
+    if (stageId === "choose4") {
+      const rest = pickMany(
+        subdeckOptions.filter((option) => option.value !== atom.answer),
+        3,
+      );
+      return shuffle([{ value: atom.answer, label: atom.answer }, ...rest]);
+    }
+
+    return subdeckOptions.slice(0, 12);
+  }
+
+  function createModulePrompt(moduleId, atom) {
+    const module = state.curriculum.modulesById[moduleId];
+    const stageId = atomStageId(moduleId, atom.id);
+    const prompt = {
+      atomId: atom.id,
+      stageId,
+      stageProfileId: atom.stageProfileId,
+      subdeckId: atom.subdeckId,
+      promptType: "typed",
+      contextId: null,
+      lineIndex: null,
+      options: [],
+      sequence: [],
+    };
+
+    if (stageId === "preview") {
+      prompt.promptType = "preview";
+      prompt.contextId = pickSentenceContext(module, atom);
+      return prompt;
+    }
+
+    if (stageId === "choose2" || stageId === "choose4" || stageId === "fullChoice") {
+      prompt.promptType = "choice";
+      if (atom.kind === "dialogue_script") {
+        prompt.lineIndex = Math.max(1, Math.floor(Math.random() * (atom.lines.length - 1)));
+      }
+      prompt.options = buildChoiceOptions(module, atom, stageId, prompt);
+      return prompt;
+    }
+
+    if (stageId === "lineOrder") {
+      prompt.promptType = "lineOrder";
+      if (atom.kind === "dialogue_script") {
+        const start = Math.max(
+          0,
+          Math.floor(Math.random() * Math.max(1, atom.lines.length - 4)),
+        );
+        prompt.lineIndex = start;
+        prompt.sequence = atom.lines.slice(start, start + 4);
+      } else {
+        const items = module.subdeckById[atom.subdeckId].atoms;
+        const index = items.findIndex((item) => item.id === atom.id);
+        const start = clamp(index - 1, 0, Math.max(0, items.length - 3));
+        prompt.sequence = items.slice(start, start + 3).map((item) => item.answer || item.ru);
+      }
+      prompt.options = shuffle(prompt.sequence).map((value) => ({ value, label: value }));
+      return prompt;
+    }
+
+    if (
+      stageId === "sentenceGuided" ||
+      stageId === "sentenceFree" ||
+      stageId === "phraseGuided" ||
+      stageId === "contextUse" ||
+      stageId === "dialogueRoleplay"
+    ) {
+      prompt.contextId = pickSentenceContext(module, atom);
+      if (atom.kind === "dialogue_script") {
+        prompt.lineIndex = Math.max(1, Math.floor(Math.random() * (atom.lines.length - 1)));
+      }
+      return prompt;
+    }
+
+    return prompt;
+  }
+
+  function ensureModulePrompt(moduleId) {
+    const module = state.curriculum.modulesById[moduleId];
+    const moduleProgress = state.progress.modules[moduleId];
+    const visible = visibleSubdeckIds(moduleId);
+
+    if (!visible.includes(moduleProgress.selectedSubdeckId)) {
+      Progress.setSelectedSubdeck(state.progress, moduleId, visible[0] || module.defaultEntrySubdeckId);
+    }
+
+    if (moduleProgress.pendingPrompt) {
+      return moduleProgress.pendingPrompt;
+    }
+
+    const atom = pickNextAtom(moduleId);
+    if (!atom) {
+      return null;
+    }
+
+    const prompt = createModulePrompt(moduleId, atom);
+    Progress.setPendingPrompt(state.progress, moduleId, prompt);
+    markDirty();
+    return prompt;
+  }
+
+  function normalizedModuleDifficulty(moduleId) {
+    const seen = visibleAtoms(moduleId).filter((atom) => atomProgress(moduleId, atom.id, false)?.seen);
+    if (!seen.length) {
+      return new Map();
+    }
+
+    const entries = seen.map((atom) => [atom.id, atomDifficulty(moduleId, atom.id, false)]);
+    const values = entries.map((entry) => entry[1]);
+    const min = Math.min(...values);
+    const max = Math.max(...values);
+    const map = new Map();
+    entries.forEach(([atomId, difficulty]) => {
+      const normalized = max === min ? 0.5 : (difficulty - min) / (max - min);
+      map.set(atomId, normalized);
+    });
+    return map;
+  }
+
+  function isMixedEligible(moduleId, atom, modeId) {
+    const progress = atomProgress(moduleId, atom.id, false);
+    if (!progress?.seen) {
+      return false;
+    }
+
+    const stageId = atomStageId(moduleId, atom.id, false);
+    if (modeId === "production_mix") {
+      return ["typeFragment", "typeFull", "sentenceGuided", "sentenceFree", "phraseGuided", "contextUse", "dialogueRoleplay"].includes(stageId);
+    }
+
+    return true;
+  }
+
+  function buildMixedQueue(modeId) {
+    const normalizedMaps = Object.fromEntries(
+      state.curriculum.mixedReviewRules.defaultEligibleModules.map((moduleId) => [
+        moduleId,
+        normalizedModuleDifficulty(moduleId),
+      ]),
+    );
+
+    const entries = [];
+    state.curriculum.mixedReviewRules.defaultEligibleModules.forEach((moduleId) => {
+      const module = state.curriculum.modulesById[moduleId];
+      visibleAtoms(moduleId).forEach((atom) => {
+        if (!isMixedEligible(moduleId, atom, modeId)) {
+          return;
+        }
+
+        const stageId = atomStageId(moduleId, atom.id);
+        let score = normalizedMaps[moduleId].get(atom.id) || 0;
+        if (modeId === "before_class") {
+          if (["typeFull", "sentenceGuided", "phraseGuided", "dialogueRoleplay"].includes(stageId)) {
+            score += 0.25;
+          }
+          if (["conversation", "first_conjugation", "second_conjugation", "core_patterns", "days_time_routine", "descriptions"].includes(moduleId)) {
+            score += 0.08;
+          }
+        }
+
+        entries.push({
+          moduleId,
+          atomId: atom.id,
+          stageId,
+          score,
+        });
+      });
+    });
+
+    return entries
+      .sort((left, right) => right.score - left.score)
+      .slice(0, 20);
+  }
+
+  function ensureMixedReviewQueue() {
+    const review = state.progress.mixedReview;
+    if (!review.queue.length || review.currentIndex >= review.queue.length) {
+      review.queue = buildMixedQueue(review.mode);
+      review.currentIndex = 0;
+      review.pendingPrompt = null;
+      markDirty();
+    }
+
+    return review.queue;
+  }
+
+  function ensureMixedReviewPrompt() {
+    const review = state.progress.mixedReview;
+    ensureMixedReviewQueue();
+
+    if (review.pendingPrompt) {
+      return review.pendingPrompt;
+    }
+
+    const item = review.queue[review.currentIndex];
+    if (!item) {
+      return null;
+    }
+
+    const module = state.curriculum.modulesById[item.moduleId];
+    const atom = module.atomsById[item.atomId];
+    const prompt = createModulePrompt(item.moduleId, atom);
+    prompt.stageId = item.stageId;
+    review.pendingPrompt = prompt;
+    markDirty();
+    return prompt;
+  }
+
+  function getAtomExpectedAnswer(module, atom, prompt) {
+    if (atom.kind === "noun_gender") {
+      return (
+        {
+          m: "masc",
+          f: "fem",
+          n: "neut",
+        }[atom.answer] || String(atom.answer || "")
+      );
+    }
+
+    if (prompt.stageId === "typeFragment") {
+      return fragmentAnswer(module, atom);
+    }
+
+    if (atom.kind === "dialogue_script" && prompt.lineIndex !== null && prompt.lineIndex !== undefined) {
+      return atom.lines[prompt.lineIndex];
+    }
+
+    return Array.isArray(atom.answer) ? atom.answer.join(" | ") : String(atom.answer || "");
+  }
+
+  function currentPromptAtom() {
+    if (!isGenericPracticeRoute(state.route)) {
+      return null;
+    }
+
+    if (state.route === "mixed_review") {
+      const prompt = ensureMixedReviewPrompt();
+      if (!prompt) {
+        return null;
+      }
+      const item = state.progress.mixedReview.queue[state.progress.mixedReview.currentIndex];
+      return state.curriculum.modulesById[item.moduleId].atomsById[prompt.atomId];
+    }
+
+    const prompt = ensureModulePrompt(state.route);
+    return prompt ? state.curriculum.modulesById[state.route].atomsById[prompt.atomId] : null;
+  }
+
+  function currentPromptDescriptor() {
+    if (!isGenericPracticeRoute(state.route)) {
+      return null;
+    }
+
+    const prompt =
+      state.route === "mixed_review"
+        ? ensureMixedReviewPrompt()
+        : ensureModulePrompt(state.route);
+
+    if (!prompt) {
+      return null;
+    }
+
+    const moduleId =
+      state.route === "mixed_review"
+        ? state.progress.mixedReview.queue[state.progress.mixedReview.currentIndex]?.moduleId
+        : state.route;
+
+    const module = state.curriculum.modulesById[moduleId];
+    const atom = module.atomsById[prompt.atomId];
+
+    return {
+      moduleId,
+      module,
+      atom,
+      prompt,
+      expectedAnswer: getAtomExpectedAnswer(module, atom, prompt),
+    };
+  }
+
+  function genericPromptHeader(module, atom) {
+    switch (atom.kind) {
+      case "verb_form":
+        return {
+          title: `${escapeHtml(atom.lemma)} -> ${escapeHtml(atom.pronoun)}`,
+          subtitle: escapeHtml(atom.translation || "Conjugate the verb"),
+        };
+      case "past_verb_form":
+        return {
+          title: `${escapeHtml(atom.lemma)} -> ${escapeHtml(getSlotLabel(atom.slot))}`,
+          subtitle: escapeHtml(atom.translation || "Past tense"),
+        };
+      case "pattern_form":
+        return {
+          title: `${escapeHtml(atom.lemma)} -> ${escapeHtml(atom.pronoun)}`,
+          subtitle: escapeHtml(atom.translation || "Pattern form"),
+        };
+      case "pattern_frame":
+        return {
+          title: escapeHtml(atom.owner),
+          subtitle: escapeHtml(atom.translation || atom.sampleSentence || "Frame builder"),
+        };
+      case "possessive_form":
+        return {
+          title: `${escapeHtml(atom.owner)} -> ${escapeHtml(getSlotLabel(atom.slot))}`,
+          subtitle: atom.invariant
+            ? "Invariant form across noun genders."
+            : "Choose the agreeing possessive form.",
+        };
+      case "adjective_form":
+        return {
+          title: `${escapeHtml(atom.translation)} -> ${escapeHtml(getSlotLabel(atom.slot))}`,
+          subtitle: escapeHtml(atom.lemma),
+        };
+      case "noun_gender":
+        return {
+          title: escapeHtml(atom.ru),
+          subtitle: escapeHtml(atom.en || "Noun gender"),
+        };
+      case "plural_form":
+        return {
+          title: escapeHtml(atom.singular),
+          subtitle: escapeHtml(atom.translation || "Plural form"),
+        };
+      case "number_mapping":
+      case "ordinal_mapping":
+        return {
+          title: escapeHtml(String(atom.value)),
+          subtitle: escapeHtml(atom.en || atom.ru || "Number"),
+        };
+      case "dialogue_script":
+        return {
+          title: escapeHtml(atom.title),
+          subtitle: "Canonical intro dialogue",
+        };
+      default:
+        return {
+          title: escapeHtml(atom.en || atom.translation || atom.ru || atom.answer || atom.id),
+          subtitle: atom.ru && atom.en ? escapeHtml(atom.ru) : escapeHtml(module.title),
+        };
+    }
+  }
+
+  function promptHintHtml(module, atom, prompt) {
+    if (atom.kind === "verb_form") {
+      const hints = [];
+      if (atom.stemHint) {
+        hints.push(`Stem hint: ${escapeHtml(atom.stemHint)}`);
+      }
+      if (atom.removeFromInfinitive) {
+        hints.push(`Remove: ${escapeHtml(atom.removeFromInfinitive)}`);
+      }
+      if (atom.irregularYa && ["preview", "choose2", "choose4", "sentenceGuided"].includes(prompt.stageId)) {
+        hints.push(`Irregular я-form: ${escapeHtml(atom.answer)}`);
+      }
+      if (hints.length) {
+        return `<div class="hint-banner">${hints.join(" · ")}</div>`;
+      }
+    }
+
+    if (atom.kind === "possessive_form" && atom.invariant) {
+      return `<div class="hint-banner">Invariant possessive: the form stays the same across genders.</div>`;
+    }
+
+    if (atom.kind === "noun_gender") {
+      return `<div class="hint-banner">Gender answer set: masc / fem / neut.</div>`;
+    }
+
+    if (atom.kind === "plural_form") {
+      return `<div class="hint-banner">Plural type: ${escapeHtml(atom.pluralType || "reviewed pattern")}.</div>`;
+    }
+
+    return "";
+  }
+
+  function highlightAnswer(sentence, answer, mode) {
+    if (!sentence) {
+      return "";
+    }
+    const replacement =
+      mode === "guided"
+        ? `<span class="guided-slot">${escapeHtml(answer)}</span>`
+        : `<span class="guided-blank">${"_".repeat(Math.max(3, String(answer).length))}</span>`;
+
+    const index = sentence.indexOf(answer);
+    if (index === -1) {
+      return escapeHtml(sentence);
+    }
+
+    return `${escapeHtml(sentence.slice(0, index))}${replacement}${escapeHtml(
+      sentence.slice(index + answer.length),
+    )}`;
+  }
+
+  function contextCardHtml(module, atom, prompt, expectedAnswer) {
+    const isGuided = prompt.stageId === "sentenceGuided" || prompt.stageId === "phraseGuided";
+    const usesSentence =
+      prompt.stageId === "sentenceGuided" ||
+      prompt.stageId === "sentenceFree" ||
+      prompt.stageId === "phraseGuided" ||
+      prompt.stageId === "contextUse" ||
+      prompt.stageId === "dialogueRoleplay";
+
+    if (!usesSentence) {
+      return "";
+    }
+
+    if (atom.kind === "dialogue_script" && prompt.lineIndex) {
+      const lead = atom.lines[prompt.lineIndex - 1];
+      return `
+        <div class="context-card chat-context">
+          <p class="context-label">Dialogue cue</p>
+          <p class="chat-line chat-line-left">${escapeHtml(lead)}</p>
+        </div>
+      `;
+    }
+
+    if (prompt.contextId && module.sentenceBankById[prompt.contextId]) {
+      const record = module.sentenceBankById[prompt.contextId];
+      const sentenceText =
+        record.ru ||
+        record.answer ||
+        record[
+          {
+            masc: "pastMasc",
+            fem: "pastFem",
+            neut: "pastNeut",
+            pl: "pastPl",
+          }[atom.slot]
+        ] ||
+        record.present ||
+        "";
+
+      const decorated = isGuided
+        ? highlightAnswer(sentenceText, expectedAnswer, "guided")
+        : highlightAnswer(sentenceText, expectedAnswer, "free");
+
+      return `
+        <div class="context-card">
+          <p class="context-label">Context</p>
+          <p class="context-ru">${decorated}</p>
+          <p class="context-en">${escapeHtml(record.en || record.translation || "")}</p>
+        </div>
+      `;
+    }
+
+    if (atom.sampleSentence) {
+      return `
+        <div class="context-card">
+          <p class="context-label">Context</p>
+          <p class="context-ru">${isGuided ? highlightAnswer(atom.sampleSentence, expectedAnswer, "guided") : highlightAnswer(atom.sampleSentence, expectedAnswer, "free")}</p>
+        </div>
+      `;
+    }
+
+    if (atom.ru && atom.ru !== atom.answer) {
+      return `
+        <div class="context-card">
+          <p class="context-label">Russian cue</p>
+          <p class="context-ru">${isGuided ? highlightAnswer(atom.ru, expectedAnswer, "guided") : highlightAnswer(atom.ru, expectedAnswer, "free")}</p>
+          <p class="context-en">${escapeHtml(atom.en || atom.translation || "")}</p>
+        </div>
+      `;
+    }
+
+    return "";
+  }
+
+  function promptReferenceStrip(atom, moduleId) {
+    if (moduleId === "first_conjugation" || moduleId === "second_conjugation") {
+      const chips = ["1sg", "2sg", "3sg", "1pl", "2pl", "3pl"]
+        .map(
+          (person) => `
+            <span class="mini-chip ${atom.person === person ? "active" : ""}">
+              ${escapeHtml(getPersonLabel(person))}
+            </span>
+          `,
+        )
+        .join("");
+      return `<div class="reference-strip">${chips}</div>`;
+    }
+
+    if (moduleId === "past_tense" || moduleId === "descriptions") {
+      const slot = atom.slot || atom.gender;
+      const chips = ["masc", "fem", "neut", "pl"]
+        .map(
+          (value) => `
+            <span class="mini-chip ${slot === value ? "active" : ""}">
+              ${escapeHtml(getSlotLabel(value))}
+            </span>
+          `,
+        )
+        .join("");
+      return `<div class="reference-strip">${chips}</div>`;
+    }
+
+    return "";
+  }
+
+  function moduleLifetimeStats(moduleId) {
+    const totals = state.progress.modules[moduleId].totals;
+    if (!totals.attempts) {
+      return {
+        avgTimeMs: 0,
+        avgErrors: 0,
+      };
+    }
+    return {
+      avgTimeMs: totals.totalTimeMs / totals.attempts,
+      avgErrors: totals.totalErrors / totals.attempts,
+    };
+  }
+
+  function renderHeatmap(moduleId) {
+    const module = state.curriculum.modulesById[moduleId];
+    const atoms = visibleAtoms(moduleId);
+
+    if (moduleId === "first_conjugation" || moduleId === "second_conjugation") {
+      const lemmas = unique(atoms.map((atom) => atom.lemma));
+      const people = ["1sg", "2sg", "3sg", "1pl", "2pl", "3pl"];
+      return matrixHtml(
+        people.map((person) => ({ key: person, label: getPersonLabel(person) })),
+        lemmas,
+        (lemma, person) => {
+          const atom = atoms.find((entry) => entry.lemma === lemma && entry.person === person);
+          return atom ? heatCell(moduleId, atom.id) : `<span class="heat-empty">—</span>`;
+        },
+      );
+    }
+
+    if (moduleId === "past_tense") {
+      const lemmas = unique(atoms.map((atom) => atom.lemma));
+      const slots = ["masc", "fem", "neut", "pl"];
+      return matrixHtml(
+        slots.map((slot) => ({ key: slot, label: getSlotLabel(slot) })),
+        lemmas,
+        (lemma, slot) => {
+          const atom = atoms.find((entry) => entry.lemma === lemma && entry.slot === slot);
+          return atom ? heatCell(moduleId, atom.id) : `<span class="heat-empty">—</span>`;
+        },
+      );
+    }
+
+    if (moduleId === "descriptions") {
+      const group = state.progress.modules[moduleId].selectedSubdeckId;
+      if (group === "desc_possessives") {
+        const owners = unique(atoms.map((atom) => atom.owner));
+        const slots = ["masc", "fem", "neut", "pl"];
+        return matrixHtml(
+          slots.map((slot) => ({ key: slot, label: getSlotLabel(slot) })),
+          owners,
+          (owner, slot) => {
+            const atom = atoms.find((entry) => entry.owner === owner && entry.slot === slot);
+            return atom ? heatCell(moduleId, atom.id) : `<span class="heat-empty">—</span>`;
+          },
+        );
+      }
+
+      const lemmas = unique(atoms.map((atom) => atom.lemma).filter(Boolean)).slice(0, 8);
+      const slots = ["masc", "fem", "neut", "pl"];
+      return matrixHtml(
+        slots.map((slot) => ({ key: slot, label: getSlotLabel(slot) })),
+        lemmas,
+        (lemma, slot) => {
+          const atom = atoms.find((entry) => entry.lemma === lemma && entry.slot === slot);
+          return atom ? heatCell(moduleId, atom.id) : `<span class="heat-empty">—</span>`;
+        },
+      );
+    }
+
+    const weakest = moduleWeakAtoms(moduleId, 12);
+    return `
+      <div class="weak-grid">
+        ${weakest
+          .map(
+            (atom) => `
+              <article class="weak-card" style="border-color:${heatColor(atomDifficulty(moduleId, atom.id, false))}">
+                <strong>${escapeHtml(atomDisplayLabel(atom))}</strong>
+                <span>${escapeHtml(getStageLabel(atomStageId(moduleId, atom.id, false)))}</span>
+                <span>${formatMs(atomProgress(moduleId, atom.id, false)?.attempts ? atomProgress(moduleId, atom.id, false).totalTimeMs / atomProgress(moduleId, atom.id, false).attempts : 0)}</span>
+              </article>
+            `,
+          )
+          .join("")}
+      </div>
+    `;
+  }
+
+  function heatColor(value) {
+    const normalized = clamp((value - 0.8) / 1.2, 0, 1);
+    const hue = 148 - normalized * 92;
+    const saturation = 62 + normalized * 10;
+    const lightness = 88 - normalized * 34;
+    return `hsl(${hue} ${saturation}% ${lightness}%)`;
+  }
+
+  function heatCell(moduleId, atomId) {
+    const progress = atomProgress(moduleId, atomId, false);
+    const difficulty = atomDifficulty(moduleId, atomId, false);
+    const label =
+      progress?.seen
+        ? formatMs(progress.totalTimeMs / Math.max(1, progress.attempts))
+        : "new";
+    return `<span class="heat-cell" style="background:${heatColor(difficulty)}">${escapeHtml(label)}</span>`;
+  }
+
+  function matrixHtml(columns, rowLabels, renderCell) {
+    return `
+      <div class="matrix-wrap">
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th></th>
+              ${columns.map((column) => `<th>${escapeHtml(column.label)}</th>`).join("")}
+            </tr>
+          </thead>
+          <tbody>
+            ${rowLabels
+              .map(
+                (rowLabel) => `
+                  <tr>
+                    <th>${escapeHtml(rowLabel)}</th>
+                    ${columns
+                      .map((column) => `<td>${renderCell(rowLabel, column.key)}</td>`)
+                      .join("")}
+                  </tr>
+                `,
+              )
+              .join("")}
+          </tbody>
+        </table>
+      </div>
+    `;
+  }
+
+  function renderHomePage() {
+    const keyboardWeak = Coach.keyboard.LETTERS.map((letter) => {
+      const stats = state.progress.modules.keyboard.letters[letter];
+      const difficulty =
+        (stats.totalTimeMs + 1600) / (Math.max(1, stats.attempts) + 1) + stats.totalErrors * 220;
+      return { letter, difficulty };
+    }).sort((left, right) => right.difficulty - left.difficulty)[0];
+
+    const resumeRoute = normalizeRoute(state.progress.navigation.lastRoute || state.progress.navigation.lastModuleId);
+    const resumeModuleId =
+      resumeRoute === "mixed_review"
+        ? state.progress.mixedReview.queue[state.progress.mixedReview.currentIndex]?.moduleId ||
+          state.progress.navigation.lastModuleId
+        : resumeRoute;
+    const resumeModule = isModuleRoute(resumeModuleId)
+      ? state.curriculum.modulesById[resumeModuleId]
+      : null;
+    const resumeSubdeck = resumeModule
+      ? resumeModule.subdeckById[state.progress.navigation.lastSubdeckId] ||
+        resumeModule.subdeckById[state.progress.modules[resumeModuleId].selectedSubdeckId]
+      : null;
+
+    const continueCopy = resumeModule
+      ? {
+          moduleTitle: resumeRoute === "mixed_review" ? "Mixed Review" : resumeModule.title,
+          subdeckTitle: resumeSubdeck?.title || "Resume where you stopped",
+          stageTitle: state.progress.navigation.lastStageId
+            ? getStageLabel(state.progress.navigation.lastStageId)
+            : "Continue",
+          dueCount:
+            resumeRoute === "mixed_review"
+              ? 20
+              : moduleDueAtoms(resumeModuleId).length,
+        }
+      : {
+          moduleTitle: "Keyboard",
+          subdeckTitle: "Start with the preserved key trainer",
+          stageTitle: "Continue",
+          dueCount: 33,
+        };
+
+    return `
+      <section class="hero card">
+        <div class="hero-copy">
+          <p class="eyebrow">Home</p>
+          <h1>Russian Skill Coach</h1>
+          <p class="hero-text">
+            One tiny atom at a time. Every module tracks time to correct answer, counts error strikes before success, and resurfaces weak spots automatically.
+          </p>
+          <div class="hero-actions">
+            <button class="button button-primary" data-action="resume-last">Resume ${escapeHtml(
+              continueCopy.moduleTitle,
+            )}</button>
+            <button class="button button-secondary" data-action="start-before-class">Before-class review</button>
+          </div>
+        </div>
+        <div class="hero-metrics">
+          <article class="metric-block continue-card">
+            <span class="metric-label">Continue</span>
+            <strong>${escapeHtml(continueCopy.moduleTitle)}</strong>
+            <span class="metric-detail">${escapeHtml(continueCopy.subdeckTitle)}</span>
+            <span class="metric-detail">${escapeHtml(continueCopy.stageTitle)} · ${continueCopy.dueCount} due</span>
+          </article>
+          <article class="metric-block">
+            <span class="metric-label">Global weak spots</span>
+            <strong>${globalWeakSpots(1)[0] ? escapeHtml(atomDisplayLabel(globalWeakSpots(1)[0].atom)) : "Fresh start"}</strong>
+            <span class="metric-detail">Weak atoms rise back to the surface until they cool down.</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="module-grid">
+        ${[
+          {
+            id: "keyboard",
+            title: "Keyboard",
+            due: Coach.keyboard.LETTERS.filter(
+              (letter) => state.progress.modules.keyboard.letters[letter].attempts < 5,
+            ).length,
+            coverage: Math.round(
+              (Coach.keyboard.LETTERS.filter(
+                (letter) => state.progress.modules.keyboard.letters[letter].attempts > 0,
+              ).length /
+                Coach.keyboard.LETTERS.length) *
+                100,
+            ),
+            weakLabel: keyboardWeak?.letter || "Fresh",
+            trend: "Preserved trainer",
+          },
+          ...state.curriculum.moduleOrder.map((moduleId) => {
+            const module = state.curriculum.modulesById[moduleId];
+            const weak = moduleWeakAtoms(moduleId, 1)[0];
+            const trend = moduleTrend(moduleId);
+            return {
+              id: moduleId,
+              title: module.title,
+              due: moduleDueAtoms(moduleId).length,
+              coverage: moduleCoverage(moduleId),
+              weak,
+              trend: trend.title,
+            };
+          }),
+          {
+            id: "mixed_review",
+            title: "Mixed Review",
+            due: 20,
+            coverage: 100,
+            weak: null,
+            trend: "Daily gym",
+          },
+        ]
+          .map(
+            (card) => `
+              <a class="module-card card" href="#${card.id === "mixed_review" ? "mixed-review" : card.id}">
+                <div class="module-card-head">
+                  <p class="section-label">${escapeHtml(card.title)}</p>
+                  <span class="module-due">${card.due} due</span>
+                </div>
+                <h2>${escapeHtml(card.title)}</h2>
+                <p class="module-copy">${card.coverage}% seen</p>
+                <p class="module-copy">
+                  ${
+                    card.weakLabel
+                      ? `Weak spot: ${escapeHtml(card.weakLabel)}`
+                      : card.weak
+                        ? `Weak spot: ${escapeHtml(atomDisplayLabel(card.weak.atom || card.weak))}`
+                        : "Weak spot: mixed across modules"
+                  }
+                </p>
+                <p class="module-trend">${escapeHtml(card.trend)}</p>
+              </a>
+            `,
+          )
+          .join("")}
+      </section>
+
+      <section class="bottom-grid">
+        <article class="card global-panel">
+          <div class="panel-header">
+            <div>
+              <p class="section-label">Global weak spots</p>
+              <h2>These atoms are resurfacing hardest</h2>
+            </div>
+          </div>
+          <div class="weak-list">
+            ${globalWeakSpots()
+              .map(
+                (entry) => `
+                  <div class="weak-row">
+                    <strong>${escapeHtml(entry.moduleId === "keyboard" ? entry.atom : atomDisplayLabel(entry.atom))}</strong>
+                    <span>${escapeHtml(
+                      entry.moduleId === "keyboard"
+                        ? "Keyboard"
+                        : state.curriculum.modulesById[entry.moduleId].title,
+                    )}</span>
+                  </div>
+                `,
+              )
+              .join("")}
+          </div>
+        </article>
+
+        <article class="card global-panel">
+          <div class="panel-header">
+            <div>
+              <p class="section-label">Before class</p>
+              <h2>20 fast reps across modules</h2>
+            </div>
+          </div>
+          <p class="hero-text">
+            Mixed Review never introduces new atoms. It only pulls from atoms you have already seen in their home modules and normalizes difficulty inside each module first.
+          </p>
+          <button class="button button-primary" data-action="start-before-class">Launch Before-class Review</button>
+        </article>
+      </section>
+    `;
+  }
+
+  function genericPracticeCard(descriptor, ownerKey, queueMeta) {
+    const { moduleId, module, atom, prompt, expectedAnswer } = descriptor;
+    const session = getSession(ownerKey);
+    const header = genericPromptHeader(module, atom);
+    const inputMode = prompt.promptType;
+    const timerText =
+      state.runtime.practice.startedAt && state.runtime.practice.key === currentPromptKey()
+        ? formatMs(performance.now() - state.runtime.practice.startedAt)
+        : "0 ms";
+
+    const previewBody = `
+      <div class="answer-reveal">
+        <strong>${escapeHtml(expectedAnswer)}</strong>
+        <span>${escapeHtml(atom.ru && atom.ru !== expectedAnswer ? atom.ru : atom.en || atom.translation || "")}</span>
+      </div>
+      <button class="button button-primary" data-action="preview-advance">Continue</button>
+    `;
+
+    const choiceBody = `
+      <div class="choice-grid">
+        ${prompt.options
+          .map(
+            (option, index) => `
+              <button class="choice-button" data-action="choice-answer" data-option-index="${index}">
+                ${escapeHtml(option.label || option.value)}
+              </button>
+            `,
+          )
+          .join("")}
+      </div>
+    `;
+
+    const typeBody = `
+      <form class="typed-form" data-form="typed-answer">
+        <input
+          class="typed-input"
+          name="answer"
+          autocomplete="off"
+          autocapitalize="off"
+          spellcheck="false"
+          placeholder="${escapeHtml(prompt.stageId === "typeFragment" ? "Type the changing fragment" : "Type the answer")}"
+          data-autofocus="true"
+        />
+        <button class="button button-primary" type="submit">Submit</button>
+      </form>
+    `;
+
+    const lineOrderBody = `
+      <div class="order-progress">
+        ${state.runtime.practice.orderSelection
+          .map((line) => `<span class="order-chip">${escapeHtml(line)}</span>`)
+          .join("")}
+      </div>
+      <div class="choice-grid">
+        ${prompt.options
+          .map(
+            (option, index) => `
+              <button class="choice-button" data-action="line-order-pick" data-option-index="${index}">
+                ${escapeHtml(option.label || option.value)}
+              </button>
+            `,
+          )
+          .join("")}
+      </div>
+    `;
+
+    return `
+      <article class="practice card">
+        <div class="practice-header">
+          <div>
+            <p class="section-label">${escapeHtml(module.title)}</p>
+            <h2>${header.title}</h2>
+            <p class="practice-copy">${header.subtitle}</p>
+          </div>
+          <div class="status-pill live">${escapeHtml(getStageLabel(prompt.stageId))}</div>
+        </div>
+
+        ${queueMeta || ""}
+        ${promptReferenceStrip(atom, moduleId)}
+        ${promptHintHtml(module, atom, prompt)}
+        ${contextCardHtml(module, atom, prompt, expectedAnswer)}
+
+        <div class="attempt-strip">
+          <div class="attempt-stat">
+            <span class="attempt-label">Timer</span>
+            <strong data-live-timer="true">${escapeHtml(timerText)}</strong>
+          </div>
+          <div class="attempt-stat">
+            <span class="attempt-label">Error strikes</span>
+            <strong>${state.runtime.practice.errorsThisAttempt}</strong>
+          </div>
+          <div class="attempt-stat">
+            <span class="attempt-label">Streak</span>
+            <strong>${session.currentStreak}</strong>
+          </div>
+        </div>
+
+        <div class="answer-zone">
+          ${inputMode === "preview" ? previewBody : ""}
+          ${inputMode === "choice" ? choiceBody : ""}
+          ${inputMode === "typed" ? typeBody : ""}
+          ${inputMode === "lineOrder" ? lineOrderBody : ""}
+        </div>
+
+        <p class="feedback-message">${escapeHtml(session.feedback)}</p>
+      </article>
+    `;
+  }
+
+  function genericAnalyticsCard(moduleId, ownerKey) {
+    const session = getSession(ownerKey);
+    const lifetime = moduleLifetimeStats(moduleId);
+    const totals = state.progress.modules[moduleId].totals;
+    const weak = moduleWeakAtoms(moduleId, 6);
+    const cleanRate = session.attempts
+      ? Math.round((session.cleanHits / session.attempts) * 100)
+      : 0;
+
+    return `
+      <article class="session card">
+        <div class="session-header">
+          <div>
+            <p class="section-label">Analytics</p>
+            <h2>Keep weak spots visible</h2>
+          </div>
+          <div class="session-badge">${session.attempts ? "In session" : "Fresh run"}</div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-tile accent-coral">
+            <span class="tile-label">Session attempts</span>
+            <strong>${session.attempts}</strong>
+            <span class="tile-foot">${cleanRate}% clean reps</span>
+          </div>
+          <div class="stat-tile accent-mint">
+            <span class="tile-label">Session avg</span>
+            <strong>${session.attempts ? formatMs(session.totalTimeMs / session.attempts) : "0 ms"}</strong>
+            <span class="tile-foot">${session.attempts ? formatErrors(session.totalErrors / session.attempts) : "0.00"} avg errors</span>
+          </div>
+          <div class="stat-tile accent-sand">
+            <span class="tile-label">Lifetime avg</span>
+            <strong>${totals.attempts ? formatMs(lifetime.avgTimeMs) : "0 ms"}</strong>
+            <span class="tile-foot">${formatErrors(lifetime.avgErrors)} avg errors</span>
+          </div>
+          <div class="stat-tile accent-ink">
+            <span class="tile-label">Lifetime totals</span>
+            <strong>${totals.attempts}</strong>
+            <span class="tile-foot">${formatStudyDuration(totals.totalTimeMs)} studied</span>
+          </div>
+        </div>
+
+        <div class="focus-panel">
+          <div class="panel-header">
+            <div>
+              <p class="section-label">Weakest items</p>
+              <h3>Slow or error-heavy atoms</h3>
+            </div>
+          </div>
+          <div class="weak-list">
+            ${weak.length
+              ? weak
+                  .map(
+                    (atom) => `
+                      <div class="weak-row">
+                        <strong>${escapeHtml(atomDisplayLabel(atom))}</strong>
+                        <span>${escapeHtml(getStageLabel(atomStageId(moduleId, atom.id)))}</span>
+                      </div>
+                    `,
+                  )
+                  .join("")
+              : `<div class="weak-row"><strong>Fresh module</strong><span>No weak items yet.</span></div>`}
+          </div>
+        </div>
+      </article>
+    `;
+  }
+
+  function renderGenericModulePage(moduleId) {
+    const module = state.curriculum.modulesById[moduleId];
+    const moduleProgress = state.progress.modules[moduleId];
+    const descriptor = currentPromptDescriptor();
+    const trend = moduleTrend(moduleId);
+    const hiddenCards = module.subdecks.filter((subdeck) => subdeck.hiddenByDefault);
+
+    return `
+      <section class="hero card compact-hero">
+        <div class="hero-copy">
+          <p class="eyebrow">${escapeHtml(module.title)}</p>
+          <h1>${escapeHtml(module.title)}</h1>
+          <p class="hero-text">${escapeHtml(module.purpose)}</p>
+          <div class="hero-actions">
+            ${hiddenCards
+              .map(
+                (subdeck) => `
+                  <button
+                    class="button button-ghost"
+                    data-action="toggle-hidden-subdeck"
+                    data-module-id="${moduleId}"
+                    data-subdeck-id="${subdeck.subdeckId}"
+                  >
+                    ${moduleProgress.hiddenEnabled.includes(subdeck.subdeckId) ? "Hide" : "Show"} ${escapeHtml(subdeck.title)}
+                  </button>
+                `,
+              )
+              .join("")}
+            ${
+              moduleId === "past_tense"
+                ? `
+                  <button class="button button-ghost" data-action="toggle-speaker-gender">
+                    Speaker gender: ${escapeHtml(state.progress.preferences.speakerGender)}
+                  </button>
+                `
+                : ""
+            }
+          </div>
+        </div>
+        <div class="hero-metrics">
+          <div class="metric-block">
+            <span class="metric-label">Due now</span>
+            <strong>${moduleDueAtoms(moduleId).length}</strong>
+            <span class="metric-detail">${moduleCoverage(moduleId)}% seen</span>
+          </div>
+          <div class="metric-block">
+            <span class="metric-label">Trend</span>
+            <strong>${escapeHtml(trend.title)}</strong>
+            <span class="metric-detail">${escapeHtml(trend.detail)}</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="chip-row">
+        ${module.subdecks
+          .filter(
+            (subdeck) =>
+              !subdeck.hiddenByDefault || moduleProgress.hiddenEnabled.includes(subdeck.subdeckId),
+          )
+          .map(
+            (subdeck) => `
+              <button
+                class="module-chip ${moduleProgress.selectedSubdeckId === subdeck.subdeckId ? "active" : ""}"
+                data-action="select-subdeck"
+                data-module-id="${moduleId}"
+                data-subdeck-id="${subdeck.subdeckId}"
+              >
+                ${escapeHtml(subdeck.title)}
+              </button>
+            `,
+          )
+          .join("")}
+      </section>
+
+      <section class="top-grid">
+        ${descriptor ? genericPracticeCard(descriptor, moduleId) : `<article class="practice card"><p class="hero-text">No visible atoms yet.</p></article>`}
+        ${genericAnalyticsCard(moduleId, moduleId)}
+      </section>
+
+      <section class="bottom-grid">
+        <article class="card">
+          <div class="panel-header">
+            <div>
+              <p class="section-label">Weak-spot view</p>
+              <h2>${escapeHtml(module.analytics?.heatmap || "Atom surface")}</h2>
+            </div>
+          </div>
+          ${renderHeatmap(moduleId)}
+        </article>
+      </section>
+    `;
+  }
+
+  function renderMixedReviewPage() {
+    ensureMixedReviewQueue();
+    const review = state.progress.mixedReview;
+    const descriptor = currentPromptDescriptor();
+    const modeButtons = state.curriculum.mixedReviewRules.modes
+      .map(
+        (mode) => `
+          <button class="module-chip ${review.mode === mode.id ? "active" : ""}" data-action="set-mixed-mode" data-mode-id="${mode.id}">
+            ${escapeHtml(mode.title)}
+          </button>
+        `,
+      )
+      .join("");
+
+    const queueMeta = descriptor
+      ? `
+        <div class="queue-meta">
+          <span class="mini-chip active">${review.currentIndex + 1} / ${review.queue.length || 20}</span>
+          <span class="mini-chip">${escapeHtml(
+            state.curriculum.modulesById[descriptor.moduleId].title,
+          )}</span>
+        </div>
+      `
+      : "";
+
+    return `
+      <section class="hero card compact-hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Mixed Review</p>
+          <h1>Daily gym across modules</h1>
+          <p class="hero-text">${escapeHtml(state.curriculum.mixedReviewRules.purpose)}</p>
+        </div>
+        <div class="hero-metrics">
+          <div class="metric-block">
+            <span class="metric-label">Current mode</span>
+            <strong>${escapeHtml(review.mode)}</strong>
+            <span class="metric-detail">${review.queue.length} queued reps</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="chip-row">
+        ${modeButtons}
+      </section>
+
+      <section class="top-grid">
+        ${descriptor ? genericPracticeCard(descriptor, "mixed_review", queueMeta) : `<article class="practice card"><p class="hero-text">No eligible atoms yet. Train a home module first.</p></article>`}
+        <article class="session card">
+          <div class="session-header">
+            <div>
+              <p class="section-label">Rules</p>
+              <h2>Only seen atoms qualify</h2>
+            </div>
+          </div>
+          <div class="weak-list">
+            ${state.curriculum.mixedReviewRules.modes
+              .map(
+                (mode) => `
+                  <div class="weak-row">
+                    <strong>${escapeHtml(mode.title)}</strong>
+                    <span>${escapeHtml(mode.selectionRule)}</span>
+                  </div>
+                `,
+              )
+              .join("")}
+          </div>
+        </article>
+      </section>
+    `;
+  }
+
+  function navigationHtml() {
+    const items = [
+      { id: "home", title: "Home", href: "#home" },
+      { id: "keyboard", title: "Keyboard", href: "#keyboard" },
+      ...state.curriculum.moduleOrder.map((moduleId) => ({
+        id: moduleId,
+        title: state.curriculum.modulesById[moduleId].title,
+        href: `#${moduleId}`,
+      })),
+      { id: "mixed_review", title: "Mixed Review", href: "#mixed-review" },
+    ];
+
+    return items
+      .map(
+        (item) => `
+          <a class="nav-chip ${state.route === item.id ? "active" : ""}" href="${item.href}">
+            ${escapeHtml(item.title)}
+          </a>
+        `,
+      )
+      .join("");
+  }
+
+  function saveStatusText() {
+    if (!state.ready) {
+      return "Loading";
+    }
+    if (state.saveInFlight || state.saveQueued) {
+      return "Saving";
+    }
+    if (state.serverError) {
+      return "Offline";
+    }
+    if (state.lastSaveOutcome === "saved") {
+      return "Synced";
+    }
+    return "Ready";
+  }
+
+  function renderShell(contentHtml) {
+    state.root.innerHTML = `
+      <header class="app-header card">
+        <div>
+          <p class="eyebrow">Russian Skill Coach</p>
+          <h1>Russian Skill Coach</h1>
+        </div>
+        <div class="header-actions">
+          <span class="save-pill ${state.serverError ? "offline" : ""}">${escapeHtml(
+            saveStatusText(),
+          )}</span>
+          <button class="button button-ghost" data-action="export-data">Export</button>
+          <button class="button button-ghost" data-action="import-data">Import</button>
+          <button class="button button-danger" data-action="reset-data">Reset</button>
+          <input id="app-import-input" type="file" accept="application/json" hidden />
+        </div>
+      </header>
+
+      <nav class="nav-row">
+        ${navigationHtml()}
+      </nav>
+
+      <main class="page-stack">
+        ${contentHtml}
+      </main>
+    `;
+  }
+
+  function syncPromptTimer() {
+    if (!isGenericPracticeRoute(state.route)) {
+      stopGenericTimer();
       return;
     }
 
-    const elapsed = performance.now() - session.promptStartedAt;
-    elements.liveTimer.textContent = formatMs(elapsed);
-    timerFrame = requestAnimationFrame(tick);
-  };
-
-  timerFrame = requestAnimationFrame(tick);
-}
-
-function registerAttempt(letter, timeMs, errors) {
-  const stats = data.letters[letter];
-  const now = Date.now();
-  stats.attempts += 1;
-  stats.totalTimeMs += timeMs;
-  stats.totalErrors += errors;
-  stats.lastSeenAt = now;
-  stats.bestTimeMs =
-    stats.bestTimeMs === null ? timeMs : Math.min(stats.bestTimeMs, timeMs);
-  stats.recent.push({ timeMs, errors, at: now });
-  stats.recent = stats.recent.slice(-RECENT_PER_LETTER);
-
-  data.totals.attempts += 1;
-  data.totals.totalTimeMs += timeMs;
-  data.totals.totalErrors += errors;
-  data.totals.bestStreak = Math.max(data.totals.bestStreak, session.currentStreak);
-  data.history.push({ letter, timeMs, errors, at: now });
-  data.history = data.history.slice(-HISTORY_LIMIT);
-  void saveData();
-}
-
-function advancePrompt() {
-  session.previousLetters = [session.currentLetter, ...session.previousLetters].slice(
-    0,
-    3,
-  );
-  session.currentLetter = pickWeightedLetter();
-  session.transitioning = false;
-  session.promptStartedAt = performance.now();
-  session.errorsThisAttempt = 0;
-  session.layoutHintUntil = 0;
-  session.message = "Find the highlighted letter on your Russian keyboard.";
-  elements.targetDisplay.classList.remove("correct", "wrong", "idle");
-  elements.targetDisplay.classList.add("live");
-  render();
-  startTimerLoop();
-}
-
-function completeCurrentLetter() {
-  if (!session.active || !session.promptStartedAt) {
-    return;
-  }
-
-  const timeMs = performance.now() - session.promptStartedAt;
-  const errors = session.errorsThisAttempt;
-
-  session.attempts += 1;
-  session.totalTimeMs += timeMs;
-  session.totalErrors += errors;
-  session.currentStreak += 1;
-  session.bestStreak = Math.max(session.bestStreak, session.currentStreak);
-  if (errors === 0) {
-    session.cleanHits += 1;
-  }
-
-  registerAttempt(session.currentLetter, timeMs, errors);
-  session.transitioning = true;
-  session.promptStartedAt = 0;
-  cancelAnimationFrame(timerFrame);
-
-  elements.targetDisplay.classList.remove("wrong");
-  elements.targetDisplay.classList.add("correct");
-  flashStatus(errors === 0 ? "Clean" : "Correct", "flash-correct");
-
-  const linePool = errors === 0 ? SUCCESS_LINES : RECOVER_LINES;
-  const line = linePool[Math.floor(Math.random() * linePool.length)];
-  const detail =
-    errors === 0
-      ? `${line} ${formatMs(timeMs)}.`
-      : `${line} ${formatMs(timeMs)} with ${errors} miss${errors === 1 ? "" : "es"}.`;
-  setFeedback(detail);
-
-  render();
-
-  window.setTimeout(() => {
-    if (!session.active) {
+    const promptKey = currentPromptKey();
+    if (!promptKey) {
+      stopGenericTimer();
       return;
     }
-    advancePrompt();
-  }, 280);
-}
 
-function handleWrongKey(rawKey) {
-  if (!session.active || session.transitioning) {
-    return;
-  }
-
-  session.errorsThisAttempt += 1;
-  session.currentStreak = 0;
-  elements.targetDisplay.classList.remove("correct");
-  elements.targetDisplay.classList.add("wrong");
-  flashStatus("Miss", "flash-wrong");
-  setFeedback(
-    `Not ${session.currentLetter}. Misses this round: ${session.errorsThisAttempt}.`,
-  );
-
-  if (/^[a-z]$/i.test(rawKey)) {
-    session.layoutHintUntil = Date.now() + 2500;
-  }
-
-  render();
-}
-
-function handleKeydown(event) {
-  if (event.repeat) {
-    return;
-  }
-
-  if (!appState.ready) {
-    return;
-  }
-
-  if (event.key === "Escape") {
-    pauseSession();
-    return;
-  }
-
-  if (!session.active) {
-    if (event.key === "Enter") {
-      event.preventDefault();
-      startSession({ fresh: session.attempts === 0 });
+    startGenericTimer(promptKey);
+    const autofocus = state.root.querySelector("[data-autofocus]");
+    if (autofocus) {
+      autofocus.focus();
+      autofocus.select?.();
     }
-    return;
   }
 
-  if (session.transitioning) {
-    return;
+  function mountKeyboardPage() {
+    renderShell(`<section id="keyboard-mount"></section>`);
+    const mount = state.root.querySelector("#keyboard-mount");
+    if (!state.keyboardController) {
+      state.keyboardController = Coach.keyboard.createController({
+        getProgress: () => state.progress,
+        markDirty,
+      });
+    }
+    state.keyboardController.mount(mount);
+    stopGenericTimer();
   }
 
-  if (event.key.length !== 1) {
-    return;
+  function unmountKeyboardPage() {
+    if (state.keyboardController) {
+      state.keyboardController.unmount();
+    }
   }
 
-  event.preventDefault();
-  const key = event.key.toLowerCase();
+  function render() {
+    if (!state.ready) {
+      renderLoading("Loading Russian Skill Coach...");
+      return;
+    }
 
-  if (key === session.currentLetter) {
-    completeCurrentLetter();
-    return;
+    if (state.route === "keyboard") {
+      mountKeyboardPage();
+      return;
+    }
+
+    unmountKeyboardPage();
+
+    if (state.route === "home") {
+      renderShell(renderHomePage());
+    } else if (state.route === "mixed_review") {
+      renderShell(renderMixedReviewPage());
+    } else if (isModuleRoute(state.route)) {
+      renderShell(renderGenericModulePage(state.route));
+    } else {
+      renderShell(renderHomePage());
+    }
+
+    syncPromptTimer();
   }
 
-  handleWrongKey(key);
-}
+  function markDirty() {
+    if (!state.progress) {
+      return;
+    }
+    state.progress.updatedAt = Date.now();
+    state.saveQueued = true;
+    void flushSaveQueue();
+  }
 
-function exportData() {
-  const blob = new Blob([JSON.stringify(data, null, 2)], {
-    type: "application/json",
-  });
-  const url = URL.createObjectURL(blob);
-  const anchor = document.createElement("a");
-  anchor.href = url;
-  anchor.download = `russian-key-coach-${new Date().toISOString().slice(0, 10)}.json`;
-  anchor.click();
-  URL.revokeObjectURL(url);
-  setFeedback("Progress exported.");
-}
+  async function flushSaveQueue() {
+    if (state.saveInFlight || !state.saveQueued || !state.ready) {
+      return;
+    }
 
-function importData(file) {
-  const reader = new FileReader();
-  reader.onload = async () => {
+    state.saveInFlight = true;
+    window.clearTimeout(state.retryTimer);
+
     try {
-      data = sanitizeData(JSON.parse(String(reader.result)));
+      while (state.saveQueued && state.ready) {
+        state.saveQueued = false;
+        const result = await Progress.putProgress(
+          state.progress,
+          state.serverUpdatedAt,
+          state.curriculum,
+        );
+
+        if (result.conflict) {
+          state.progress = result.progress;
+          state.serverUpdatedAt = result.updatedAt;
+          state.lastSaveOutcome = "conflict";
+          setFeedback(getRouteKey() || "home", "Another tab saved first. The latest server copy won.");
+          render();
+          return;
+        }
+
+        state.progress = result.progress;
+        state.serverUpdatedAt = result.updatedAt;
+        state.serverError = false;
+        state.lastSaveOutcome = "saved";
+      }
+    } catch (error) {
+      state.serverError = true;
+      state.lastSaveOutcome = "error";
+      state.saveQueued = true;
+      console.error(error);
+      state.retryTimer = window.setTimeout(() => {
+        void flushSaveQueue();
+      }, Progress.SAVE_RETRY_MS);
+    } finally {
+      state.saveInFlight = false;
+      if (state.route !== "keyboard") {
+        render();
+      }
+    }
+  }
+
+  async function exportData() {
+    const blob = new Blob([JSON.stringify(state.progress, null, 2)], {
+      type: "application/json",
+    });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = `russian-skill-coach-${new Date().toISOString().slice(0, 10)}.json`;
+    anchor.click();
+    URL.revokeObjectURL(url);
+  }
+
+  async function importData(file) {
+    try {
+      const text = await file.text();
+      state.progress = Progress.sanitizeProgress(JSON.parse(text), state.curriculum);
+      markDirty();
+      render();
     } catch (error) {
       console.error(error);
-      setFeedback("Import failed. Pick a valid export file.");
+      window.alert("Import failed. Pick a valid progress export.");
+    }
+  }
+
+  async function resetData() {
+    const confirmed = window.confirm("Reset all saved progress for Russian Skill Coach?");
+    if (!confirmed) {
+      return;
+    }
+
+    state.progress = Progress.createDefaultProgress(state.curriculum);
+    state.runtime.sessions = {};
+    state.progress.navigation.lastRoute = "home";
+    state.route = "home";
+    markDirty();
+    render();
+  }
+
+  function routeTo(route) {
+    const normalized = normalizeRoute(route);
+    if (state.route === normalized) {
+      return;
+    }
+
+    if (state.route === "keyboard") {
+      unmountKeyboardPage();
+    }
+
+    stopGenericTimer();
+    state.route = normalized;
+    Progress.setNavigation(state.progress, normalized, isModuleRoute(normalized) ? normalized : undefined);
+    markDirty();
+    render();
+  }
+
+  function completePracticeAttempt(descriptor, timeMs, errors) {
+    const ownerKey = getRouteKey();
+    const session = getSession(ownerKey);
+    session.attempts += 1;
+    session.cleanHits += errors === 0 ? 1 : 0;
+    session.totalTimeMs += timeMs;
+    session.totalErrors += errors;
+    session.currentStreak += 1;
+    session.bestStreak = Math.max(session.bestStreak, session.currentStreak);
+    session.recentAtomIds = [descriptor.atom.id, ...session.recentAtomIds].slice(0, 4);
+    setFeedback(
+      ownerKey,
+      errors === 0
+        ? `Clean rep. ${formatMs(timeMs)}.`
+        : `Corrected in ${formatMs(timeMs)} with ${errors} strike${errors === 1 ? "" : "s"}.`,
+    );
+
+    Progress.recordAtomAttempt(
+      state.progress,
+      state.curriculum,
+      descriptor.moduleId,
+      descriptor.atom.id,
+      descriptor.prompt.stageId,
+      timeMs,
+      errors,
+      session.currentStreak,
+    );
+
+    if (state.route === "mixed_review") {
+      state.progress.mixedReview.totals.attempts += 1;
+      state.progress.mixedReview.totals.totalTimeMs += timeMs;
+      state.progress.mixedReview.totals.totalErrors += errors;
+      state.progress.mixedReview.totals.bestStreak = Math.max(
+        state.progress.mixedReview.totals.bestStreak,
+        session.currentStreak,
+      );
+      state.progress.mixedReview.pendingPrompt = null;
+      state.progress.mixedReview.currentIndex += 1;
+      if (state.progress.mixedReview.currentIndex >= state.progress.mixedReview.queue.length) {
+        state.progress.mixedReview.queue = [];
+        state.progress.mixedReview.currentIndex = 0;
+      }
+    }
+
+    stopGenericTimer();
+    markDirty();
+    render();
+  }
+
+  function handleChoice(index) {
+    const descriptor = currentPromptDescriptor();
+    if (!descriptor) {
+      return;
+    }
+
+    const choice = descriptor.prompt.options[index];
+    if (!choice) {
+      return;
+    }
+
+    const expected = descriptor.expectedAnswer;
+    if (answersMatch(choice.value, expected)) {
+      const elapsed = performance.now() - state.runtime.practice.startedAt;
+      completePracticeAttempt(descriptor, elapsed, state.runtime.practice.errorsThisAttempt);
+      return;
+    }
+
+    bumpError();
+    setFeedback(getRouteKey(), `Not ${expected}. Error strikes: ${state.runtime.practice.errorsThisAttempt}.`);
+    render();
+  }
+
+  function handlePreviewAdvance() {
+    const descriptor = currentPromptDescriptor();
+    if (!descriptor) {
+      return;
+    }
+
+    const elapsed = performance.now() - state.runtime.practice.startedAt;
+    completePracticeAttempt(descriptor, elapsed, 0);
+  }
+
+  function handleLineOrder(index) {
+    const descriptor = currentPromptDescriptor();
+    if (!descriptor) {
+      return;
+    }
+
+    const choice = descriptor.prompt.options[index];
+    if (!choice) {
+      return;
+    }
+
+    const nextIndex = state.runtime.practice.orderSelection.length;
+    const expected = descriptor.prompt.sequence[nextIndex];
+    if (answersMatch(choice.value, expected)) {
+      state.runtime.practice.orderSelection.push(choice.value);
+      if (state.runtime.practice.orderSelection.length === descriptor.prompt.sequence.length) {
+        const elapsed = performance.now() - state.runtime.practice.startedAt;
+        completePracticeAttempt(descriptor, elapsed, state.runtime.practice.errorsThisAttempt);
+        return;
+      }
       render();
       return;
     }
 
-    const outcome = await saveData();
-    if (outcome === "saved") {
-      pauseSession("Imported progress. Start when ready.");
-      setFeedback("Progress imported.");
-    } else if (outcome === "error") {
-      pauseSession("Imported progress is waiting to reach the server.");
-      setFeedback("Import loaded in this tab, but the server save is retrying.");
-    }
+    bumpError();
+    state.runtime.practice.orderSelection = [];
+    setFeedback(getRouteKey(), `Wrong order. Error strikes: ${state.runtime.practice.errorsThisAttempt}.`);
     render();
-  };
-  reader.readAsText(file);
-}
-
-async function resetData() {
-  const confirmed = window.confirm(
-    "Reset all saved progress for Russian Key Coach?",
-  );
-  if (!confirmed) {
-    return;
   }
 
-  data = createDefaultData();
-  const outcome = await saveData();
-  if (outcome === "saved") {
-    session = createSession();
-    pauseSession("Progress reset. Start a new run.");
-    setFeedback("Progress reset.");
-  } else if (outcome === "error") {
-    pauseSession("Reset is waiting to reach the server.");
-    setFeedback("Reset is queued, but the server save is retrying.");
-  }
-  render();
-}
-
-function computeCoverage() {
-  const practiced = LETTERS.filter((letter) => data.letters[letter].attempts > 0).length;
-  const solid = LETTERS.filter((letter) => data.letters[letter].attempts >= 5).length;
-  return { practiced, solid };
-}
-
-function computeTrendSummary() {
-  const recent = data.history.slice(-20);
-  const previous = data.history.slice(-40, -20);
-
-  if (recent.length < 8 || previous.length < 8) {
-    return {
-      title: "Waiting for a stronger sample",
-      detail: "Keep going. Trend cards become useful after about 16 attempts.",
-    };
-  }
-
-  const recentAvg = average(recent, (item) => item.timeMs);
-  const previousAvg = average(previous, (item) => item.timeMs);
-  const diff = Math.round(recentAvg - previousAvg);
-  const recentErrors = average(recent, (item) => item.errors);
-  const previousErrors = average(previous, (item) => item.errors);
-  const errorDiff = recentErrors - previousErrors;
-
-  if (diff < -40 || errorDiff < -0.08) {
-    const title =
-      diff < -40 ? `${Math.abs(diff)} ms faster lately` : "Cleaner lately";
-    return {
-      title,
-      detail: `${Math.abs(errorDiff).toFixed(2)} fewer errors than the 20 attempts before.`,
-    };
-  }
-
-  if (diff > 40 || errorDiff > 0.08) {
-    const title = diff > 40 ? `${diff} ms slower lately` : "More misses lately";
-    return {
-      title,
-      detail: `${errorDiff.toFixed(2)} more errors than the 20 attempts before. That is usually temporary.`,
-    };
-  }
-
-  return {
-    title: "Holding steady",
-    detail: "Speed and error rate are close to your previous 20 attempts.",
-  };
-}
-
-function buildFocusLetters() {
-  return LETTERS.map(buildLetterProfile)
-    .sort((a, b) => b.difficulty - a.difficulty)
-    .slice(0, 6);
-}
-
-function renderFocusLetters() {
-  const profiles = buildFocusLetters();
-  elements.focusLetters.innerHTML = "";
-
-  profiles.forEach((profile) => {
-    const chip = document.createElement("div");
-    chip.className = "focus-chip";
-    const detail = profile.attempts
-      ? `${formatMs(profile.stats.totalTimeMs / profile.attempts)} avg, ${formatErrors(
-          profile.stats.totalErrors / profile.attempts,
-        )} avg errors`
-      : "No attempts yet. Still rotating in for coverage.";
-    const attemptsLabel = profile.attempts
-      ? `${profile.attempts} attempts logged`
-      : "Fresh letter";
-    chip.innerHTML = `
-      <strong>${profile.letter}</strong>
-      <p>${detail}</p>
-      <p>${attemptsLabel}</p>
-    `;
-    elements.focusLetters.appendChild(chip);
-  });
-}
-
-function colorForProfile(profile) {
-  const normalized = clamp((profile.difficulty - 0.8) / 1.2, 0, 1);
-  const hue = 148 - normalized * 92;
-  const saturation = 64 + normalized * 12;
-  const lightness = 82 - normalized * 24;
-  return `hsl(${hue} ${saturation}% ${lightness}%)`;
-}
-
-function renderKeyboard() {
-  const profiles = Object.fromEntries(LETTERS.map((letter) => [letter, buildLetterProfile(letter)]));
-  elements.keyboardMap.innerHTML = "";
-
-  KEYBOARD_ROWS.forEach((row) => {
-    const rowElement = document.createElement("div");
-    rowElement.className = "keyboard-row";
-
-    row.forEach((letter) => {
-      const profile = profiles[letter];
-      const title = profile.attempts
-        ? `${letter}: ${formatMs(
-            profile.stats.totalTimeMs / profile.attempts,
-          )}, ${formatErrors(profile.stats.totalErrors / profile.attempts)} avg errors`
-        : `${letter}: no attempts yet`;
-      const key = document.createElement("div");
-      key.className = `keyboard-key ${profile.attempts ? "" : "untouched"} ${
-        session.currentLetter === letter ? "target" : ""
-      }`;
-      key.style.background = profile.attempts
-        ? colorForProfile(profile)
-        : "rgba(255, 255, 255, 0.78)";
-      key.title = title;
-      key.innerHTML = `
-        <span class="letter">${letter}</span>
-        <span class="meta">${profile.attempts || "new"}</span>
-      `;
-      rowElement.appendChild(key);
-    });
-
-    elements.keyboardMap.appendChild(rowElement);
-  });
-}
-
-function renderStatsTable() {
-  const rows = LETTERS.map(buildLetterProfile).sort(
-    (a, b) => b.difficulty - a.difficulty,
-  );
-  elements.statsTableBody.innerHTML = "";
-
-  rows.forEach((profile) => {
-    const lifetimeAvgTime = profile.attempts
-      ? profile.stats.totalTimeMs / profile.attempts
-      : null;
-    const lifetimeAvgErrors = profile.attempts
-      ? profile.stats.totalErrors / profile.attempts
-      : null;
-    const recentAvgTime = profile.attempts ? profile.recentAvgTime : null;
-    const recentAvgErrors = profile.attempts ? profile.recentAvgErrors : null;
-    const trendDiff =
-      lifetimeAvgTime === null || recentAvgTime === null
-        ? 0
-        : recentAvgTime - lifetimeAvgTime;
-    const trendClass =
-      trendDiff < -25 ? "trend-down" : trendDiff > 25 ? "trend-up" : "trend-flat";
-    const trendText =
-      profile.attempts === 0
-        ? "New"
-        : trendDiff < -25
-          ? `${Math.abs(Math.round(trendDiff))} ms faster`
-          : trendDiff > 25
-            ? `${Math.round(trendDiff)} ms slower`
-            : "Stable";
-
-    const row = document.createElement("tr");
-    row.innerHTML = `
-      <td><strong>${profile.letter}</strong></td>
-      <td>${profile.attempts}</td>
-      <td>${displayMs(lifetimeAvgTime)}</td>
-      <td>${displayMs(recentAvgTime)}</td>
-      <td>${displayErrors(lifetimeAvgErrors)}</td>
-      <td>${displayErrors(recentAvgErrors)}</td>
-      <td class="${trendClass}">${trendText}</td>
-    `;
-    elements.statsTableBody.appendChild(row);
-  });
-}
-
-function renderFeedback() {
-  elements.feedbackMessage.textContent = session.message;
-  const showHint = session.layoutHintUntil > Date.now();
-  elements.layoutHint.classList.toggle("hidden", !showHint);
-}
-
-function renderSummary() {
-  const coverage = computeCoverage();
-  const trend = computeTrendSummary();
-  const lifetime = getLifetimeAverages();
-  const sessionAvgTime = session.attempts
-    ? session.totalTimeMs / session.attempts
-    : 0;
-  const sessionAvgErrors = session.attempts
-    ? session.totalErrors / session.attempts
-    : 0;
-  const cleanRate = session.attempts
-    ? Math.round((session.cleanHits / session.attempts) * 100)
-    : 0;
-
-  elements.coverageCount.textContent = `${coverage.practiced} / ${LETTERS.length}`;
-  elements.coverageDetail.textContent = `${coverage.solid} letters have at least five logged attempts.`;
-  elements.recentTrend.textContent = trend.title;
-  elements.recentTrendDetail.textContent = trend.detail;
-  elements.sessionBadge.textContent =
-    session.currentStreak >= 10
-      ? "Hot streak"
-      : session.attempts >= 1
-        ? "In session"
-        : "Fresh run";
-  elements.sessionAttempts.textContent = String(session.attempts);
-  elements.sessionCleanRate.textContent = `${cleanRate}% clean hits`;
-  elements.sessionAverageTime.textContent = session.attempts
-    ? formatMs(sessionAvgTime)
-    : "0 ms";
-  elements.sessionAverageTimeDetail.textContent =
-    session.attempts >= 5
-      ? `Last attempt: ${formatMs(data.history.at(-1)?.timeMs || 0)}`
-      : "Session average";
-  elements.sessionAverageErrors.textContent = formatErrors(sessionAvgErrors);
-  elements.sessionBestStreak.textContent = `Best streak: ${session.bestStreak}`;
-  elements.lifetimeAverageTime.textContent = data.totals.attempts
-    ? formatMs(lifetime.avgTimeMs)
-    : "0 ms";
-  elements.lifetimeAverageErrors.textContent = `${formatErrors(
-    lifetime.avgErrors,
-  )} avg errors`;
-  elements.lifetimeTotals.textContent = `${data.totals.attempts} attempts | ${formatStudyDuration(
-    data.totals.totalTimeMs,
-  )} studied`;
-  elements.leaderboardTotalAttempts.textContent = String(data.totals.attempts);
-  elements.leaderboardTotalStudyTime.textContent = formatStudyDuration(
-    data.totals.totalTimeMs,
-  );
-  elements.startButton.textContent = !appState.ready
-    ? "Loading..."
-    : session.active
-      ? "New session"
-      : session.attempts > 0
-        ? "Resume"
-        : "Start";
-  elements.startButton.disabled = !appState.ready;
-  elements.pauseButton.disabled = !appState.ready || !session.active;
-  elements.exportButton.disabled = !appState.ready;
-  elements.importButton.disabled = !appState.ready;
-  elements.resetButton.disabled = !appState.ready;
-}
-
-function renderAttemptPanel() {
-  elements.targetLetter.textContent = session.currentLetter.toUpperCase();
-  elements.attemptErrors.textContent = String(session.errorsThisAttempt);
-  elements.currentStreak.textContent = String(session.currentStreak);
-  elements.liveTimer.textContent =
-    session.active && session.promptStartedAt
-      ? formatMs(performance.now() - session.promptStartedAt)
-      : "0 ms";
-}
-
-function render() {
-  renderAttemptPanel();
-  renderSummary();
-  renderFeedback();
-  renderFocusLetters();
-  renderKeyboard();
-  renderStatsTable();
-}
-
-function attachEvents() {
-  elements.startButton.addEventListener("click", () => {
-    if (!appState.ready) {
+  function handleTypedSubmit(form) {
+    const descriptor = currentPromptDescriptor();
+    if (!descriptor) {
       return;
     }
-    const fresh = session.active || session.attempts === 0;
-    startSession({ fresh });
-  });
 
-  elements.pauseButton.addEventListener("click", () => pauseSession());
-  elements.exportButton.addEventListener("click", exportData);
-  elements.importButton.addEventListener("click", () => elements.importInput.click());
-  elements.importInput.addEventListener("change", (event) => {
-    const [file] = event.target.files || [];
-    if (file) {
-      importData(file);
+    const answer = new FormData(form).get("answer");
+    if (answersMatch(answer, descriptor.expectedAnswer)) {
+      const elapsed = performance.now() - state.runtime.practice.startedAt;
+      completePracticeAttempt(descriptor, elapsed, state.runtime.practice.errorsThisAttempt);
+      return;
     }
-    event.target.value = "";
-  });
-  elements.resetButton.addEventListener("click", resetData);
-  document.addEventListener("keydown", handleKeydown);
-}
 
-attachEvents();
-pauseSession("Loading saved progress from the server...");
-render();
-
-async function initialize() {
-  try {
-    await loadServerData();
-    pauseSession("Press Start, switch your keyboard layout to Russian, and type the letter shown.");
-    render();
-  } catch (error) {
-    console.error(error);
-    pauseSession("Could not load saved progress from the server. Refresh to try again.");
-    setFeedback("Server load failed, so the app stayed read-only.");
+    bumpError();
+    setFeedback(
+      getRouteKey(),
+      `Not ${descriptor.expectedAnswer}. Error strikes: ${state.runtime.practice.errorsThisAttempt}.`,
+    );
     render();
   }
-}
 
-void initialize();
+  function handleClick(event) {
+    const actionTarget = event.target.closest("[data-action]");
+    if (!actionTarget) {
+      return;
+    }
+
+    const action = actionTarget.dataset.action;
+    if (action === "resume-last") {
+      event.preventDefault();
+      const route =
+        state.progress.navigation.lastRoute ||
+        state.progress.navigation.lastModuleId ||
+        "keyboard";
+      window.location.hash = route === "mixed_review" ? "mixed-review" : route;
+      return;
+    }
+
+    if (action === "start-before-class") {
+      event.preventDefault();
+      state.progress.mixedReview.mode = "before_class";
+      state.progress.navigation.mixedReviewMode = "before_class";
+      state.progress.mixedReview.queue = [];
+      window.location.hash = "mixed-review";
+      return;
+    }
+
+    if (action === "export-data") {
+      event.preventDefault();
+      void exportData();
+      return;
+    }
+
+    if (action === "import-data") {
+      event.preventDefault();
+      state.root.querySelector("#app-import-input")?.click();
+      return;
+    }
+
+    if (action === "reset-data") {
+      event.preventDefault();
+      void resetData();
+      return;
+    }
+
+    if (action === "toggle-hidden-subdeck") {
+      event.preventDefault();
+      const { moduleId, subdeckId } = actionTarget.dataset;
+      const enabled = !state.progress.modules[moduleId].hiddenEnabled.includes(subdeckId);
+      Progress.setHiddenSubdeck(state.progress, moduleId, subdeckId, enabled);
+      state.progress.modules[moduleId].pendingPrompt = null;
+      markDirty();
+      render();
+      return;
+    }
+
+    if (action === "toggle-speaker-gender") {
+      event.preventDefault();
+      state.progress.preferences.speakerGender =
+        state.progress.preferences.speakerGender === "fem" ? "masc" : "fem";
+      markDirty();
+      render();
+      return;
+    }
+
+    if (action === "select-subdeck") {
+      event.preventDefault();
+      Progress.setSelectedSubdeck(
+        state.progress,
+        actionTarget.dataset.moduleId,
+        actionTarget.dataset.subdeckId,
+      );
+      state.progress.modules[actionTarget.dataset.moduleId].pendingPrompt = null;
+      markDirty();
+      render();
+      return;
+    }
+
+    if (action === "preview-advance") {
+      event.preventDefault();
+      handlePreviewAdvance();
+      return;
+    }
+
+    if (action === "choice-answer") {
+      event.preventDefault();
+      handleChoice(Number(actionTarget.dataset.optionIndex));
+      return;
+    }
+
+    if (action === "line-order-pick") {
+      event.preventDefault();
+      handleLineOrder(Number(actionTarget.dataset.optionIndex));
+      return;
+    }
+
+    if (action === "set-mixed-mode") {
+      event.preventDefault();
+      state.progress.mixedReview.mode = actionTarget.dataset.modeId;
+      state.progress.navigation.mixedReviewMode = actionTarget.dataset.modeId;
+      state.progress.mixedReview.queue = [];
+      state.progress.mixedReview.currentIndex = 0;
+      state.progress.mixedReview.pendingPrompt = null;
+      markDirty();
+      render();
+    }
+  }
+
+  function handleSubmit(event) {
+    const form = event.target.closest("[data-form='typed-answer']");
+    if (!form) {
+      return;
+    }
+
+    event.preventDefault();
+    handleTypedSubmit(form);
+  }
+
+  function handleImportChange(event) {
+    const [file] = event.target.files || [];
+    if (file) {
+      void importData(file);
+    }
+    event.target.value = "";
+  }
+
+  function handleDocumentKeydown(event) {
+    if (state.route === "keyboard" && state.keyboardController?.handleKeydown(event)) {
+      return;
+    }
+  }
+
+  function attachGlobalEvents() {
+    state.root.addEventListener("click", handleClick);
+    state.root.addEventListener("submit", handleSubmit);
+    state.root.addEventListener("change", (event) => {
+      if (event.target.matches("#app-import-input")) {
+        handleImportChange(event);
+      }
+    });
+    document.addEventListener("keydown", handleDocumentKeydown);
+    window.addEventListener("hashchange", () => {
+      state.route = normalizeRoute(routeFromHash() || state.progress.navigation.lastRoute || "home");
+      Progress.setNavigation(
+        state.progress,
+        state.route,
+        isModuleRoute(state.route) ? state.route : undefined,
+      );
+      render();
+    });
+  }
+
+  async function initialize() {
+    state.root = document.getElementById("app");
+    renderLoading("Loading curriculum pack...");
+
+    try {
+      state.curriculum = await Coach.curriculum.load();
+      attachGlobalEvents();
+      const loaded = await Progress.fetchProgress(state.curriculum);
+      state.progress = loaded.progress;
+      state.serverUpdatedAt = loaded.updatedAt;
+      state.ready = true;
+    } catch (error) {
+      console.error(error);
+      if (!state.curriculum) {
+        renderLoading("Could not load curriculum files.");
+        return;
+      }
+
+      state.progress = Progress.createDefaultProgress(state.curriculum);
+      state.serverUpdatedAt = 0;
+      state.serverError = true;
+      state.ready = true;
+    }
+
+    state.route = normalizeRoute(
+      routeFromHash() || state.progress.navigation.lastRoute || "home",
+    );
+    render();
+  }
+
+  void initialize();
+})();

@@ -1,0 +1,480 @@
+{
+  "moduleId": "core_patterns",
+  "title": "Core Patterns",
+  "purpose": "Drill fixed high-utility frames like future быть and у ... есть.",
+  "defaultStageProfile": "grammar_full",
+  "analytics": {
+    "heatmap": "owner/pronoun x pattern"
+  },
+  "uiSignature": "Frame-builder layout. The stable frame is neutral ink; the changing slot is coral during guided stages.",
+  "subdeckRules": [
+    "Teach the owner phrase itself before mixing in nouns.",
+    "Keep future быть and у ... есть separate in the UI."
+  ],
+  "referenceTable": {
+    "futureByt": {
+      "lemma": "быть",
+      "translation": "to be",
+      "forms": {
+        "1sg": "буду",
+        "2sg": "будешь",
+        "3sg": "будет",
+        "1pl": "будем",
+        "2pl": "будете",
+        "3pl": "будут"
+      },
+      "sourcePages": [
+        9,
+        30
+      ]
+    },
+    "uEstForms": [
+      {
+        "id": "u_menya_est",
+        "owner": "я",
+        "phrase": "у меня есть",
+        "translation": "I have",
+        "sampleNoun": "брат",
+        "sampleSentence": "У меня есть брат.",
+        "sourcePages": [
+          34,
+          35
+        ]
+      },
+      {
+        "id": "u_tebya_est",
+        "owner": "ты",
+        "phrase": "у тебя есть",
+        "translation": "you have",
+        "sampleNoun": "время",
+        "sampleSentence": "У тебя есть время?",
+        "sourcePages": [
+          34,
+          35
+        ]
+      },
+      {
+        "id": "u_nego_est",
+        "owner": "он / оно",
+        "phrase": "у него есть",
+        "translation": "he has / it has",
+        "sampleNoun": "машина",
+        "sampleSentence": "У него есть машина.",
+        "sourcePages": [
+          34,
+          35
+        ]
+      },
+      {
+        "id": "u_neyo_est",
+        "owner": "она",
+        "phrase": "у неё есть",
+        "translation": "she has",
+        "sampleNoun": "работа",
+        "sampleSentence": "У неё есть работа.",
+        "sourcePages": [
+          34,
+          35
+        ]
+      },
+      {
+        "id": "u_nas_est",
+        "owner": "мы",
+        "phrase": "у нас есть",
+        "translation": "we have",
+        "sampleNoun": "урок",
+        "sampleSentence": "У нас есть урок сегодня.",
+        "sourcePages": [
+          34,
+          35
+        ]
+      },
+      {
+        "id": "u_vas_est",
+        "owner": "вы",
+        "phrase": "у вас есть",
+        "translation": "you (plural/formal) have",
+        "sampleNoun": "вопрос",
+        "sampleSentence": "У вас есть вопрос?",
+        "sourcePages": [
+          34,
+          35
+        ]
+      },
+      {
+        "id": "u_nih_est",
+        "owner": "они",
+        "phrase": "у них есть",
+        "translation": "they have",
+        "sampleNoun": "дети",
+        "sampleSentence": "У них есть дети.",
+        "sourcePages": [
+          34,
+          35
+        ]
+      }
+    ]
+  },
+  "subdecks": [
+    {
+      "id": "cp_future_byt",
+      "title": "Future of быть",
+      "order": 1,
+      "defaultEntry": true,
+      "status": "active",
+      "sourcePages": [
+        9,
+        30
+      ],
+      "whyThisExists": "The future of быть is a tiny, foundational frame and should get pure reps just like a keyboard key gets pure reps.",
+      "teachingRules": [
+        "Start with pronoun -> future form.",
+        "Then move to sentence frames like 'Я буду дома.'",
+        "Keep the rest of the sentence visually stable so only the auxiliary changes."
+      ],
+      "atoms": [
+        {
+          "id": "cp_future_byt__1sg",
+          "kind": "pattern_form",
+          "pattern": "future_byt",
+          "subdeckId": "cp_future_byt",
+          "stageProfileId": "grammar_full",
+          "person": "1sg",
+          "pronoun": "я",
+          "answer": "буду",
+          "lemma": "быть",
+          "translation": "to be",
+          "sourcePages": [
+            9,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "cp_future_byt__2sg",
+          "kind": "pattern_form",
+          "pattern": "future_byt",
+          "subdeckId": "cp_future_byt",
+          "stageProfileId": "grammar_full",
+          "person": "2sg",
+          "pronoun": "ты",
+          "answer": "будешь",
+          "lemma": "быть",
+          "translation": "to be",
+          "sourcePages": [
+            9,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "cp_future_byt__3sg",
+          "kind": "pattern_form",
+          "pattern": "future_byt",
+          "subdeckId": "cp_future_byt",
+          "stageProfileId": "grammar_full",
+          "person": "3sg",
+          "pronoun": "он/она/оно",
+          "answer": "будет",
+          "lemma": "быть",
+          "translation": "to be",
+          "sourcePages": [
+            9,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "cp_future_byt__1pl",
+          "kind": "pattern_form",
+          "pattern": "future_byt",
+          "subdeckId": "cp_future_byt",
+          "stageProfileId": "grammar_full",
+          "person": "1pl",
+          "pronoun": "мы",
+          "answer": "будем",
+          "lemma": "быть",
+          "translation": "to be",
+          "sourcePages": [
+            9,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "cp_future_byt__2pl",
+          "kind": "pattern_form",
+          "pattern": "future_byt",
+          "subdeckId": "cp_future_byt",
+          "stageProfileId": "grammar_full",
+          "person": "2pl",
+          "pronoun": "вы",
+          "answer": "будете",
+          "lemma": "быть",
+          "translation": "to be",
+          "sourcePages": [
+            9,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "cp_future_byt__3pl",
+          "kind": "pattern_form",
+          "pattern": "future_byt",
+          "subdeckId": "cp_future_byt",
+          "stageProfileId": "grammar_full",
+          "person": "3pl",
+          "pronoun": "они",
+          "answer": "будут",
+          "lemma": "быть",
+          "translation": "to be",
+          "sourcePages": [
+            9,
+            30
+          ],
+          "reviewed": true
+        }
+      ],
+      "sentenceIds": [
+        "cp_sent_budu_home",
+        "cp_sent_budesh_home",
+        "cp_sent_budet_office",
+        "cp_sent_budem_here",
+        "cp_sent_budete_metro",
+        "cp_sent_budut_home"
+      ]
+    },
+    {
+      "id": "cp_u_est",
+      "title": "У ... есть",
+      "order": 2,
+      "defaultEntry": false,
+      "status": "active",
+      "sourcePages": [
+        34,
+        35
+      ],
+      "whyThisExists": "This frame is foundational and highly reusable, but it is not just another conjugation deck. It should be treated as a slot-based pattern.",
+      "teachingRules": [
+        "Stage 1-3 drill only the owner phrase (у меня есть, у тебя есть, etc.).",
+        "Only after the owner phrase stabilizes should nouns be mixed in.",
+        "Guided sentence mode must keep the noun fixed and only change the owner frame."
+      ],
+      "atoms": [
+        {
+          "id": "cp_u_est__u_menya_est",
+          "kind": "pattern_frame",
+          "pattern": "u_est",
+          "subdeckId": "cp_u_est",
+          "stageProfileId": "grammar_full",
+          "owner": "я",
+          "answer": "у меня есть",
+          "phrase": "у меня есть",
+          "translation": "I have",
+          "sampleSentence": "У меня есть брат.",
+          "sampleNoun": "брат",
+          "sourcePages": [
+            34,
+            35
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "cp_u_est__u_tebya_est",
+          "kind": "pattern_frame",
+          "pattern": "u_est",
+          "subdeckId": "cp_u_est",
+          "stageProfileId": "grammar_full",
+          "owner": "ты",
+          "answer": "у тебя есть",
+          "phrase": "у тебя есть",
+          "translation": "you have",
+          "sampleSentence": "У тебя есть время?",
+          "sampleNoun": "время",
+          "sourcePages": [
+            34,
+            35
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "cp_u_est__u_nego_est",
+          "kind": "pattern_frame",
+          "pattern": "u_est",
+          "subdeckId": "cp_u_est",
+          "stageProfileId": "grammar_full",
+          "owner": "он / оно",
+          "answer": "у него есть",
+          "phrase": "у него есть",
+          "translation": "he has / it has",
+          "sampleSentence": "У него есть машина.",
+          "sampleNoun": "машина",
+          "sourcePages": [
+            34,
+            35
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "cp_u_est__u_neyo_est",
+          "kind": "pattern_frame",
+          "pattern": "u_est",
+          "subdeckId": "cp_u_est",
+          "stageProfileId": "grammar_full",
+          "owner": "она",
+          "answer": "у неё есть",
+          "phrase": "у неё есть",
+          "translation": "she has",
+          "sampleSentence": "У неё есть работа.",
+          "sampleNoun": "работа",
+          "sourcePages": [
+            34,
+            35
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "cp_u_est__u_nas_est",
+          "kind": "pattern_frame",
+          "pattern": "u_est",
+          "subdeckId": "cp_u_est",
+          "stageProfileId": "grammar_full",
+          "owner": "мы",
+          "answer": "у нас есть",
+          "phrase": "у нас есть",
+          "translation": "we have",
+          "sampleSentence": "У нас есть урок сегодня.",
+          "sampleNoun": "урок",
+          "sourcePages": [
+            34,
+            35
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "cp_u_est__u_vas_est",
+          "kind": "pattern_frame",
+          "pattern": "u_est",
+          "subdeckId": "cp_u_est",
+          "stageProfileId": "grammar_full",
+          "owner": "вы",
+          "answer": "у вас есть",
+          "phrase": "у вас есть",
+          "translation": "you (plural/formal) have",
+          "sampleSentence": "У вас есть вопрос?",
+          "sampleNoun": "вопрос",
+          "sourcePages": [
+            34,
+            35
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "cp_u_est__u_nih_est",
+          "kind": "pattern_frame",
+          "pattern": "u_est",
+          "subdeckId": "cp_u_est",
+          "stageProfileId": "grammar_full",
+          "owner": "они",
+          "answer": "у них есть",
+          "phrase": "у них есть",
+          "translation": "they have",
+          "sampleSentence": "У них есть дети.",
+          "sampleNoun": "дети",
+          "sourcePages": [
+            34,
+            35
+          ],
+          "reviewed": true
+        }
+      ],
+      "sentenceIds": []
+    }
+  ],
+  "sentenceBank": [
+    {
+      "id": "cp_sent_budu_home",
+      "ru": "Я буду дома.",
+      "en": "I will be at home.",
+      "pattern": "future_byt",
+      "person": "1sg",
+      "answer": "буду",
+      "sourcePages": [
+        9,
+        18,
+        30
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "cp_sent_budesh_home",
+      "ru": "Ты будешь дома?",
+      "en": "Will you be at home?",
+      "pattern": "future_byt",
+      "person": "2sg",
+      "answer": "будешь",
+      "sourcePages": [
+        9,
+        18,
+        30
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "cp_sent_budet_office",
+      "ru": "Он будет в офисе.",
+      "en": "He will be in the office.",
+      "pattern": "future_byt",
+      "person": "3sg",
+      "answer": "будет",
+      "sourcePages": [
+        9,
+        30
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "cp_sent_budem_here",
+      "ru": "Мы будем здесь.",
+      "en": "We will be here.",
+      "pattern": "future_byt",
+      "person": "1pl",
+      "answer": "будем",
+      "sourcePages": [
+        9,
+        18,
+        30
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "cp_sent_budete_metro",
+      "ru": "Вы будете в метро?",
+      "en": "Will you be in the metro?",
+      "pattern": "future_byt",
+      "person": "2pl",
+      "answer": "будете",
+      "sourcePages": [
+        9,
+        11,
+        30
+      ],
+      "reviewed": true
+    },
+    {
+      "id": "cp_sent_budut_home",
+      "ru": "Они будут дома.",
+      "en": "They will be at home.",
+      "pattern": "future_byt",
+      "person": "3pl",
+      "answer": "будут",
+      "sourcePages": [
+        9,
+        18,
+        30
+      ],
+      "reviewed": true
+    }
+  ]
+}

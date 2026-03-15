@@ -1,0 +1,2255 @@
+{
+  "moduleId": "first_conjugation",
+  "title": "1st Conjugation",
+  "purpose": "Train present-tense 1st-conjugation verbs as tiny, measurable atoms.",
+  "defaultStageProfile": "grammar_full",
+  "analytics": {
+    "heatmap": "verb x person",
+    "secondaryPanels": [
+      "weakest verbs",
+      "weakest persons",
+      "irregular watchlist"
+    ]
+  },
+  "uiSignature": "Six pronoun chips above the prompt card. Central verb card. Heatmap below. Coral highlight for removable infinitive ending / mutable slot during guided stages.",
+  "subdeckRules": [
+    "Keep regular core verbs separate from irregular stem-change verbs.",
+    "For choose2/choose4/fullChoice, options must come from the same verb paradigm only.",
+    "Do not expose cross-verb distractors until at least typeFragment stage in mixed review, and even there only if explicitly enabled."
+  ],
+  "referenceTable": {
+    "presentEndings": {
+      "1sg": "-ю / -у",
+      "2sg": "-ешь",
+      "3sg": "-ет",
+      "1pl": "-ем",
+      "2pl": "-ете",
+      "3pl": "-ют / -ут"
+    },
+    "notes": "Regular core deck should only include verbs where the user can mostly learn the person ending without a major stem change. Irregular verbs live in their own subdeck."
+  },
+  "subdecks": [
+    {
+      "id": "fc_regular_core",
+      "title": "Regular core 1st-conjugation verbs",
+      "order": 1,
+      "defaultEntry": true,
+      "status": "active",
+      "sourcePages": [
+        16,
+        17,
+        31,
+        32,
+        45,
+        46,
+        58
+      ],
+      "whyThisExists": "This is the cleanest 1st-conjugation pattern deck. It excludes stem-change verbs so the user can get pure reps on person-ending retrieval.",
+      "verbs": [
+        {
+          "id": "rabotat",
+          "lemma": "работать",
+          "translation": "to work",
+          "class": "first",
+          "regularity": "regular",
+          "removeFromInfinitive": "ть",
+          "stemHint": "работа",
+          "forms": {
+            "1sg": "работаю",
+            "2sg": "работаешь",
+            "3sg": "работает",
+            "1pl": "работаем",
+            "2pl": "работаете",
+            "3pl": "работают"
+          },
+          "sourcePages": [
+            2,
+            3,
+            16,
+            17,
+            22,
+            30,
+            31,
+            45,
+            46,
+            58
+          ]
+        },
+        {
+          "id": "gulyat",
+          "lemma": "гулять",
+          "translation": "to walk / go for a walk",
+          "class": "first",
+          "regularity": "regular",
+          "removeFromInfinitive": "ть",
+          "stemHint": "гуля",
+          "forms": {
+            "1sg": "гуляю",
+            "2sg": "гуляешь",
+            "3sg": "гуляет",
+            "1pl": "гуляем",
+            "2pl": "гуляете",
+            "3pl": "гуляют"
+          },
+          "sourcePages": [
+            2,
+            3,
+            5,
+            31,
+            32,
+            45,
+            46
+          ]
+        },
+        {
+          "id": "chitat",
+          "lemma": "читать",
+          "translation": "to read",
+          "class": "first",
+          "regularity": "regular",
+          "removeFromInfinitive": "ть",
+          "stemHint": "чита",
+          "forms": {
+            "1sg": "читаю",
+            "2sg": "читаешь",
+            "3sg": "читает",
+            "1pl": "читаем",
+            "2pl": "читаете",
+            "3pl": "читают"
+          },
+          "sourcePages": [
+            2,
+            3,
+            5,
+            16,
+            31,
+            32,
+            45,
+            46,
+            58
+          ]
+        },
+        {
+          "id": "slushat",
+          "lemma": "слушать",
+          "translation": "to listen",
+          "class": "first",
+          "regularity": "regular",
+          "removeFromInfinitive": "ть",
+          "stemHint": "слуша",
+          "forms": {
+            "1sg": "слушаю",
+            "2sg": "слушаешь",
+            "3sg": "слушает",
+            "1pl": "слушаем",
+            "2pl": "слушаете",
+            "3pl": "слушают"
+          },
+          "sourcePages": [
+            2,
+            5,
+            16,
+            17,
+            45,
+            46,
+            58
+          ]
+        },
+        {
+          "id": "igrat",
+          "lemma": "играть",
+          "translation": "to play",
+          "class": "first",
+          "regularity": "regular",
+          "removeFromInfinitive": "ть",
+          "stemHint": "игра",
+          "forms": {
+            "1sg": "играю",
+            "2sg": "играешь",
+            "3sg": "играет",
+            "1pl": "играем",
+            "2pl": "играете",
+            "3pl": "играют"
+          },
+          "sourcePages": [
+            2,
+            3,
+            16,
+            17,
+            45,
+            46,
+            58
+          ]
+        }
+      ],
+      "teachingRules": [
+        "Preview must show infinitive, translation, pronoun strip, and full paradigm.",
+        "Choose2/Choose4/FullChoice options must stay inside the same verb only.",
+        "TypeFragment asks only for the changing ending when the stem is already on screen.",
+        "SentenceGuided must highlight the mutable verb region in coral/red."
+      ],
+      "atoms": [
+        {
+          "id": "fc_regular_core__rabotat__1sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "работать",
+          "translation": "to work",
+          "tense": "present",
+          "person": "1sg",
+          "pronoun": "я",
+          "answer": "работаю",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "ть",
+          "stemHint": "работа",
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "fc_sent_work_mon",
+            "fc_sent_work_home",
+            "fc_sent_work_school",
+            "fc_sent_work_until6"
+          ],
+          "sourcePages": [
+            2,
+            3,
+            16,
+            17,
+            22,
+            30,
+            31,
+            45,
+            46,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "rabotat",
+            "1sg",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_regular_core__rabotat__2sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "работать",
+          "translation": "to work",
+          "tense": "present",
+          "person": "2sg",
+          "pronoun": "ты",
+          "answer": "работаешь",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "ть",
+          "stemHint": "работа",
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "fc_sent_work_mon",
+            "fc_sent_work_home",
+            "fc_sent_work_school",
+            "fc_sent_work_until6"
+          ],
+          "sourcePages": [
+            2,
+            3,
+            16,
+            17,
+            22,
+            30,
+            31,
+            45,
+            46,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "rabotat",
+            "2sg",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_regular_core__rabotat__3sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "работать",
+          "translation": "to work",
+          "tense": "present",
+          "person": "3sg",
+          "pronoun": "он/она/оно",
+          "answer": "работает",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "ть",
+          "stemHint": "работа",
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "fc_sent_work_mon",
+            "fc_sent_work_home",
+            "fc_sent_work_school",
+            "fc_sent_work_until6"
+          ],
+          "sourcePages": [
+            2,
+            3,
+            16,
+            17,
+            22,
+            30,
+            31,
+            45,
+            46,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "rabotat",
+            "3sg",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_regular_core__rabotat__1pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "работать",
+          "translation": "to work",
+          "tense": "present",
+          "person": "1pl",
+          "pronoun": "мы",
+          "answer": "работаем",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "ть",
+          "stemHint": "работа",
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "fc_sent_work_mon",
+            "fc_sent_work_home",
+            "fc_sent_work_school",
+            "fc_sent_work_until6"
+          ],
+          "sourcePages": [
+            2,
+            3,
+            16,
+            17,
+            22,
+            30,
+            31,
+            45,
+            46,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "rabotat",
+            "1pl",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_regular_core__rabotat__2pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "работать",
+          "translation": "to work",
+          "tense": "present",
+          "person": "2pl",
+          "pronoun": "вы",
+          "answer": "работаете",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "ть",
+          "stemHint": "работа",
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "fc_sent_work_mon",
+            "fc_sent_work_home",
+            "fc_sent_work_school",
+            "fc_sent_work_until6"
+          ],
+          "sourcePages": [
+            2,
+            3,
+            16,
+            17,
+            22,
+            30,
+            31,
+            45,
+            46,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "rabotat",
+            "2pl",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_regular_core__rabotat__3pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "работать",
+          "translation": "to work",
+          "tense": "present",
+          "person": "3pl",
+          "pronoun": "они",
+          "answer": "работают",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "ть",
+          "stemHint": "работа",
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "fc_sent_work_mon",
+            "fc_sent_work_home",
+            "fc_sent_work_school",
+            "fc_sent_work_until6"
+          ],
+          "sourcePages": [
+            2,
+            3,
+            16,
+            17,
+            22,
+            30,
+            31,
+            45,
+            46,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "rabotat",
+            "3pl",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_regular_core__gulyat__1sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "гулять",
+          "translation": "to walk / go for a walk",
+          "tense": "present",
+          "person": "1sg",
+          "pronoun": "я",
+          "answer": "гуляю",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "ть",
+          "stemHint": "гуля",
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "fc_sent_walk_park",
+            "fc_sent_walk_city",
+            "fc_sent_walk_after_lessons",
+            "fc_sent_walk_evening"
+          ],
+          "sourcePages": [
+            2,
+            3,
+            5,
+            31,
+            32,
+            45,
+            46
+          ],
+          "reviewed": true,
+          "tags": [
+            "gulyat",
+            "1sg",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_regular_core__gulyat__2sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "гулять",
+          "translation": "to walk / go for a walk",
+          "tense": "present",
+          "person": "2sg",
+          "pronoun": "ты",
+          "answer": "гуляешь",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "ть",
+          "stemHint": "гуля",
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "fc_sent_walk_park",
+            "fc_sent_walk_city",
+            "fc_sent_walk_after_lessons",
+            "fc_sent_walk_evening"
+          ],
+          "sourcePages": [
+            2,
+            3,
+            5,
+            31,
+            32,
+            45,
+            46
+          ],
+          "reviewed": true,
+          "tags": [
+            "gulyat",
+            "2sg",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_regular_core__gulyat__3sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "гулять",
+          "translation": "to walk / go for a walk",
+          "tense": "present",
+          "person": "3sg",
+          "pronoun": "он/она/оно",
+          "answer": "гуляет",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "ть",
+          "stemHint": "гуля",
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "fc_sent_walk_park",
+            "fc_sent_walk_city",
+            "fc_sent_walk_after_lessons",
+            "fc_sent_walk_evening"
+          ],
+          "sourcePages": [
+            2,
+            3,
+            5,
+            31,
+            32,
+            45,
+            46
+          ],
+          "reviewed": true,
+          "tags": [
+            "gulyat",
+            "3sg",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_regular_core__gulyat__1pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "гулять",
+          "translation": "to walk / go for a walk",
+          "tense": "present",
+          "person": "1pl",
+          "pronoun": "мы",
+          "answer": "гуляем",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "ть",
+          "stemHint": "гуля",
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "fc_sent_walk_park",
+            "fc_sent_walk_city",
+            "fc_sent_walk_after_lessons",
+            "fc_sent_walk_evening"
+          ],
+          "sourcePages": [
+            2,
+            3,
+            5,
+            31,
+            32,
+            45,
+            46
+          ],
+          "reviewed": true,
+          "tags": [
+            "gulyat",
+            "1pl",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_regular_core__gulyat__2pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "гулять",
+          "translation": "to walk / go for a walk",
+          "tense": "present",
+          "person": "2pl",
+          "pronoun": "вы",
+          "answer": "гуляете",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "ть",
+          "stemHint": "гуля",
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "fc_sent_walk_park",
+            "fc_sent_walk_city",
+            "fc_sent_walk_after_lessons",
+            "fc_sent_walk_evening"
+          ],
+          "sourcePages": [
+            2,
+            3,
+            5,
+            31,
+            32,
+            45,
+            46
+          ],
+          "reviewed": true,
+          "tags": [
+            "gulyat",
+            "2pl",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_regular_core__gulyat__3pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "гулять",
+          "translation": "to walk / go for a walk",
+          "tense": "present",
+          "person": "3pl",
+          "pronoun": "они",
+          "answer": "гуляют",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "ть",
+          "stemHint": "гуля",
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "fc_sent_walk_park",
+            "fc_sent_walk_city",
+            "fc_sent_walk_after_lessons",
+            "fc_sent_walk_evening"
+          ],
+          "sourcePages": [
+            2,
+            3,
+            5,
+            31,
+            32,
+            45,
+            46
+          ],
+          "reviewed": true,
+          "tags": [
+            "gulyat",
+            "3pl",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_regular_core__chitat__1sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "читать",
+          "translation": "to read",
+          "tense": "present",
+          "person": "1sg",
+          "pronoun": "я",
+          "answer": "читаю",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "ть",
+          "stemHint": "чита",
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "fc_sent_read_book",
+            "fc_sent_read_news",
+            "fc_sent_read_articles",
+            "fc_sent_read_newspaper"
+          ],
+          "sourcePages": [
+            2,
+            3,
+            5,
+            16,
+            31,
+            32,
+            45,
+            46,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "chitat",
+            "1sg",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_regular_core__chitat__2sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "читать",
+          "translation": "to read",
+          "tense": "present",
+          "person": "2sg",
+          "pronoun": "ты",
+          "answer": "читаешь",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "ть",
+          "stemHint": "чита",
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "fc_sent_read_book",
+            "fc_sent_read_news",
+            "fc_sent_read_articles",
+            "fc_sent_read_newspaper"
+          ],
+          "sourcePages": [
+            2,
+            3,
+            5,
+            16,
+            31,
+            32,
+            45,
+            46,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "chitat",
+            "2sg",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_regular_core__chitat__3sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "читать",
+          "translation": "to read",
+          "tense": "present",
+          "person": "3sg",
+          "pronoun": "он/она/оно",
+          "answer": "читает",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "ть",
+          "stemHint": "чита",
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "fc_sent_read_book",
+            "fc_sent_read_news",
+            "fc_sent_read_articles",
+            "fc_sent_read_newspaper"
+          ],
+          "sourcePages": [
+            2,
+            3,
+            5,
+            16,
+            31,
+            32,
+            45,
+            46,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "chitat",
+            "3sg",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_regular_core__chitat__1pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "читать",
+          "translation": "to read",
+          "tense": "present",
+          "person": "1pl",
+          "pronoun": "мы",
+          "answer": "читаем",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "ть",
+          "stemHint": "чита",
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "fc_sent_read_book",
+            "fc_sent_read_news",
+            "fc_sent_read_articles",
+            "fc_sent_read_newspaper"
+          ],
+          "sourcePages": [
+            2,
+            3,
+            5,
+            16,
+            31,
+            32,
+            45,
+            46,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "chitat",
+            "1pl",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_regular_core__chitat__2pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "читать",
+          "translation": "to read",
+          "tense": "present",
+          "person": "2pl",
+          "pronoun": "вы",
+          "answer": "читаете",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "ть",
+          "stemHint": "чита",
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "fc_sent_read_book",
+            "fc_sent_read_news",
+            "fc_sent_read_articles",
+            "fc_sent_read_newspaper"
+          ],
+          "sourcePages": [
+            2,
+            3,
+            5,
+            16,
+            31,
+            32,
+            45,
+            46,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "chitat",
+            "2pl",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_regular_core__chitat__3pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "читать",
+          "translation": "to read",
+          "tense": "present",
+          "person": "3pl",
+          "pronoun": "они",
+          "answer": "читают",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "ть",
+          "stemHint": "чита",
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "fc_sent_read_book",
+            "fc_sent_read_news",
+            "fc_sent_read_articles",
+            "fc_sent_read_newspaper"
+          ],
+          "sourcePages": [
+            2,
+            3,
+            5,
+            16,
+            31,
+            32,
+            45,
+            46,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "chitat",
+            "3pl",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_regular_core__slushat__1sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "слушать",
+          "translation": "to listen",
+          "tense": "present",
+          "person": "1sg",
+          "pronoun": "я",
+          "answer": "слушаю",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "ть",
+          "stemHint": "слуша",
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "fc_sent_listen_music_home",
+            "fc_sent_listen_podcast",
+            "fc_sent_listen_headphones",
+            "fc_sent_listen_audiobook"
+          ],
+          "sourcePages": [
+            2,
+            5,
+            16,
+            17,
+            45,
+            46,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "slushat",
+            "1sg",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_regular_core__slushat__2sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "слушать",
+          "translation": "to listen",
+          "tense": "present",
+          "person": "2sg",
+          "pronoun": "ты",
+          "answer": "слушаешь",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "ть",
+          "stemHint": "слуша",
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "fc_sent_listen_music_home",
+            "fc_sent_listen_podcast",
+            "fc_sent_listen_headphones",
+            "fc_sent_listen_audiobook"
+          ],
+          "sourcePages": [
+            2,
+            5,
+            16,
+            17,
+            45,
+            46,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "slushat",
+            "2sg",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_regular_core__slushat__3sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "слушать",
+          "translation": "to listen",
+          "tense": "present",
+          "person": "3sg",
+          "pronoun": "он/она/оно",
+          "answer": "слушает",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "ть",
+          "stemHint": "слуша",
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "fc_sent_listen_music_home",
+            "fc_sent_listen_podcast",
+            "fc_sent_listen_headphones",
+            "fc_sent_listen_audiobook"
+          ],
+          "sourcePages": [
+            2,
+            5,
+            16,
+            17,
+            45,
+            46,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "slushat",
+            "3sg",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_regular_core__slushat__1pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "слушать",
+          "translation": "to listen",
+          "tense": "present",
+          "person": "1pl",
+          "pronoun": "мы",
+          "answer": "слушаем",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "ть",
+          "stemHint": "слуша",
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "fc_sent_listen_music_home",
+            "fc_sent_listen_podcast",
+            "fc_sent_listen_headphones",
+            "fc_sent_listen_audiobook"
+          ],
+          "sourcePages": [
+            2,
+            5,
+            16,
+            17,
+            45,
+            46,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "slushat",
+            "1pl",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_regular_core__slushat__2pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "слушать",
+          "translation": "to listen",
+          "tense": "present",
+          "person": "2pl",
+          "pronoun": "вы",
+          "answer": "слушаете",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "ть",
+          "stemHint": "слуша",
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "fc_sent_listen_music_home",
+            "fc_sent_listen_podcast",
+            "fc_sent_listen_headphones",
+            "fc_sent_listen_audiobook"
+          ],
+          "sourcePages": [
+            2,
+            5,
+            16,
+            17,
+            45,
+            46,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "slushat",
+            "2pl",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_regular_core__slushat__3pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "слушать",
+          "translation": "to listen",
+          "tense": "present",
+          "person": "3pl",
+          "pronoun": "они",
+          "answer": "слушают",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "ть",
+          "stemHint": "слуша",
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "fc_sent_listen_music_home",
+            "fc_sent_listen_podcast",
+            "fc_sent_listen_headphones",
+            "fc_sent_listen_audiobook"
+          ],
+          "sourcePages": [
+            2,
+            5,
+            16,
+            17,
+            45,
+            46,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "slushat",
+            "3pl",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_regular_core__igrat__1sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "играть",
+          "translation": "to play",
+          "tense": "present",
+          "person": "1sg",
+          "pronoun": "я",
+          "answer": "играю",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "ть",
+          "stemHint": "игра",
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "fc_sent_play_football",
+            "fc_sent_play_games",
+            "fc_sent_play_guitar",
+            "fc_sent_play_drums"
+          ],
+          "sourcePages": [
+            2,
+            3,
+            16,
+            17,
+            45,
+            46,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "igrat",
+            "1sg",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_regular_core__igrat__2sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "играть",
+          "translation": "to play",
+          "tense": "present",
+          "person": "2sg",
+          "pronoun": "ты",
+          "answer": "играешь",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "ть",
+          "stemHint": "игра",
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "fc_sent_play_football",
+            "fc_sent_play_games",
+            "fc_sent_play_guitar",
+            "fc_sent_play_drums"
+          ],
+          "sourcePages": [
+            2,
+            3,
+            16,
+            17,
+            45,
+            46,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "igrat",
+            "2sg",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_regular_core__igrat__3sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "играть",
+          "translation": "to play",
+          "tense": "present",
+          "person": "3sg",
+          "pronoun": "он/она/оно",
+          "answer": "играет",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "ть",
+          "stemHint": "игра",
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "fc_sent_play_football",
+            "fc_sent_play_games",
+            "fc_sent_play_guitar",
+            "fc_sent_play_drums"
+          ],
+          "sourcePages": [
+            2,
+            3,
+            16,
+            17,
+            45,
+            46,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "igrat",
+            "3sg",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_regular_core__igrat__1pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "играть",
+          "translation": "to play",
+          "tense": "present",
+          "person": "1pl",
+          "pronoun": "мы",
+          "answer": "играем",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "ть",
+          "stemHint": "игра",
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "fc_sent_play_football",
+            "fc_sent_play_games",
+            "fc_sent_play_guitar",
+            "fc_sent_play_drums"
+          ],
+          "sourcePages": [
+            2,
+            3,
+            16,
+            17,
+            45,
+            46,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "igrat",
+            "1pl",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_regular_core__igrat__2pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "играть",
+          "translation": "to play",
+          "tense": "present",
+          "person": "2pl",
+          "pronoun": "вы",
+          "answer": "играете",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "ть",
+          "stemHint": "игра",
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "fc_sent_play_football",
+            "fc_sent_play_games",
+            "fc_sent_play_guitar",
+            "fc_sent_play_drums"
+          ],
+          "sourcePages": [
+            2,
+            3,
+            16,
+            17,
+            45,
+            46,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "igrat",
+            "2pl",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_regular_core__igrat__3pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "играть",
+          "translation": "to play",
+          "tense": "present",
+          "person": "3pl",
+          "pronoun": "они",
+          "answer": "играют",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "ть",
+          "stemHint": "игра",
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "fc_sent_play_football",
+            "fc_sent_play_games",
+            "fc_sent_play_guitar",
+            "fc_sent_play_drums"
+          ],
+          "sourcePages": [
+            2,
+            3,
+            16,
+            17,
+            45,
+            46,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "igrat",
+            "3pl",
+            "present"
+          ]
+        }
+      ],
+      "sentenceIds": [
+        "fc_sent_work_mon",
+        "fc_sent_work_home",
+        "fc_sent_work_school",
+        "fc_sent_work_until6",
+        "fc_sent_walk_park",
+        "fc_sent_walk_city",
+        "fc_sent_walk_after_lessons",
+        "fc_sent_walk_evening",
+        "fc_sent_read_book",
+        "fc_sent_read_news",
+        "fc_sent_read_articles",
+        "fc_sent_read_newspaper",
+        "fc_sent_listen_music_home",
+        "fc_sent_listen_podcast",
+        "fc_sent_listen_headphones",
+        "fc_sent_listen_audiobook",
+        "fc_sent_play_football",
+        "fc_sent_play_games",
+        "fc_sent_play_guitar",
+        "fc_sent_play_drums"
+      ]
+    },
+    {
+      "id": "fc_irregular_stem_change",
+      "title": "Irregular / stem-change 1st-conjugation verbs",
+      "order": 2,
+      "defaultEntry": false,
+      "status": "active",
+      "sourcePages": [
+        44,
+        46,
+        47,
+        57,
+        58
+      ],
+      "whyThisExists": "These verbs break the clean 'just swap the ending' intuition. They need isolated reps so the user can see exactly which irregular verbs are still slow.",
+      "verbs": [
+        {
+          "id": "pisat",
+          "lemma": "писать",
+          "translation": "to write",
+          "class": "first",
+          "regularity": "stem_change",
+          "removeFromInfinitive": "ать",
+          "stemHint": "пиш-",
+          "teachingNote": "Do not teach this as a pure ending swap. The present-tense stem changes: писать -> пиш-.",
+          "forms": {
+            "1sg": "пишу",
+            "2sg": "пишешь",
+            "3sg": "пишет",
+            "1pl": "пишем",
+            "2pl": "пишете",
+            "3pl": "пишут"
+          },
+          "sourcePages": [
+            2,
+            5,
+            16,
+            17,
+            44,
+            45,
+            57,
+            58
+          ]
+        },
+        {
+          "id": "davat",
+          "lemma": "давать",
+          "translation": "to give",
+          "class": "first",
+          "regularity": "irregular_yo",
+          "removeFromInfinitive": "вать",
+          "stemHint": "да- / даё-",
+          "teachingNote": "Keep this in its own subdeck. Show the ё forms explicitly: даёшь, даёт, даёте.",
+          "forms": {
+            "1sg": "даю",
+            "2sg": "даёшь",
+            "3sg": "даёт",
+            "1pl": "даём",
+            "2pl": "даёте",
+            "3pl": "дают"
+          },
+          "sourcePages": [
+            46,
+            47
+          ]
+        }
+      ],
+      "teachingRules": [
+        "Never mix these verbs into fc_regular_core until the user explicitly enters mixed review.",
+        "Preview must explicitly show the stem change or ё-bearing form.",
+        "The analytics sidebar must surface these separately from regular verbs."
+      ],
+      "atoms": [
+        {
+          "id": "fc_irregular_stem_change__pisat__1sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_irregular_stem_change",
+          "stageProfileId": "grammar_full",
+          "lemma": "писать",
+          "translation": "to write",
+          "tense": "present",
+          "person": "1sg",
+          "pronoun": "я",
+          "answer": "пишу",
+          "regularity": "stem_change",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "ать",
+          "stemHint": "пиш-",
+          "teachingNote": "Do not teach this as a pure ending swap. The present-tense stem changes: писать -> пиш-.",
+          "sampleSentenceIds": [
+            "fc_sent_write_letter",
+            "fc_sent_write_message",
+            "fc_sent_write_test",
+            "fc_sent_write_book"
+          ],
+          "sourcePages": [
+            2,
+            5,
+            16,
+            17,
+            44,
+            45,
+            57,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "pisat",
+            "1sg",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_irregular_stem_change__pisat__2sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_irregular_stem_change",
+          "stageProfileId": "grammar_full",
+          "lemma": "писать",
+          "translation": "to write",
+          "tense": "present",
+          "person": "2sg",
+          "pronoun": "ты",
+          "answer": "пишешь",
+          "regularity": "stem_change",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "ать",
+          "stemHint": "пиш-",
+          "teachingNote": "Do not teach this as a pure ending swap. The present-tense stem changes: писать -> пиш-.",
+          "sampleSentenceIds": [
+            "fc_sent_write_letter",
+            "fc_sent_write_message",
+            "fc_sent_write_test",
+            "fc_sent_write_book"
+          ],
+          "sourcePages": [
+            2,
+            5,
+            16,
+            17,
+            44,
+            45,
+            57,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "pisat",
+            "2sg",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_irregular_stem_change__pisat__3sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_irregular_stem_change",
+          "stageProfileId": "grammar_full",
+          "lemma": "писать",
+          "translation": "to write",
+          "tense": "present",
+          "person": "3sg",
+          "pronoun": "он/она/оно",
+          "answer": "пишет",
+          "regularity": "stem_change",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "ать",
+          "stemHint": "пиш-",
+          "teachingNote": "Do not teach this as a pure ending swap. The present-tense stem changes: писать -> пиш-.",
+          "sampleSentenceIds": [
+            "fc_sent_write_letter",
+            "fc_sent_write_message",
+            "fc_sent_write_test",
+            "fc_sent_write_book"
+          ],
+          "sourcePages": [
+            2,
+            5,
+            16,
+            17,
+            44,
+            45,
+            57,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "pisat",
+            "3sg",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_irregular_stem_change__pisat__1pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_irregular_stem_change",
+          "stageProfileId": "grammar_full",
+          "lemma": "писать",
+          "translation": "to write",
+          "tense": "present",
+          "person": "1pl",
+          "pronoun": "мы",
+          "answer": "пишем",
+          "regularity": "stem_change",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "ать",
+          "stemHint": "пиш-",
+          "teachingNote": "Do not teach this as a pure ending swap. The present-tense stem changes: писать -> пиш-.",
+          "sampleSentenceIds": [
+            "fc_sent_write_letter",
+            "fc_sent_write_message",
+            "fc_sent_write_test",
+            "fc_sent_write_book"
+          ],
+          "sourcePages": [
+            2,
+            5,
+            16,
+            17,
+            44,
+            45,
+            57,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "pisat",
+            "1pl",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_irregular_stem_change__pisat__2pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_irregular_stem_change",
+          "stageProfileId": "grammar_full",
+          "lemma": "писать",
+          "translation": "to write",
+          "tense": "present",
+          "person": "2pl",
+          "pronoun": "вы",
+          "answer": "пишете",
+          "regularity": "stem_change",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "ать",
+          "stemHint": "пиш-",
+          "teachingNote": "Do not teach this as a pure ending swap. The present-tense stem changes: писать -> пиш-.",
+          "sampleSentenceIds": [
+            "fc_sent_write_letter",
+            "fc_sent_write_message",
+            "fc_sent_write_test",
+            "fc_sent_write_book"
+          ],
+          "sourcePages": [
+            2,
+            5,
+            16,
+            17,
+            44,
+            45,
+            57,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "pisat",
+            "2pl",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_irregular_stem_change__pisat__3pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_irregular_stem_change",
+          "stageProfileId": "grammar_full",
+          "lemma": "писать",
+          "translation": "to write",
+          "tense": "present",
+          "person": "3pl",
+          "pronoun": "они",
+          "answer": "пишут",
+          "regularity": "stem_change",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "ать",
+          "stemHint": "пиш-",
+          "teachingNote": "Do not teach this as a pure ending swap. The present-tense stem changes: писать -> пиш-.",
+          "sampleSentenceIds": [
+            "fc_sent_write_letter",
+            "fc_sent_write_message",
+            "fc_sent_write_test",
+            "fc_sent_write_book"
+          ],
+          "sourcePages": [
+            2,
+            5,
+            16,
+            17,
+            44,
+            45,
+            57,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "pisat",
+            "3pl",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_irregular_stem_change__davat__1sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_irregular_stem_change",
+          "stageProfileId": "grammar_full",
+          "lemma": "давать",
+          "translation": "to give",
+          "tense": "present",
+          "person": "1sg",
+          "pronoun": "я",
+          "answer": "даю",
+          "regularity": "irregular_yo",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "вать",
+          "stemHint": "да- / даё-",
+          "teachingNote": "Keep this in its own subdeck. Show the ё forms explicitly: даёшь, даёт, даёте.",
+          "sampleSentenceIds": [
+            "fc_sent_give_reference"
+          ],
+          "sourcePages": [
+            46,
+            47
+          ],
+          "reviewed": true,
+          "tags": [
+            "davat",
+            "1sg",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_irregular_stem_change__davat__2sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_irregular_stem_change",
+          "stageProfileId": "grammar_full",
+          "lemma": "давать",
+          "translation": "to give",
+          "tense": "present",
+          "person": "2sg",
+          "pronoun": "ты",
+          "answer": "даёшь",
+          "regularity": "irregular_yo",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "вать",
+          "stemHint": "да- / даё-",
+          "teachingNote": "Keep this in its own subdeck. Show the ё forms explicitly: даёшь, даёт, даёте.",
+          "sampleSentenceIds": [
+            "fc_sent_give_reference"
+          ],
+          "sourcePages": [
+            46,
+            47
+          ],
+          "reviewed": true,
+          "tags": [
+            "davat",
+            "2sg",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_irregular_stem_change__davat__3sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_irregular_stem_change",
+          "stageProfileId": "grammar_full",
+          "lemma": "давать",
+          "translation": "to give",
+          "tense": "present",
+          "person": "3sg",
+          "pronoun": "он/она/оно",
+          "answer": "даёт",
+          "regularity": "irregular_yo",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "вать",
+          "stemHint": "да- / даё-",
+          "teachingNote": "Keep this in its own subdeck. Show the ё forms explicitly: даёшь, даёт, даёте.",
+          "sampleSentenceIds": [
+            "fc_sent_give_reference"
+          ],
+          "sourcePages": [
+            46,
+            47
+          ],
+          "reviewed": true,
+          "tags": [
+            "davat",
+            "3sg",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_irregular_stem_change__davat__1pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_irregular_stem_change",
+          "stageProfileId": "grammar_full",
+          "lemma": "давать",
+          "translation": "to give",
+          "tense": "present",
+          "person": "1pl",
+          "pronoun": "мы",
+          "answer": "даём",
+          "regularity": "irregular_yo",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "вать",
+          "stemHint": "да- / даё-",
+          "teachingNote": "Keep this in its own subdeck. Show the ё forms explicitly: даёшь, даёт, даёте.",
+          "sampleSentenceIds": [
+            "fc_sent_give_reference"
+          ],
+          "sourcePages": [
+            46,
+            47
+          ],
+          "reviewed": true,
+          "tags": [
+            "davat",
+            "1pl",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_irregular_stem_change__davat__2pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_irregular_stem_change",
+          "stageProfileId": "grammar_full",
+          "lemma": "давать",
+          "translation": "to give",
+          "tense": "present",
+          "person": "2pl",
+          "pronoun": "вы",
+          "answer": "даёте",
+          "regularity": "irregular_yo",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "вать",
+          "stemHint": "да- / даё-",
+          "teachingNote": "Keep this in its own subdeck. Show the ё forms explicitly: даёшь, даёт, даёте.",
+          "sampleSentenceIds": [
+            "fc_sent_give_reference"
+          ],
+          "sourcePages": [
+            46,
+            47
+          ],
+          "reviewed": true,
+          "tags": [
+            "davat",
+            "2pl",
+            "present"
+          ]
+        },
+        {
+          "id": "fc_irregular_stem_change__davat__3pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "fc_irregular_stem_change",
+          "stageProfileId": "grammar_full",
+          "lemma": "давать",
+          "translation": "to give",
+          "tense": "present",
+          "person": "3pl",
+          "pronoun": "они",
+          "answer": "дают",
+          "regularity": "irregular_yo",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": "вать",
+          "stemHint": "да- / даё-",
+          "teachingNote": "Keep this in its own subdeck. Show the ё forms explicitly: даёшь, даёт, даёте.",
+          "sampleSentenceIds": [
+            "fc_sent_give_reference"
+          ],
+          "sourcePages": [
+            46,
+            47
+          ],
+          "reviewed": true,
+          "tags": [
+            "davat",
+            "3pl",
+            "present"
+          ]
+        }
+      ],
+      "sentenceIds": [
+        "fc_sent_write_letter",
+        "fc_sent_write_message",
+        "fc_sent_write_test",
+        "fc_sent_write_book",
+        "fc_sent_give_reference"
+      ]
+    }
+  ],
+  "sentenceBank": [
+    {
+      "id": "fc_sent_work_mon",
+      "ru": "Я работаю в понедельник.",
+      "en": "I work on Monday.",
+      "lemma": "работать",
+      "person": "1sg",
+      "answer": "работаю",
+      "sourcePages": [
+        45
+      ]
+    },
+    {
+      "id": "fc_sent_work_home",
+      "ru": "Я никогда не работаю дома.",
+      "en": "I never work at home.",
+      "lemma": "работать",
+      "person": "1sg",
+      "answer": "работаю",
+      "sourcePages": [
+        3,
+        17
+      ]
+    },
+    {
+      "id": "fc_sent_work_school",
+      "ru": "Я работаю в школе до вечера.",
+      "en": "I work at school until evening.",
+      "lemma": "работать",
+      "person": "1sg",
+      "answer": "работаю",
+      "sourcePages": [
+        46
+      ]
+    },
+    {
+      "id": "fc_sent_work_until6",
+      "ru": "В понедельник я обычно работаю до шести вечера.",
+      "en": "On Monday I usually work until six in the evening.",
+      "lemma": "работать",
+      "person": "1sg",
+      "answer": "работаю",
+      "sourcePages": [
+        2,
+        5
+      ]
+    },
+    {
+      "id": "fc_sent_walk_park",
+      "ru": "Мы гуляем в парке в понедельник вечером.",
+      "en": "We walk in the park on Monday evening.",
+      "lemma": "гулять",
+      "person": "1pl",
+      "answer": "гуляем",
+      "sourcePages": [
+        16,
+        45
+      ]
+    },
+    {
+      "id": "fc_sent_walk_city",
+      "ru": "В пятницу они гуляют по центру города.",
+      "en": "On Friday they walk around the city center.",
+      "lemma": "гулять",
+      "person": "3pl",
+      "answer": "гуляют",
+      "sourcePages": [
+        5
+      ]
+    },
+    {
+      "id": "fc_sent_walk_after_lessons",
+      "ru": "В четверг они редко гуляют в парке после уроков.",
+      "en": "On Thursday they rarely walk in the park after classes.",
+      "lemma": "гулять",
+      "person": "3pl",
+      "answer": "гуляют",
+      "sourcePages": [
+        2,
+        5
+      ]
+    },
+    {
+      "id": "fc_sent_walk_evening",
+      "ru": "Мы часто гуляем после уроков.",
+      "en": "We often walk after classes.",
+      "lemma": "гулять",
+      "person": "1pl",
+      "answer": "гуляем",
+      "sourcePages": [
+        46
+      ]
+    },
+    {
+      "id": "fc_sent_read_book",
+      "ru": "Во вторник она иногда читает интересную книгу.",
+      "en": "On Tuesday she sometimes reads an interesting book.",
+      "lemma": "читать",
+      "person": "3sg",
+      "answer": "читает",
+      "sourcePages": [
+        2,
+        5
+      ]
+    },
+    {
+      "id": "fc_sent_read_news",
+      "ru": "Ты читаешь новости по утрам.",
+      "en": "You read the news in the mornings.",
+      "lemma": "читать",
+      "person": "2sg",
+      "answer": "читаешь",
+      "sourcePages": [
+        46
+      ]
+    },
+    {
+      "id": "fc_sent_read_articles",
+      "ru": "В пятницу они всегда читают статьи онлайн.",
+      "en": "On Friday they always read articles online.",
+      "lemma": "читать",
+      "person": "3pl",
+      "answer": "читают",
+      "sourcePages": [
+        6
+      ]
+    },
+    {
+      "id": "fc_sent_read_newspaper",
+      "ru": "Вы читаете газету во вторник.",
+      "en": "You read the newspaper on Tuesday.",
+      "lemma": "читать",
+      "person": "2pl",
+      "answer": "читаете",
+      "sourcePages": [
+        45
+      ]
+    },
+    {
+      "id": "fc_sent_listen_music_home",
+      "ru": "В пятницу ты иногда слушаешь музыку дома.",
+      "en": "On Friday you sometimes listen to music at home.",
+      "lemma": "слушать",
+      "person": "2sg",
+      "answer": "слушаешь",
+      "sourcePages": [
+        2,
+        5
+      ]
+    },
+    {
+      "id": "fc_sent_listen_podcast",
+      "ru": "В субботу мы слушаем подкаст на английском.",
+      "en": "On Saturday we listen to a podcast in English.",
+      "lemma": "слушать",
+      "person": "1pl",
+      "answer": "слушаем",
+      "sourcePages": [
+        5
+      ]
+    },
+    {
+      "id": "fc_sent_listen_headphones",
+      "ru": "Вы слушаете музыку в наушниках.",
+      "en": "You listen to music in headphones.",
+      "lemma": "слушать",
+      "person": "2pl",
+      "answer": "слушаете",
+      "sourcePages": [
+        46
+      ]
+    },
+    {
+      "id": "fc_sent_listen_audiobook",
+      "ru": "Вы слушаете аудиокнигу в машине.",
+      "en": "You listen to an audiobook in the car.",
+      "lemma": "слушать",
+      "person": "2pl",
+      "answer": "слушаете",
+      "sourcePages": [
+        46
+      ]
+    },
+    {
+      "id": "fc_sent_play_football",
+      "ru": "В субботу он обычно играет в футбол с друзьями.",
+      "en": "On Saturday he usually plays football with friends.",
+      "lemma": "играть",
+      "person": "3sg",
+      "answer": "играет",
+      "sourcePages": [
+        2
+      ]
+    },
+    {
+      "id": "fc_sent_play_games",
+      "ru": "Они играют в компьютерные игры.",
+      "en": "They play computer games.",
+      "lemma": "играть",
+      "person": "3pl",
+      "answer": "играют",
+      "sourcePages": [
+        3,
+        45
+      ]
+    },
+    {
+      "id": "fc_sent_play_guitar",
+      "ru": "В воскресенье он играет на гитаре.",
+      "en": "On Sunday he plays the guitar.",
+      "lemma": "играть",
+      "person": "3sg",
+      "answer": "играет",
+      "sourcePages": [
+        5
+      ]
+    },
+    {
+      "id": "fc_sent_play_drums",
+      "ru": "Они играют на барабанах.",
+      "en": "They play the drums.",
+      "lemma": "играть",
+      "person": "3pl",
+      "answer": "играют",
+      "sourcePages": [
+        46
+      ]
+    },
+    {
+      "id": "fc_sent_write_letter",
+      "ru": "Она пишет письмо в среду.",
+      "en": "She writes a letter on Wednesday.",
+      "lemma": "писать",
+      "person": "3sg",
+      "answer": "пишет",
+      "sourcePages": [
+        45
+      ]
+    },
+    {
+      "id": "fc_sent_write_message",
+      "ru": "В четверг я пишу сообщения студентам.",
+      "en": "On Thursday I write messages to students.",
+      "lemma": "писать",
+      "person": "1sg",
+      "answer": "пишу",
+      "sourcePages": [
+        5
+      ]
+    },
+    {
+      "id": "fc_sent_write_test",
+      "ru": "В среду мы всегда пишем тест по русскому языку.",
+      "en": "On Wednesday we always write a Russian language test.",
+      "lemma": "писать",
+      "person": "1pl",
+      "answer": "пишем",
+      "sourcePages": [
+        2,
+        5
+      ]
+    },
+    {
+      "id": "fc_sent_write_book",
+      "ru": "Я пишу книгу.",
+      "en": "I am writing a book.",
+      "lemma": "писать",
+      "person": "1sg",
+      "answer": "пишу",
+      "sourcePages": [
+        44,
+        57
+      ]
+    },
+    {
+      "id": "fc_sent_give_reference",
+      "ru": "Вы даёте мне книгу.",
+      "en": "You give me a book.",
+      "lemma": "давать",
+      "person": "2pl",
+      "answer": "даёте",
+      "sourcePages": [
+        46,
+        47
+      ],
+      "reviewed": true,
+      "note": "Constructed from the note paradigm only; this exact sentence is not in the notes but uses only learned vocabulary."
+    }
+  ]
+}

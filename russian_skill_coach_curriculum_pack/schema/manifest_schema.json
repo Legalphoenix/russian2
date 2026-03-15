@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Russian Skill Coach curriculum manifest",
+  "type": "object",
+  "required": [
+    "version",
+    "title",
+    "sourceFile",
+    "stageProfiles",
+    "modules"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "sourceFile": {
+      "type": "string"
+    },
+    "sourcePageCount": {
+      "type": "integer"
+    },
+    "generatedAt": {
+      "type": "string"
+    },
+    "readOrder": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "nonNegotiables": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "stageProfiles": {
+      "type": "object"
+    },
+    "modules": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "supportFiles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "defaultHiddenDeckIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

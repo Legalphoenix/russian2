@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Russian Skill Coach module file",
+  "type": "object",
+  "required": [
+    "moduleId",
+    "title",
+    "purpose",
+    "defaultStageProfile",
+    "subdecks"
+  ],
+  "properties": {
+    "moduleId": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "defaultStageProfile": {
+      "type": "string"
+    },
+    "analytics": {
+      "type": "object"
+    },
+    "uiSignature": {
+      "type": "string"
+    },
+    "referenceTable": {
+      "type": [
+        "object",
+        "array"
+      ]
+    },
+    "subdecks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "order",
+          "status",
+          "atoms"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "order": {
+            "type": "integer"
+          },
+          "defaultEntry": {
+            "type": "boolean"
+          },
+          "status": {
+            "type": "string"
+          },
+          "sourcePages": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          },
+          "whyThisExists": {
+            "type": "string"
+          },
+          "teachingRules": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "atoms": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "sentenceBank": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,4624 @@
+{
+  "moduleId": "vocabulary",
+  "title": "Vocabulary",
+  "purpose": "Drill meaning and production for the exact lexical packs from the notes.",
+  "defaultStageProfile": "vocab_basic",
+  "analytics": {
+    "heatmap": "pack x item",
+    "secondaryPanels": [
+      "weakest categories"
+    ]
+  },
+  "uiSignature": "Pack chips across the top, simple word card in the middle, optional phrase strip below for phraseGuided stage.",
+  "subdeckRules": [
+    "Keep packs semantically tight; do not mix random categories in early stages.",
+    "The adult slang/profanity pack is opt-in and hidden by default."
+  ],
+  "subdecks": [
+    {
+      "id": "vocab_verbs_meanings_core",
+      "title": "Verb meanings",
+      "order": 1,
+      "defaultEntry": true,
+      "status": "active",
+      "sourcePages": [
+        2,
+        4,
+        5,
+        7,
+        9,
+        10,
+        11,
+        12,
+        17,
+        30,
+        31,
+        32,
+        33,
+        46,
+        57
+      ],
+      "atoms": [
+        {
+          "id": "vocab_verbs_meanings_core__001",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_verbs_meanings_core",
+          "stageProfileId": "vocab_basic",
+          "ru": "работать",
+          "en": "to work",
+          "sourcePages": [
+            17,
+            31
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "verbs_meanings_core"
+          ]
+        },
+        {
+          "id": "vocab_verbs_meanings_core__002",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_verbs_meanings_core",
+          "stageProfileId": "vocab_basic",
+          "ru": "читать",
+          "en": "to read",
+          "sourcePages": [
+            17,
+            32
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "verbs_meanings_core"
+          ]
+        },
+        {
+          "id": "vocab_verbs_meanings_core__003",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_verbs_meanings_core",
+          "stageProfileId": "vocab_basic",
+          "ru": "писать",
+          "en": "to write",
+          "sourcePages": [
+            17,
+            57
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "verbs_meanings_core"
+          ]
+        },
+        {
+          "id": "vocab_verbs_meanings_core__004",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_verbs_meanings_core",
+          "stageProfileId": "vocab_basic",
+          "ru": "гулять",
+          "en": "to walk / go for a walk",
+          "sourcePages": [
+            17,
+            31
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "verbs_meanings_core"
+          ]
+        },
+        {
+          "id": "vocab_verbs_meanings_core__005",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_verbs_meanings_core",
+          "stageProfileId": "vocab_basic",
+          "ru": "слушать",
+          "en": "to listen",
+          "sourcePages": [
+            17,
+            46
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "verbs_meanings_core"
+          ]
+        },
+        {
+          "id": "vocab_verbs_meanings_core__006",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_verbs_meanings_core",
+          "stageProfileId": "vocab_basic",
+          "ru": "играть",
+          "en": "to play",
+          "sourcePages": [
+            17,
+            46
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "verbs_meanings_core"
+          ]
+        },
+        {
+          "id": "vocab_verbs_meanings_core__007",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_verbs_meanings_core",
+          "stageProfileId": "vocab_basic",
+          "ru": "говорить",
+          "en": "to speak / say",
+          "sourcePages": [
+            2,
+            4,
+            33
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "verbs_meanings_core"
+          ]
+        },
+        {
+          "id": "vocab_verbs_meanings_core__008",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_verbs_meanings_core",
+          "stageProfileId": "vocab_basic",
+          "ru": "учить",
+          "en": "to learn / study / teach",
+          "sourcePages": [
+            4
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "verbs_meanings_core"
+          ]
+        },
+        {
+          "id": "vocab_verbs_meanings_core__009",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_verbs_meanings_core",
+          "stageProfileId": "vocab_basic",
+          "ru": "готовить",
+          "en": "to cook / prepare",
+          "sourcePages": [
+            2,
+            4
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "verbs_meanings_core"
+          ]
+        },
+        {
+          "id": "vocab_verbs_meanings_core__010",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_verbs_meanings_core",
+          "stageProfileId": "vocab_basic",
+          "ru": "звонить",
+          "en": "to call by phone",
+          "sourcePages": [
+            2,
+            4
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "verbs_meanings_core"
+          ]
+        },
+        {
+          "id": "vocab_verbs_meanings_core__011",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_verbs_meanings_core",
+          "stageProfileId": "vocab_basic",
+          "ru": "просить",
+          "en": "to ask for / request",
+          "sourcePages": [
+            4
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "verbs_meanings_core"
+          ]
+        },
+        {
+          "id": "vocab_verbs_meanings_core__012",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_verbs_meanings_core",
+          "stageProfileId": "vocab_basic",
+          "ru": "ходить",
+          "en": "to go on foot regularly",
+          "sourcePages": [
+            4
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "verbs_meanings_core"
+          ]
+        },
+        {
+          "id": "vocab_verbs_meanings_core__013",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_verbs_meanings_core",
+          "stageProfileId": "vocab_basic",
+          "ru": "носить",
+          "en": "to wear / to carry",
+          "sourcePages": [
+            4
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "verbs_meanings_core"
+          ]
+        },
+        {
+          "id": "vocab_verbs_meanings_core__014",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_verbs_meanings_core",
+          "stageProfileId": "vocab_basic",
+          "ru": "варить",
+          "en": "to boil / cook by boiling",
+          "sourcePages": [
+            4
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "verbs_meanings_core"
+          ]
+        },
+        {
+          "id": "vocab_verbs_meanings_core__015",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_verbs_meanings_core",
+          "stageProfileId": "vocab_basic",
+          "ru": "солить",
+          "en": "to salt / add salt",
+          "sourcePages": [
+            4
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "verbs_meanings_core"
+          ]
+        },
+        {
+          "id": "vocab_verbs_meanings_core__016",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_verbs_meanings_core",
+          "stageProfileId": "vocab_basic",
+          "ru": "дарить",
+          "en": "to give as a gift",
+          "sourcePages": [
+            2,
+            4
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "verbs_meanings_core"
+          ]
+        },
+        {
+          "id": "vocab_verbs_meanings_core__017",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_verbs_meanings_core",
+          "stageProfileId": "vocab_basic",
+          "ru": "строить",
+          "en": "to build",
+          "sourcePages": [
+            4
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "verbs_meanings_core"
+          ]
+        },
+        {
+          "id": "vocab_verbs_meanings_core__018",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_verbs_meanings_core",
+          "stageProfileId": "vocab_basic",
+          "ru": "благодарить",
+          "en": "to thank",
+          "sourcePages": [
+            2,
+            4
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "verbs_meanings_core"
+          ]
+        },
+        {
+          "id": "vocab_verbs_meanings_core__019",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_verbs_meanings_core",
+          "stageProfileId": "vocab_basic",
+          "ru": "повторить",
+          "en": "to repeat",
+          "sourcePages": [
+            4
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "verbs_meanings_core"
+          ]
+        },
+        {
+          "id": "vocab_verbs_meanings_core__020",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_verbs_meanings_core",
+          "stageProfileId": "vocab_basic",
+          "ru": "объяснить",
+          "en": "to explain",
+          "sourcePages": [
+            4
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "verbs_meanings_core"
+          ]
+        },
+        {
+          "id": "vocab_verbs_meanings_core__021",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_verbs_meanings_core",
+          "stageProfileId": "vocab_basic",
+          "ru": "встретить",
+          "en": "to meet",
+          "sourcePages": [
+            5
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "verbs_meanings_core"
+          ]
+        },
+        {
+          "id": "vocab_verbs_meanings_core__022",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_verbs_meanings_core",
+          "stageProfileId": "vocab_basic",
+          "ru": "включить",
+          "en": "to turn on",
+          "sourcePages": [
+            5
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "verbs_meanings_core"
+          ]
+        },
+        {
+          "id": "vocab_verbs_meanings_core__023",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_verbs_meanings_core",
+          "stageProfileId": "vocab_basic",
+          "ru": "выключить",
+          "en": "to turn off",
+          "sourcePages": [
+            5,
+            7
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "verbs_meanings_core"
+          ]
+        },
+        {
+          "id": "vocab_verbs_meanings_core__024",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_verbs_meanings_core",
+          "stageProfileId": "vocab_basic",
+          "ru": "переводить",
+          "en": "to translate",
+          "sourcePages": [
+            5
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "verbs_meanings_core"
+          ]
+        },
+        {
+          "id": "vocab_verbs_meanings_core__025",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_verbs_meanings_core",
+          "stageProfileId": "vocab_basic",
+          "ru": "приходить",
+          "en": "to come / arrive",
+          "sourcePages": [
+            5
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "verbs_meanings_core"
+          ]
+        },
+        {
+          "id": "vocab_verbs_meanings_core__026",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_verbs_meanings_core",
+          "stageProfileId": "vocab_basic",
+          "ru": "выходить",
+          "en": "to go out / leave",
+          "sourcePages": [
+            5
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "verbs_meanings_core"
+          ]
+        },
+        {
+          "id": "vocab_verbs_meanings_core__027",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_verbs_meanings_core",
+          "stageProfileId": "vocab_basic",
+          "ru": "платить",
+          "en": "to pay",
+          "sourcePages": [
+            10
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "verbs_meanings_core"
+          ]
+        },
+        {
+          "id": "vocab_verbs_meanings_core__028",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_verbs_meanings_core",
+          "stageProfileId": "vocab_basic",
+          "ru": "плакать / плачу",
+          "en": "to cry / I cry",
+          "sourcePages": [
+            10
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": "The notes only show the homograph плачу; do not drill this unless desired.",
+          "tags": [
+            "verbs_meanings_core"
+          ]
+        },
+        {
+          "id": "vocab_verbs_meanings_core__029",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_verbs_meanings_core",
+          "stageProfileId": "vocab_basic",
+          "ru": "завтракать",
+          "en": "to have breakfast",
+          "sourcePages": [
+            12
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "verbs_meanings_core"
+          ]
+        },
+        {
+          "id": "vocab_verbs_meanings_core__030",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_verbs_meanings_core",
+          "stageProfileId": "vocab_basic",
+          "ru": "обедать",
+          "en": "to have lunch",
+          "sourcePages": [
+            12
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "verbs_meanings_core"
+          ]
+        },
+        {
+          "id": "vocab_verbs_meanings_core__031",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_verbs_meanings_core",
+          "stageProfileId": "vocab_basic",
+          "ru": "ужинать",
+          "en": "to have dinner",
+          "sourcePages": [
+            12
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "verbs_meanings_core"
+          ]
+        },
+        {
+          "id": "vocab_verbs_meanings_core__032",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_verbs_meanings_core",
+          "stageProfileId": "vocab_basic",
+          "ru": "идти",
+          "en": "to go",
+          "sourcePages": [
+            12
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "verbs_meanings_core"
+          ]
+        },
+        {
+          "id": "vocab_verbs_meanings_core__033",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_verbs_meanings_core",
+          "stageProfileId": "vocab_basic",
+          "ru": "закончить",
+          "en": "to finish",
+          "sourcePages": [
+            11
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "verbs_meanings_core"
+          ]
+        },
+        {
+          "id": "vocab_verbs_meanings_core__034",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_verbs_meanings_core",
+          "stageProfileId": "vocab_basic",
+          "ru": "проснуться / проснулся",
+          "en": "to wake up / woke up",
+          "sourcePages": [
+            12
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "verbs_meanings_core"
+          ]
+        },
+        {
+          "id": "vocab_verbs_meanings_core__035",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_verbs_meanings_core",
+          "stageProfileId": "vocab_basic",
+          "ru": "быть",
+          "en": "to be",
+          "sourcePages": [
+            9,
+            30
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "verbs_meanings_core"
+          ]
+        },
+        {
+          "id": "vocab_verbs_meanings_core__036",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_verbs_meanings_core",
+          "stageProfileId": "vocab_basic",
+          "ru": "есть",
+          "en": "to eat",
+          "sourcePages": [
+            10
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "verbs_meanings_core"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vocab_family_people",
+      "title": "Family + people",
+      "order": 2,
+      "defaultEntry": false,
+      "status": "active",
+      "sourcePages": [
+        6,
+        13,
+        21,
+        37,
+        38,
+        39,
+        40,
+        41,
+        48,
+        55
+      ],
+      "atoms": [
+        {
+          "id": "vocab_family_people__001",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_family_people",
+          "stageProfileId": "vocab_basic",
+          "ru": "родители",
+          "en": "parents",
+          "sourcePages": [
+            13
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "family_people"
+          ]
+        },
+        {
+          "id": "vocab_family_people__002",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_family_people",
+          "stageProfileId": "vocab_basic",
+          "ru": "мать",
+          "en": "mother",
+          "sourcePages": [
+            13,
+            41
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "family_people"
+          ]
+        },
+        {
+          "id": "vocab_family_people__003",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_family_people",
+          "stageProfileId": "vocab_basic",
+          "ru": "мама",
+          "en": "mom",
+          "sourcePages": [
+            13
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "family_people"
+          ]
+        },
+        {
+          "id": "vocab_family_people__004",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_family_people",
+          "stageProfileId": "vocab_basic",
+          "ru": "папа",
+          "en": "dad",
+          "sourcePages": [
+            13
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "family_people"
+          ]
+        },
+        {
+          "id": "vocab_family_people__005",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_family_people",
+          "stageProfileId": "vocab_basic",
+          "ru": "отец",
+          "en": "father",
+          "sourcePages": [
+            13
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "family_people"
+          ]
+        },
+        {
+          "id": "vocab_family_people__006",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_family_people",
+          "stageProfileId": "vocab_basic",
+          "ru": "брат",
+          "en": "brother",
+          "sourcePages": [
+            13,
+            41
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "family_people"
+          ]
+        },
+        {
+          "id": "vocab_family_people__007",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_family_people",
+          "stageProfileId": "vocab_basic",
+          "ru": "сын",
+          "en": "son",
+          "sourcePages": [
+            13,
+            41
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "family_people"
+          ]
+        },
+        {
+          "id": "vocab_family_people__008",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_family_people",
+          "stageProfileId": "vocab_basic",
+          "ru": "дочь / дочка",
+          "en": "daughter",
+          "sourcePages": [
+            13,
+            41
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "family_people"
+          ]
+        },
+        {
+          "id": "vocab_family_people__009",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_family_people",
+          "stageProfileId": "vocab_basic",
+          "ru": "сестра",
+          "en": "sister",
+          "sourcePages": [
+            13,
+            40
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "family_people"
+          ]
+        },
+        {
+          "id": "vocab_family_people__010",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_family_people",
+          "stageProfileId": "vocab_basic",
+          "ru": "дедушка",
+          "en": "grandfather",
+          "sourcePages": [
+            13
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "family_people"
+          ]
+        },
+        {
+          "id": "vocab_family_people__011",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_family_people",
+          "stageProfileId": "vocab_basic",
+          "ru": "бабушка",
+          "en": "grandmother",
+          "sourcePages": [
+            13
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "family_people"
+          ]
+        },
+        {
+          "id": "vocab_family_people__012",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_family_people",
+          "stageProfileId": "vocab_basic",
+          "ru": "муж",
+          "en": "husband",
+          "sourcePages": [
+            13
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "family_people"
+          ]
+        },
+        {
+          "id": "vocab_family_people__013",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_family_people",
+          "stageProfileId": "vocab_basic",
+          "ru": "жена",
+          "en": "wife",
+          "sourcePages": [
+            13
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "family_people"
+          ]
+        },
+        {
+          "id": "vocab_family_people__014",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_family_people",
+          "stageProfileId": "vocab_basic",
+          "ru": "женщина",
+          "en": "woman",
+          "sourcePages": [
+            13,
+            21
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "family_people"
+          ]
+        },
+        {
+          "id": "vocab_family_people__015",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_family_people",
+          "stageProfileId": "vocab_basic",
+          "ru": "мужчина",
+          "en": "man",
+          "sourcePages": [
+            13
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "family_people"
+          ]
+        },
+        {
+          "id": "vocab_family_people__016",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_family_people",
+          "stageProfileId": "vocab_basic",
+          "ru": "парень",
+          "en": "boyfriend / guy",
+          "sourcePages": [
+            13
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "family_people"
+          ]
+        },
+        {
+          "id": "vocab_family_people__017",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_family_people",
+          "stageProfileId": "vocab_basic",
+          "ru": "девушка",
+          "en": "girlfriend / girl",
+          "sourcePages": [
+            13
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "family_people"
+          ]
+        },
+        {
+          "id": "vocab_family_people__018",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_family_people",
+          "stageProfileId": "vocab_basic",
+          "ru": "друг",
+          "en": "friend",
+          "sourcePages": [
+            38,
+            39,
+            41
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "family_people"
+          ]
+        },
+        {
+          "id": "vocab_family_people__019",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_family_people",
+          "stageProfileId": "vocab_basic",
+          "ru": "подруга",
+          "en": "female friend",
+          "sourcePages": [
+            37,
+            39
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "family_people"
+          ]
+        },
+        {
+          "id": "vocab_family_people__020",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_family_people",
+          "stageProfileId": "vocab_basic",
+          "ru": "учитель",
+          "en": "teacher (male)",
+          "sourcePages": [
+            38,
+            39,
+            41
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "family_people"
+          ]
+        },
+        {
+          "id": "vocab_family_people__021",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_family_people",
+          "stageProfileId": "vocab_basic",
+          "ru": "учительница",
+          "en": "teacher (female)",
+          "sourcePages": [
+            38,
+            39
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "family_people"
+          ]
+        },
+        {
+          "id": "vocab_family_people__022",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_family_people",
+          "stageProfileId": "vocab_basic",
+          "ru": "преподаватель",
+          "en": "teacher / instructor",
+          "sourcePages": [
+            6
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "family_people"
+          ]
+        },
+        {
+          "id": "vocab_family_people__023",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_family_people",
+          "stageProfileId": "vocab_basic",
+          "ru": "студент",
+          "en": "student",
+          "sourcePages": [
+            40
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "family_people"
+          ]
+        },
+        {
+          "id": "vocab_family_people__024",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_family_people",
+          "stageProfileId": "vocab_basic",
+          "ru": "врач",
+          "en": "doctor",
+          "sourcePages": [
+            48
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "family_people"
+          ]
+        },
+        {
+          "id": "vocab_family_people__025",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_family_people",
+          "stageProfileId": "vocab_basic",
+          "ru": "герой",
+          "en": "hero",
+          "sourcePages": [
+            48
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "family_people"
+          ]
+        },
+        {
+          "id": "vocab_family_people__026",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_family_people",
+          "stageProfileId": "vocab_basic",
+          "ru": "клоун",
+          "en": "clown",
+          "sourcePages": [
+            48
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "family_people"
+          ]
+        },
+        {
+          "id": "vocab_family_people__027",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_family_people",
+          "stageProfileId": "vocab_basic",
+          "ru": "одноклассники",
+          "en": "classmates",
+          "sourcePages": [
+            55
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "family_people"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vocab_animals_pets",
+      "title": "Animals + pets",
+      "order": 3,
+      "defaultEntry": false,
+      "status": "active",
+      "sourcePages": [
+        13,
+        37,
+        38,
+        48,
+        49,
+        53,
+        55
+      ],
+      "atoms": [
+        {
+          "id": "vocab_animals_pets__001",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_animals_pets",
+          "stageProfileId": "vocab_basic",
+          "ru": "домашний питомец",
+          "en": "pet",
+          "sourcePages": [
+            13
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "animals_pets"
+          ]
+        },
+        {
+          "id": "vocab_animals_pets__002",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_animals_pets",
+          "stageProfileId": "vocab_basic",
+          "ru": "кот",
+          "en": "cat",
+          "sourcePages": [
+            13,
+            38
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "animals_pets"
+          ]
+        },
+        {
+          "id": "vocab_animals_pets__003",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_animals_pets",
+          "stageProfileId": "vocab_basic",
+          "ru": "кошка",
+          "en": "cat (female cat)",
+          "sourcePages": [
+            38
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "animals_pets"
+          ]
+        },
+        {
+          "id": "vocab_animals_pets__004",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_animals_pets",
+          "stageProfileId": "vocab_basic",
+          "ru": "собака",
+          "en": "dog",
+          "sourcePages": [
+            13,
+            37,
+            49
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "animals_pets"
+          ]
+        },
+        {
+          "id": "vocab_animals_pets__005",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_animals_pets",
+          "stageProfileId": "vocab_basic",
+          "ru": "птица",
+          "en": "bird",
+          "sourcePages": [
+            48
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "animals_pets"
+          ]
+        },
+        {
+          "id": "vocab_animals_pets__006",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_animals_pets",
+          "stageProfileId": "vocab_basic",
+          "ru": "попугай",
+          "en": "parrot",
+          "sourcePages": [
+            49
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "animals_pets"
+          ]
+        },
+        {
+          "id": "vocab_animals_pets__007",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_animals_pets",
+          "stageProfileId": "vocab_basic",
+          "ru": "кролик",
+          "en": "rabbit",
+          "sourcePages": [
+            49
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "animals_pets"
+          ]
+        },
+        {
+          "id": "vocab_animals_pets__008",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_animals_pets",
+          "stageProfileId": "vocab_basic",
+          "ru": "черепаха",
+          "en": "turtle",
+          "sourcePages": [
+            48
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "animals_pets"
+          ]
+        },
+        {
+          "id": "vocab_animals_pets__009",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_animals_pets",
+          "stageProfileId": "vocab_basic",
+          "ru": "кит",
+          "en": "whale",
+          "sourcePages": [
+            37
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "animals_pets"
+          ]
+        },
+        {
+          "id": "vocab_animals_pets__010",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_animals_pets",
+          "stageProfileId": "vocab_basic",
+          "ru": "лошадь",
+          "en": "horse",
+          "sourcePages": [
+            37
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "animals_pets"
+          ]
+        },
+        {
+          "id": "vocab_animals_pets__011",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_animals_pets",
+          "stageProfileId": "vocab_basic",
+          "ru": "волк",
+          "en": "wolf",
+          "sourcePages": [
+            37
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "animals_pets"
+          ]
+        },
+        {
+          "id": "vocab_animals_pets__012",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_animals_pets",
+          "stageProfileId": "vocab_basic",
+          "ru": "медведь",
+          "en": "bear",
+          "sourcePages": [
+            53
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "animals_pets"
+          ]
+        },
+        {
+          "id": "vocab_animals_pets__013",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_animals_pets",
+          "stageProfileId": "vocab_basic",
+          "ru": "щенок",
+          "en": "puppy",
+          "sourcePages": [
+            55
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "animals_pets"
+          ]
+        },
+        {
+          "id": "vocab_animals_pets__014",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_animals_pets",
+          "stageProfileId": "vocab_basic",
+          "ru": "котёнок",
+          "en": "kitten",
+          "sourcePages": [
+            55
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "animals_pets"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vocab_clothes_accessories",
+      "title": "Clothes + accessories",
+      "order": 4,
+      "defaultEntry": false,
+      "status": "active",
+      "sourcePages": [
+        19,
+        20,
+        21,
+        37,
+        39,
+        44,
+        47,
+        49,
+        50,
+        53,
+        55
+      ],
+      "atoms": [
+        {
+          "id": "vocab_clothes_accessories__001",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_clothes_accessories",
+          "stageProfileId": "vocab_basic",
+          "ru": "платье",
+          "en": "dress",
+          "sourcePages": [
+            19,
+            53
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "clothes_accessories"
+          ]
+        },
+        {
+          "id": "vocab_clothes_accessories__002",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_clothes_accessories",
+          "stageProfileId": "vocab_basic",
+          "ru": "штаны",
+          "en": "pants",
+          "sourcePages": [
+            19,
+            47
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "clothes_accessories"
+          ]
+        },
+        {
+          "id": "vocab_clothes_accessories__003",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_clothes_accessories",
+          "stageProfileId": "vocab_basic",
+          "ru": "юбка",
+          "en": "skirt",
+          "sourcePages": [
+            19,
+            21,
+            37
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "clothes_accessories"
+          ]
+        },
+        {
+          "id": "vocab_clothes_accessories__004",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_clothes_accessories",
+          "stageProfileId": "vocab_basic",
+          "ru": "куртка",
+          "en": "jacket",
+          "sourcePages": [
+            19,
+            44,
+            53
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "clothes_accessories"
+          ]
+        },
+        {
+          "id": "vocab_clothes_accessories__005",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_clothes_accessories",
+          "stageProfileId": "vocab_basic",
+          "ru": "пальто",
+          "en": "coat",
+          "sourcePages": [
+            19,
+            50
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "clothes_accessories"
+          ]
+        },
+        {
+          "id": "vocab_clothes_accessories__006",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_clothes_accessories",
+          "stageProfileId": "vocab_basic",
+          "ru": "рубашка",
+          "en": "shirt",
+          "sourcePages": [
+            19,
+            21,
+            53
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "clothes_accessories"
+          ]
+        },
+        {
+          "id": "vocab_clothes_accessories__007",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_clothes_accessories",
+          "stageProfileId": "vocab_basic",
+          "ru": "свитер",
+          "en": "sweater",
+          "sourcePages": [
+            19,
+            47,
+            55
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "clothes_accessories"
+          ]
+        },
+        {
+          "id": "vocab_clothes_accessories__008",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_clothes_accessories",
+          "stageProfileId": "vocab_basic",
+          "ru": "шапка",
+          "en": "hat",
+          "sourcePages": [
+            19,
+            55
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "clothes_accessories"
+          ]
+        },
+        {
+          "id": "vocab_clothes_accessories__009",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_clothes_accessories",
+          "stageProfileId": "vocab_basic",
+          "ru": "футболка",
+          "en": "T-shirt",
+          "sourcePages": [
+            19
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "clothes_accessories"
+          ]
+        },
+        {
+          "id": "vocab_clothes_accessories__010",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_clothes_accessories",
+          "stageProfileId": "vocab_basic",
+          "ru": "обувь",
+          "en": "shoes / footwear",
+          "sourcePages": [
+            20
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "clothes_accessories"
+          ]
+        },
+        {
+          "id": "vocab_clothes_accessories__011",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_clothes_accessories",
+          "stageProfileId": "vocab_basic",
+          "ru": "носки",
+          "en": "socks",
+          "sourcePages": [
+            20
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "clothes_accessories"
+          ]
+        },
+        {
+          "id": "vocab_clothes_accessories__012",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_clothes_accessories",
+          "stageProfileId": "vocab_basic",
+          "ru": "туфли",
+          "en": "dress shoes",
+          "sourcePages": [
+            20,
+            21
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "clothes_accessories"
+          ]
+        },
+        {
+          "id": "vocab_clothes_accessories__013",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_clothes_accessories",
+          "stageProfileId": "vocab_basic",
+          "ru": "кроссовки",
+          "en": "sneakers",
+          "sourcePages": [
+            20
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "clothes_accessories"
+          ]
+        },
+        {
+          "id": "vocab_clothes_accessories__014",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_clothes_accessories",
+          "stageProfileId": "vocab_basic",
+          "ru": "пижама",
+          "en": "pajamas",
+          "sourcePages": [
+            20
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "clothes_accessories"
+          ]
+        },
+        {
+          "id": "vocab_clothes_accessories__015",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_clothes_accessories",
+          "stageProfileId": "vocab_basic",
+          "ru": "сумка",
+          "en": "bag",
+          "sourcePages": [
+            20,
+            37,
+            39
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "clothes_accessories"
+          ]
+        },
+        {
+          "id": "vocab_clothes_accessories__016",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_clothes_accessories",
+          "stageProfileId": "vocab_basic",
+          "ru": "очки",
+          "en": "glasses",
+          "sourcePages": [
+            20,
+            21,
+            47
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "clothes_accessories"
+          ]
+        },
+        {
+          "id": "vocab_clothes_accessories__017",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_clothes_accessories",
+          "stageProfileId": "vocab_basic",
+          "ru": "шарф",
+          "en": "scarf",
+          "sourcePages": [
+            53,
+            55
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "clothes_accessories"
+          ]
+        },
+        {
+          "id": "vocab_clothes_accessories__018",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_clothes_accessories",
+          "stageProfileId": "vocab_basic",
+          "ru": "ботинок",
+          "en": "shoe / boot",
+          "sourcePages": [
+            53
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "clothes_accessories"
+          ]
+        },
+        {
+          "id": "vocab_clothes_accessories__019",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_clothes_accessories",
+          "stageProfileId": "vocab_basic",
+          "ru": "рюкзак",
+          "en": "backpack",
+          "sourcePages": [
+            49
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "clothes_accessories"
+          ]
+        },
+        {
+          "id": "vocab_clothes_accessories__020",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_clothes_accessories",
+          "stageProfileId": "vocab_basic",
+          "ru": "чемодан",
+          "en": "suitcase",
+          "sourcePages": [
+            37,
+            49
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "clothes_accessories"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vocab_food_drink_meals",
+      "title": "Food + drink + meals",
+      "order": 5,
+      "defaultEntry": false,
+      "status": "active",
+      "sourcePages": [
+        9,
+        10,
+        12,
+        36,
+        37,
+        38,
+        39,
+        42,
+        44,
+        50,
+        53
+      ],
+      "atoms": [
+        {
+          "id": "vocab_food_drink_meals__001",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_food_drink_meals",
+          "stageProfileId": "vocab_basic",
+          "ru": "сыр",
+          "en": "cheese",
+          "sourcePages": [
+            10
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "food_drink_meals"
+          ]
+        },
+        {
+          "id": "vocab_food_drink_meals__002",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_food_drink_meals",
+          "stageProfileId": "vocab_basic",
+          "ru": "стейк",
+          "en": "steak",
+          "sourcePages": [
+            10
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "food_drink_meals"
+          ]
+        },
+        {
+          "id": "vocab_food_drink_meals__003",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_food_drink_meals",
+          "stageProfileId": "vocab_basic",
+          "ru": "индийская еда",
+          "en": "Indian food",
+          "sourcePages": [
+            10
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "food_drink_meals"
+          ]
+        },
+        {
+          "id": "vocab_food_drink_meals__004",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_food_drink_meals",
+          "stageProfileId": "vocab_basic",
+          "ru": "яйцо / яйца",
+          "en": "egg / eggs",
+          "sourcePages": [
+            10,
+            12
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "food_drink_meals"
+          ]
+        },
+        {
+          "id": "vocab_food_drink_meals__005",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_food_drink_meals",
+          "stageProfileId": "vocab_basic",
+          "ru": "мясо",
+          "en": "meat",
+          "sourcePages": [
+            10
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "food_drink_meals"
+          ]
+        },
+        {
+          "id": "vocab_food_drink_meals__006",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_food_drink_meals",
+          "stageProfileId": "vocab_basic",
+          "ru": "рыба",
+          "en": "fish",
+          "sourcePages": [
+            10,
+            44
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "food_drink_meals"
+          ]
+        },
+        {
+          "id": "vocab_food_drink_meals__007",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_food_drink_meals",
+          "stageProfileId": "vocab_basic",
+          "ru": "курица",
+          "en": "chicken",
+          "sourcePages": [
+            10,
+            36
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "food_drink_meals"
+          ]
+        },
+        {
+          "id": "vocab_food_drink_meals__008",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_food_drink_meals",
+          "stageProfileId": "vocab_basic",
+          "ru": "молоко",
+          "en": "milk",
+          "sourcePages": [
+            10,
+            37,
+            39
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "food_drink_meals"
+          ]
+        },
+        {
+          "id": "vocab_food_drink_meals__009",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_food_drink_meals",
+          "stageProfileId": "vocab_basic",
+          "ru": "хлеб",
+          "en": "bread",
+          "sourcePages": [
+            10
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "food_drink_meals"
+          ]
+        },
+        {
+          "id": "vocab_food_drink_meals__010",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_food_drink_meals",
+          "stageProfileId": "vocab_basic",
+          "ru": "кофе",
+          "en": "coffee",
+          "sourcePages": [
+            10,
+            42,
+            44
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "food_drink_meals"
+          ]
+        },
+        {
+          "id": "vocab_food_drink_meals__011",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_food_drink_meals",
+          "stageProfileId": "vocab_basic",
+          "ru": "сок",
+          "en": "juice",
+          "sourcePages": [
+            50
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "food_drink_meals"
+          ]
+        },
+        {
+          "id": "vocab_food_drink_meals__012",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_food_drink_meals",
+          "stageProfileId": "vocab_basic",
+          "ru": "мороженое",
+          "en": "ice cream",
+          "sourcePages": [
+            50
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "food_drink_meals"
+          ]
+        },
+        {
+          "id": "vocab_food_drink_meals__013",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_food_drink_meals",
+          "stageProfileId": "vocab_basic",
+          "ru": "суп",
+          "en": "soup",
+          "sourcePages": [
+            44
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "food_drink_meals"
+          ]
+        },
+        {
+          "id": "vocab_food_drink_meals__014",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_food_drink_meals",
+          "stageProfileId": "vocab_basic",
+          "ru": "яблоко",
+          "en": "apple",
+          "sourcePages": [
+            38,
+            39,
+            42,
+            53
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "food_drink_meals"
+          ]
+        },
+        {
+          "id": "vocab_food_drink_meals__015",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_food_drink_meals",
+          "stageProfileId": "vocab_basic",
+          "ru": "апельсин",
+          "en": "orange (fruit)",
+          "sourcePages": [
+            37,
+            53
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "food_drink_meals"
+          ]
+        },
+        {
+          "id": "vocab_food_drink_meals__016",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_food_drink_meals",
+          "stageProfileId": "vocab_basic",
+          "ru": "завтрак",
+          "en": "breakfast",
+          "sourcePages": [
+            12
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "food_drink_meals"
+          ]
+        },
+        {
+          "id": "vocab_food_drink_meals__017",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_food_drink_meals",
+          "stageProfileId": "vocab_basic",
+          "ru": "обед",
+          "en": "lunch",
+          "sourcePages": [
+            12
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "food_drink_meals"
+          ]
+        },
+        {
+          "id": "vocab_food_drink_meals__018",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_food_drink_meals",
+          "stageProfileId": "vocab_basic",
+          "ru": "ужин",
+          "en": "dinner",
+          "sourcePages": [
+            9,
+            12
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "food_drink_meals"
+          ]
+        },
+        {
+          "id": "vocab_food_drink_meals__019",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_food_drink_meals",
+          "stageProfileId": "vocab_basic",
+          "ru": "на завтрак",
+          "en": "for breakfast",
+          "sourcePages": [
+            12
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "food_drink_meals"
+          ]
+        },
+        {
+          "id": "vocab_food_drink_meals__020",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_food_drink_meals",
+          "stageProfileId": "vocab_basic",
+          "ru": "на обед",
+          "en": "for lunch",
+          "sourcePages": [
+            12
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "food_drink_meals"
+          ]
+        },
+        {
+          "id": "vocab_food_drink_meals__021",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_food_drink_meals",
+          "stageProfileId": "vocab_basic",
+          "ru": "на ужин",
+          "en": "for dinner",
+          "sourcePages": [
+            12
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "food_drink_meals"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vocab_places_objects",
+      "title": "Places + objects",
+      "order": 6,
+      "defaultEntry": false,
+      "status": "active",
+      "sourcePages": [
+        2,
+        3,
+        4,
+        5,
+        9,
+        11,
+        12,
+        17,
+        18,
+        25,
+        32,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        55
+      ],
+      "atoms": [
+        {
+          "id": "vocab_places_objects__001",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "офис",
+          "en": "office",
+          "sourcePages": [
+            3,
+            4,
+            25,
+            48
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__002",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "парк",
+          "en": "park",
+          "sourcePages": [
+            2,
+            3,
+            5,
+            45,
+            46
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__003",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "спортзал",
+          "en": "gym",
+          "sourcePages": [
+            9,
+            12,
+            44
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__004",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "метро",
+          "en": "metro",
+          "sourcePages": [
+            11,
+            42
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__005",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "поезд",
+          "en": "train",
+          "sourcePages": [
+            11,
+            41
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__006",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "квартира",
+          "en": "apartment",
+          "sourcePages": [
+            18,
+            52
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__007",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "гараж",
+          "en": "garage",
+          "sourcePages": [
+            18
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__008",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "возле дома",
+          "en": "next to the house",
+          "sourcePages": [
+            18
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__009",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "под домом",
+          "en": "under the house",
+          "sourcePages": [
+            18
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__010",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "центр города",
+          "en": "city center",
+          "sourcePages": [
+            5
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__011",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "дом",
+          "en": "house / home",
+          "sourcePages": [
+            3,
+            17,
+            18,
+            38,
+            39,
+            41,
+            52
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__012",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "школа",
+          "en": "school",
+          "sourcePages": [
+            38,
+            39,
+            46
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__013",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "кухня",
+          "en": "kitchen",
+          "sourcePages": [
+            52
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__014",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "книга",
+          "en": "book",
+          "sourcePages": [
+            37,
+            39
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__015",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "журнал",
+          "en": "magazine",
+          "sourcePages": [
+            32
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__016",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "газета",
+          "en": "newspaper",
+          "sourcePages": [
+            37,
+            39,
+            45
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__017",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "письмо",
+          "en": "letter",
+          "sourcePages": [
+            32,
+            38,
+            39,
+            45
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__018",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "сообщение / сообщения",
+          "en": "message / messages",
+          "sourcePages": [
+            5
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__019",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "телефон",
+          "en": "phone",
+          "sourcePages": [
+            11,
+            37,
+            39,
+            44,
+            47,
+            53
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__020",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "компьютер",
+          "en": "computer",
+          "sourcePages": [
+            5,
+            37,
+            39
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__021",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "наушники",
+          "en": "headphones",
+          "sourcePages": [
+            18,
+            45,
+            46
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__022",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "радио",
+          "en": "radio",
+          "sourcePages": [
+            18,
+            42,
+            46
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__023",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "гитара",
+          "en": "guitar",
+          "sourcePages": [
+            5,
+            46
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__024",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "пианино",
+          "en": "piano",
+          "sourcePages": [
+            42,
+            46
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__025",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "барабаны",
+          "en": "drums",
+          "sourcePages": [
+            46
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__026",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "стол",
+          "en": "table",
+          "sourcePages": [
+            37,
+            39,
+            48
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__027",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "кресло",
+          "en": "armchair",
+          "sourcePages": [
+            38,
+            39,
+            53
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__028",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "диван",
+          "en": "sofa",
+          "sourcePages": [
+            50,
+            53
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__029",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "кровать",
+          "en": "bed",
+          "sourcePages": [
+            50
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__030",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "зеркало",
+          "en": "mirror",
+          "sourcePages": [
+            37,
+            39
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__031",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "одеяло",
+          "en": "blanket",
+          "sourcePages": [
+            37
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__032",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "лампа",
+          "en": "lamp",
+          "sourcePages": [
+            37,
+            53
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__033",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "тетрадь",
+          "en": "notebook",
+          "sourcePages": [
+            51,
+            53
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__034",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "ручка",
+          "en": "pen",
+          "sourcePages": [
+            37,
+            38,
+            39,
+            51,
+            53
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__035",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "карандаш",
+          "en": "pencil",
+          "sourcePages": [
+            37,
+            39,
+            51
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__036",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "дерево",
+          "en": "tree",
+          "sourcePages": [
+            37,
+            41,
+            53
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__037",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "трава",
+          "en": "grass",
+          "sourcePages": [
+            37
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__038",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "речка",
+          "en": "river",
+          "sourcePages": [
+            37
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__039",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "небо",
+          "en": "sky",
+          "sourcePages": [
+            37
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__040",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "поле",
+          "en": "field",
+          "sourcePages": [
+            37
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__041",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "леса",
+          "en": "forests",
+          "sourcePages": [
+            37
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__042",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "стена",
+          "en": "wall",
+          "sourcePages": [
+            37
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__043",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "море",
+          "en": "sea",
+          "sourcePages": [
+            37,
+            39
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__044",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "игрушки",
+          "en": "toys",
+          "sourcePages": [
+            52,
+            55
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__045",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "дорожка",
+          "en": "path",
+          "sourcePages": [
+            50
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__046",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "комната",
+          "en": "room",
+          "sourcePages": [
+            55
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__047",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "велосипед",
+          "en": "bike",
+          "sourcePages": [
+            47
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__048",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "машина",
+          "en": "car",
+          "sourcePages": [
+            37,
+            39,
+            47,
+            49,
+            52,
+            55
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__049",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "автобус",
+          "en": "bus",
+          "sourcePages": [
+            37,
+            39,
+            51
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__050",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "окно",
+          "en": "window",
+          "sourcePages": [
+            37,
+            39,
+            40,
+            52
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        },
+        {
+          "id": "vocab_places_objects__051",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_places_objects",
+          "stageProfileId": "vocab_basic",
+          "ru": "дверь",
+          "en": "door",
+          "sourcePages": [
+            18,
+            38,
+            39,
+            51
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "places_objects"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vocab_identity_country_phrases",
+      "title": "Identity / country phrases",
+      "order": 7,
+      "defaultEntry": false,
+      "status": "active",
+      "sourcePages": [
+        25,
+        27,
+        28
+      ],
+      "atoms": [
+        {
+          "id": "vocab_identity_country_phrases__001",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_identity_country_phrases",
+          "stageProfileId": "vocab_basic",
+          "ru": "Я из Австралии.",
+          "en": "I am from Australia.",
+          "sourcePages": [
+            25
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "identity_country_phrases"
+          ]
+        },
+        {
+          "id": "vocab_identity_country_phrases__002",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_identity_country_phrases",
+          "stageProfileId": "vocab_basic",
+          "ru": "Я из Италии.",
+          "en": "I am from Italy.",
+          "sourcePages": [
+            27
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "identity_country_phrases"
+          ]
+        },
+        {
+          "id": "vocab_identity_country_phrases__003",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_identity_country_phrases",
+          "stageProfileId": "vocab_basic",
+          "ru": "Я из Канады.",
+          "en": "I am from Canada.",
+          "sourcePages": [
+            27
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "identity_country_phrases"
+          ]
+        },
+        {
+          "id": "vocab_identity_country_phrases__004",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_identity_country_phrases",
+          "stageProfileId": "vocab_basic",
+          "ru": "Я живу в Швеции.",
+          "en": "I live in Sweden.",
+          "sourcePages": [
+            25
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "identity_country_phrases"
+          ]
+        },
+        {
+          "id": "vocab_identity_country_phrases__005",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_identity_country_phrases",
+          "stageProfileId": "vocab_basic",
+          "ru": "Я живу в Германии.",
+          "en": "I live in Germany.",
+          "sourcePages": [
+            27
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "identity_country_phrases"
+          ]
+        },
+        {
+          "id": "vocab_identity_country_phrases__006",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_identity_country_phrases",
+          "stageProfileId": "vocab_basic",
+          "ru": "Я живу во Франции.",
+          "en": "I live in France.",
+          "sourcePages": [
+            28
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "identity_country_phrases"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vocab_questions_connectors_misc",
+      "title": "Question words + connectors + misc",
+      "order": 8,
+      "defaultEntry": false,
+      "status": "active",
+      "sourcePages": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        18,
+        19,
+        21,
+        22,
+        23,
+        35,
+        41,
+        44,
+        46,
+        58
+      ],
+      "atoms": [
+        {
+          "id": "vocab_questions_connectors_misc__001",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "прикольно",
+          "en": "cool / interesting",
+          "sourcePages": [
+            9
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__002",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "как сказать",
+          "en": "how to say",
+          "sourcePages": [
+            9
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__003",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "после",
+          "en": "after",
+          "sourcePages": [
+            9
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__004",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "выходные",
+          "en": "weekend",
+          "sourcePages": [
+            9
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__005",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "конечно",
+          "en": "of course",
+          "sourcePages": [
+            11
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__006",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "пожалуйста",
+          "en": "please / you're welcome",
+          "sourcePages": [
+            12,
+            22
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__007",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "когда?",
+          "en": "when?",
+          "sourcePages": [
+            12
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__008",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "скажи мне",
+          "en": "tell me",
+          "sourcePages": [
+            12
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__009",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "это всё",
+          "en": "that's all",
+          "sourcePages": [
+            13
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__010",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "почему?",
+          "en": "why?",
+          "sourcePages": [
+            13,
+            23
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__011",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "потому что",
+          "en": "because",
+          "sourcePages": [
+            13,
+            23
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__012",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "сейчас",
+          "en": "now",
+          "sourcePages": [
+            18
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__013",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "я дома",
+          "en": "I am at home",
+          "sourcePages": [
+            18
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__014",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "здесь",
+          "en": "here",
+          "sourcePages": [
+            18
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__015",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "цвет",
+          "en": "color",
+          "sourcePages": [
+            18,
+            41
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__016",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "ещё раз?",
+          "en": "say it again?",
+          "sourcePages": [
+            18
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__017",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "что это?",
+          "en": "what is it?",
+          "sourcePages": [
+            19
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__018",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "какой?",
+          "en": "what kind? (masc)",
+          "sourcePages": [
+            19
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__019",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "какая?",
+          "en": "what kind? (fem)",
+          "sourcePages": [
+            19
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__020",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "какое?",
+          "en": "what kind? (neut)",
+          "sourcePages": [
+            19
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__021",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "какие?",
+          "en": "what kind? (plural)",
+          "sourcePages": [
+            19
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__022",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "и",
+          "en": "and",
+          "sourcePages": [
+            21,
+            22,
+            35
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__023",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "но",
+          "en": "but",
+          "sourcePages": [
+            22,
+            35
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__024",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "или",
+          "en": "or",
+          "sourcePages": [
+            22,
+            35
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__025",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "извини / извините",
+          "en": "sorry / excuse me",
+          "sourcePages": [
+            22
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__026",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "повтори / повторите",
+          "en": "repeat",
+          "sourcePages": [
+            22
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__027",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "а что?",
+          "en": "why do you ask?",
+          "sourcePages": [
+            23
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__028",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "как твой день?",
+          "en": "how is / was your day?",
+          "sourcePages": [
+            23
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__029",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "а",
+          "en": "mild contrast / and as for",
+          "sourcePages": [
+            23
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__030",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "что такое ... ?",
+          "en": "what is ... ?",
+          "sourcePages": [
+            11
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__031",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "который час?",
+          "en": "what time is it?",
+          "sourcePages": [
+            11,
+            14
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__032",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "сколько времени?",
+          "en": "what time is it?",
+          "sourcePages": [
+            11
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__033",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "только",
+          "en": "only",
+          "sourcePages": [
+            11
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__034",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "точно",
+          "en": "exactly",
+          "sourcePages": [
+            10
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__035",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "щас / сейчас",
+          "en": "now / right now",
+          "sourcePages": [
+            11
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__036",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "было вкусно?",
+          "en": "Was it tasty?",
+          "sourcePages": [
+            10
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__037",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "раб",
+          "en": "slave",
+          "sourcePages": [
+            11
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": true,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__038",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "по-русски",
+          "en": "in Russian",
+          "sourcePages": [
+            46,
+            58
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__039",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "по-украински",
+          "en": "in Ukrainian",
+          "sourcePages": [
+            46
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__040",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "с английского",
+          "en": "from English",
+          "sourcePages": [
+            44
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        },
+        {
+          "id": "vocab_questions_connectors_misc__041",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_questions_connectors_misc",
+          "stageProfileId": "vocab_basic",
+          "ru": "по телефону",
+          "en": "on the phone",
+          "sourcePages": [
+            44
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "questions_connectors_misc"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vocab_feelings_health",
+      "title": "Feelings + health",
+      "order": 9,
+      "defaultEntry": false,
+      "status": "active",
+      "sourcePages": [
+        23,
+        24,
+        25
+      ],
+      "atoms": [
+        {
+          "id": "vocab_feelings_health__001",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_feelings_health",
+          "stageProfileId": "vocab_basic",
+          "ru": "я чувствую себя не очень",
+          "en": "I don't feel very good",
+          "sourcePages": [
+            23
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "feelings_health"
+          ]
+        },
+        {
+          "id": "vocab_feelings_health__002",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_feelings_health",
+          "stageProfileId": "vocab_basic",
+          "ru": "я приболел",
+          "en": "I'm a bit sick",
+          "sourcePages": [
+            23
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "feelings_health"
+          ]
+        },
+        {
+          "id": "vocab_feelings_health__003",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_feelings_health",
+          "stageProfileId": "vocab_basic",
+          "ru": "я заболел",
+          "en": "I got sick",
+          "sourcePages": [
+            23
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "feelings_health"
+          ]
+        },
+        {
+          "id": "vocab_feelings_health__004",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_feelings_health",
+          "stageProfileId": "vocab_basic",
+          "ru": "будь здоров(а)",
+          "en": "bless you / get well",
+          "sourcePages": [
+            23
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "feelings_health"
+          ]
+        },
+        {
+          "id": "vocab_feelings_health__005",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_feelings_health",
+          "stageProfileId": "vocab_basic",
+          "ru": "блин",
+          "en": "damn",
+          "sourcePages": [
+            23
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "feelings_health"
+          ]
+        },
+        {
+          "id": "vocab_feelings_health__006",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_feelings_health",
+          "stageProfileId": "vocab_basic",
+          "ru": "с днём рождения",
+          "en": "happy birthday",
+          "sourcePages": [
+            23
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "feelings_health"
+          ]
+        },
+        {
+          "id": "vocab_feelings_health__007",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_feelings_health",
+          "stageProfileId": "vocab_basic",
+          "ru": "я кашляю",
+          "en": "I cough / am coughing",
+          "sourcePages": [
+            23
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "feelings_health"
+          ]
+        },
+        {
+          "id": "vocab_feelings_health__008",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_feelings_health",
+          "stageProfileId": "vocab_basic",
+          "ru": "погода не очень",
+          "en": "the weather is not very good",
+          "sourcePages": [
+            23
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "feelings_health"
+          ]
+        },
+        {
+          "id": "vocab_feelings_health__009",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_feelings_health",
+          "stageProfileId": "vocab_basic",
+          "ru": "не очень",
+          "en": "not very good",
+          "sourcePages": [
+            24
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "feelings_health"
+          ]
+        },
+        {
+          "id": "vocab_feelings_health__010",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_feelings_health",
+          "stageProfileId": "vocab_basic",
+          "ru": "плохо",
+          "en": "bad",
+          "sourcePages": [
+            25
+          ],
+          "reviewed": true,
+          "adult": false,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "feelings_health"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vocab_opt_in_slang_profanity",
+      "title": "Opt-in slang / profanity",
+      "order": 10,
+      "defaultEntry": false,
+      "status": "deferred_hidden_by_default",
+      "sourcePages": [
+        18,
+        19,
+        47
+      ],
+      "atoms": [
+        {
+          "id": "vocab_opt_in_slang_profanity__001",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_opt_in_slang_profanity",
+          "stageProfileId": "vocab_basic",
+          "ru": "хуй",
+          "en": "dick",
+          "sourcePages": [
+            18
+          ],
+          "reviewed": true,
+          "adult": true,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "opt_in_slang_profanity"
+          ]
+        },
+        {
+          "id": "vocab_opt_in_slang_profanity__002",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_opt_in_slang_profanity",
+          "stageProfileId": "vocab_basic",
+          "ru": "пизда",
+          "en": "pussy",
+          "sourcePages": [
+            18
+          ],
+          "reviewed": true,
+          "adult": true,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "opt_in_slang_profanity"
+          ]
+        },
+        {
+          "id": "vocab_opt_in_slang_profanity__003",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_opt_in_slang_profanity",
+          "stageProfileId": "vocab_basic",
+          "ru": "ебать",
+          "en": "fuck",
+          "sourcePages": [
+            18
+          ],
+          "reviewed": true,
+          "adult": true,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "opt_in_slang_profanity"
+          ]
+        },
+        {
+          "id": "vocab_opt_in_slang_profanity__004",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_opt_in_slang_profanity",
+          "stageProfileId": "vocab_basic",
+          "ru": "блядь",
+          "en": "fuck / damn / cunt",
+          "sourcePages": [
+            18
+          ],
+          "reviewed": true,
+          "adult": true,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "opt_in_slang_profanity"
+          ]
+        },
+        {
+          "id": "vocab_opt_in_slang_profanity__005",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_opt_in_slang_profanity",
+          "stageProfileId": "vocab_basic",
+          "ru": "сука",
+          "en": "bitch / damn",
+          "sourcePages": [
+            18
+          ],
+          "reviewed": true,
+          "adult": true,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "opt_in_slang_profanity"
+          ]
+        },
+        {
+          "id": "vocab_opt_in_slang_profanity__006",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_opt_in_slang_profanity",
+          "stageProfileId": "vocab_basic",
+          "ru": "ахуенно",
+          "en": "fucking great / awesome",
+          "sourcePages": [
+            18
+          ],
+          "reviewed": true,
+          "adult": true,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "opt_in_slang_profanity"
+          ]
+        },
+        {
+          "id": "vocab_opt_in_slang_profanity__007",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_opt_in_slang_profanity",
+          "stageProfileId": "vocab_basic",
+          "ru": "хуёво",
+          "en": "fucking bad",
+          "sourcePages": [
+            19
+          ],
+          "reviewed": true,
+          "adult": true,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "opt_in_slang_profanity"
+          ]
+        },
+        {
+          "id": "vocab_opt_in_slang_profanity__008",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_opt_in_slang_profanity",
+          "stageProfileId": "vocab_basic",
+          "ru": "пиздец",
+          "en": "fucking terrible / damn",
+          "sourcePages": [
+            19
+          ],
+          "reviewed": true,
+          "adult": true,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "opt_in_slang_profanity"
+          ]
+        },
+        {
+          "id": "vocab_opt_in_slang_profanity__009",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_opt_in_slang_profanity",
+          "stageProfileId": "vocab_basic",
+          "ru": "пиздато",
+          "en": "fucking great",
+          "sourcePages": [
+            19
+          ],
+          "reviewed": true,
+          "adult": true,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "opt_in_slang_profanity"
+          ]
+        },
+        {
+          "id": "vocab_opt_in_slang_profanity__010",
+          "kind": "vocabulary_word",
+          "subdeckId": "vocab_opt_in_slang_profanity",
+          "stageProfileId": "vocab_basic",
+          "ru": "хуёвый",
+          "en": "shitty",
+          "sourcePages": [
+            47
+          ],
+          "reviewed": true,
+          "adult": true,
+          "lowPriority": false,
+          "note": null,
+          "tags": [
+            "opt_in_slang_profanity"
+          ]
+        }
+      ]
+    }
+  ]
+}

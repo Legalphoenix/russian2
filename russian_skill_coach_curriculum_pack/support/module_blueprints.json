@@ -1,0 +1,166 @@
+{
+  "first_conjugation": {
+    "title": "1st Conjugation",
+    "purpose": "Train present-tense 1st-conjugation verbs as tiny, measurable atoms.",
+    "defaultStageProfile": "grammar_full",
+    "analytics": {
+      "heatmap": "verb x person",
+      "secondaryPanels": [
+        "weakest verbs",
+        "weakest persons",
+        "irregular watchlist"
+      ]
+    },
+    "uiSignature": "Six pronoun chips above the prompt card. Central verb card. Heatmap below. Coral highlight for removable infinitive ending / mutable slot during guided stages.",
+    "subdeckRules": [
+      "Keep regular core verbs separate from irregular stem-change verbs.",
+      "For choose2/choose4/fullChoice, options must come from the same verb paradigm only.",
+      "Do not expose cross-verb distractors until at least typeFragment stage in mixed review, and even there only if explicitly enabled."
+    ]
+  },
+  "second_conjugation": {
+    "title": "2nd Conjugation",
+    "purpose": "Train present-tense 2nd-conjugation verbs, with explicit isolation of irregular я-forms.",
+    "defaultStageProfile": "grammar_full",
+    "analytics": {
+      "heatmap": "verb x person",
+      "secondaryPanels": [
+        "irregular я watchlist",
+        "weakest exception verbs"
+      ]
+    },
+    "uiSignature": "Same pronoun strip as 1st conjugation, plus a compact irregular-я banner whenever the current verb is flagged irregular.",
+    "subdeckRules": [
+      "Keep regular core verbs, exception verbs, and perfective-future reference verbs in separate subdecks.",
+      "Surface irregular я-form hints only in Preview and first two Guided attempts; remove them once the atom reaches Full Choice.",
+      "Perfective-future reference verbs must never appear in the default 2nd-conjugation Resume flow."
+    ]
+  },
+  "past_tense": {
+    "title": "Past Tense",
+    "purpose": "Convert known verbs into past tense with gender/number awareness.",
+    "defaultStageProfile": "grammar_full",
+    "analytics": {
+      "heatmap": "verb x gender-number",
+      "secondaryPanels": [
+        "speaker-gender dependence",
+        "special verbs"
+      ]
+    },
+    "uiSignature": "Four gender/number chips (masc, fem, neut, plural) across the top. For я/ты sentences, show a user gender badge or explicit gender selector.",
+    "subdeckRules": [
+      "Start with endings, then full forms, then sentence conversion.",
+      "Do not force the user to guess speaker gender for я/ты; the UI must supply it.",
+      "Special verbs быть and есть belong in their own subdeck."
+    ]
+  },
+  "core_patterns": {
+    "title": "Core Patterns",
+    "purpose": "Drill fixed high-utility frames like future быть and у ... есть.",
+    "defaultStageProfile": "grammar_full",
+    "analytics": {
+      "heatmap": "owner/pronoun x pattern"
+    },
+    "uiSignature": "Frame-builder layout. The stable frame is neutral ink; the changing slot is coral during guided stages.",
+    "subdeckRules": [
+      "Teach the owner phrase itself before mixing in nouns.",
+      "Keep future быть and у ... есть separate in the UI."
+    ]
+  },
+  "days_time_routine": {
+    "title": "Days + Time + Routine",
+    "purpose": "Drill calendar words, time phrases, and short routine expressions from the notes.",
+    "defaultStageProfile": "grammar_full",
+    "analytics": {
+      "heatmap": "subdeck x atom",
+      "secondaryPanels": [
+        "weakest time phrases",
+        "weakest day forms"
+      ]
+    },
+    "uiSignature": "Week strip for days, tile board for time phrases, compact routine sentence card for daily-life lines.",
+    "subdeckRules": [
+      "Teach bare day names and on-day forms separately before mixing.",
+      "Treat time phrases as a closed set; do not infer full clock language beyond the canonical list."
+    ]
+  },
+  "descriptions": {
+    "title": "Descriptions",
+    "purpose": "Train adjective agreement, colors, and possessive pronouns using only learned nouns and phrases.",
+    "defaultStageProfile": "grammar_full",
+    "analytics": {
+      "heatmap": "lemma x gender-number",
+      "secondaryPanels": [
+        "weakest possessive owners",
+        "weakest color adjectives"
+      ]
+    },
+    "uiSignature": "Agreement matrix (masc, fem, neut, plural) pinned above the practice card. Noun gender badge visible early, hidden later.",
+    "subdeckRules": [
+      "Teach adjective forms and possessive forms separately before combining them into noun phrases.",
+      "Invariant possessives его, её, их must be shown explicitly as invariant across all noun genders."
+    ]
+  },
+  "nouns_plurals": {
+    "title": "Nouns + Plurals",
+    "purpose": "Drill noun gender, regular plural patterns, irregular plurals, and invariant nouns.",
+    "defaultStageProfile": "grammar_full",
+    "analytics": {
+      "heatmap": "noun x rule-group",
+      "secondaryPanels": [
+        "irregular plural watchlist"
+      ]
+    },
+    "uiSignature": "Rule-group board with compact badges for gender and plural type.",
+    "subdeckRules": [
+      "Regular, irregular, and invariant nouns must be in separate subdecks.",
+      "Do not hide plural type labels during Preview."
+    ]
+  },
+  "numbers": {
+    "title": "Numbers",
+    "purpose": "Drill the exact closed number set found in the notes, plus the first three ordinals.",
+    "defaultStageProfile": "numbers_closed_set",
+    "analytics": {
+      "heatmap": "number x stage"
+    },
+    "uiSignature": "Large digit card on the left, Russian phrase on the right, with age-context mini-cards below.",
+    "subdeckRules": [
+      "Do not extrapolate beyond the reviewed closed set in this package.",
+      "Treat age phrases as their own tiny pack."
+    ]
+  },
+  "conversation": {
+    "title": "Conversation",
+    "purpose": "Drill fixed greeting/introduction/closing lines and one canonical intro dialogue.",
+    "defaultStageProfile": "conversation_fixed",
+    "analytics": {
+      "heatmap": "phrase-family x stage",
+      "secondaryPanels": [
+        "weakest replies",
+        "dialogue ordering accuracy"
+      ]
+    },
+    "uiSignature": "Chat-bubble style practice card with alternating left/right alignment in dialogue modes.",
+    "subdeckRules": [
+      "This is not open-ended chat. Only canonical lines and templates from the package should be used.",
+      "Dialogue ordering should use the provided canonical dialogue script."
+    ]
+  },
+  "vocabulary": {
+    "title": "Vocabulary",
+    "purpose": "Drill meaning and production for the exact lexical packs from the notes.",
+    "defaultStageProfile": "vocab_basic",
+    "analytics": {
+      "heatmap": "pack x item",
+      "secondaryPanels": [
+        "weakest categories"
+      ]
+    },
+    "uiSignature": "Pack chips across the top, simple word card in the middle, optional phrase strip below for phraseGuided stage.",
+    "subdeckRules": [
+      "Keep packs semantically tight; do not mix random categories in early stages.",
+      "The adult slang/profanity pack is opt-in and hidden by default."
+    ]
+  }
+}

@@ -1,0 +1,399 @@
+{
+  "version": "2026-03-14-curated-v1",
+  "title": "Russian Skill Coach canonical curriculum pack",
+  "sourceFile": "Jon Russian (3).pdf",
+  "sourcePageCount": 58,
+  "generatedAt": "2026-03-14",
+  "authoringIntent": "This pack is the single source of truth for the implementation AI. It contains the reviewed/canonicalized curriculum extracted from the tutor notes and aligned to the expansion plan.",
+  "readOrder": [
+    "README.md",
+    "READ_FIRST_FOR_CODING_AI.md",
+    "russian_skill_coach_expansion_plan_v2.md",
+    "curriculum_manifest.json",
+    "support/corrections_and_exclusions.json",
+    "decks/*.json relevant to the feature being implemented",
+    "support/module_blueprints.json",
+    "support/mixed_review_rules.json",
+    "support/pronunciation_reference.json"
+  ],
+  "nonNegotiables": [
+    "Do not invent new Russian content beyond the reviewed canonicalized content in this pack, except unavoidable glue words already present in the notes.",
+    "Do not mix adult/profanity content into default flows.",
+    "Do not mix perfective-future reference verbs into present-tense 2nd-conjugation training.",
+    "Treat pronunciation notes as helper/reference only.",
+    "Preserve the existing keyboard trainer behavior and wrap it in the new shell instead of replacing it."
+  ],
+  "stageProfiles": {
+    "grammar_full": {
+      "sequence": [
+        "preview",
+        "choose2",
+        "choose4",
+        "fullChoice",
+        "typeFragment",
+        "typeFull",
+        "sentenceGuided",
+        "sentenceFree"
+      ],
+      "unlockRules": {
+        "preview_to_choose2": {
+          "minCorrect": 2
+        },
+        "choose2_to_choose4": {
+          "minCorrect": 4,
+          "maxRecentAvgErrors": 0.25,
+          "maxRecentAvgTimeMs": 2200
+        },
+        "choose4_to_fullChoice": {
+          "minCorrect": 5,
+          "maxRecentAvgErrors": 0.4,
+          "maxRecentAvgTimeMs": 2800
+        },
+        "fullChoice_to_typeFragment": {
+          "minCorrect": 6,
+          "maxRecentAvgErrors": 0.5,
+          "maxRecentAvgTimeMs": 3400
+        },
+        "typeFragment_to_typeFull": {
+          "minCorrect": 5,
+          "maxRecentAvgErrors": 0.5,
+          "maxRecentAvgTimeMs": 3200
+        },
+        "typeFull_to_sentenceGuided": {
+          "minCorrect": 5,
+          "maxRecentAvgErrors": 0.6,
+          "maxRecentAvgTimeMs": 4300
+        },
+        "sentenceGuided_to_sentenceFree": {
+          "minCorrect": 4,
+          "maxRecentAvgErrors": 0.75,
+          "maxRecentAvgTimeMs": 5500
+        },
+        "sentenceFree_mastered": {
+          "minCorrect": 4,
+          "maxRecentAvgErrors": 0.75,
+          "maxRecentAvgTimeMs": 7000
+        }
+      },
+      "errorSemantics": "Count one wrong click or one wrong submitted answer as one error strike. Do not count each mistyped character.",
+      "uiCues": {
+        "preview": "Show full correct answer with segmentation and translation.",
+        "choose2": "Only one carefully chosen confusion. Make the changed ending visually obvious.",
+        "choose4": "Distractors must stay within the same micro-skill family.",
+        "fullChoice": "All available canonical options for that atom family.",
+        "typeFragment": "Only the changing ending or owner/adjective fragment is typed.",
+        "typeFull": "Full canonical Russian answer is typed.",
+        "sentenceGuided": "Sentence shows the mutable word in coral/red with removable letters highlighted.",
+        "sentenceFree": "No structural coloring except after an error."
+      }
+    },
+    "vocab_basic": {
+      "sequence": [
+        "preview",
+        "choose2",
+        "choose4",
+        "typeFull",
+        "phraseGuided"
+      ],
+      "unlockRules": {
+        "preview_to_choose2": {
+          "minCorrect": 2
+        },
+        "choose2_to_choose4": {
+          "minCorrect": 4,
+          "maxRecentAvgErrors": 0.25,
+          "maxRecentAvgTimeMs": 2000
+        },
+        "choose4_to_typeFull": {
+          "minCorrect": 5,
+          "maxRecentAvgErrors": 0.4,
+          "maxRecentAvgTimeMs": 2600
+        },
+        "typeFull_to_phraseGuided": {
+          "minCorrect": 4,
+          "maxRecentAvgErrors": 0.6,
+          "maxRecentAvgTimeMs": 3500
+        },
+        "phraseGuided_mastered": {
+          "minCorrect": 4,
+          "maxRecentAvgErrors": 0.75,
+          "maxRecentAvgTimeMs": 5000
+        }
+      },
+      "errorSemantics": "Count one wrong selection or one wrong submitted word/phrase as one error strike.",
+      "uiCues": {
+        "preview": "Show Russian, English, and category icon.",
+        "choose2": "One semantic neighbor as distractor when possible.",
+        "choose4": "Distractors must remain inside the same category pack.",
+        "typeFull": "User types the Russian form only.",
+        "phraseGuided": "Show a fixed phrase with one missing learned word."
+      }
+    },
+    "conversation_fixed": {
+      "sequence": [
+        "preview",
+        "choose2",
+        "choose4",
+        "lineOrder",
+        "typeFull",
+        "dialogueRoleplay"
+      ],
+      "unlockRules": {
+        "preview_to_choose2": {
+          "minCorrect": 2
+        },
+        "choose2_to_choose4": {
+          "minCorrect": 4,
+          "maxRecentAvgErrors": 0.25,
+          "maxRecentAvgTimeMs": 2400
+        },
+        "choose4_to_lineOrder": {
+          "minCorrect": 4,
+          "maxRecentAvgErrors": 0.4,
+          "maxRecentAvgTimeMs": 3000
+        },
+        "lineOrder_to_typeFull": {
+          "minCorrect": 4,
+          "maxRecentAvgErrors": 0.6,
+          "maxRecentAvgTimeMs": 4200
+        },
+        "typeFull_to_dialogueRoleplay": {
+          "minCorrect": 4,
+          "maxRecentAvgErrors": 0.6,
+          "maxRecentAvgTimeMs": 4200
+        },
+        "dialogueRoleplay_mastered": {
+          "minCorrect": 4,
+          "maxRecentAvgErrors": 0.75,
+          "maxRecentAvgTimeMs": 6000
+        }
+      },
+      "errorSemantics": "Count one wrong selected reply, one wrong ordering submission, or one wrong typed line as one error strike."
+    },
+    "numbers_closed_set": {
+      "sequence": [
+        "preview",
+        "choose2",
+        "choose4",
+        "typeFull",
+        "contextUse"
+      ],
+      "unlockRules": {
+        "preview_to_choose2": {
+          "minCorrect": 2
+        },
+        "choose2_to_choose4": {
+          "minCorrect": 4,
+          "maxRecentAvgErrors": 0.25,
+          "maxRecentAvgTimeMs": 2200
+        },
+        "choose4_to_typeFull": {
+          "minCorrect": 4,
+          "maxRecentAvgErrors": 0.4,
+          "maxRecentAvgTimeMs": 3000
+        },
+        "typeFull_to_contextUse": {
+          "minCorrect": 4,
+          "maxRecentAvgErrors": 0.6,
+          "maxRecentAvgTimeMs": 3800
+        },
+        "contextUse_mastered": {
+          "minCorrect": 4,
+          "maxRecentAvgErrors": 0.75,
+          "maxRecentAvgTimeMs": 5000
+        }
+      },
+      "errorSemantics": "Count one wrong option or one wrong typed Russian number phrase as one error strike."
+    }
+  },
+  "modules": [
+    {
+      "moduleId": "first_conjugation",
+      "title": "1st Conjugation",
+      "file": "decks/first_conjugation.json",
+      "defaultStageProfileId": "grammar_full",
+      "subdeckCount": 2,
+      "atomCount": 42,
+      "defaultEntrySubdeckId": "fc_regular_core",
+      "defaultHiddenSubdeckIds": [],
+      "uiSignature": "Six pronoun chips above the prompt card. Central verb card. Heatmap below. Coral highlight for removable infinitive ending / mutable slot during guided stages.",
+      "analytics": {
+        "heatmap": "verb x person",
+        "secondaryPanels": [
+          "weakest verbs",
+          "weakest persons",
+          "irregular watchlist"
+        ]
+      }
+    },
+    {
+      "moduleId": "second_conjugation",
+      "title": "2nd Conjugation",
+      "file": "decks/second_conjugation.json",
+      "defaultStageProfileId": "grammar_full",
+      "subdeckCount": 3,
+      "atomCount": 150,
+      "defaultEntrySubdeckId": "sc_regular_core",
+      "defaultHiddenSubdeckIds": [
+        "sc_perfective_future_reference"
+      ],
+      "uiSignature": "Same pronoun strip as 1st conjugation, plus a compact irregular-я banner whenever the current verb is flagged irregular.",
+      "analytics": {
+        "heatmap": "verb x person",
+        "secondaryPanels": [
+          "irregular я watchlist",
+          "weakest exception verbs"
+        ]
+      }
+    },
+    {
+      "moduleId": "past_tense",
+      "title": "Past Tense",
+      "file": "decks/past_tense.json",
+      "defaultStageProfileId": "grammar_full",
+      "subdeckCount": 3,
+      "atomCount": 64,
+      "defaultEntrySubdeckId": "pt_core_transformations",
+      "defaultHiddenSubdeckIds": [],
+      "uiSignature": "Four gender/number chips (masc, fem, neut, plural) across the top. For я/ты sentences, show a user gender badge or explicit gender selector.",
+      "analytics": {
+        "heatmap": "verb x gender-number",
+        "secondaryPanels": [
+          "speaker-gender dependence",
+          "special verbs"
+        ]
+      }
+    },
+    {
+      "moduleId": "core_patterns",
+      "title": "Core Patterns",
+      "file": "decks/core_patterns.json",
+      "defaultStageProfileId": "grammar_full",
+      "subdeckCount": 2,
+      "atomCount": 13,
+      "defaultEntrySubdeckId": "cp_future_byt",
+      "defaultHiddenSubdeckIds": [],
+      "uiSignature": "Frame-builder layout. The stable frame is neutral ink; the changing slot is coral during guided stages.",
+      "analytics": {
+        "heatmap": "owner/pronoun x pattern"
+      }
+    },
+    {
+      "moduleId": "days_time_routine",
+      "title": "Days + Time + Routine",
+      "file": "decks/days_time_routine.json",
+      "defaultStageProfileId": "grammar_full",
+      "subdeckCount": 7,
+      "atomCount": 49,
+      "defaultEntrySubdeckId": "dtr_day_names",
+      "defaultHiddenSubdeckIds": [],
+      "uiSignature": "Week strip for days, tile board for time phrases, compact routine sentence card for daily-life lines.",
+      "analytics": {
+        "heatmap": "subdeck x atom",
+        "secondaryPanels": [
+          "weakest time phrases",
+          "weakest day forms"
+        ]
+      }
+    },
+    {
+      "moduleId": "descriptions",
+      "title": "Descriptions",
+      "file": "decks/descriptions.json",
+      "defaultStageProfileId": "grammar_full",
+      "subdeckCount": 4,
+      "atomCount": 227,
+      "defaultEntrySubdeckId": "desc_possessives",
+      "defaultHiddenSubdeckIds": [],
+      "uiSignature": "Agreement matrix (masc, fem, neut, plural) pinned above the practice card. Noun gender badge visible early, hidden later.",
+      "analytics": {
+        "heatmap": "lemma x gender-number",
+        "secondaryPanels": [
+          "weakest possessive owners",
+          "weakest color adjectives"
+        ]
+      }
+    },
+    {
+      "moduleId": "nouns_plurals",
+      "title": "Nouns + Plurals",
+      "file": "decks/nouns_plurals.json",
+      "defaultStageProfileId": "grammar_full",
+      "subdeckCount": 4,
+      "atomCount": 96,
+      "defaultEntrySubdeckId": "np_gender_foundation",
+      "defaultHiddenSubdeckIds": [],
+      "uiSignature": "Rule-group board with compact badges for gender and plural type.",
+      "analytics": {
+        "heatmap": "noun x rule-group",
+        "secondaryPanels": [
+          "irregular plural watchlist"
+        ]
+      }
+    },
+    {
+      "moduleId": "numbers",
+      "title": "Numbers",
+      "file": "decks/numbers.json",
+      "defaultStageProfileId": "numbers_closed_set",
+      "subdeckCount": 3,
+      "atomCount": 30,
+      "defaultEntrySubdeckId": "num_closed_set",
+      "defaultHiddenSubdeckIds": [],
+      "uiSignature": "Large digit card on the left, Russian phrase on the right, with age-context mini-cards below.",
+      "analytics": {
+        "heatmap": "number x stage"
+      }
+    },
+    {
+      "moduleId": "conversation",
+      "title": "Conversation",
+      "file": "decks/conversation.json",
+      "defaultStageProfileId": "conversation_fixed",
+      "subdeckCount": 6,
+      "atomCount": 47,
+      "defaultEntrySubdeckId": "conv_greetings",
+      "defaultHiddenSubdeckIds": [],
+      "uiSignature": "Chat-bubble style practice card with alternating left/right alignment in dialogue modes.",
+      "analytics": {
+        "heatmap": "phrase-family x stage",
+        "secondaryPanels": [
+          "weakest replies",
+          "dialogue ordering accuracy"
+        ]
+      }
+    },
+    {
+      "moduleId": "vocabulary",
+      "title": "Vocabulary",
+      "file": "decks/vocabulary.json",
+      "defaultStageProfileId": "vocab_basic",
+      "subdeckCount": 10,
+      "atomCount": 236,
+      "defaultEntrySubdeckId": "vocab_verbs_meanings_core",
+      "defaultHiddenSubdeckIds": [
+        "vocab_opt_in_slang_profanity"
+      ],
+      "uiSignature": "Pack chips across the top, simple word card in the middle, optional phrase strip below for phraseGuided stage.",
+      "analytics": {
+        "heatmap": "pack x item",
+        "secondaryPanels": [
+          "weakest categories"
+        ]
+      }
+    }
+  ],
+  "supportFiles": [
+    "support/keyboard_manifest.json",
+    "support/mixed_review_rules.json",
+    "support/pronunciation_reference.json",
+    "support/source_page_index.json",
+    "support/corrections_and_exclusions.json",
+    "support/module_blueprints.json"
+  ],
+  "defaultHiddenDeckIds": [
+    "vocab_opt_in_slang_profanity",
+    "reference_pronunciation",
+    "sc_perfective_future_reference"
+  ]
+}

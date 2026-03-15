@@ -1,0 +1,485 @@
+{
+  "moduleId": "numbers",
+  "title": "Numbers",
+  "purpose": "Drill the exact closed number set found in the notes, plus the first three ordinals.",
+  "defaultStageProfile": "numbers_closed_set",
+  "analytics": {
+    "heatmap": "number x stage"
+  },
+  "uiSignature": "Large digit card on the left, Russian phrase on the right, with age-context mini-cards below.",
+  "subdeckRules": [
+    "Do not extrapolate beyond the reviewed closed set in this package.",
+    "Treat age phrases as their own tiny pack."
+  ],
+  "referenceTable": {
+    "closedSetPolicy": "Only the reviewed closed set in this file should be drilled. Do not auto-generate unseen cardinals.",
+    "ordinals": [
+      {
+        "value": 1,
+        "ru": "первый",
+        "en": "first",
+        "sourcePages": [
+          13
+        ]
+      },
+      {
+        "value": 2,
+        "ru": "второй",
+        "en": "second",
+        "sourcePages": [
+          13,
+          15
+        ]
+      },
+      {
+        "value": 3,
+        "ru": "третий",
+        "en": "third",
+        "sourcePages": [
+          13
+        ]
+      }
+    ]
+  },
+  "subdecks": [
+    {
+      "id": "num_closed_set",
+      "title": "Closed-set cardinal numbers from the notes",
+      "order": 1,
+      "defaultEntry": true,
+      "status": "active",
+      "sourcePages": [
+        26,
+        27
+      ],
+      "whyThisExists": "The notes show a specific set of numbers rather than a full number curriculum. Keep the implementation honest and closed-set.",
+      "atoms": [
+        {
+          "id": "num_closed_set__14",
+          "kind": "number_mapping",
+          "subdeckId": "num_closed_set",
+          "stageProfileId": "numbers_closed_set",
+          "value": 14,
+          "answer": "четырнадцать",
+          "ru": "четырнадцать",
+          "sourcePages": [
+            26
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "num_closed_set__16",
+          "kind": "number_mapping",
+          "subdeckId": "num_closed_set",
+          "stageProfileId": "numbers_closed_set",
+          "value": 16,
+          "answer": "шестнадцать",
+          "ru": "шестнадцать",
+          "sourcePages": [
+            27
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "num_closed_set__23",
+          "kind": "number_mapping",
+          "subdeckId": "num_closed_set",
+          "stageProfileId": "numbers_closed_set",
+          "value": 23,
+          "answer": "двадцать три",
+          "ru": "двадцать три",
+          "sourcePages": [
+            26
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "num_closed_set__25",
+          "kind": "number_mapping",
+          "subdeckId": "num_closed_set",
+          "stageProfileId": "numbers_closed_set",
+          "value": 25,
+          "answer": "двадцать пять",
+          "ru": "двадцать пять",
+          "sourcePages": [
+            3,
+            25
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "num_closed_set__28",
+          "kind": "number_mapping",
+          "subdeckId": "num_closed_set",
+          "stageProfileId": "numbers_closed_set",
+          "value": 28,
+          "answer": "двадцать восемь",
+          "ru": "двадцать восемь",
+          "sourcePages": [
+            27
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "num_closed_set__32",
+          "kind": "number_mapping",
+          "subdeckId": "num_closed_set",
+          "stageProfileId": "numbers_closed_set",
+          "value": 32,
+          "answer": "тридцать два",
+          "ru": "тридцать два",
+          "sourcePages": [
+            26,
+            27
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "num_closed_set__36",
+          "kind": "number_mapping",
+          "subdeckId": "num_closed_set",
+          "stageProfileId": "numbers_closed_set",
+          "value": 36,
+          "answer": "тридцать шесть",
+          "ru": "тридцать шесть",
+          "sourcePages": [
+            4,
+            25
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "num_closed_set__44",
+          "kind": "number_mapping",
+          "subdeckId": "num_closed_set",
+          "stageProfileId": "numbers_closed_set",
+          "value": 44,
+          "answer": "сорок четыре",
+          "ru": "сорок четыре",
+          "sourcePages": [
+            26
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "num_closed_set__45",
+          "kind": "number_mapping",
+          "subdeckId": "num_closed_set",
+          "stageProfileId": "numbers_closed_set",
+          "value": 45,
+          "answer": "сорок пять",
+          "ru": "сорок пять",
+          "sourcePages": [
+            26
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "num_closed_set__55",
+          "kind": "number_mapping",
+          "subdeckId": "num_closed_set",
+          "stageProfileId": "numbers_closed_set",
+          "value": 55,
+          "answer": "пятьдесят пять",
+          "ru": "пятьдесят пять",
+          "sourcePages": [
+            27
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "num_closed_set__61",
+          "kind": "number_mapping",
+          "subdeckId": "num_closed_set",
+          "stageProfileId": "numbers_closed_set",
+          "value": 61,
+          "answer": "шестьдесят один",
+          "ru": "шестьдесят один",
+          "sourcePages": [
+            26
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "num_closed_set__63",
+          "kind": "number_mapping",
+          "subdeckId": "num_closed_set",
+          "stageProfileId": "numbers_closed_set",
+          "value": 63,
+          "answer": "шестьдесят три",
+          "ru": "шестьдесят три",
+          "sourcePages": [
+            27
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "num_closed_set__67",
+          "kind": "number_mapping",
+          "subdeckId": "num_closed_set",
+          "stageProfileId": "numbers_closed_set",
+          "value": 67,
+          "answer": "шестьдесят семь",
+          "ru": "шестьдесят семь",
+          "sourcePages": [
+            26
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "num_closed_set__68",
+          "kind": "number_mapping",
+          "subdeckId": "num_closed_set",
+          "stageProfileId": "numbers_closed_set",
+          "value": 68,
+          "answer": "шестьдесят восемь",
+          "ru": "шестьдесят восемь",
+          "sourcePages": [
+            27
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "num_closed_set__76",
+          "kind": "number_mapping",
+          "subdeckId": "num_closed_set",
+          "stageProfileId": "numbers_closed_set",
+          "value": 76,
+          "answer": "семьдесят шесть",
+          "ru": "семьдесят шесть",
+          "sourcePages": [
+            26
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "num_closed_set__87",
+          "kind": "number_mapping",
+          "subdeckId": "num_closed_set",
+          "stageProfileId": "numbers_closed_set",
+          "value": 87,
+          "answer": "восемьдесят семь",
+          "ru": "восемьдесят семь",
+          "sourcePages": [
+            26
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "num_closed_set__99",
+          "kind": "number_mapping",
+          "subdeckId": "num_closed_set",
+          "stageProfileId": "numbers_closed_set",
+          "value": 99,
+          "answer": "девяносто девять",
+          "ru": "девяносто девять",
+          "sourcePages": [
+            27
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "num_closed_set__102",
+          "kind": "number_mapping",
+          "subdeckId": "num_closed_set",
+          "stageProfileId": "numbers_closed_set",
+          "value": 102,
+          "answer": "сто два",
+          "ru": "сто два",
+          "sourcePages": [
+            26
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "num_closed_set__103",
+          "kind": "number_mapping",
+          "subdeckId": "num_closed_set",
+          "stageProfileId": "numbers_closed_set",
+          "value": 103,
+          "answer": "сто три",
+          "ru": "сто три",
+          "sourcePages": [
+            26
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "num_closed_set__109",
+          "kind": "number_mapping",
+          "subdeckId": "num_closed_set",
+          "stageProfileId": "numbers_closed_set",
+          "value": 109,
+          "answer": "сто девять",
+          "ru": "сто девять",
+          "sourcePages": [
+            26
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "num_closed_set__111",
+          "kind": "number_mapping",
+          "subdeckId": "num_closed_set",
+          "stageProfileId": "numbers_closed_set",
+          "value": 111,
+          "answer": "сто одиннадцать",
+          "ru": "сто одиннадцать",
+          "sourcePages": [
+            26
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "num_closed_set__167",
+          "kind": "number_mapping",
+          "subdeckId": "num_closed_set",
+          "stageProfileId": "numbers_closed_set",
+          "value": 167,
+          "answer": "сто шестьдесят семь",
+          "ru": "сто шестьдесят семь",
+          "sourcePages": [
+            27
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "num_closed_set__198",
+          "kind": "number_mapping",
+          "subdeckId": "num_closed_set",
+          "stageProfileId": "numbers_closed_set",
+          "value": 198,
+          "answer": "сто девяносто восемь",
+          "ru": "сто девяносто восемь",
+          "sourcePages": [
+            27
+          ],
+          "reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "num_ordinals",
+      "title": "First three ordinals",
+      "order": 2,
+      "defaultEntry": false,
+      "status": "active",
+      "sourcePages": [
+        13,
+        15
+      ],
+      "atoms": [
+        {
+          "id": "num_ordinals__1",
+          "kind": "ordinal_mapping",
+          "subdeckId": "num_ordinals",
+          "stageProfileId": "numbers_closed_set",
+          "value": 1,
+          "ru": "первый",
+          "answer": "первый",
+          "en": "first",
+          "sourcePages": [
+            13
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "num_ordinals__2",
+          "kind": "ordinal_mapping",
+          "subdeckId": "num_ordinals",
+          "stageProfileId": "numbers_closed_set",
+          "value": 2,
+          "ru": "второй",
+          "answer": "второй",
+          "en": "second",
+          "sourcePages": [
+            13,
+            15
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "num_ordinals__3",
+          "kind": "ordinal_mapping",
+          "subdeckId": "num_ordinals",
+          "stageProfileId": "numbers_closed_set",
+          "value": 3,
+          "ru": "третий",
+          "answer": "третий",
+          "en": "third",
+          "sourcePages": [
+            13
+          ],
+          "reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "num_age_phrases",
+      "title": "Age phrases from the intro dialogue",
+      "order": 3,
+      "defaultEntry": false,
+      "status": "active",
+      "sourcePages": [
+        3,
+        25,
+        27
+      ],
+      "atoms": [
+        {
+          "id": "num_age_phrases__001",
+          "kind": "age_phrase",
+          "subdeckId": "num_age_phrases",
+          "stageProfileId": "numbers_closed_set",
+          "answer": "Мне двадцать восемь.",
+          "ru": "Мне двадцать восемь.",
+          "en": "I am twenty-eight.",
+          "sourcePages": [
+            27
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "num_age_phrases__002",
+          "kind": "age_phrase",
+          "subdeckId": "num_age_phrases",
+          "stageProfileId": "numbers_closed_set",
+          "answer": "Мне тридцать два.",
+          "ru": "Мне тридцать два.",
+          "en": "I am thirty-two.",
+          "sourcePages": [
+            27
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "num_age_phrases__003",
+          "kind": "age_phrase",
+          "subdeckId": "num_age_phrases",
+          "stageProfileId": "numbers_closed_set",
+          "answer": "Мне тридцать шесть.",
+          "ru": "Мне тридцать шесть.",
+          "en": "I am thirty-six.",
+          "sourcePages": [
+            4,
+            25
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "num_age_phrases__004",
+          "kind": "age_phrase",
+          "subdeckId": "num_age_phrases",
+          "stageProfileId": "numbers_closed_set",
+          "answer": "Мне двадцать пять лет.",
+          "ru": "Мне двадцать пять лет.",
+          "en": "I am twenty-five years old.",
+          "sourcePages": [
+            3
+          ],
+          "reviewed": true
+        }
+      ]
+    }
+  ]
+}

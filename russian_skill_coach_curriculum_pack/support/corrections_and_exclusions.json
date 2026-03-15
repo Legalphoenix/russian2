@@ -1,0 +1,143 @@
+{
+  "globalRules": [
+    "Do not ingest the PDF notes literally. Use the reviewed canonical forms in this package as source of truth.",
+    "Do not invent new Russian vocabulary beyond the reviewed canonicalized content here, except unavoidable glue words already present in the notes for sentence reconstruction.",
+    "Do not mix the adult/profanity pack into any default review mode.",
+    "Do not mix perfective-future reference verbs into present-tense 2nd-conjugation drills.",
+    "Pronunciation notes are helper/reference only and should not be scored as hard right/wrong grammar items."
+  ],
+  "corrections": [
+    {
+      "source": "Future of быть table uses 'Ми'",
+      "canonical": "Мы",
+      "reason": "spelling correction",
+      "sourcePages": [
+        9,
+        30
+      ]
+    },
+    {
+      "source": "'На ужин - for lunch'",
+      "canonical": "На ужин - for dinner",
+      "reason": "translation correction",
+      "sourcePages": [
+        12
+      ]
+    },
+    {
+      "source": "Page labels 'писать, играть, говорить, любить, помнить, слышать - 1st conjugation'",
+      "canonical": "писать, играть -> 1st conjugation; говорить, любить, помнить, слышать -> 2nd conjugation",
+      "reason": "grammar classification correction",
+      "sourcePages": [
+        44
+      ]
+    },
+    {
+      "source": "приходю",
+      "canonical": "прихожу",
+      "reason": "correct 1sg present form",
+      "sourcePages": [
+        6
+      ]
+    },
+    {
+      "source": "слушаещь",
+      "canonical": "слушаешь",
+      "reason": "spelling correction",
+      "sourcePages": [
+        46
+      ]
+    },
+    {
+      "source": "даем",
+      "canonical": "даём",
+      "reason": "ё restored in paradigm",
+      "sourcePages": [
+        46,
+        47
+      ]
+    },
+    {
+      "source": "люб__ / incomplete fill-in entries",
+      "canonical": "люблю, любишь, любит, любим, любите, любят",
+      "reason": "completed from standard paradigm and note intent",
+      "sourcePages": [
+        57
+      ]
+    },
+    {
+      "source": "A fragment missing subject: 'А обычно слышает твой голос.'",
+      "canonical": "Она обычно слышит твой голос.",
+      "reason": "subject restored so the sentence can be drilled",
+      "sourcePages": [
+        6
+      ]
+    },
+    {
+      "source": "Some adjective example sentences contain agreement mistakes",
+      "canonical": "Default decks keep the vocabulary but exclude the flawed source sentence or silently correct only when the correction is obvious and uses no extra vocabulary.",
+      "reason": "avoid drilling wrong Russian",
+      "sourcePages": [
+        47,
+        48,
+        49,
+        50,
+        51
+      ]
+    }
+  ],
+  "excludedOrDeferred": [
+    {
+      "entry": "The exact sentence 'Обычно он объяснит правило очень понятно.'",
+      "status": "deferred_canonicalized",
+      "replacement": "Он объяснит правило очень понятно.",
+      "reason": "perfective future clashes with usually/adverb of habit",
+      "sourcePages": [
+        6
+      ]
+    },
+    {
+      "entry": "Pronunciation rules 'unstressed о -> а', 'unstressed е -> и', 'ться = ца'",
+      "status": "reference_only",
+      "reason": "helpful rough guide, but too fuzzy to score as strict right/wrong text atoms",
+      "sourcePages": [
+        24
+      ]
+    },
+    {
+      "entry": "Ukrainian 'Щo shcho' note",
+      "status": "exclude_from_russian_decks",
+      "reason": "not Russian curriculum content",
+      "sourcePages": [
+        10
+      ]
+    },
+    {
+      "entry": "Profanity/slang pack",
+      "status": "hidden_opt_in",
+      "reason": "user notes include it, but it should be excluded from default paths and mixed review",
+      "sourcePages": [
+        18,
+        19,
+        47
+      ]
+    },
+    {
+      "entry": "Raw malformed English-side example translations in adjective pages",
+      "status": "correct_or_exclude",
+      "reason": "several English prompt lines and Russian examples mismatch; use the canonicalized phrases in this package instead",
+      "sourcePages": [
+        48,
+        49,
+        50,
+        51,
+        55
+      ]
+    }
+  ],
+  "defaultHiddenDeckIds": [
+    "vocab_opt_in_slang_profanity",
+    "reference_pronunciation",
+    "sc_perfective_future_reference"
+  ]
+}

@@ -1,0 +1,62 @@
+# Source page index
+
+Quick page-to-topic index for `Jon Russian (3).pdf`.
+
+- **Page 1**: homework cover
+- **Page 2**: homework; days of week; past tense transformation; pronunciation note гуляю/гуляешь/гуляем; frequency sentence homework
+- **Page 3**: frequency adverbs; self-description sample text; 2nd-conjugation verb list start
+- **Page 4**: self-description sample text continued; 2nd-conjugation verb meanings
+- **Page 5**: 2nd-conjugation / related verb meanings continued; present/past homework examples
+- **Page 6**: present-tense example sentences; days/frequency sentences; 2nd-conjugation example sentences
+- **Page 7**: perfective-future example sentence (выключить)
+- **Page 8**: vocabulary section divider
+- **Page 9**: misc vocabulary; future of быть
+- **Page 10**: past tense of быть; есть/to eat; food vocabulary
+- **Page 11**: time phrases; transport vocabulary; misc vocabulary
+- **Page 12**: meal words; parts of day; gym phrase
+- **Page 13**: connectors; ordinals; family vocabulary
+- **Page 14**: time phrases
+- **Page 15**: days of week mnemonics
+- **Page 16**: days of week; on-day prepositional forms; present-tense fill-in examples
+- **Page 17**: frequency adverbs; 1st-conjugation verb list; remember/hear verbs
+- **Page 18**: misc vocabulary; location phrases; headphones/apartment/etc.; adult slang/profanity start
+- **Page 19**: adult slang/profanity continued; question-word adjective forms; clothing vocabulary; green shirt phrase
+- **Page 20**: clothing/accessories vocabulary
+- **Page 21**: description sample paragraph with clothing and colors
+- **Page 22**: connectors; polite classroom phrases; работать paradigm; adjective pairs start
+- **Page 23**: mood/health phrases; connectors; weather phrases
+- **Page 24**: pronunciation helper notes; greetings phrases
+- **Page 25**: conversation questions/answers; identity/origin/live phrases
+- **Page 26**: closed-set number list part 1
+- **Page 27**: closed-set number list part 2; fixed dialogue start
+- **Page 28**: fixed dialogue end
+- **Page 29**: grammar divider
+- **Page 30**: future of быть; past tense of быть; present tense overview; conjugation theory
+- **Page 31**: 1st conjugation endings; работать paradigm; гулять start
+- **Page 32**: гулять end; читать paradigm; 2nd conjugation theory start
+- **Page 33**: говорить paradigm; смотреть paradigm; помнить paradigm; слышать start
+- **Page 34**: слышать paradigm end; у меня есть pattern start
+- **Page 35**: у меня есть examples; and/but/or; possessive pronouns table start
+- **Page 36**: possessive pronouns table end; adjective endings; colors start
+- **Page 37**: colors continued; noun singular/plural examples start
+- **Page 38**: noun singular/plural examples continued
+- **Page 39**: noun gender list; plural rules start
+- **Page 40**: plural rules regular; spelling rule; stress change examples
+- **Page 41**: plural irregular masculine; ending -ья; irregular fem/neuter start
+- **Page 42**: irregular fem/neuter end; invariant nouns; very irregular plurals
+- **Page 43**: exercise divider
+- **Page 44**: mixed conjugation practice; 2nd conjugation sentence practice
+- **Page 45**: days-of-week sentences; 1st-conjugation practice
+- **Page 46**: 1st-conjugation more practice; играть paradigm; слушать paradigm; давать paradigm start
+- **Page 47**: давать paradigm end; descriptive example phrases; adult adjective hidden
+- **Page 48**: speed adjectives sentence pairs; mood adjectives sentence pairs
+- **Page 49**: height/intelligence/price/weight adjective sentence pairs
+- **Page 50**: size/length/age/temperature adjective phrase pairs
+- **Page 51**: kind/angry adjective examples (some flawed); possessive pronoun homework
+- **Page 52**: possessive pronoun examples; simple color+noun examples start
+- **Page 53**: simple color+noun examples continued
+- **Page 54**: blank/separator
+- **Page 55**: English adjective+noun examples for Russian phrase creation
+- **Page 56**: irregular я-form theory
+- **Page 57**: писать paradigm; видеть paradigm; любить fill-in start
+- **Page 58**: mixed fill-in conjugation practice end

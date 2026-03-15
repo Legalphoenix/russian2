@@ -1,0 +1,51 @@
+{
+  "moduleId": "keyboard",
+  "title": "Keyboard",
+  "status": "existing_module_preserve_and_refactor_only",
+  "notes": [
+    "Preserve the existing Russian keyboard speed/accuracy trainer behavior from the current app.",
+    "Do not redesign the pedagogy for this module; only move it into the shared modular shell.",
+    "Keep the 33-letter alphabet set and the current weighted resurfacing / progress sync behavior."
+  ],
+  "alphabet": [
+    "а",
+    "б",
+    "в",
+    "г",
+    "д",
+    "е",
+    "ё",
+    "ж",
+    "з",
+    "и",
+    "й",
+    "к",
+    "л",
+    "м",
+    "н",
+    "о",
+    "п",
+    "р",
+    "с",
+    "т",
+    "у",
+    "ф",
+    "х",
+    "ц",
+    "ч",
+    "ш",
+    "щ",
+    "ъ",
+    "ы",
+    "ь",
+    "э",
+    "ю",
+    "я"
+  ],
+  "sourceFiles": [
+    "index.html",
+    "styles.css",
+    "app.js",
+    "test_russian_key_coach_sync.py"
+  ]
+}

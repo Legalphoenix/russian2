@@ -119,20 +119,62 @@ def create_letter_stats() -> dict[str, Any]:
     }
 
 
-def create_default_progress(now_ms: int | None = None) -> dict[str, Any]:
+def create_totals() -> dict[str, int]:
+    return {
+        "attempts": 0,
+        "totalTimeMs": 0,
+        "totalErrors": 0,
+        "bestStreak": 0,
+    }
+
+
+def create_default_keyboard_module(now_ms: int | None = None) -> dict[str, Any]:
     timestamp = current_time_ms() if now_ms is None else now_ms
     return {
         "version": 1,
         "createdAt": timestamp,
         "updatedAt": timestamp,
-        "totals": {
-            "attempts": 0,
-            "totalTimeMs": 0,
-            "totalErrors": 0,
-            "bestStreak": 0,
-        },
+        "totals": create_totals(),
         "history": [],
         "letters": {letter: create_letter_stats() for letter in LETTERS},
+        "resume": {
+            "currentLetter": None,
+            "previousLetters": [],
+        },
+    }
+
+
+def create_default_mixed_review() -> dict[str, Any]:
+    return {
+        "mode": "before_class",
+        "queue": [],
+        "currentIndex": 0,
+        "pendingPrompt": None,
+        "totals": create_totals(),
+    }
+
+
+def create_default_progress(now_ms: int | None = None) -> dict[str, Any]:
+    timestamp = current_time_ms() if now_ms is None else now_ms
+    return {
+        "version": 2,
+        "curriculumVersion": "",
+        "createdAt": timestamp,
+        "updatedAt": timestamp,
+        "navigation": {
+            "lastRoute": "home",
+            "lastModuleId": "keyboard",
+            "lastSubdeckId": None,
+            "lastStageId": None,
+            "mixedReviewMode": "before_class",
+        },
+        "preferences": {
+            "speakerGender": "fem",
+        },
+        "modules": {
+            "keyboard": create_default_keyboard_module(timestamp),
+        },
+        "mixedReview": create_default_mixed_review(),
     }
 
 
@@ -190,6 +232,366 @@ def sanitize_letter_stats(candidate: Any, now_ms: int) -> dict[str, Any]:
     }
 
 
+def sanitize_totals(candidate: Any) -> dict[str, int]:
+    if not isinstance(candidate, dict):
+        candidate = {}
+
+    return {
+        "attempts": as_non_negative_int(candidate.get("attempts"), 0),
+        "totalTimeMs": as_non_negative_int(candidate.get("totalTimeMs"), 0),
+        "totalErrors": as_non_negative_int(candidate.get("totalErrors"), 0),
+        "bestStreak": as_non_negative_int(candidate.get("bestStreak"), 0),
+    }
+
+
+def sanitize_keyboard_history(items: Any, now_ms: int) -> list[dict[str, Any]]:
+    if not isinstance(items, list):
+        return []
+
+    sanitized: list[dict[str, Any]] = []
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+        letter = item.get("letter")
+        if letter not in LETTER_SET:
+            continue
+        sanitized.append(
+            {
+                "letter": letter,
+                "timeMs": as_non_negative_int(item.get("timeMs"), 0),
+                "errors": as_non_negative_int(item.get("errors"), 0),
+                "at": as_non_negative_int(item.get("at"), now_ms),
+            }
+        )
+    return sanitized[-HISTORY_LIMIT:]
+
+
+def sanitize_module_history(items: Any, now_ms: int) -> list[dict[str, Any]]:
+    if not isinstance(items, list):
+        return []
+
+    sanitized: list[dict[str, Any]] = []
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+        atom_id = item.get("atomId")
+        if not isinstance(atom_id, str) or not atom_id:
+            continue
+        sanitized.append(
+            {
+                "atomId": atom_id,
+                "timeMs": as_non_negative_int(item.get("timeMs"), 0),
+                "errors": as_non_negative_int(item.get("errors"), 0),
+                "at": as_non_negative_int(item.get("at"), now_ms),
+                "stageId": item.get("stageId") if isinstance(item.get("stageId"), str) else None,
+            }
+        )
+    return sanitized[-HISTORY_LIMIT:]
+
+
+def sanitize_prompt(candidate: Any) -> dict[str, Any] | None:
+    if not isinstance(candidate, dict):
+        return None
+
+    atom_id = candidate.get("atomId")
+    if not isinstance(atom_id, str) or not atom_id:
+        return None
+
+    def sanitize_prompt_entry(entry: Any) -> Any:
+        if isinstance(entry, dict):
+            sanitized = {}
+            if isinstance(entry.get("value"), str):
+                sanitized["value"] = entry["value"]
+            if isinstance(entry.get("label"), str):
+                sanitized["label"] = entry["label"]
+            return sanitized if sanitized else None
+        if isinstance(entry, str):
+            return entry
+        return None
+
+    options = [
+        item
+        for item in (sanitize_prompt_entry(entry) for entry in candidate.get("options", []))
+        if item is not None
+    ][:24]
+    sequence = [
+        item
+        for item in (sanitize_prompt_entry(entry) for entry in candidate.get("sequence", []))
+        if item is not None
+    ][:24]
+
+    return {
+        "atomId": atom_id,
+        "stageId": candidate.get("stageId") if isinstance(candidate.get("stageId"), str) else None,
+        "stageProfileId": (
+            candidate.get("stageProfileId")
+            if isinstance(candidate.get("stageProfileId"), str)
+            else None
+        ),
+        "promptType": (
+            candidate.get("promptType")
+            if isinstance(candidate.get("promptType"), str)
+            else None
+        ),
+        "contextId": (
+            candidate.get("contextId") if isinstance(candidate.get("contextId"), str) else None
+        ),
+        "subdeckId": (
+            candidate.get("subdeckId") if isinstance(candidate.get("subdeckId"), str) else None
+        ),
+        "lineIndex": (
+            as_non_negative_int(candidate.get("lineIndex"), 0)
+            if candidate.get("lineIndex") is not None
+            else None
+        ),
+        "options": options,
+        "sequence": sequence,
+    }
+
+
+def sanitize_stage_stats(candidate: Any, now_ms: int) -> dict[str, Any]:
+    if not isinstance(candidate, dict):
+        candidate = {}
+
+    return {
+        "attempts": as_non_negative_int(candidate.get("attempts"), 0),
+        "totalTimeMs": as_non_negative_int(candidate.get("totalTimeMs"), 0),
+        "totalErrors": as_non_negative_int(candidate.get("totalErrors"), 0),
+        "recent": sanitize_recent(candidate.get("recent"), now_ms),
+    }
+
+
+def sanitize_atom_progress(candidate: Any, now_ms: int) -> dict[str, Any]:
+    if not isinstance(candidate, dict):
+        candidate = {}
+
+    stage_stats = candidate.get("stageStats")
+    sanitized_stage_stats: dict[str, Any] = {}
+    if isinstance(stage_stats, dict):
+        for stage_id, stage_candidate in stage_stats.items():
+            if not isinstance(stage_id, str) or not stage_id:
+                continue
+            sanitized_stage_stats[stage_id] = sanitize_stage_stats(stage_candidate, now_ms)
+
+    return {
+        "attempts": as_non_negative_int(candidate.get("attempts"), 0),
+        "totalTimeMs": as_non_negative_int(candidate.get("totalTimeMs"), 0),
+        "totalErrors": as_non_negative_int(candidate.get("totalErrors"), 0),
+        "bestTimeMs": as_nullable_non_negative_int(candidate.get("bestTimeMs")),
+        "lastSeenAt": as_nullable_non_negative_int(candidate.get("lastSeenAt")),
+        "seen": bool(candidate.get("seen")),
+        "currentStageIndex": as_non_negative_int(candidate.get("currentStageIndex"), 0),
+        "recent": sanitize_recent(candidate.get("recent"), now_ms),
+        "stageStats": sanitized_stage_stats,
+    }
+
+
+def sanitize_keyboard_module(candidate: Any, now_ms: int) -> dict[str, Any]:
+    source = candidate if isinstance(candidate, dict) else {}
+    resume = source.get("resume") if isinstance(source.get("resume"), dict) else {}
+    letters = source.get("letters") if isinstance(source.get("letters"), dict) else {}
+    base = create_default_keyboard_module(now_ms)
+    base["version"] = max(1, as_non_negative_int(source.get("version"), 1))
+    base["createdAt"] = as_non_negative_int(source.get("createdAt"), base["createdAt"])
+    base["updatedAt"] = as_non_negative_int(source.get("updatedAt"), base["updatedAt"])
+    base["totals"] = sanitize_totals(source.get("totals"))
+    base["history"] = sanitize_keyboard_history(source.get("history"), now_ms)
+    base["resume"] = {
+        "currentLetter": (
+            resume.get("currentLetter")
+            if isinstance(resume.get("currentLetter"), str)
+            and resume.get("currentLetter") in LETTER_SET
+            else None
+        ),
+        "previousLetters": [
+            letter
+            for letter in resume.get("previousLetters", [])
+            if isinstance(letter, str) and letter in LETTER_SET
+        ][:3],
+    }
+    for letter in LETTERS:
+        base["letters"][letter] = sanitize_letter_stats(
+            letters.get(letter),
+            now_ms,
+        )
+    return base
+
+
+def sanitize_generic_module(candidate: Any, now_ms: int) -> dict[str, Any]:
+    source = candidate if isinstance(candidate, dict) else {}
+    atoms = source.get("atoms")
+    sanitized_atoms: dict[str, Any] = {}
+    if isinstance(atoms, dict):
+        for atom_id, atom_candidate in atoms.items():
+            if not isinstance(atom_id, str) or not atom_id:
+                continue
+            sanitized_atoms[atom_id] = sanitize_atom_progress(atom_candidate, now_ms)
+
+    return {
+        "selectedSubdeckId": (
+            source.get("selectedSubdeckId")
+            if isinstance(source.get("selectedSubdeckId"), str)
+            else None
+        ),
+        "hiddenEnabled": [
+            item
+            for item in source.get("hiddenEnabled", [])
+            if isinstance(item, str) and item
+        ][:24],
+        "pendingPrompt": sanitize_prompt(source.get("pendingPrompt")),
+        "totals": sanitize_totals(source.get("totals")),
+        "history": sanitize_module_history(source.get("history"), now_ms),
+        "atoms": sanitized_atoms,
+    }
+
+
+def sanitize_mixed_review(candidate: Any, now_ms: int) -> dict[str, Any]:
+    source = candidate if isinstance(candidate, dict) else {}
+    queue = []
+    if isinstance(source.get("queue"), list):
+        for item in source["queue"]:
+            if not isinstance(item, dict):
+                continue
+            module_id = item.get("moduleId")
+            atom_id = item.get("atomId")
+            if not isinstance(module_id, str) or not isinstance(atom_id, str):
+                continue
+            queue.append(
+                {
+                    "moduleId": module_id,
+                    "atomId": atom_id,
+                    "stageId": item.get("stageId") if isinstance(item.get("stageId"), str) else None,
+                }
+            )
+
+    return {
+        "mode": source.get("mode") if isinstance(source.get("mode"), str) else "before_class",
+        "queue": queue[:40],
+        "currentIndex": as_non_negative_int(source.get("currentIndex"), 0),
+        "pendingPrompt": sanitize_prompt(source.get("pendingPrompt")),
+        "totals": sanitize_totals(source.get("totals")),
+    }
+
+
+def looks_like_legacy_progress(candidate: Any) -> bool:
+    return isinstance(candidate, dict) and "letters" in candidate and "totals" in candidate
+
+
+def sanitize_legacy_progress(
+    candidate: Any,
+    now_ms: int,
+    *,
+    preserve_created_at: int | None = None,
+    refresh_updated_at: bool,
+) -> dict[str, Any]:
+    if not isinstance(candidate, dict):
+        raise ValidationError("Progress payload must be a JSON object.")
+
+    totals = candidate.get("totals")
+    letters = candidate.get("letters")
+    history = candidate.get("history")
+    if not isinstance(totals, dict):
+        raise ValidationError("Legacy progress payload must include a totals object.")
+    if not isinstance(letters, dict):
+        raise ValidationError("Legacy progress payload must include a letters object.")
+    if not isinstance(history, list):
+        raise ValidationError("Legacy progress payload must include a history array.")
+
+    progress = create_default_progress(now_ms)
+    progress["version"] = max(2, as_non_negative_int(candidate.get("version"), 2))
+    progress["createdAt"] = as_non_negative_int(
+        candidate.get("createdAt"),
+        preserve_created_at if preserve_created_at is not None else progress["createdAt"],
+    )
+    progress["updatedAt"] = (
+        now_ms
+        if refresh_updated_at
+        else as_non_negative_int(candidate.get("updatedAt"), progress["updatedAt"])
+    )
+    progress["navigation"]["lastRoute"] = "keyboard"
+    progress["navigation"]["lastModuleId"] = "keyboard"
+    progress["modules"]["keyboard"] = sanitize_keyboard_module(candidate, now_ms)
+    return progress
+
+
+def sanitize_multimodule_progress(
+    candidate: Any,
+    now_ms: int,
+    *,
+    preserve_created_at: int | None = None,
+    refresh_updated_at: bool,
+) -> dict[str, Any]:
+    if not isinstance(candidate, dict):
+        raise ValidationError("Progress payload must be a JSON object.")
+
+    modules = candidate.get("modules")
+    if not isinstance(modules, dict):
+        raise ValidationError("Progress payload must include a modules object.")
+
+    progress = create_default_progress(now_ms)
+    progress["version"] = max(2, as_non_negative_int(candidate.get("version"), 2))
+    progress["curriculumVersion"] = (
+        candidate.get("curriculumVersion")
+        if isinstance(candidate.get("curriculumVersion"), str)
+        else ""
+    )
+    navigation = (
+        candidate.get("navigation") if isinstance(candidate.get("navigation"), dict) else {}
+    )
+    preferences = (
+        candidate.get("preferences")
+        if isinstance(candidate.get("preferences"), dict)
+        else {}
+    )
+    progress["createdAt"] = as_non_negative_int(
+        candidate.get("createdAt"),
+        preserve_created_at if preserve_created_at is not None else progress["createdAt"],
+    )
+    progress["updatedAt"] = (
+        now_ms
+        if refresh_updated_at
+        else as_non_negative_int(candidate.get("updatedAt"), progress["updatedAt"])
+    )
+    progress["navigation"] = {
+        "lastRoute": navigation.get("lastRoute") if isinstance(navigation.get("lastRoute"), str) else "home",
+        "lastModuleId": (
+            navigation.get("lastModuleId") if isinstance(navigation.get("lastModuleId"), str) else "keyboard"
+        ),
+        "lastSubdeckId": (
+            navigation.get("lastSubdeckId")
+            if isinstance(navigation.get("lastSubdeckId"), str)
+            else None
+        ),
+        "lastStageId": (
+            navigation.get("lastStageId")
+            if isinstance(navigation.get("lastStageId"), str)
+            else None
+        ),
+        "mixedReviewMode": (
+            navigation.get("mixedReviewMode")
+            if isinstance(navigation.get("mixedReviewMode"), str)
+            else "before_class"
+        ),
+    }
+    progress["preferences"] = {
+        "speakerGender": ("masc" if preferences.get("speakerGender") == "masc" else "fem")
+    }
+
+    sanitized_modules: dict[str, Any] = {}
+    for module_id, module_candidate in modules.items():
+        if not isinstance(module_id, str) or not module_id:
+            continue
+        if module_id == "keyboard":
+            sanitized_modules[module_id] = sanitize_keyboard_module(module_candidate, now_ms)
+        else:
+            sanitized_modules[module_id] = sanitize_generic_module(module_candidate, now_ms)
+    if "keyboard" not in sanitized_modules:
+        sanitized_modules["keyboard"] = create_default_keyboard_module(now_ms)
+    progress["modules"] = sanitized_modules
+    progress["mixedReview"] = sanitize_mixed_review(candidate.get("mixedReview"), now_ms)
+    return progress
+
+
 def sanitize_progress(
     candidate: Any,
     now_ms: int | None = None,
@@ -198,45 +600,35 @@ def sanitize_progress(
     refresh_updated_at: bool = True,
 ) -> dict[str, Any]:
     timestamp = current_time_ms() if now_ms is None else now_ms
-    if not isinstance(candidate, dict):
-        raise ValidationError("Progress payload must be a JSON object.")
-
-    totals = candidate.get("totals")
-    letters = candidate.get("letters")
-    history = candidate.get("history")
-    if not isinstance(totals, dict):
-        raise ValidationError("Progress payload must include a totals object.")
-    if not isinstance(letters, dict):
-        raise ValidationError("Progress payload must include a letters object.")
-    if not isinstance(history, list):
-        raise ValidationError("Progress payload must include a history array.")
-
-    progress = create_default_progress(timestamp)
-    progress["version"] = max(1, as_non_negative_int(candidate.get("version"), 1))
-    progress["createdAt"] = as_non_negative_int(
-        candidate.get("createdAt"),
-        preserve_created_at if preserve_created_at is not None else progress["createdAt"],
-    )
-    if refresh_updated_at:
-        progress["updatedAt"] = timestamp
-    else:
-        progress["updatedAt"] = as_non_negative_int(
-            candidate.get("updatedAt"),
-            progress["updatedAt"],
+    if looks_like_legacy_progress(candidate) and not isinstance(candidate.get("modules"), dict):
+        return sanitize_legacy_progress(
+            candidate,
+            timestamp,
+            preserve_created_at=preserve_created_at,
+            refresh_updated_at=refresh_updated_at,
         )
-    progress["totals"] = {
-        "attempts": as_non_negative_int(totals.get("attempts"), 0),
-        "totalTimeMs": as_non_negative_int(totals.get("totalTimeMs"), 0),
-        "totalErrors": as_non_negative_int(totals.get("totalErrors"), 0),
-        "bestStreak": as_non_negative_int(totals.get("bestStreak"), 0),
-    }
-    progress["history"] = sanitize_history(history, timestamp)
 
-    sanitized_letters: dict[str, Any] = {}
-    for letter in LETTERS:
-        sanitized_letters[letter] = sanitize_letter_stats(letters.get(letter), timestamp)
-    progress["letters"] = sanitized_letters
-    return progress
+    return sanitize_multimodule_progress(
+        candidate,
+        timestamp,
+        preserve_created_at=preserve_created_at,
+        refresh_updated_at=refresh_updated_at,
+    )
+
+
+def total_attempts(progress: dict[str, Any]) -> int:
+    if isinstance(progress.get("totals"), dict):
+        return as_non_negative_int(progress["totals"].get("attempts"), 0)
+
+    modules = progress.get("modules")
+    if not isinstance(modules, dict):
+        return 0
+
+    return sum(
+        as_non_negative_int(module.get("totals", {}).get("attempts"), 0)
+        for module in modules.values()
+        if isinstance(module, dict)
+    )
 
 
 class ProgressStore:
@@ -270,9 +662,14 @@ class ProgressStore:
         with self.lock:
             self.ensure_layout()
             existing_created_at = None
+            next_timestamp = current_time_ms()
             if self.progress_path.exists():
                 current_progress = self._read_current()
                 existing_created_at = current_progress.get("createdAt")
+                next_timestamp = max(
+                    next_timestamp,
+                    as_non_negative_int(current_progress.get("updatedAt"), 0) + 1,
+                )
                 if (
                     expected_updated_at is not None
                     and expected_updated_at != current_progress.get("updatedAt")
@@ -280,6 +677,7 @@ class ProgressStore:
                     raise ConflictError(current_progress)
             progress = sanitize_progress(
                 candidate,
+                now_ms=next_timestamp,
                 preserve_created_at=existing_created_at,
                 refresh_updated_at=True,
             )
@@ -536,7 +934,7 @@ def seed(args: argparse.Namespace) -> int:
             {
                 "status": "ok",
                 "progressPath": str(store.progress_path),
-                "attempts": progress["totals"]["attempts"],
+                "attempts": total_attempts(progress),
                 "updatedAt": progress["updatedAt"],
             },
             ensure_ascii=True,

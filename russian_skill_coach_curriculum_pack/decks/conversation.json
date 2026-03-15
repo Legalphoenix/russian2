@@ -1,0 +1,862 @@
+{
+  "moduleId": "conversation",
+  "title": "Conversation",
+  "purpose": "Drill fixed greeting/introduction/closing lines and one canonical intro dialogue.",
+  "defaultStageProfile": "conversation_fixed",
+  "analytics": {
+    "heatmap": "phrase-family x stage",
+    "secondaryPanels": [
+      "weakest replies",
+      "dialogue ordering accuracy"
+    ]
+  },
+  "uiSignature": "Chat-bubble style practice card with alternating left/right alignment in dialogue modes.",
+  "subdeckRules": [
+    "This is not open-ended chat. Only canonical lines and templates from the package should be used.",
+    "Dialogue ordering should use the provided canonical dialogue script."
+  ],
+  "subdecks": [
+    {
+      "id": "conv_greetings",
+      "title": "Greetings",
+      "order": 1,
+      "defaultEntry": true,
+      "status": "active",
+      "sourcePages": [
+        24,
+        27,
+        28
+      ],
+      "atoms": [
+        {
+          "id": "conv_greetings__001",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_greetings",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Привет!",
+          "en": "Hi!",
+          "answer": "Привет!",
+          "sourcePages": [
+            24,
+            27
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_greetings__002",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_greetings",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Доброе утро!",
+          "en": "Good morning!",
+          "answer": "Доброе утро!",
+          "sourcePages": [
+            24,
+            27
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_greetings__003",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_greetings",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Добрый день!",
+          "en": "Good afternoon!",
+          "answer": "Добрый день!",
+          "sourcePages": [
+            24
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_greetings__004",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_greetings",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Добрый вечер!",
+          "en": "Good evening!",
+          "answer": "Добрый вечер!",
+          "sourcePages": [
+            24
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_greetings__005",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_greetings",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Доброй ночи!",
+          "en": "Good night!",
+          "answer": "Доброй ночи!",
+          "sourcePages": [
+            24,
+            28
+          ],
+          "reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "conv_how_are_you",
+      "title": "How-are-you lines",
+      "order": 2,
+      "defaultEntry": false,
+      "status": "active",
+      "sourcePages": [
+        24,
+        25,
+        27
+      ],
+      "atoms": [
+        {
+          "id": "conv_how_are_you__001",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_how_are_you",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Как (у тебя) дела?",
+          "en": "How are things?",
+          "answer": "Как (у тебя) дела?",
+          "sourcePages": [
+            24,
+            27
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_how_are_you__002",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_how_are_you",
+          "stageProfileId": "conversation_fixed",
+          "ru": "А у тебя?",
+          "en": "And you?",
+          "answer": "А у тебя?",
+          "sourcePages": [
+            24,
+            27
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_how_are_you__003",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_how_are_you",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Как ты?",
+          "en": "How are you?",
+          "answer": "Как ты?",
+          "sourcePages": [
+            24,
+            27
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_how_are_you__004",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_how_are_you",
+          "stageProfileId": "conversation_fixed",
+          "ru": "А ты?",
+          "en": "And you?",
+          "answer": "А ты?",
+          "sourcePages": [
+            24,
+            27
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_how_are_you__005",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_how_are_you",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Отлично.",
+          "en": "Great.",
+          "answer": "Отлично.",
+          "sourcePages": [
+            24,
+            27
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_how_are_you__006",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_how_are_you",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Хорошо.",
+          "en": "Good.",
+          "answer": "Хорошо.",
+          "sourcePages": [
+            24,
+            27
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_how_are_you__007",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_how_are_you",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Нормально.",
+          "en": "Fine.",
+          "answer": "Нормально.",
+          "sourcePages": [
+            24,
+            27
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_how_are_you__008",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_how_are_you",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Неплохо.",
+          "en": "Not bad.",
+          "answer": "Неплохо.",
+          "sourcePages": [
+            24,
+            27
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_how_are_you__009",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_how_are_you",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Не очень.",
+          "en": "Not really good / not so well.",
+          "answer": "Не очень.",
+          "sourcePages": [
+            24
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_how_are_you__010",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_how_are_you",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Плохо.",
+          "en": "Bad.",
+          "answer": "Плохо.",
+          "sourcePages": [
+            25
+          ],
+          "reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "conv_identity",
+      "title": "Identity / age / origin / residence",
+      "order": 3,
+      "defaultEntry": false,
+      "status": "active",
+      "sourcePages": [
+        25,
+        27,
+        28
+      ],
+      "atoms": [
+        {
+          "id": "conv_identity__001",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_identity",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Как тебя зовут?",
+          "en": "What is your name?",
+          "answer": "Как тебя зовут?",
+          "sourcePages": [
+            25,
+            27
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_identity__002",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_identity",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Меня зовут Джон, а тебя?",
+          "en": "My name is John, and you?",
+          "answer": "Меня зовут Джон, а тебя?",
+          "sourcePages": [
+            25
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_identity__003",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_identity",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Меня зовут Мария, а тебя?",
+          "en": "My name is Maria, and you?",
+          "answer": "Меня зовут Мария, а тебя?",
+          "sourcePages": [
+            27
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_identity__004",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_identity",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Меня зовут Алекс.",
+          "en": "My name is Alex.",
+          "answer": "Меня зовут Алекс.",
+          "sourcePages": [
+            27
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_identity__005",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_identity",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Сколько тебе лет?",
+          "en": "How old are you?",
+          "answer": "Сколько тебе лет?",
+          "sourcePages": [
+            25,
+            27
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_identity__006",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_identity",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Мне двадцать восемь, а тебе?",
+          "en": "I am twenty-eight, and you?",
+          "answer": "Мне двадцать восемь, а тебе?",
+          "sourcePages": [
+            27
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_identity__007",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_identity",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Мне тридцать два.",
+          "en": "I am thirty-two.",
+          "answer": "Мне тридцать два.",
+          "sourcePages": [
+            27
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_identity__008",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_identity",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Откуда ты?",
+          "en": "Where are you from?",
+          "answer": "Откуда ты?",
+          "sourcePages": [
+            25,
+            27
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_identity__009",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_identity",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Я из Австралии, а ты?",
+          "en": "I am from Australia, and you?",
+          "answer": "Я из Австралии, а ты?",
+          "sourcePages": [
+            25
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_identity__010",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_identity",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Я из Италии, а ты?",
+          "en": "I am from Italy, and you?",
+          "answer": "Я из Италии, а ты?",
+          "sourcePages": [
+            27
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_identity__011",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_identity",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Я из Канады.",
+          "en": "I am from Canada.",
+          "answer": "Я из Канады.",
+          "sourcePages": [
+            27
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_identity__012",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_identity",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Где ты живёшь?",
+          "en": "Where do you live?",
+          "answer": "Где ты живёшь?",
+          "sourcePages": [
+            25,
+            27
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_identity__013",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_identity",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Я живу в Швеции, а ты?",
+          "en": "I live in Sweden, and you?",
+          "answer": "Я живу в Швеции, а ты?",
+          "sourcePages": [
+            25
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_identity__014",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_identity",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Я живу в Германии, а ты?",
+          "en": "I live in Germany, and you?",
+          "answer": "Я живу в Германии, а ты?",
+          "sourcePages": [
+            27
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_identity__015",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_identity",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Я живу во Франции.",
+          "en": "I live in France.",
+          "answer": "Я живу во Франции.",
+          "sourcePages": [
+            28
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_identity__016",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_identity",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Приятно познакомиться!",
+          "en": "Nice to meet you!",
+          "answer": "Приятно познакомиться!",
+          "sourcePages": [
+            25,
+            28
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_identity__017",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_identity",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Очень приятно!",
+          "en": "Very nice to meet you!",
+          "answer": "Очень приятно!",
+          "sourcePages": [
+            25,
+            28
+          ],
+          "reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "conv_goodbyes",
+      "title": "Goodbyes",
+      "order": 4,
+      "defaultEntry": false,
+      "status": "active",
+      "sourcePages": [
+        25,
+        28
+      ],
+      "atoms": [
+        {
+          "id": "conv_goodbyes__001",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_goodbyes",
+          "stageProfileId": "conversation_fixed",
+          "ru": "До свидания!",
+          "en": "Goodbye. (formal)",
+          "answer": "До свидания!",
+          "sourcePages": [
+            25,
+            28
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_goodbyes__002",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_goodbyes",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Пока!",
+          "en": "Bye. (informal)",
+          "answer": "Пока!",
+          "sourcePages": [
+            25,
+            28
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_goodbyes__003",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_goodbyes",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Увидимся!",
+          "en": "See you!",
+          "answer": "Увидимся!",
+          "sourcePages": [
+            25
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_goodbyes__004",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_goodbyes",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Ладно, увидимся.",
+          "en": "Alright, see you.",
+          "answer": "Ладно, увидимся.",
+          "sourcePages": [
+            28
+          ],
+          "reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "conv_feelings_health",
+      "title": "Feelings / health phrases",
+      "order": 5,
+      "defaultEntry": false,
+      "status": "active",
+      "sourcePages": [
+        23
+      ],
+      "atoms": [
+        {
+          "id": "conv_feelings_health__001",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_feelings_health",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Как твой день?",
+          "en": "How is / was your day?",
+          "answer": "Как твой день?",
+          "sourcePages": [
+            23
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_feelings_health__002",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_feelings_health",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Как ты себя чувствуешь?",
+          "en": "How do you feel?",
+          "answer": "Как ты себя чувствуешь?",
+          "sourcePages": [
+            23
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_feelings_health__003",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_feelings_health",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Я чувствую себя не очень.",
+          "en": "I do not feel very good.",
+          "answer": "Я чувствую себя не очень.",
+          "sourcePages": [
+            23
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_feelings_health__004",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_feelings_health",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Я приболел.",
+          "en": "I am a bit sick.",
+          "answer": "Я приболел.",
+          "sourcePages": [
+            23
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_feelings_health__005",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_feelings_health",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Я заболел.",
+          "en": "I got sick.",
+          "answer": "Я заболел.",
+          "sourcePages": [
+            23
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_feelings_health__006",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_feelings_health",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Будь здоров(а).",
+          "en": "Bless you / get well.",
+          "answer": "Будь здоров(а).",
+          "sourcePages": [
+            23
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_feelings_health__007",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_feelings_health",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Я кашляю.",
+          "en": "I cough / I am coughing.",
+          "answer": "Я кашляю.",
+          "sourcePages": [
+            23
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_feelings_health__008",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_feelings_health",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Погода не очень.",
+          "en": "The weather is not very good.",
+          "answer": "Погода не очень.",
+          "sourcePages": [
+            23
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_feelings_health__009",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_feelings_health",
+          "stageProfileId": "conversation_fixed",
+          "ru": "Блин.",
+          "en": "Damn.",
+          "answer": "Блин.",
+          "sourcePages": [
+            23
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "conv_feelings_health__010",
+          "kind": "fixed_phrase",
+          "subdeckId": "conv_feelings_health",
+          "stageProfileId": "conversation_fixed",
+          "ru": "С днём рождения!",
+          "en": "Happy birthday!",
+          "answer": "С днём рождения!",
+          "sourcePages": [
+            23
+          ],
+          "reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "conv_fixed_dialogue",
+      "title": "Canonical intro dialogue",
+      "order": 6,
+      "defaultEntry": false,
+      "status": "active",
+      "sourcePages": [
+        27,
+        28
+      ],
+      "whyThisExists": "This gives the app a closed, ordered dialogue for ordering drills and roleplay mode.",
+      "dialogues": [
+        {
+          "id": "intro_dialogue_maria_alex",
+          "title": "Greeting + intro dialogue from the notes",
+          "sourcePages": [
+            27,
+            28
+          ],
+          "lines": [
+            "Привет!",
+            "Доброе утро!",
+            "Как (у тебя) дела?",
+            "Хорошо. А у тебя?",
+            "Отлично.",
+            "Как ты?",
+            "Нормально. А ты?",
+            "Неплохо.",
+            "Как тебя зовут?",
+            "Меня зовут Мария, а тебя?",
+            "Меня зовут Алекс.",
+            "Сколько тебе лет?",
+            "Мне двадцать восемь, а тебе?",
+            "Мне тридцать два.",
+            "Откуда ты?",
+            "Я из Италии, а ты?",
+            "Я из Канады.",
+            "Где ты живёшь?",
+            "Я живу в Германии, а ты?",
+            "Я живу во Франции.",
+            "Приятно познакомиться!",
+            "Очень приятно!",
+            "Ладно, увидимся.",
+            "Пока!",
+            "Доброй ночи!",
+            "До свидания!"
+          ]
+        }
+      ],
+      "atoms": [
+        {
+          "id": "conv_fixed_dialogue__intro_dialogue_maria_alex",
+          "kind": "dialogue_script",
+          "subdeckId": "conv_fixed_dialogue",
+          "stageProfileId": "conversation_fixed",
+          "title": "Greeting + intro dialogue from the notes",
+          "lines": [
+            "Привет!",
+            "Доброе утро!",
+            "Как (у тебя) дела?",
+            "Хорошо. А у тебя?",
+            "Отлично.",
+            "Как ты?",
+            "Нормально. А ты?",
+            "Неплохо.",
+            "Как тебя зовут?",
+            "Меня зовут Мария, а тебя?",
+            "Меня зовут Алекс.",
+            "Сколько тебе лет?",
+            "Мне двадцать восемь, а тебе?",
+            "Мне тридцать два.",
+            "Откуда ты?",
+            "Я из Италии, а ты?",
+            "Я из Канады.",
+            "Где ты живёшь?",
+            "Я живу в Германии, а ты?",
+            "Я живу во Франции.",
+            "Приятно познакомиться!",
+            "Очень приятно!",
+            "Ладно, увидимся.",
+            "Пока!",
+            "Доброй ночи!",
+            "До свидания!"
+          ],
+          "answer": [
+            "Привет!",
+            "Доброе утро!",
+            "Как (у тебя) дела?",
+            "Хорошо. А у тебя?",
+            "Отлично.",
+            "Как ты?",
+            "Нормально. А ты?",
+            "Неплохо.",
+            "Как тебя зовут?",
+            "Меня зовут Мария, а тебя?",
+            "Меня зовут Алекс.",
+            "Сколько тебе лет?",
+            "Мне двадцать восемь, а тебе?",
+            "Мне тридцать два.",
+            "Откуда ты?",
+            "Я из Италии, а ты?",
+            "Я из Канады.",
+            "Где ты живёшь?",
+            "Я живу в Германии, а ты?",
+            "Я живу во Франции.",
+            "Приятно познакомиться!",
+            "Очень приятно!",
+            "Ладно, увидимся.",
+            "Пока!",
+            "Доброй ночи!",
+            "До свидания!"
+          ],
+          "sourcePages": [
+            27,
+            28
+          ],
+          "reviewed": true
+        }
+      ]
+    }
+  ],
+  "dialogues": [
+    {
+      "id": "intro_dialogue_maria_alex",
+      "title": "Greeting + intro dialogue from the notes",
+      "sourcePages": [
+        27,
+        28
+      ],
+      "lines": [
+        "Привет!",
+        "Доброе утро!",
+        "Как (у тебя) дела?",
+        "Хорошо. А у тебя?",
+        "Отлично.",
+        "Как ты?",
+        "Нормально. А ты?",
+        "Неплохо.",
+        "Как тебя зовут?",
+        "Меня зовут Мария, а тебя?",
+        "Меня зовут Алекс.",
+        "Сколько тебе лет?",
+        "Мне двадцать восемь, а тебе?",
+        "Мне тридцать два.",
+        "Откуда ты?",
+        "Я из Италии, а ты?",
+        "Я из Канады.",
+        "Где ты живёшь?",
+        "Я живу в Германии, а ты?",
+        "Я живу во Франции.",
+        "Приятно познакомиться!",
+        "Очень приятно!",
+        "Ладно, увидимся.",
+        "Пока!",
+        "Доброй ночи!",
+        "До свидания!"
+      ]
+    }
+  ]
+}

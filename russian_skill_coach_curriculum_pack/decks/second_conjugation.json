@@ -1,0 +1,6131 @@
+{
+  "moduleId": "second_conjugation",
+  "title": "2nd Conjugation",
+  "purpose": "Train present-tense 2nd-conjugation verbs, with explicit isolation of irregular я-forms.",
+  "defaultStageProfile": "grammar_full",
+  "analytics": {
+    "heatmap": "verb x person",
+    "secondaryPanels": [
+      "irregular я watchlist",
+      "weakest exception verbs"
+    ]
+  },
+  "uiSignature": "Same pronoun strip as 1st conjugation, plus a compact irregular-я banner whenever the current verb is flagged irregular.",
+  "subdeckRules": [
+    "Keep regular core verbs, exception verbs, and perfective-future reference verbs in separate subdecks.",
+    "Surface irregular я-form hints only in Preview and first two Guided attempts; remove them once the atom reaches Full Choice.",
+    "Perfective-future reference verbs must never appear in the default 2nd-conjugation Resume flow."
+  ],
+  "referenceTable": {
+    "presentEndings": {
+      "1sg": "-ю / -у",
+      "2sg": "-ишь",
+      "3sg": "-ит",
+      "1pl": "-им",
+      "2pl": "-ите",
+      "3pl": "-ят / -ат"
+    },
+    "irregularYaVerbIds": [
+      "uchit",
+      "gotovit",
+      "hodit",
+      "nosit",
+      "perevodit",
+      "prihodit",
+      "vyhodit",
+      "videt",
+      "lyubit"
+    ],
+    "notes": "Some verbs in the notes belong to the 2nd conjugation even though the infinitive does not end in -ить (e.g. помнить, слышать, видеть)."
+  },
+  "subdecks": [
+    {
+      "id": "sc_regular_core",
+      "title": "Core 2nd-conjugation verbs",
+      "order": 1,
+      "defaultEntry": true,
+      "status": "active",
+      "sourcePages": [
+        2,
+        4,
+        5,
+        6,
+        32,
+        33,
+        34,
+        44,
+        46,
+        56,
+        57,
+        58
+      ],
+      "whyThisExists": "This is the main 2nd-conjugation module. It includes the verbs you clearly practiced in class, but still tags irregular я-forms so the UI can surface them.",
+      "verbs": [
+        {
+          "id": "govorit",
+          "lemma": "говорить",
+          "translation": "to speak / to say",
+          "class": "second",
+          "regularity": "regular",
+          "forms": {
+            "1sg": "говорю",
+            "2sg": "говоришь",
+            "3sg": "говорит",
+            "1pl": "говорим",
+            "2pl": "говорите",
+            "3pl": "говорят"
+          },
+          "sourcePages": [
+            2,
+            3,
+            4,
+            5,
+            30,
+            32,
+            33,
+            44,
+            46,
+            58
+          ]
+        },
+        {
+          "id": "uchit",
+          "lemma": "учить",
+          "translation": "to learn / study / teach",
+          "class": "second",
+          "regularity": "regular_ya_special",
+          "forms": {
+            "1sg": "учу",
+            "2sg": "учишь",
+            "3sg": "учит",
+            "1pl": "учим",
+            "2pl": "учите",
+            "3pl": "учат"
+          },
+          "irregularYa": true,
+          "irregularPattern": "ч in 1sg",
+          "sourcePages": [
+            2,
+            4,
+            44
+          ]
+        },
+        {
+          "id": "gotovit",
+          "lemma": "готовить",
+          "translation": "to cook / to prepare",
+          "class": "second",
+          "regularity": "irregular_ya_cluster",
+          "forms": {
+            "1sg": "готовлю",
+            "2sg": "готовишь",
+            "3sg": "готовит",
+            "1pl": "готовим",
+            "2pl": "готовите",
+            "3pl": "готовят"
+          },
+          "irregularYa": true,
+          "irregularPattern": "в -> вл in 1sg",
+          "sourcePages": [
+            2,
+            4,
+            44,
+            56
+          ]
+        },
+        {
+          "id": "zvonit",
+          "lemma": "звонить",
+          "translation": "to call (by phone)",
+          "class": "second",
+          "regularity": "regular",
+          "forms": {
+            "1sg": "звоню",
+            "2sg": "звонишь",
+            "3sg": "звонит",
+            "1pl": "звоним",
+            "2pl": "звоните",
+            "3pl": "звонят"
+          },
+          "sourcePages": [
+            2,
+            4,
+            44
+          ]
+        },
+        {
+          "id": "prosit",
+          "lemma": "просить",
+          "translation": "to ask for / request",
+          "class": "second",
+          "regularity": "regular",
+          "forms": {
+            "1sg": "прошу",
+            "2sg": "просишь",
+            "3sg": "просит",
+            "1pl": "просим",
+            "2pl": "просите",
+            "3pl": "просят"
+          },
+          "sourcePages": [
+            4,
+            44
+          ]
+        },
+        {
+          "id": "hodit",
+          "lemma": "ходить",
+          "translation": "to go (on foot, regularly)",
+          "class": "second",
+          "regularity": "irregular_ya",
+          "forms": {
+            "1sg": "хожу",
+            "2sg": "ходишь",
+            "3sg": "ходит",
+            "1pl": "ходим",
+            "2pl": "ходите",
+            "3pl": "ходят"
+          },
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "sourcePages": [
+            4,
+            44
+          ]
+        },
+        {
+          "id": "nosit",
+          "lemma": "носить",
+          "translation": "to wear / to carry",
+          "class": "second",
+          "regularity": "irregular_ya",
+          "forms": {
+            "1sg": "ношу",
+            "2sg": "носишь",
+            "3sg": "носит",
+            "1pl": "носим",
+            "2pl": "носите",
+            "3pl": "носят"
+          },
+          "irregularYa": true,
+          "irregularPattern": "с -> ш in 1sg",
+          "sourcePages": [
+            4,
+            44,
+            56
+          ]
+        },
+        {
+          "id": "varit",
+          "lemma": "варить",
+          "translation": "to boil / to cook by boiling",
+          "class": "second",
+          "regularity": "regular",
+          "forms": {
+            "1sg": "варю",
+            "2sg": "варишь",
+            "3sg": "варит",
+            "1pl": "варим",
+            "2pl": "варите",
+            "3pl": "варят"
+          },
+          "sourcePages": [
+            4,
+            44
+          ]
+        },
+        {
+          "id": "solit",
+          "lemma": "солить",
+          "translation": "to salt / add salt",
+          "class": "second",
+          "regularity": "regular",
+          "forms": {
+            "1sg": "солю",
+            "2sg": "солишь",
+            "3sg": "солит",
+            "1pl": "солим",
+            "2pl": "солите",
+            "3pl": "солят"
+          },
+          "sourcePages": [
+            4,
+            44
+          ]
+        },
+        {
+          "id": "darit",
+          "lemma": "дарить",
+          "translation": "to give as a gift",
+          "class": "second",
+          "regularity": "regular",
+          "forms": {
+            "1sg": "дарю",
+            "2sg": "даришь",
+            "3sg": "дарит",
+            "1pl": "дарим",
+            "2pl": "дарите",
+            "3pl": "дарят"
+          },
+          "sourcePages": [
+            2,
+            4,
+            44
+          ]
+        },
+        {
+          "id": "stroit",
+          "lemma": "строить",
+          "translation": "to build",
+          "class": "second",
+          "regularity": "regular",
+          "forms": {
+            "1sg": "строю",
+            "2sg": "строишь",
+            "3sg": "строит",
+            "1pl": "строим",
+            "2pl": "строите",
+            "3pl": "строят"
+          },
+          "sourcePages": [
+            4,
+            6
+          ]
+        },
+        {
+          "id": "blagodarit",
+          "lemma": "благодарить",
+          "translation": "to thank",
+          "class": "second",
+          "regularity": "regular",
+          "forms": {
+            "1sg": "благодарю",
+            "2sg": "благодаришь",
+            "3sg": "благодарит",
+            "1pl": "благодарим",
+            "2pl": "благодарите",
+            "3pl": "благодарят"
+          },
+          "sourcePages": [
+            2,
+            4,
+            6
+          ]
+        },
+        {
+          "id": "perevodit",
+          "lemma": "переводить",
+          "translation": "to translate",
+          "class": "second",
+          "regularity": "regular_ya_special",
+          "forms": {
+            "1sg": "перевожу",
+            "2sg": "переводишь",
+            "3sg": "переводит",
+            "1pl": "переводим",
+            "2pl": "переводите",
+            "3pl": "переводят"
+          },
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "sourcePages": [
+            5,
+            44
+          ]
+        },
+        {
+          "id": "prihodit",
+          "lemma": "приходить",
+          "translation": "to come / arrive",
+          "class": "second",
+          "regularity": "irregular_ya",
+          "forms": {
+            "1sg": "прихожу",
+            "2sg": "приходишь",
+            "3sg": "приходит",
+            "1pl": "приходим",
+            "2pl": "приходите",
+            "3pl": "приходят"
+          },
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "sourcePages": [
+            5,
+            6
+          ]
+        },
+        {
+          "id": "vyhodit",
+          "lemma": "выходить",
+          "translation": "to go out / to leave",
+          "class": "second",
+          "regularity": "irregular_ya",
+          "forms": {
+            "1sg": "выхожу",
+            "2sg": "выходишь",
+            "3sg": "выходит",
+            "1pl": "выходим",
+            "2pl": "выходите",
+            "3pl": "выходят"
+          },
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "sourcePages": [
+            5,
+            6
+          ]
+        },
+        {
+          "id": "smotret",
+          "lemma": "смотреть",
+          "translation": "to watch / to look at",
+          "class": "second",
+          "regularity": "regular",
+          "forms": {
+            "1sg": "смотрю",
+            "2sg": "смотришь",
+            "3sg": "смотрит",
+            "1pl": "смотрим",
+            "2pl": "смотрите",
+            "3pl": "смотрят"
+          },
+          "sourcePages": [
+            32,
+            33,
+            58
+          ]
+        },
+        {
+          "id": "lyubit",
+          "lemma": "любить",
+          "translation": "to love / like",
+          "class": "second",
+          "regularity": "irregular_ya_cluster",
+          "forms": {
+            "1sg": "люблю",
+            "2sg": "любишь",
+            "3sg": "любит",
+            "1pl": "любим",
+            "2pl": "любите",
+            "3pl": "любят"
+          },
+          "irregularYa": true,
+          "irregularPattern": "б -> бл in 1sg",
+          "sourcePages": [
+            44,
+            46,
+            56,
+            57
+          ]
+        }
+      ],
+      "teachingRules": [
+        "Choose2/Choose4/FullChoice options must stay inside the same verb paradigm.",
+        "Whenever the current atom has irregularYa=true, show the irregular-я helper banner in Preview and early Guided stages only.",
+        "Do not mix perfective-future verbs into this subdeck."
+      ],
+      "atoms": [
+        {
+          "id": "sc_regular_core__govorit__1sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "говорить",
+          "translation": "to speak / to say",
+          "tense": "present",
+          "person": "1sg",
+          "pronoun": "я",
+          "answer": "говорю",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_speak_phone",
+            "sc_sent_speak_russian",
+            "sc_sent_speak_friends"
+          ],
+          "sourcePages": [
+            2,
+            3,
+            4,
+            5,
+            30,
+            32,
+            33,
+            44,
+            46,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "govorit",
+            "1sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__govorit__2sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "говорить",
+          "translation": "to speak / to say",
+          "tense": "present",
+          "person": "2sg",
+          "pronoun": "ты",
+          "answer": "говоришь",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_speak_phone",
+            "sc_sent_speak_russian",
+            "sc_sent_speak_friends"
+          ],
+          "sourcePages": [
+            2,
+            3,
+            4,
+            5,
+            30,
+            32,
+            33,
+            44,
+            46,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "govorit",
+            "2sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__govorit__3sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "говорить",
+          "translation": "to speak / to say",
+          "tense": "present",
+          "person": "3sg",
+          "pronoun": "он/она/оно",
+          "answer": "говорит",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_speak_phone",
+            "sc_sent_speak_russian",
+            "sc_sent_speak_friends"
+          ],
+          "sourcePages": [
+            2,
+            3,
+            4,
+            5,
+            30,
+            32,
+            33,
+            44,
+            46,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "govorit",
+            "3sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__govorit__1pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "говорить",
+          "translation": "to speak / to say",
+          "tense": "present",
+          "person": "1pl",
+          "pronoun": "мы",
+          "answer": "говорим",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_speak_phone",
+            "sc_sent_speak_russian",
+            "sc_sent_speak_friends"
+          ],
+          "sourcePages": [
+            2,
+            3,
+            4,
+            5,
+            30,
+            32,
+            33,
+            44,
+            46,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "govorit",
+            "1pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__govorit__2pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "говорить",
+          "translation": "to speak / to say",
+          "tense": "present",
+          "person": "2pl",
+          "pronoun": "вы",
+          "answer": "говорите",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_speak_phone",
+            "sc_sent_speak_russian",
+            "sc_sent_speak_friends"
+          ],
+          "sourcePages": [
+            2,
+            3,
+            4,
+            5,
+            30,
+            32,
+            33,
+            44,
+            46,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "govorit",
+            "2pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__govorit__3pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "говорить",
+          "translation": "to speak / to say",
+          "tense": "present",
+          "person": "3pl",
+          "pronoun": "они",
+          "answer": "говорят",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_speak_phone",
+            "sc_sent_speak_russian",
+            "sc_sent_speak_friends"
+          ],
+          "sourcePages": [
+            2,
+            3,
+            4,
+            5,
+            30,
+            32,
+            33,
+            44,
+            46,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "govorit",
+            "3pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__uchit__1sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "учить",
+          "translation": "to learn / study / teach",
+          "tense": "present",
+          "person": "1sg",
+          "pronoun": "я",
+          "answer": "учу",
+          "regularity": "regular_ya_special",
+          "irregularYa": true,
+          "irregularPattern": "ч in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_learn_words"
+          ],
+          "sourcePages": [
+            2,
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "uchit",
+            "1sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__uchit__2sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "учить",
+          "translation": "to learn / study / teach",
+          "tense": "present",
+          "person": "2sg",
+          "pronoun": "ты",
+          "answer": "учишь",
+          "regularity": "regular_ya_special",
+          "irregularYa": true,
+          "irregularPattern": "ч in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_learn_words"
+          ],
+          "sourcePages": [
+            2,
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "uchit",
+            "2sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__uchit__3sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "учить",
+          "translation": "to learn / study / teach",
+          "tense": "present",
+          "person": "3sg",
+          "pronoun": "он/она/оно",
+          "answer": "учит",
+          "regularity": "regular_ya_special",
+          "irregularYa": true,
+          "irregularPattern": "ч in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_learn_words"
+          ],
+          "sourcePages": [
+            2,
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "uchit",
+            "3sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__uchit__1pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "учить",
+          "translation": "to learn / study / teach",
+          "tense": "present",
+          "person": "1pl",
+          "pronoun": "мы",
+          "answer": "учим",
+          "regularity": "regular_ya_special",
+          "irregularYa": true,
+          "irregularPattern": "ч in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_learn_words"
+          ],
+          "sourcePages": [
+            2,
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "uchit",
+            "1pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__uchit__2pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "учить",
+          "translation": "to learn / study / teach",
+          "tense": "present",
+          "person": "2pl",
+          "pronoun": "вы",
+          "answer": "учите",
+          "regularity": "regular_ya_special",
+          "irregularYa": true,
+          "irregularPattern": "ч in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_learn_words"
+          ],
+          "sourcePages": [
+            2,
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "uchit",
+            "2pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__uchit__3pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "учить",
+          "translation": "to learn / study / teach",
+          "tense": "present",
+          "person": "3pl",
+          "pronoun": "они",
+          "answer": "учат",
+          "regularity": "regular_ya_special",
+          "irregularYa": true,
+          "irregularPattern": "ч in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_learn_words"
+          ],
+          "sourcePages": [
+            2,
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "uchit",
+            "3pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__gotovit__1sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "готовить",
+          "translation": "to cook / to prepare",
+          "tense": "present",
+          "person": "1sg",
+          "pronoun": "я",
+          "answer": "готовлю",
+          "regularity": "irregular_ya_cluster",
+          "irregularYa": true,
+          "irregularPattern": "в -> вл in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_cook_breakfast"
+          ],
+          "sourcePages": [
+            2,
+            4,
+            44,
+            56
+          ],
+          "reviewed": true,
+          "tags": [
+            "gotovit",
+            "1sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__gotovit__2sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "готовить",
+          "translation": "to cook / to prepare",
+          "tense": "present",
+          "person": "2sg",
+          "pronoun": "ты",
+          "answer": "готовишь",
+          "regularity": "irregular_ya_cluster",
+          "irregularYa": true,
+          "irregularPattern": "в -> вл in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_cook_breakfast"
+          ],
+          "sourcePages": [
+            2,
+            4,
+            44,
+            56
+          ],
+          "reviewed": true,
+          "tags": [
+            "gotovit",
+            "2sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__gotovit__3sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "готовить",
+          "translation": "to cook / to prepare",
+          "tense": "present",
+          "person": "3sg",
+          "pronoun": "он/она/оно",
+          "answer": "готовит",
+          "regularity": "irregular_ya_cluster",
+          "irregularYa": true,
+          "irregularPattern": "в -> вл in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_cook_breakfast"
+          ],
+          "sourcePages": [
+            2,
+            4,
+            44,
+            56
+          ],
+          "reviewed": true,
+          "tags": [
+            "gotovit",
+            "3sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__gotovit__1pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "готовить",
+          "translation": "to cook / to prepare",
+          "tense": "present",
+          "person": "1pl",
+          "pronoun": "мы",
+          "answer": "готовим",
+          "regularity": "irregular_ya_cluster",
+          "irregularYa": true,
+          "irregularPattern": "в -> вл in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_cook_breakfast"
+          ],
+          "sourcePages": [
+            2,
+            4,
+            44,
+            56
+          ],
+          "reviewed": true,
+          "tags": [
+            "gotovit",
+            "1pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__gotovit__2pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "готовить",
+          "translation": "to cook / to prepare",
+          "tense": "present",
+          "person": "2pl",
+          "pronoun": "вы",
+          "answer": "готовите",
+          "regularity": "irregular_ya_cluster",
+          "irregularYa": true,
+          "irregularPattern": "в -> вл in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_cook_breakfast"
+          ],
+          "sourcePages": [
+            2,
+            4,
+            44,
+            56
+          ],
+          "reviewed": true,
+          "tags": [
+            "gotovit",
+            "2pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__gotovit__3pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "готовить",
+          "translation": "to cook / to prepare",
+          "tense": "present",
+          "person": "3pl",
+          "pronoun": "они",
+          "answer": "готовят",
+          "regularity": "irregular_ya_cluster",
+          "irregularYa": true,
+          "irregularPattern": "в -> вл in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_cook_breakfast"
+          ],
+          "sourcePages": [
+            2,
+            4,
+            44,
+            56
+          ],
+          "reviewed": true,
+          "tags": [
+            "gotovit",
+            "3pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__zvonit__1sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "звонить",
+          "translation": "to call (by phone)",
+          "tense": "present",
+          "person": "1sg",
+          "pronoun": "я",
+          "answer": "звоню",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_call_sister"
+          ],
+          "sourcePages": [
+            2,
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "zvonit",
+            "1sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__zvonit__2sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "звонить",
+          "translation": "to call (by phone)",
+          "tense": "present",
+          "person": "2sg",
+          "pronoun": "ты",
+          "answer": "звонишь",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_call_sister"
+          ],
+          "sourcePages": [
+            2,
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "zvonit",
+            "2sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__zvonit__3sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "звонить",
+          "translation": "to call (by phone)",
+          "tense": "present",
+          "person": "3sg",
+          "pronoun": "он/она/оно",
+          "answer": "звонит",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_call_sister"
+          ],
+          "sourcePages": [
+            2,
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "zvonit",
+            "3sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__zvonit__1pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "звонить",
+          "translation": "to call (by phone)",
+          "tense": "present",
+          "person": "1pl",
+          "pronoun": "мы",
+          "answer": "звоним",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_call_sister"
+          ],
+          "sourcePages": [
+            2,
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "zvonit",
+            "1pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__zvonit__2pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "звонить",
+          "translation": "to call (by phone)",
+          "tense": "present",
+          "person": "2pl",
+          "pronoun": "вы",
+          "answer": "звоните",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_call_sister"
+          ],
+          "sourcePages": [
+            2,
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "zvonit",
+            "2pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__zvonit__3pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "звонить",
+          "translation": "to call (by phone)",
+          "tense": "present",
+          "person": "3pl",
+          "pronoun": "они",
+          "answer": "звонят",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_call_sister"
+          ],
+          "sourcePages": [
+            2,
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "zvonit",
+            "3pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__prosit__1sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "просить",
+          "translation": "to ask for / request",
+          "tense": "present",
+          "person": "1sg",
+          "pronoun": "я",
+          "answer": "прошу",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_ask_help"
+          ],
+          "sourcePages": [
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "prosit",
+            "1sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__prosit__2sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "просить",
+          "translation": "to ask for / request",
+          "tense": "present",
+          "person": "2sg",
+          "pronoun": "ты",
+          "answer": "просишь",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_ask_help"
+          ],
+          "sourcePages": [
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "prosit",
+            "2sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__prosit__3sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "просить",
+          "translation": "to ask for / request",
+          "tense": "present",
+          "person": "3sg",
+          "pronoun": "он/она/оно",
+          "answer": "просит",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_ask_help"
+          ],
+          "sourcePages": [
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "prosit",
+            "3sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__prosit__1pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "просить",
+          "translation": "to ask for / request",
+          "tense": "present",
+          "person": "1pl",
+          "pronoun": "мы",
+          "answer": "просим",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_ask_help"
+          ],
+          "sourcePages": [
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "prosit",
+            "1pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__prosit__2pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "просить",
+          "translation": "to ask for / request",
+          "tense": "present",
+          "person": "2pl",
+          "pronoun": "вы",
+          "answer": "просите",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_ask_help"
+          ],
+          "sourcePages": [
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "prosit",
+            "2pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__prosit__3pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "просить",
+          "translation": "to ask for / request",
+          "tense": "present",
+          "person": "3pl",
+          "pronoun": "они",
+          "answer": "просят",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_ask_help"
+          ],
+          "sourcePages": [
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "prosit",
+            "3pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__hodit__1sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "ходить",
+          "translation": "to go (on foot, regularly)",
+          "tense": "present",
+          "person": "1sg",
+          "pronoun": "я",
+          "answer": "хожу",
+          "regularity": "irregular_ya",
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_go_gym_evenings"
+          ],
+          "sourcePages": [
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "hodit",
+            "1sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__hodit__2sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "ходить",
+          "translation": "to go (on foot, regularly)",
+          "tense": "present",
+          "person": "2sg",
+          "pronoun": "ты",
+          "answer": "ходишь",
+          "regularity": "irregular_ya",
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_go_gym_evenings"
+          ],
+          "sourcePages": [
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "hodit",
+            "2sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__hodit__3sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "ходить",
+          "translation": "to go (on foot, regularly)",
+          "tense": "present",
+          "person": "3sg",
+          "pronoun": "он/она/оно",
+          "answer": "ходит",
+          "regularity": "irregular_ya",
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_go_gym_evenings"
+          ],
+          "sourcePages": [
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "hodit",
+            "3sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__hodit__1pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "ходить",
+          "translation": "to go (on foot, regularly)",
+          "tense": "present",
+          "person": "1pl",
+          "pronoun": "мы",
+          "answer": "ходим",
+          "regularity": "irregular_ya",
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_go_gym_evenings"
+          ],
+          "sourcePages": [
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "hodit",
+            "1pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__hodit__2pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "ходить",
+          "translation": "to go (on foot, regularly)",
+          "tense": "present",
+          "person": "2pl",
+          "pronoun": "вы",
+          "answer": "ходите",
+          "regularity": "irregular_ya",
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_go_gym_evenings"
+          ],
+          "sourcePages": [
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "hodit",
+            "2pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__hodit__3pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "ходить",
+          "translation": "to go (on foot, regularly)",
+          "tense": "present",
+          "person": "3pl",
+          "pronoun": "они",
+          "answer": "ходят",
+          "regularity": "irregular_ya",
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_go_gym_evenings"
+          ],
+          "sourcePages": [
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "hodit",
+            "3pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__nosit__1sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "носить",
+          "translation": "to wear / to carry",
+          "tense": "present",
+          "person": "1sg",
+          "pronoun": "я",
+          "answer": "ношу",
+          "regularity": "irregular_ya",
+          "irregularYa": true,
+          "irregularPattern": "с -> ш in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_wear_black_jacket"
+          ],
+          "sourcePages": [
+            4,
+            44,
+            56
+          ],
+          "reviewed": true,
+          "tags": [
+            "nosit",
+            "1sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__nosit__2sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "носить",
+          "translation": "to wear / to carry",
+          "tense": "present",
+          "person": "2sg",
+          "pronoun": "ты",
+          "answer": "носишь",
+          "regularity": "irregular_ya",
+          "irregularYa": true,
+          "irregularPattern": "с -> ш in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_wear_black_jacket"
+          ],
+          "sourcePages": [
+            4,
+            44,
+            56
+          ],
+          "reviewed": true,
+          "tags": [
+            "nosit",
+            "2sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__nosit__3sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "носить",
+          "translation": "to wear / to carry",
+          "tense": "present",
+          "person": "3sg",
+          "pronoun": "он/она/оно",
+          "answer": "носит",
+          "regularity": "irregular_ya",
+          "irregularYa": true,
+          "irregularPattern": "с -> ш in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_wear_black_jacket"
+          ],
+          "sourcePages": [
+            4,
+            44,
+            56
+          ],
+          "reviewed": true,
+          "tags": [
+            "nosit",
+            "3sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__nosit__1pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "носить",
+          "translation": "to wear / to carry",
+          "tense": "present",
+          "person": "1pl",
+          "pronoun": "мы",
+          "answer": "носим",
+          "regularity": "irregular_ya",
+          "irregularYa": true,
+          "irregularPattern": "с -> ш in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_wear_black_jacket"
+          ],
+          "sourcePages": [
+            4,
+            44,
+            56
+          ],
+          "reviewed": true,
+          "tags": [
+            "nosit",
+            "1pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__nosit__2pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "носить",
+          "translation": "to wear / to carry",
+          "tense": "present",
+          "person": "2pl",
+          "pronoun": "вы",
+          "answer": "носите",
+          "regularity": "irregular_ya",
+          "irregularYa": true,
+          "irregularPattern": "с -> ш in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_wear_black_jacket"
+          ],
+          "sourcePages": [
+            4,
+            44,
+            56
+          ],
+          "reviewed": true,
+          "tags": [
+            "nosit",
+            "2pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__nosit__3pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "носить",
+          "translation": "to wear / to carry",
+          "tense": "present",
+          "person": "3pl",
+          "pronoun": "они",
+          "answer": "носят",
+          "regularity": "irregular_ya",
+          "irregularYa": true,
+          "irregularPattern": "с -> ш in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_wear_black_jacket"
+          ],
+          "sourcePages": [
+            4,
+            44,
+            56
+          ],
+          "reviewed": true,
+          "tags": [
+            "nosit",
+            "3pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__varit__1sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "варить",
+          "translation": "to boil / to cook by boiling",
+          "tense": "present",
+          "person": "1sg",
+          "pronoun": "я",
+          "answer": "варю",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_boil_soup"
+          ],
+          "sourcePages": [
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "varit",
+            "1sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__varit__2sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "варить",
+          "translation": "to boil / to cook by boiling",
+          "tense": "present",
+          "person": "2sg",
+          "pronoun": "ты",
+          "answer": "варишь",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_boil_soup"
+          ],
+          "sourcePages": [
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "varit",
+            "2sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__varit__3sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "варить",
+          "translation": "to boil / to cook by boiling",
+          "tense": "present",
+          "person": "3sg",
+          "pronoun": "он/она/оно",
+          "answer": "варит",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_boil_soup"
+          ],
+          "sourcePages": [
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "varit",
+            "3sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__varit__1pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "варить",
+          "translation": "to boil / to cook by boiling",
+          "tense": "present",
+          "person": "1pl",
+          "pronoun": "мы",
+          "answer": "варим",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_boil_soup"
+          ],
+          "sourcePages": [
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "varit",
+            "1pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__varit__2pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "варить",
+          "translation": "to boil / to cook by boiling",
+          "tense": "present",
+          "person": "2pl",
+          "pronoun": "вы",
+          "answer": "варите",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_boil_soup"
+          ],
+          "sourcePages": [
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "varit",
+            "2pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__varit__3pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "варить",
+          "translation": "to boil / to cook by boiling",
+          "tense": "present",
+          "person": "3pl",
+          "pronoun": "они",
+          "answer": "варят",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_boil_soup"
+          ],
+          "sourcePages": [
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "varit",
+            "3pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__solit__1sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "солить",
+          "translation": "to salt / add salt",
+          "tense": "present",
+          "person": "1sg",
+          "pronoun": "я",
+          "answer": "солю",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_salt_fish"
+          ],
+          "sourcePages": [
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "solit",
+            "1sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__solit__2sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "солить",
+          "translation": "to salt / add salt",
+          "tense": "present",
+          "person": "2sg",
+          "pronoun": "ты",
+          "answer": "солишь",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_salt_fish"
+          ],
+          "sourcePages": [
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "solit",
+            "2sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__solit__3sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "солить",
+          "translation": "to salt / add salt",
+          "tense": "present",
+          "person": "3sg",
+          "pronoun": "он/она/оно",
+          "answer": "солит",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_salt_fish"
+          ],
+          "sourcePages": [
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "solit",
+            "3sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__solit__1pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "солить",
+          "translation": "to salt / add salt",
+          "tense": "present",
+          "person": "1pl",
+          "pronoun": "мы",
+          "answer": "солим",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_salt_fish"
+          ],
+          "sourcePages": [
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "solit",
+            "1pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__solit__2pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "солить",
+          "translation": "to salt / add salt",
+          "tense": "present",
+          "person": "2pl",
+          "pronoun": "вы",
+          "answer": "солите",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_salt_fish"
+          ],
+          "sourcePages": [
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "solit",
+            "2pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__solit__3pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "солить",
+          "translation": "to salt / add salt",
+          "tense": "present",
+          "person": "3pl",
+          "pronoun": "они",
+          "answer": "солят",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_salt_fish"
+          ],
+          "sourcePages": [
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "solit",
+            "3pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__darit__1sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "дарить",
+          "translation": "to give as a gift",
+          "tense": "present",
+          "person": "1sg",
+          "pronoun": "я",
+          "answer": "дарю",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_give_flowers"
+          ],
+          "sourcePages": [
+            2,
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "darit",
+            "1sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__darit__2sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "дарить",
+          "translation": "to give as a gift",
+          "tense": "present",
+          "person": "2sg",
+          "pronoun": "ты",
+          "answer": "даришь",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_give_flowers"
+          ],
+          "sourcePages": [
+            2,
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "darit",
+            "2sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__darit__3sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "дарить",
+          "translation": "to give as a gift",
+          "tense": "present",
+          "person": "3sg",
+          "pronoun": "он/она/оно",
+          "answer": "дарит",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_give_flowers"
+          ],
+          "sourcePages": [
+            2,
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "darit",
+            "3sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__darit__1pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "дарить",
+          "translation": "to give as a gift",
+          "tense": "present",
+          "person": "1pl",
+          "pronoun": "мы",
+          "answer": "дарим",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_give_flowers"
+          ],
+          "sourcePages": [
+            2,
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "darit",
+            "1pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__darit__2pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "дарить",
+          "translation": "to give as a gift",
+          "tense": "present",
+          "person": "2pl",
+          "pronoun": "вы",
+          "answer": "дарите",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_give_flowers"
+          ],
+          "sourcePages": [
+            2,
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "darit",
+            "2pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__darit__3pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "дарить",
+          "translation": "to give as a gift",
+          "tense": "present",
+          "person": "3pl",
+          "pronoun": "они",
+          "answer": "дарят",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_give_flowers"
+          ],
+          "sourcePages": [
+            2,
+            4,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "darit",
+            "3pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__stroit__1sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "строить",
+          "translation": "to build",
+          "tense": "present",
+          "person": "1sg",
+          "pronoun": "я",
+          "answer": "строю",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_build_plans"
+          ],
+          "sourcePages": [
+            4,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "stroit",
+            "1sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__stroit__2sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "строить",
+          "translation": "to build",
+          "tense": "present",
+          "person": "2sg",
+          "pronoun": "ты",
+          "answer": "строишь",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_build_plans"
+          ],
+          "sourcePages": [
+            4,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "stroit",
+            "2sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__stroit__3sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "строить",
+          "translation": "to build",
+          "tense": "present",
+          "person": "3sg",
+          "pronoun": "он/она/оно",
+          "answer": "строит",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_build_plans"
+          ],
+          "sourcePages": [
+            4,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "stroit",
+            "3sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__stroit__1pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "строить",
+          "translation": "to build",
+          "tense": "present",
+          "person": "1pl",
+          "pronoun": "мы",
+          "answer": "строим",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_build_plans"
+          ],
+          "sourcePages": [
+            4,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "stroit",
+            "1pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__stroit__2pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "строить",
+          "translation": "to build",
+          "tense": "present",
+          "person": "2pl",
+          "pronoun": "вы",
+          "answer": "строите",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_build_plans"
+          ],
+          "sourcePages": [
+            4,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "stroit",
+            "2pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__stroit__3pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "строить",
+          "translation": "to build",
+          "tense": "present",
+          "person": "3pl",
+          "pronoun": "они",
+          "answer": "строят",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_build_plans"
+          ],
+          "sourcePages": [
+            4,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "stroit",
+            "3pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__blagodarit__1sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "благодарить",
+          "translation": "to thank",
+          "tense": "present",
+          "person": "1sg",
+          "pronoun": "я",
+          "answer": "благодарю",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_thank_teacher"
+          ],
+          "sourcePages": [
+            2,
+            4,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "blagodarit",
+            "1sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__blagodarit__2sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "благодарить",
+          "translation": "to thank",
+          "tense": "present",
+          "person": "2sg",
+          "pronoun": "ты",
+          "answer": "благодаришь",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_thank_teacher"
+          ],
+          "sourcePages": [
+            2,
+            4,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "blagodarit",
+            "2sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__blagodarit__3sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "благодарить",
+          "translation": "to thank",
+          "tense": "present",
+          "person": "3sg",
+          "pronoun": "он/она/оно",
+          "answer": "благодарит",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_thank_teacher"
+          ],
+          "sourcePages": [
+            2,
+            4,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "blagodarit",
+            "3sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__blagodarit__1pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "благодарить",
+          "translation": "to thank",
+          "tense": "present",
+          "person": "1pl",
+          "pronoun": "мы",
+          "answer": "благодарим",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_thank_teacher"
+          ],
+          "sourcePages": [
+            2,
+            4,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "blagodarit",
+            "1pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__blagodarit__2pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "благодарить",
+          "translation": "to thank",
+          "tense": "present",
+          "person": "2pl",
+          "pronoun": "вы",
+          "answer": "благодарите",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_thank_teacher"
+          ],
+          "sourcePages": [
+            2,
+            4,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "blagodarit",
+            "2pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__blagodarit__3pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "благодарить",
+          "translation": "to thank",
+          "tense": "present",
+          "person": "3pl",
+          "pronoun": "они",
+          "answer": "благодарят",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_thank_teacher"
+          ],
+          "sourcePages": [
+            2,
+            4,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "blagodarit",
+            "3pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__perevodit__1sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "переводить",
+          "translation": "to translate",
+          "tense": "present",
+          "person": "1sg",
+          "pronoun": "я",
+          "answer": "перевожу",
+          "regularity": "regular_ya_special",
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_translate_text"
+          ],
+          "sourcePages": [
+            5,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "perevodit",
+            "1sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__perevodit__2sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "переводить",
+          "translation": "to translate",
+          "tense": "present",
+          "person": "2sg",
+          "pronoun": "ты",
+          "answer": "переводишь",
+          "regularity": "regular_ya_special",
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_translate_text"
+          ],
+          "sourcePages": [
+            5,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "perevodit",
+            "2sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__perevodit__3sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "переводить",
+          "translation": "to translate",
+          "tense": "present",
+          "person": "3sg",
+          "pronoun": "он/она/оно",
+          "answer": "переводит",
+          "regularity": "regular_ya_special",
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_translate_text"
+          ],
+          "sourcePages": [
+            5,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "perevodit",
+            "3sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__perevodit__1pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "переводить",
+          "translation": "to translate",
+          "tense": "present",
+          "person": "1pl",
+          "pronoun": "мы",
+          "answer": "переводим",
+          "regularity": "regular_ya_special",
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_translate_text"
+          ],
+          "sourcePages": [
+            5,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "perevodit",
+            "1pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__perevodit__2pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "переводить",
+          "translation": "to translate",
+          "tense": "present",
+          "person": "2pl",
+          "pronoun": "вы",
+          "answer": "переводите",
+          "regularity": "regular_ya_special",
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_translate_text"
+          ],
+          "sourcePages": [
+            5,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "perevodit",
+            "2pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__perevodit__3pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "переводить",
+          "translation": "to translate",
+          "tense": "present",
+          "person": "3pl",
+          "pronoun": "они",
+          "answer": "переводят",
+          "regularity": "regular_ya_special",
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_translate_text"
+          ],
+          "sourcePages": [
+            5,
+            44
+          ],
+          "reviewed": true,
+          "tags": [
+            "perevodit",
+            "3pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__prihodit__1sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "приходить",
+          "translation": "to come / arrive",
+          "tense": "present",
+          "person": "1sg",
+          "pronoun": "я",
+          "answer": "прихожу",
+          "regularity": "irregular_ya",
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_arrive_office_early"
+          ],
+          "sourcePages": [
+            5,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "prihodit",
+            "1sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__prihodit__2sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "приходить",
+          "translation": "to come / arrive",
+          "tense": "present",
+          "person": "2sg",
+          "pronoun": "ты",
+          "answer": "приходишь",
+          "regularity": "irregular_ya",
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_arrive_office_early"
+          ],
+          "sourcePages": [
+            5,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "prihodit",
+            "2sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__prihodit__3sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "приходить",
+          "translation": "to come / arrive",
+          "tense": "present",
+          "person": "3sg",
+          "pronoun": "он/она/оно",
+          "answer": "приходит",
+          "regularity": "irregular_ya",
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_arrive_office_early"
+          ],
+          "sourcePages": [
+            5,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "prihodit",
+            "3sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__prihodit__1pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "приходить",
+          "translation": "to come / arrive",
+          "tense": "present",
+          "person": "1pl",
+          "pronoun": "мы",
+          "answer": "приходим",
+          "regularity": "irregular_ya",
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_arrive_office_early"
+          ],
+          "sourcePages": [
+            5,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "prihodit",
+            "1pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__prihodit__2pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "приходить",
+          "translation": "to come / arrive",
+          "tense": "present",
+          "person": "2pl",
+          "pronoun": "вы",
+          "answer": "приходите",
+          "regularity": "irregular_ya",
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_arrive_office_early"
+          ],
+          "sourcePages": [
+            5,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "prihodit",
+            "2pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__prihodit__3pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "приходить",
+          "translation": "to come / arrive",
+          "tense": "present",
+          "person": "3pl",
+          "pronoun": "они",
+          "answer": "приходят",
+          "regularity": "irregular_ya",
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_arrive_office_early"
+          ],
+          "sourcePages": [
+            5,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "prihodit",
+            "3pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__vyhodit__1sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "выходить",
+          "translation": "to go out / to leave",
+          "tense": "present",
+          "person": "1sg",
+          "pronoun": "я",
+          "answer": "выхожу",
+          "regularity": "irregular_ya",
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_leave_home_8"
+          ],
+          "sourcePages": [
+            5,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "vyhodit",
+            "1sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__vyhodit__2sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "выходить",
+          "translation": "to go out / to leave",
+          "tense": "present",
+          "person": "2sg",
+          "pronoun": "ты",
+          "answer": "выходишь",
+          "regularity": "irregular_ya",
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_leave_home_8"
+          ],
+          "sourcePages": [
+            5,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "vyhodit",
+            "2sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__vyhodit__3sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "выходить",
+          "translation": "to go out / to leave",
+          "tense": "present",
+          "person": "3sg",
+          "pronoun": "он/она/оно",
+          "answer": "выходит",
+          "regularity": "irregular_ya",
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_leave_home_8"
+          ],
+          "sourcePages": [
+            5,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "vyhodit",
+            "3sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__vyhodit__1pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "выходить",
+          "translation": "to go out / to leave",
+          "tense": "present",
+          "person": "1pl",
+          "pronoun": "мы",
+          "answer": "выходим",
+          "regularity": "irregular_ya",
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_leave_home_8"
+          ],
+          "sourcePages": [
+            5,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "vyhodit",
+            "1pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__vyhodit__2pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "выходить",
+          "translation": "to go out / to leave",
+          "tense": "present",
+          "person": "2pl",
+          "pronoun": "вы",
+          "answer": "выходите",
+          "regularity": "irregular_ya",
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_leave_home_8"
+          ],
+          "sourcePages": [
+            5,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "vyhodit",
+            "2pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__vyhodit__3pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "выходить",
+          "translation": "to go out / to leave",
+          "tense": "present",
+          "person": "3pl",
+          "pronoun": "они",
+          "answer": "выходят",
+          "regularity": "irregular_ya",
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_leave_home_8"
+          ],
+          "sourcePages": [
+            5,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "vyhodit",
+            "3pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__smotret__1sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "смотреть",
+          "translation": "to watch / to look at",
+          "tense": "present",
+          "person": "1sg",
+          "pronoun": "я",
+          "answer": "смотрю",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_watch_film"
+          ],
+          "sourcePages": [
+            32,
+            33,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "smotret",
+            "1sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__smotret__2sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "смотреть",
+          "translation": "to watch / to look at",
+          "tense": "present",
+          "person": "2sg",
+          "pronoun": "ты",
+          "answer": "смотришь",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_watch_film"
+          ],
+          "sourcePages": [
+            32,
+            33,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "smotret",
+            "2sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__smotret__3sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "смотреть",
+          "translation": "to watch / to look at",
+          "tense": "present",
+          "person": "3sg",
+          "pronoun": "он/она/оно",
+          "answer": "смотрит",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_watch_film"
+          ],
+          "sourcePages": [
+            32,
+            33,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "smotret",
+            "3sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__smotret__1pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "смотреть",
+          "translation": "to watch / to look at",
+          "tense": "present",
+          "person": "1pl",
+          "pronoun": "мы",
+          "answer": "смотрим",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_watch_film"
+          ],
+          "sourcePages": [
+            32,
+            33,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "smotret",
+            "1pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__smotret__2pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "смотреть",
+          "translation": "to watch / to look at",
+          "tense": "present",
+          "person": "2pl",
+          "pronoun": "вы",
+          "answer": "смотрите",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_watch_film"
+          ],
+          "sourcePages": [
+            32,
+            33,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "smotret",
+            "2pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__smotret__3pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "смотреть",
+          "translation": "to watch / to look at",
+          "tense": "present",
+          "person": "3pl",
+          "pronoun": "они",
+          "answer": "смотрят",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_watch_film"
+          ],
+          "sourcePages": [
+            32,
+            33,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "smotret",
+            "3pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__lyubit__1sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "любить",
+          "translation": "to love / like",
+          "tense": "present",
+          "person": "1sg",
+          "pronoun": "я",
+          "answer": "люблю",
+          "regularity": "irregular_ya_cluster",
+          "irregularYa": true,
+          "irregularPattern": "б -> бл in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_love_sport",
+            "sc_sent_love_coffee",
+            "sc_sent_love_pizza",
+            "sc_sent_love_dancing"
+          ],
+          "sourcePages": [
+            44,
+            46,
+            56,
+            57
+          ],
+          "reviewed": true,
+          "tags": [
+            "lyubit",
+            "1sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__lyubit__2sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "любить",
+          "translation": "to love / like",
+          "tense": "present",
+          "person": "2sg",
+          "pronoun": "ты",
+          "answer": "любишь",
+          "regularity": "irregular_ya_cluster",
+          "irregularYa": true,
+          "irregularPattern": "б -> бл in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_love_sport",
+            "sc_sent_love_coffee",
+            "sc_sent_love_pizza",
+            "sc_sent_love_dancing"
+          ],
+          "sourcePages": [
+            44,
+            46,
+            56,
+            57
+          ],
+          "reviewed": true,
+          "tags": [
+            "lyubit",
+            "2sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__lyubit__3sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "любить",
+          "translation": "to love / like",
+          "tense": "present",
+          "person": "3sg",
+          "pronoun": "он/она/оно",
+          "answer": "любит",
+          "regularity": "irregular_ya_cluster",
+          "irregularYa": true,
+          "irregularPattern": "б -> бл in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_love_sport",
+            "sc_sent_love_coffee",
+            "sc_sent_love_pizza",
+            "sc_sent_love_dancing"
+          ],
+          "sourcePages": [
+            44,
+            46,
+            56,
+            57
+          ],
+          "reviewed": true,
+          "tags": [
+            "lyubit",
+            "3sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__lyubit__1pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "любить",
+          "translation": "to love / like",
+          "tense": "present",
+          "person": "1pl",
+          "pronoun": "мы",
+          "answer": "любим",
+          "regularity": "irregular_ya_cluster",
+          "irregularYa": true,
+          "irregularPattern": "б -> бл in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_love_sport",
+            "sc_sent_love_coffee",
+            "sc_sent_love_pizza",
+            "sc_sent_love_dancing"
+          ],
+          "sourcePages": [
+            44,
+            46,
+            56,
+            57
+          ],
+          "reviewed": true,
+          "tags": [
+            "lyubit",
+            "1pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__lyubit__2pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "любить",
+          "translation": "to love / like",
+          "tense": "present",
+          "person": "2pl",
+          "pronoun": "вы",
+          "answer": "любите",
+          "regularity": "irregular_ya_cluster",
+          "irregularYa": true,
+          "irregularPattern": "б -> бл in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_love_sport",
+            "sc_sent_love_coffee",
+            "sc_sent_love_pizza",
+            "sc_sent_love_dancing"
+          ],
+          "sourcePages": [
+            44,
+            46,
+            56,
+            57
+          ],
+          "reviewed": true,
+          "tags": [
+            "lyubit",
+            "2pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_regular_core__lyubit__3pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_regular_core",
+          "stageProfileId": "grammar_full",
+          "lemma": "любить",
+          "translation": "to love / like",
+          "tense": "present",
+          "person": "3pl",
+          "pronoun": "они",
+          "answer": "любят",
+          "regularity": "irregular_ya_cluster",
+          "irregularYa": true,
+          "irregularPattern": "б -> бл in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_love_sport",
+            "sc_sent_love_coffee",
+            "sc_sent_love_pizza",
+            "sc_sent_love_dancing"
+          ],
+          "sourcePages": [
+            44,
+            46,
+            56,
+            57
+          ],
+          "reviewed": true,
+          "tags": [
+            "lyubit",
+            "3pl",
+            "present"
+          ]
+        }
+      ],
+      "sentenceIds": [
+        "sc_sent_speak_phone",
+        "sc_sent_speak_russian",
+        "sc_sent_speak_friends",
+        "sc_sent_learn_words",
+        "sc_sent_cook_breakfast",
+        "sc_sent_call_sister",
+        "sc_sent_ask_help",
+        "sc_sent_go_gym_evenings",
+        "sc_sent_wear_black_jacket",
+        "sc_sent_boil_soup",
+        "sc_sent_salt_fish",
+        "sc_sent_give_flowers",
+        "sc_sent_build_plans",
+        "sc_sent_thank_teacher",
+        "sc_sent_translate_text",
+        "sc_sent_arrive_office_early",
+        "sc_sent_leave_home_8",
+        "sc_sent_watch_film",
+        "sc_sent_love_sport",
+        "sc_sent_love_coffee",
+        "sc_sent_love_pizza",
+        "sc_sent_love_dancing"
+      ]
+    },
+    {
+      "id": "sc_exception_non_it",
+      "title": "2nd-conjugation exception verbs (not plain -ить pattern)",
+      "order": 2,
+      "defaultEntry": false,
+      "status": "active",
+      "sourcePages": [
+        17,
+        33,
+        34,
+        56,
+        57,
+        58
+      ],
+      "whyThisExists": "These verbs are pedagogically important because they are true 2nd-conjugation verbs, but their infinitives do not look like the core -ить pattern.",
+      "verbs": [
+        {
+          "id": "pomnit",
+          "lemma": "помнить",
+          "translation": "to remember",
+          "class": "second_exception",
+          "regularity": "regular",
+          "forms": {
+            "1sg": "помню",
+            "2sg": "помнишь",
+            "3sg": "помнит",
+            "1pl": "помним",
+            "2pl": "помните",
+            "3pl": "помнят"
+          },
+          "sourcePages": [
+            5,
+            17,
+            33,
+            44,
+            45,
+            46
+          ]
+        },
+        {
+          "id": "slyshat",
+          "lemma": "слышать",
+          "translation": "to hear",
+          "class": "second_exception",
+          "regularity": "regular",
+          "forms": {
+            "1sg": "слышу",
+            "2sg": "слышишь",
+            "3sg": "слышит",
+            "1pl": "слышим",
+            "2pl": "слышите",
+            "3pl": "слышат"
+          },
+          "sourcePages": [
+            2,
+            5,
+            17,
+            33,
+            34,
+            44,
+            46,
+            58
+          ]
+        },
+        {
+          "id": "videt",
+          "lemma": "видеть",
+          "translation": "to see",
+          "class": "second_exception",
+          "regularity": "irregular_ya",
+          "forms": {
+            "1sg": "вижу",
+            "2sg": "видишь",
+            "3sg": "видит",
+            "1pl": "видим",
+            "2pl": "видите",
+            "3pl": "видят"
+          },
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "sourcePages": [
+            56,
+            57,
+            58
+          ]
+        }
+      ],
+      "teachingRules": [
+        "Keep this as a dedicated subdeck so the user can isolate exception verbs.",
+        "The app must still tag irregular я-forms inside this subdeck when relevant (especially видеть)."
+      ],
+      "atoms": [
+        {
+          "id": "sc_exception_non_it__pomnit__1sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_exception_non_it",
+          "stageProfileId": "grammar_full",
+          "lemma": "помнить",
+          "translation": "to remember",
+          "tense": "present",
+          "person": "1sg",
+          "pronoun": "я",
+          "answer": "помню",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_remember_meeting",
+            "sc_sent_remember_rule",
+            "sc_sent_remember_this"
+          ],
+          "sourcePages": [
+            5,
+            17,
+            33,
+            44,
+            45,
+            46
+          ],
+          "reviewed": true,
+          "tags": [
+            "pomnit",
+            "1sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_exception_non_it__pomnit__2sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_exception_non_it",
+          "stageProfileId": "grammar_full",
+          "lemma": "помнить",
+          "translation": "to remember",
+          "tense": "present",
+          "person": "2sg",
+          "pronoun": "ты",
+          "answer": "помнишь",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_remember_meeting",
+            "sc_sent_remember_rule",
+            "sc_sent_remember_this"
+          ],
+          "sourcePages": [
+            5,
+            17,
+            33,
+            44,
+            45,
+            46
+          ],
+          "reviewed": true,
+          "tags": [
+            "pomnit",
+            "2sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_exception_non_it__pomnit__3sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_exception_non_it",
+          "stageProfileId": "grammar_full",
+          "lemma": "помнить",
+          "translation": "to remember",
+          "tense": "present",
+          "person": "3sg",
+          "pronoun": "он/она/оно",
+          "answer": "помнит",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_remember_meeting",
+            "sc_sent_remember_rule",
+            "sc_sent_remember_this"
+          ],
+          "sourcePages": [
+            5,
+            17,
+            33,
+            44,
+            45,
+            46
+          ],
+          "reviewed": true,
+          "tags": [
+            "pomnit",
+            "3sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_exception_non_it__pomnit__1pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_exception_non_it",
+          "stageProfileId": "grammar_full",
+          "lemma": "помнить",
+          "translation": "to remember",
+          "tense": "present",
+          "person": "1pl",
+          "pronoun": "мы",
+          "answer": "помним",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_remember_meeting",
+            "sc_sent_remember_rule",
+            "sc_sent_remember_this"
+          ],
+          "sourcePages": [
+            5,
+            17,
+            33,
+            44,
+            45,
+            46
+          ],
+          "reviewed": true,
+          "tags": [
+            "pomnit",
+            "1pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_exception_non_it__pomnit__2pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_exception_non_it",
+          "stageProfileId": "grammar_full",
+          "lemma": "помнить",
+          "translation": "to remember",
+          "tense": "present",
+          "person": "2pl",
+          "pronoun": "вы",
+          "answer": "помните",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_remember_meeting",
+            "sc_sent_remember_rule",
+            "sc_sent_remember_this"
+          ],
+          "sourcePages": [
+            5,
+            17,
+            33,
+            44,
+            45,
+            46
+          ],
+          "reviewed": true,
+          "tags": [
+            "pomnit",
+            "2pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_exception_non_it__pomnit__3pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_exception_non_it",
+          "stageProfileId": "grammar_full",
+          "lemma": "помнить",
+          "translation": "to remember",
+          "tense": "present",
+          "person": "3pl",
+          "pronoun": "они",
+          "answer": "помнят",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_remember_meeting",
+            "sc_sent_remember_rule",
+            "sc_sent_remember_this"
+          ],
+          "sourcePages": [
+            5,
+            17,
+            33,
+            44,
+            45,
+            46
+          ],
+          "reviewed": true,
+          "tags": [
+            "pomnit",
+            "3pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_exception_non_it__slyshat__1sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_exception_non_it",
+          "stageProfileId": "grammar_full",
+          "lemma": "слышать",
+          "translation": "to hear",
+          "tense": "present",
+          "person": "1sg",
+          "pronoun": "я",
+          "answer": "слышу",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_hear_noise",
+            "sc_sent_hear_voice",
+            "sc_sent_hear_music",
+            "sc_sent_hear_dog"
+          ],
+          "sourcePages": [
+            2,
+            5,
+            17,
+            33,
+            34,
+            44,
+            46,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "slyshat",
+            "1sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_exception_non_it__slyshat__2sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_exception_non_it",
+          "stageProfileId": "grammar_full",
+          "lemma": "слышать",
+          "translation": "to hear",
+          "tense": "present",
+          "person": "2sg",
+          "pronoun": "ты",
+          "answer": "слышишь",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_hear_noise",
+            "sc_sent_hear_voice",
+            "sc_sent_hear_music",
+            "sc_sent_hear_dog"
+          ],
+          "sourcePages": [
+            2,
+            5,
+            17,
+            33,
+            34,
+            44,
+            46,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "slyshat",
+            "2sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_exception_non_it__slyshat__3sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_exception_non_it",
+          "stageProfileId": "grammar_full",
+          "lemma": "слышать",
+          "translation": "to hear",
+          "tense": "present",
+          "person": "3sg",
+          "pronoun": "он/она/оно",
+          "answer": "слышит",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_hear_noise",
+            "sc_sent_hear_voice",
+            "sc_sent_hear_music",
+            "sc_sent_hear_dog"
+          ],
+          "sourcePages": [
+            2,
+            5,
+            17,
+            33,
+            34,
+            44,
+            46,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "slyshat",
+            "3sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_exception_non_it__slyshat__1pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_exception_non_it",
+          "stageProfileId": "grammar_full",
+          "lemma": "слышать",
+          "translation": "to hear",
+          "tense": "present",
+          "person": "1pl",
+          "pronoun": "мы",
+          "answer": "слышим",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_hear_noise",
+            "sc_sent_hear_voice",
+            "sc_sent_hear_music",
+            "sc_sent_hear_dog"
+          ],
+          "sourcePages": [
+            2,
+            5,
+            17,
+            33,
+            34,
+            44,
+            46,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "slyshat",
+            "1pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_exception_non_it__slyshat__2pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_exception_non_it",
+          "stageProfileId": "grammar_full",
+          "lemma": "слышать",
+          "translation": "to hear",
+          "tense": "present",
+          "person": "2pl",
+          "pronoun": "вы",
+          "answer": "слышите",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_hear_noise",
+            "sc_sent_hear_voice",
+            "sc_sent_hear_music",
+            "sc_sent_hear_dog"
+          ],
+          "sourcePages": [
+            2,
+            5,
+            17,
+            33,
+            34,
+            44,
+            46,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "slyshat",
+            "2pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_exception_non_it__slyshat__3pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_exception_non_it",
+          "stageProfileId": "grammar_full",
+          "lemma": "слышать",
+          "translation": "to hear",
+          "tense": "present",
+          "person": "3pl",
+          "pronoun": "они",
+          "answer": "слышат",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_hear_noise",
+            "sc_sent_hear_voice",
+            "sc_sent_hear_music",
+            "sc_sent_hear_dog"
+          ],
+          "sourcePages": [
+            2,
+            5,
+            17,
+            33,
+            34,
+            44,
+            46,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "slyshat",
+            "3pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_exception_non_it__videt__1sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_exception_non_it",
+          "stageProfileId": "grammar_full",
+          "lemma": "видеть",
+          "translation": "to see",
+          "tense": "present",
+          "person": "1sg",
+          "pronoun": "я",
+          "answer": "вижу",
+          "regularity": "irregular_ya",
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_see_car",
+            "sc_sent_see_you"
+          ],
+          "sourcePages": [
+            56,
+            57,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "videt",
+            "1sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_exception_non_it__videt__2sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_exception_non_it",
+          "stageProfileId": "grammar_full",
+          "lemma": "видеть",
+          "translation": "to see",
+          "tense": "present",
+          "person": "2sg",
+          "pronoun": "ты",
+          "answer": "видишь",
+          "regularity": "irregular_ya",
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_see_car",
+            "sc_sent_see_you"
+          ],
+          "sourcePages": [
+            56,
+            57,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "videt",
+            "2sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_exception_non_it__videt__3sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_exception_non_it",
+          "stageProfileId": "grammar_full",
+          "lemma": "видеть",
+          "translation": "to see",
+          "tense": "present",
+          "person": "3sg",
+          "pronoun": "он/она/оно",
+          "answer": "видит",
+          "regularity": "irregular_ya",
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_see_car",
+            "sc_sent_see_you"
+          ],
+          "sourcePages": [
+            56,
+            57,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "videt",
+            "3sg",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_exception_non_it__videt__1pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_exception_non_it",
+          "stageProfileId": "grammar_full",
+          "lemma": "видеть",
+          "translation": "to see",
+          "tense": "present",
+          "person": "1pl",
+          "pronoun": "мы",
+          "answer": "видим",
+          "regularity": "irregular_ya",
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_see_car",
+            "sc_sent_see_you"
+          ],
+          "sourcePages": [
+            56,
+            57,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "videt",
+            "1pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_exception_non_it__videt__2pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_exception_non_it",
+          "stageProfileId": "grammar_full",
+          "lemma": "видеть",
+          "translation": "to see",
+          "tense": "present",
+          "person": "2pl",
+          "pronoun": "вы",
+          "answer": "видите",
+          "regularity": "irregular_ya",
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_see_car",
+            "sc_sent_see_you"
+          ],
+          "sourcePages": [
+            56,
+            57,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "videt",
+            "2pl",
+            "present"
+          ]
+        },
+        {
+          "id": "sc_exception_non_it__videt__3pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_exception_non_it",
+          "stageProfileId": "grammar_full",
+          "lemma": "видеть",
+          "translation": "to see",
+          "tense": "present",
+          "person": "3pl",
+          "pronoun": "они",
+          "answer": "видят",
+          "regularity": "irregular_ya",
+          "irregularYa": true,
+          "irregularPattern": "д -> ж in 1sg",
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_sent_see_car",
+            "sc_sent_see_you"
+          ],
+          "sourcePages": [
+            56,
+            57,
+            58
+          ],
+          "reviewed": true,
+          "tags": [
+            "videt",
+            "3pl",
+            "present"
+          ]
+        }
+      ],
+      "sentenceIds": [
+        "sc_sent_remember_meeting",
+        "sc_sent_remember_rule",
+        "sc_sent_remember_this",
+        "sc_sent_hear_noise",
+        "sc_sent_hear_voice",
+        "sc_sent_hear_music",
+        "sc_sent_hear_dog",
+        "sc_sent_see_car",
+        "sc_sent_see_you"
+      ]
+    },
+    {
+      "id": "sc_perfective_future_reference",
+      "title": "Perfective future reference verbs (advanced / off by default)",
+      "order": 3,
+      "defaultEntry": false,
+      "status": "deferred_hidden_by_default",
+      "sourcePages": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "whyThisExists": "The notes include several perfective verbs whose simple future forms look like 2nd-conjugation present forms. They should be available, but not mixed into present-tense conjugation practice by default.",
+      "verbs": [
+        {
+          "id": "povtorit",
+          "lemma": "повторить",
+          "translation": "to repeat (perfective; future forms)",
+          "class": "perfective_future_reference",
+          "forms": {
+            "1sg": "повторю",
+            "2sg": "повторишь",
+            "3sg": "повторит",
+            "1pl": "повторим",
+            "2pl": "повторите",
+            "3pl": "повторят"
+          },
+          "sourcePages": [
+            4,
+            6
+          ]
+        },
+        {
+          "id": "obyasnit",
+          "lemma": "объяснить",
+          "translation": "to explain (perfective; future forms)",
+          "class": "perfective_future_reference",
+          "forms": {
+            "1sg": "объясню",
+            "2sg": "объяснишь",
+            "3sg": "объяснит",
+            "1pl": "объясним",
+            "2pl": "объясните",
+            "3pl": "объяснят"
+          },
+          "sourcePages": [
+            4,
+            6
+          ]
+        },
+        {
+          "id": "vstretit",
+          "lemma": "встретить",
+          "translation": "to meet (perfective; future forms)",
+          "class": "perfective_future_reference",
+          "forms": {
+            "1sg": "встречу",
+            "2sg": "встретишь",
+            "3sg": "встретит",
+            "1pl": "встретим",
+            "2pl": "встретите",
+            "3pl": "встретят"
+          },
+          "sourcePages": [
+            5,
+            6
+          ]
+        },
+        {
+          "id": "vklyuchit",
+          "lemma": "включить",
+          "translation": "to turn on / switch on (perfective; future forms)",
+          "class": "perfective_future_reference",
+          "forms": {
+            "1sg": "включу",
+            "2sg": "включишь",
+            "3sg": "включит",
+            "1pl": "включим",
+            "2pl": "включите",
+            "3pl": "включат"
+          },
+          "sourcePages": [
+            5,
+            6
+          ]
+        },
+        {
+          "id": "vyklyuchit",
+          "lemma": "выключить",
+          "translation": "to turn off / switch off (perfective; future forms)",
+          "class": "perfective_future_reference",
+          "forms": {
+            "1sg": "выключу",
+            "2sg": "выключишь",
+            "3sg": "выключит",
+            "1pl": "выключим",
+            "2pl": "выключите",
+            "3pl": "выключат"
+          },
+          "sourcePages": [
+            5,
+            7
+          ]
+        }
+      ],
+      "teachingRules": [
+        "This deck must be opt-in.",
+        "Label every card as simple future / perfective reference.",
+        "Do not include these atoms in default mixed review."
+      ],
+      "atoms": [
+        {
+          "id": "sc_perfective_future_reference__povtorit__1sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_perfective_future_reference",
+          "stageProfileId": "grammar_full",
+          "lemma": "повторить",
+          "translation": "to repeat (perfective; future forms)",
+          "tense": "simple_future_perfective",
+          "person": "1sg",
+          "pronoun": "я",
+          "answer": "повторю",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_pf_sent_repeat_grammar"
+          ],
+          "sourcePages": [
+            4,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "povtorit",
+            "1sg",
+            "simple_future_perfective"
+          ]
+        },
+        {
+          "id": "sc_perfective_future_reference__povtorit__2sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_perfective_future_reference",
+          "stageProfileId": "grammar_full",
+          "lemma": "повторить",
+          "translation": "to repeat (perfective; future forms)",
+          "tense": "simple_future_perfective",
+          "person": "2sg",
+          "pronoun": "ты",
+          "answer": "повторишь",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_pf_sent_repeat_grammar"
+          ],
+          "sourcePages": [
+            4,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "povtorit",
+            "2sg",
+            "simple_future_perfective"
+          ]
+        },
+        {
+          "id": "sc_perfective_future_reference__povtorit__3sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_perfective_future_reference",
+          "stageProfileId": "grammar_full",
+          "lemma": "повторить",
+          "translation": "to repeat (perfective; future forms)",
+          "tense": "simple_future_perfective",
+          "person": "3sg",
+          "pronoun": "он/она/оно",
+          "answer": "повторит",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_pf_sent_repeat_grammar"
+          ],
+          "sourcePages": [
+            4,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "povtorit",
+            "3sg",
+            "simple_future_perfective"
+          ]
+        },
+        {
+          "id": "sc_perfective_future_reference__povtorit__1pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_perfective_future_reference",
+          "stageProfileId": "grammar_full",
+          "lemma": "повторить",
+          "translation": "to repeat (perfective; future forms)",
+          "tense": "simple_future_perfective",
+          "person": "1pl",
+          "pronoun": "мы",
+          "answer": "повторим",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_pf_sent_repeat_grammar"
+          ],
+          "sourcePages": [
+            4,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "povtorit",
+            "1pl",
+            "simple_future_perfective"
+          ]
+        },
+        {
+          "id": "sc_perfective_future_reference__povtorit__2pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_perfective_future_reference",
+          "stageProfileId": "grammar_full",
+          "lemma": "повторить",
+          "translation": "to repeat (perfective; future forms)",
+          "tense": "simple_future_perfective",
+          "person": "2pl",
+          "pronoun": "вы",
+          "answer": "повторите",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_pf_sent_repeat_grammar"
+          ],
+          "sourcePages": [
+            4,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "povtorit",
+            "2pl",
+            "simple_future_perfective"
+          ]
+        },
+        {
+          "id": "sc_perfective_future_reference__povtorit__3pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_perfective_future_reference",
+          "stageProfileId": "grammar_full",
+          "lemma": "повторить",
+          "translation": "to repeat (perfective; future forms)",
+          "tense": "simple_future_perfective",
+          "person": "3pl",
+          "pronoun": "они",
+          "answer": "повторят",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_pf_sent_repeat_grammar"
+          ],
+          "sourcePages": [
+            4,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "povtorit",
+            "3pl",
+            "simple_future_perfective"
+          ]
+        },
+        {
+          "id": "sc_perfective_future_reference__obyasnit__1sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_perfective_future_reference",
+          "stageProfileId": "grammar_full",
+          "lemma": "объяснить",
+          "translation": "to explain (perfective; future forms)",
+          "tense": "simple_future_perfective",
+          "person": "1sg",
+          "pronoun": "я",
+          "answer": "объясню",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_pf_sent_explain_rule"
+          ],
+          "sourcePages": [
+            4,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "obyasnit",
+            "1sg",
+            "simple_future_perfective"
+          ]
+        },
+        {
+          "id": "sc_perfective_future_reference__obyasnit__2sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_perfective_future_reference",
+          "stageProfileId": "grammar_full",
+          "lemma": "объяснить",
+          "translation": "to explain (perfective; future forms)",
+          "tense": "simple_future_perfective",
+          "person": "2sg",
+          "pronoun": "ты",
+          "answer": "объяснишь",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_pf_sent_explain_rule"
+          ],
+          "sourcePages": [
+            4,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "obyasnit",
+            "2sg",
+            "simple_future_perfective"
+          ]
+        },
+        {
+          "id": "sc_perfective_future_reference__obyasnit__3sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_perfective_future_reference",
+          "stageProfileId": "grammar_full",
+          "lemma": "объяснить",
+          "translation": "to explain (perfective; future forms)",
+          "tense": "simple_future_perfective",
+          "person": "3sg",
+          "pronoun": "он/она/оно",
+          "answer": "объяснит",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_pf_sent_explain_rule"
+          ],
+          "sourcePages": [
+            4,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "obyasnit",
+            "3sg",
+            "simple_future_perfective"
+          ]
+        },
+        {
+          "id": "sc_perfective_future_reference__obyasnit__1pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_perfective_future_reference",
+          "stageProfileId": "grammar_full",
+          "lemma": "объяснить",
+          "translation": "to explain (perfective; future forms)",
+          "tense": "simple_future_perfective",
+          "person": "1pl",
+          "pronoun": "мы",
+          "answer": "объясним",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_pf_sent_explain_rule"
+          ],
+          "sourcePages": [
+            4,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "obyasnit",
+            "1pl",
+            "simple_future_perfective"
+          ]
+        },
+        {
+          "id": "sc_perfective_future_reference__obyasnit__2pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_perfective_future_reference",
+          "stageProfileId": "grammar_full",
+          "lemma": "объяснить",
+          "translation": "to explain (perfective; future forms)",
+          "tense": "simple_future_perfective",
+          "person": "2pl",
+          "pronoun": "вы",
+          "answer": "объясните",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_pf_sent_explain_rule"
+          ],
+          "sourcePages": [
+            4,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "obyasnit",
+            "2pl",
+            "simple_future_perfective"
+          ]
+        },
+        {
+          "id": "sc_perfective_future_reference__obyasnit__3pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_perfective_future_reference",
+          "stageProfileId": "grammar_full",
+          "lemma": "объяснить",
+          "translation": "to explain (perfective; future forms)",
+          "tense": "simple_future_perfective",
+          "person": "3pl",
+          "pronoun": "они",
+          "answer": "объяснят",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_pf_sent_explain_rule"
+          ],
+          "sourcePages": [
+            4,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "obyasnit",
+            "3pl",
+            "simple_future_perfective"
+          ]
+        },
+        {
+          "id": "sc_perfective_future_reference__vstretit__1sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_perfective_future_reference",
+          "stageProfileId": "grammar_full",
+          "lemma": "встретить",
+          "translation": "to meet (perfective; future forms)",
+          "tense": "simple_future_perfective",
+          "person": "1sg",
+          "pronoun": "я",
+          "answer": "встречу",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_pf_sent_meet_friends"
+          ],
+          "sourcePages": [
+            5,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "vstretit",
+            "1sg",
+            "simple_future_perfective"
+          ]
+        },
+        {
+          "id": "sc_perfective_future_reference__vstretit__2sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_perfective_future_reference",
+          "stageProfileId": "grammar_full",
+          "lemma": "встретить",
+          "translation": "to meet (perfective; future forms)",
+          "tense": "simple_future_perfective",
+          "person": "2sg",
+          "pronoun": "ты",
+          "answer": "встретишь",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_pf_sent_meet_friends"
+          ],
+          "sourcePages": [
+            5,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "vstretit",
+            "2sg",
+            "simple_future_perfective"
+          ]
+        },
+        {
+          "id": "sc_perfective_future_reference__vstretit__3sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_perfective_future_reference",
+          "stageProfileId": "grammar_full",
+          "lemma": "встретить",
+          "translation": "to meet (perfective; future forms)",
+          "tense": "simple_future_perfective",
+          "person": "3sg",
+          "pronoun": "он/она/оно",
+          "answer": "встретит",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_pf_sent_meet_friends"
+          ],
+          "sourcePages": [
+            5,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "vstretit",
+            "3sg",
+            "simple_future_perfective"
+          ]
+        },
+        {
+          "id": "sc_perfective_future_reference__vstretit__1pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_perfective_future_reference",
+          "stageProfileId": "grammar_full",
+          "lemma": "встретить",
+          "translation": "to meet (perfective; future forms)",
+          "tense": "simple_future_perfective",
+          "person": "1pl",
+          "pronoun": "мы",
+          "answer": "встретим",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_pf_sent_meet_friends"
+          ],
+          "sourcePages": [
+            5,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "vstretit",
+            "1pl",
+            "simple_future_perfective"
+          ]
+        },
+        {
+          "id": "sc_perfective_future_reference__vstretit__2pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_perfective_future_reference",
+          "stageProfileId": "grammar_full",
+          "lemma": "встретить",
+          "translation": "to meet (perfective; future forms)",
+          "tense": "simple_future_perfective",
+          "person": "2pl",
+          "pronoun": "вы",
+          "answer": "встретите",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_pf_sent_meet_friends"
+          ],
+          "sourcePages": [
+            5,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "vstretit",
+            "2pl",
+            "simple_future_perfective"
+          ]
+        },
+        {
+          "id": "sc_perfective_future_reference__vstretit__3pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_perfective_future_reference",
+          "stageProfileId": "grammar_full",
+          "lemma": "встретить",
+          "translation": "to meet (perfective; future forms)",
+          "tense": "simple_future_perfective",
+          "person": "3pl",
+          "pronoun": "они",
+          "answer": "встретят",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_pf_sent_meet_friends"
+          ],
+          "sourcePages": [
+            5,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "vstretit",
+            "3pl",
+            "simple_future_perfective"
+          ]
+        },
+        {
+          "id": "sc_perfective_future_reference__vklyuchit__1sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_perfective_future_reference",
+          "stageProfileId": "grammar_full",
+          "lemma": "включить",
+          "translation": "to turn on / switch on (perfective; future forms)",
+          "tense": "simple_future_perfective",
+          "person": "1sg",
+          "pronoun": "я",
+          "answer": "включу",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_pf_sent_turn_on_computer"
+          ],
+          "sourcePages": [
+            5,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "vklyuchit",
+            "1sg",
+            "simple_future_perfective"
+          ]
+        },
+        {
+          "id": "sc_perfective_future_reference__vklyuchit__2sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_perfective_future_reference",
+          "stageProfileId": "grammar_full",
+          "lemma": "включить",
+          "translation": "to turn on / switch on (perfective; future forms)",
+          "tense": "simple_future_perfective",
+          "person": "2sg",
+          "pronoun": "ты",
+          "answer": "включишь",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_pf_sent_turn_on_computer"
+          ],
+          "sourcePages": [
+            5,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "vklyuchit",
+            "2sg",
+            "simple_future_perfective"
+          ]
+        },
+        {
+          "id": "sc_perfective_future_reference__vklyuchit__3sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_perfective_future_reference",
+          "stageProfileId": "grammar_full",
+          "lemma": "включить",
+          "translation": "to turn on / switch on (perfective; future forms)",
+          "tense": "simple_future_perfective",
+          "person": "3sg",
+          "pronoun": "он/она/оно",
+          "answer": "включит",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_pf_sent_turn_on_computer"
+          ],
+          "sourcePages": [
+            5,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "vklyuchit",
+            "3sg",
+            "simple_future_perfective"
+          ]
+        },
+        {
+          "id": "sc_perfective_future_reference__vklyuchit__1pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_perfective_future_reference",
+          "stageProfileId": "grammar_full",
+          "lemma": "включить",
+          "translation": "to turn on / switch on (perfective; future forms)",
+          "tense": "simple_future_perfective",
+          "person": "1pl",
+          "pronoun": "мы",
+          "answer": "включим",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_pf_sent_turn_on_computer"
+          ],
+          "sourcePages": [
+            5,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "vklyuchit",
+            "1pl",
+            "simple_future_perfective"
+          ]
+        },
+        {
+          "id": "sc_perfective_future_reference__vklyuchit__2pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_perfective_future_reference",
+          "stageProfileId": "grammar_full",
+          "lemma": "включить",
+          "translation": "to turn on / switch on (perfective; future forms)",
+          "tense": "simple_future_perfective",
+          "person": "2pl",
+          "pronoun": "вы",
+          "answer": "включите",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_pf_sent_turn_on_computer"
+          ],
+          "sourcePages": [
+            5,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "vklyuchit",
+            "2pl",
+            "simple_future_perfective"
+          ]
+        },
+        {
+          "id": "sc_perfective_future_reference__vklyuchit__3pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_perfective_future_reference",
+          "stageProfileId": "grammar_full",
+          "lemma": "включить",
+          "translation": "to turn on / switch on (perfective; future forms)",
+          "tense": "simple_future_perfective",
+          "person": "3pl",
+          "pronoun": "они",
+          "answer": "включат",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_pf_sent_turn_on_computer"
+          ],
+          "sourcePages": [
+            5,
+            6
+          ],
+          "reviewed": true,
+          "tags": [
+            "vklyuchit",
+            "3pl",
+            "simple_future_perfective"
+          ]
+        },
+        {
+          "id": "sc_perfective_future_reference__vyklyuchit__1sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_perfective_future_reference",
+          "stageProfileId": "grammar_full",
+          "lemma": "выключить",
+          "translation": "to turn off / switch off (perfective; future forms)",
+          "tense": "simple_future_perfective",
+          "person": "1sg",
+          "pronoun": "я",
+          "answer": "выключу",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_pf_sent_turn_off_phone"
+          ],
+          "sourcePages": [
+            5,
+            7
+          ],
+          "reviewed": true,
+          "tags": [
+            "vyklyuchit",
+            "1sg",
+            "simple_future_perfective"
+          ]
+        },
+        {
+          "id": "sc_perfective_future_reference__vyklyuchit__2sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_perfective_future_reference",
+          "stageProfileId": "grammar_full",
+          "lemma": "выключить",
+          "translation": "to turn off / switch off (perfective; future forms)",
+          "tense": "simple_future_perfective",
+          "person": "2sg",
+          "pronoun": "ты",
+          "answer": "выключишь",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_pf_sent_turn_off_phone"
+          ],
+          "sourcePages": [
+            5,
+            7
+          ],
+          "reviewed": true,
+          "tags": [
+            "vyklyuchit",
+            "2sg",
+            "simple_future_perfective"
+          ]
+        },
+        {
+          "id": "sc_perfective_future_reference__vyklyuchit__3sg",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_perfective_future_reference",
+          "stageProfileId": "grammar_full",
+          "lemma": "выключить",
+          "translation": "to turn off / switch off (perfective; future forms)",
+          "tense": "simple_future_perfective",
+          "person": "3sg",
+          "pronoun": "он/она/оно",
+          "answer": "выключит",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_pf_sent_turn_off_phone"
+          ],
+          "sourcePages": [
+            5,
+            7
+          ],
+          "reviewed": true,
+          "tags": [
+            "vyklyuchit",
+            "3sg",
+            "simple_future_perfective"
+          ]
+        },
+        {
+          "id": "sc_perfective_future_reference__vyklyuchit__1pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_perfective_future_reference",
+          "stageProfileId": "grammar_full",
+          "lemma": "выключить",
+          "translation": "to turn off / switch off (perfective; future forms)",
+          "tense": "simple_future_perfective",
+          "person": "1pl",
+          "pronoun": "мы",
+          "answer": "выключим",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_pf_sent_turn_off_phone"
+          ],
+          "sourcePages": [
+            5,
+            7
+          ],
+          "reviewed": true,
+          "tags": [
+            "vyklyuchit",
+            "1pl",
+            "simple_future_perfective"
+          ]
+        },
+        {
+          "id": "sc_perfective_future_reference__vyklyuchit__2pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_perfective_future_reference",
+          "stageProfileId": "grammar_full",
+          "lemma": "выключить",
+          "translation": "to turn off / switch off (perfective; future forms)",
+          "tense": "simple_future_perfective",
+          "person": "2pl",
+          "pronoun": "вы",
+          "answer": "выключите",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_pf_sent_turn_off_phone"
+          ],
+          "sourcePages": [
+            5,
+            7
+          ],
+          "reviewed": true,
+          "tags": [
+            "vyklyuchit",
+            "2pl",
+            "simple_future_perfective"
+          ]
+        },
+        {
+          "id": "sc_perfective_future_reference__vyklyuchit__3pl",
+          "kind": "verb_form",
+          "moduleKind": "conjugation",
+          "subdeckId": "sc_perfective_future_reference",
+          "stageProfileId": "grammar_full",
+          "lemma": "выключить",
+          "translation": "to turn off / switch off (perfective; future forms)",
+          "tense": "simple_future_perfective",
+          "person": "3pl",
+          "pronoun": "они",
+          "answer": "выключат",
+          "regularity": "regular",
+          "irregularYa": false,
+          "irregularPattern": null,
+          "removeFromInfinitive": null,
+          "stemHint": null,
+          "teachingNote": null,
+          "sampleSentenceIds": [
+            "sc_pf_sent_turn_off_phone"
+          ],
+          "sourcePages": [
+            5,
+            7
+          ],
+          "reviewed": true,
+          "tags": [
+            "vyklyuchit",
+            "3pl",
+            "simple_future_perfective"
+          ]
+        }
+      ],
+      "sentenceIds": [
+        "sc_pf_sent_repeat_grammar",
+        "sc_pf_sent_explain_rule",
+        "sc_pf_sent_meet_friends",
+        "sc_pf_sent_turn_on_computer",
+        "sc_pf_sent_turn_off_phone"
+      ]
+    }
+  ],
+  "sentenceBank": [
+    {
+      "id": "sc_sent_speak_phone",
+      "ru": "В четверг он говорит по телефону.",
+      "en": "On Thursday he speaks on the phone.",
+      "lemma": "говорить",
+      "person": "3sg",
+      "answer": "говорит",
+      "sourcePages": [
+        44
+      ]
+    },
+    {
+      "id": "sc_sent_speak_russian",
+      "ru": "Я немного говорю по-русски.",
+      "en": "I speak a little Russian.",
+      "lemma": "говорить",
+      "person": "1sg",
+      "answer": "говорю",
+      "sourcePages": [
+        46,
+        58
+      ]
+    },
+    {
+      "id": "sc_sent_speak_friends",
+      "ru": "В среду я говорю с друзьями.",
+      "en": "On Wednesday I speak with friends.",
+      "lemma": "говорить",
+      "person": "1sg",
+      "answer": "говорю",
+      "sourcePages": [
+        3
+      ]
+    },
+    {
+      "id": "sc_sent_learn_words",
+      "ru": "В среду мы учим новые слова.",
+      "en": "On Wednesday we learn new words.",
+      "lemma": "учить",
+      "person": "1pl",
+      "answer": "учим",
+      "sourcePages": [
+        44
+      ]
+    },
+    {
+      "id": "sc_sent_cook_breakfast",
+      "ru": "В субботу я готовлю завтрак.",
+      "en": "On Saturday I cook breakfast.",
+      "lemma": "готовить",
+      "person": "1sg",
+      "answer": "готовлю",
+      "sourcePages": [
+        44
+      ]
+    },
+    {
+      "id": "sc_sent_call_sister",
+      "ru": "В понедельник ты звонишь сестре?",
+      "en": "On Monday do you call your sister?",
+      "lemma": "звонить",
+      "person": "2sg",
+      "answer": "звонишь",
+      "sourcePages": [
+        44
+      ]
+    },
+    {
+      "id": "sc_sent_ask_help",
+      "ru": "В воскресенье вы просите помощи?",
+      "en": "On Sunday do you ask for help?",
+      "lemma": "просить",
+      "person": "2pl",
+      "answer": "просите",
+      "sourcePages": [
+        44
+      ]
+    },
+    {
+      "id": "sc_sent_go_gym_evenings",
+      "ru": "По вечерам мы ходим в спортзал.",
+      "en": "In the evenings we go to the gym.",
+      "lemma": "ходить",
+      "person": "1pl",
+      "answer": "ходим",
+      "sourcePages": [
+        44
+      ]
+    },
+    {
+      "id": "sc_sent_wear_black_jacket",
+      "ru": "Обычно он носит чёрную куртку.",
+      "en": "He usually wears a black jacket.",
+      "lemma": "носить",
+      "person": "3sg",
+      "answer": "носит",
+      "sourcePages": [
+        44
+      ]
+    },
+    {
+      "id": "sc_sent_boil_soup",
+      "ru": "Во вторник она варит суп.",
+      "en": "On Tuesday she cooks soup.",
+      "lemma": "варить",
+      "person": "3sg",
+      "answer": "варит",
+      "sourcePages": [
+        44
+      ]
+    },
+    {
+      "id": "sc_sent_salt_fish",
+      "ru": "В пятницу они солят рыбу.",
+      "en": "On Friday they salt the fish.",
+      "lemma": "солить",
+      "person": "3pl",
+      "answer": "солят",
+      "sourcePages": [
+        44
+      ]
+    },
+    {
+      "id": "sc_sent_give_flowers",
+      "ru": "Иногда она дарит цветы маме.",
+      "en": "Sometimes she gives flowers to her mother.",
+      "lemma": "дарить",
+      "person": "3sg",
+      "answer": "дарит",
+      "sourcePages": [
+        44
+      ]
+    },
+    {
+      "id": "sc_sent_build_plans",
+      "ru": "В четверг мы строим планы на выходные.",
+      "en": "On Thursday we make plans for the weekend.",
+      "lemma": "строить",
+      "person": "1pl",
+      "answer": "строим",
+      "sourcePages": [
+        6
+      ]
+    },
+    {
+      "id": "sc_sent_thank_teacher",
+      "ru": "Мы всегда благодарим преподавателя за урок.",
+      "en": "We always thank the teacher for the lesson.",
+      "lemma": "благодарить",
+      "person": "1pl",
+      "answer": "благодарим",
+      "sourcePages": [
+        6
+      ]
+    },
+    {
+      "id": "sc_sent_translate_text",
+      "ru": "В среду она переводит текст с английского.",
+      "en": "On Wednesday she translates a text from English.",
+      "lemma": "переводить",
+      "person": "3sg",
+      "answer": "переводит",
+      "sourcePages": [
+        44
+      ]
+    },
+    {
+      "id": "sc_sent_arrive_office_early",
+      "ru": "В понедельник я прихожу в офис рано.",
+      "en": "On Monday I arrive at the office early.",
+      "lemma": "приходить",
+      "person": "1sg",
+      "answer": "прихожу",
+      "sourcePages": [
+        6
+      ]
+    },
+    {
+      "id": "sc_sent_leave_home_8",
+      "ru": "В пятницу они выходят из дома в восемь утра.",
+      "en": "On Friday they leave home at eight in the morning.",
+      "lemma": "выходить",
+      "person": "3pl",
+      "answer": "выходят",
+      "sourcePages": [
+        6
+      ]
+    },
+    {
+      "id": "sc_sent_watch_film",
+      "ru": "Ты смотришь фильм.",
+      "en": "You are watching a film.",
+      "lemma": "смотреть",
+      "person": "2sg",
+      "answer": "смотришь",
+      "sourcePages": [
+        33,
+        58
+      ]
+    },
+    {
+      "id": "sc_sent_remember_meeting",
+      "ru": "В понедельник ты помнишь о встрече?",
+      "en": "On Monday do you remember the meeting?",
+      "lemma": "помнить",
+      "person": "2sg",
+      "answer": "помнишь",
+      "sourcePages": [
+        5
+      ]
+    },
+    {
+      "id": "sc_sent_remember_rule",
+      "ru": "Мы помним это правило хорошо.",
+      "en": "We remember this rule well.",
+      "lemma": "помнить",
+      "person": "1pl",
+      "answer": "помним",
+      "sourcePages": [
+        46
+      ]
+    },
+    {
+      "id": "sc_sent_remember_this",
+      "ru": "Мы помним это.",
+      "en": "We remember this.",
+      "lemma": "помнить",
+      "person": "1pl",
+      "answer": "помним",
+      "sourcePages": [
+        33
+      ]
+    },
+    {
+      "id": "sc_sent_hear_noise",
+      "ru": "Во вторник мы иногда слышим странный шум.",
+      "en": "On Tuesday we sometimes hear a strange noise.",
+      "lemma": "слышать",
+      "person": "1pl",
+      "answer": "слышим",
+      "sourcePages": [
+        2,
+        5
+      ]
+    },
+    {
+      "id": "sc_sent_hear_voice",
+      "ru": "Она обычно слышит твой голос.",
+      "en": "She usually hears your voice.",
+      "lemma": "слышать",
+      "person": "3sg",
+      "answer": "слышит",
+      "sourcePages": [
+        6
+      ],
+      "reviewed": true,
+      "note": "Canonicalized from a note fragment missing the subject."
+    },
+    {
+      "id": "sc_sent_hear_music",
+      "ru": "Вы слышите музыку?",
+      "en": "Do you hear the music?",
+      "lemma": "слышать",
+      "person": "2pl",
+      "answer": "слышите",
+      "sourcePages": [
+        46,
+        58
+      ]
+    },
+    {
+      "id": "sc_sent_hear_dog",
+      "ru": "Мы слышим собаку.",
+      "en": "We hear the dog.",
+      "lemma": "слышать",
+      "person": "1pl",
+      "answer": "слышим",
+      "sourcePages": [
+        34
+      ]
+    },
+    {
+      "id": "sc_sent_see_car",
+      "ru": "Они видят машину.",
+      "en": "They see the car.",
+      "lemma": "видеть",
+      "person": "3pl",
+      "answer": "видят",
+      "sourcePages": [
+        58
+      ]
+    },
+    {
+      "id": "sc_sent_see_you",
+      "ru": "Я вижу тебя.",
+      "en": "I see you.",
+      "lemma": "видеть",
+      "person": "1sg",
+      "answer": "вижу",
+      "sourcePages": [
+        57
+      ]
+    },
+    {
+      "id": "sc_sent_love_sport",
+      "ru": "Она любит спорт и йогу.",
+      "en": "She loves sport and yoga.",
+      "lemma": "любить",
+      "person": "3sg",
+      "answer": "любит",
+      "sourcePages": [
+        46,
+        58
+      ]
+    },
+    {
+      "id": "sc_sent_love_coffee",
+      "ru": "Я всегда люблю пить кофе.",
+      "en": "I always love drinking coffee.",
+      "lemma": "любить",
+      "person": "1sg",
+      "answer": "люблю",
+      "sourcePages": [
+        44
+      ]
+    },
+    {
+      "id": "sc_sent_love_pizza",
+      "ru": "Я люблю пиццу.",
+      "en": "I love pizza.",
+      "lemma": "любить",
+      "person": "1sg",
+      "answer": "люблю",
+      "sourcePages": [
+        57
+      ],
+      "reviewed": true,
+      "note": "Reconstructed from the incomplete fill-in on the page."
+    },
+    {
+      "id": "sc_sent_love_dancing",
+      "ru": "Мы любим танцевать.",
+      "en": "We love dancing.",
+      "lemma": "любить",
+      "person": "1pl",
+      "answer": "любим",
+      "sourcePages": [
+        57
+      ],
+      "reviewed": true,
+      "note": "Reconstructed from the incomplete fill-in on the page."
+    },
+    {
+      "id": "sc_pf_sent_repeat_grammar",
+      "ru": "В субботу я повторю грамматику.",
+      "en": "On Saturday I will review grammar.",
+      "lemma": "повторить",
+      "person": "1sg",
+      "answer": "повторю",
+      "sourcePages": [
+        6
+      ]
+    },
+    {
+      "id": "sc_pf_sent_explain_rule",
+      "ru": "Он объяснит правило очень понятно.",
+      "en": "He will explain the rule very clearly.",
+      "lemma": "объяснить",
+      "person": "3sg",
+      "answer": "объяснит",
+      "sourcePages": [
+        6
+      ],
+      "reviewed": true,
+      "note": "Use without обычно. The original note mixed usually with a perfective future form."
+    },
+    {
+      "id": "sc_pf_sent_meet_friends",
+      "ru": "В воскресенье вы встретите друзей в центре?",
+      "en": "Will you meet friends in the center on Sunday?",
+      "lemma": "встретить",
+      "person": "2pl",
+      "answer": "встретите",
+      "sourcePages": [
+        6
+      ]
+    },
+    {
+      "id": "sc_pf_sent_turn_on_computer",
+      "ru": "Во вторник ты включишь компьютер первым?",
+      "en": "On Tuesday will you turn on the computer first?",
+      "lemma": "включить",
+      "person": "2sg",
+      "answer": "включишь",
+      "sourcePages": [
+        6
+      ]
+    },
+    {
+      "id": "sc_pf_sent_turn_off_phone",
+      "ru": "Иногда она выключит телефон на ночь.",
+      "en": "Sometimes she will turn off the phone for the night.",
+      "lemma": "выключить",
+      "person": "3sg",
+      "answer": "выключит",
+      "sourcePages": [
+        7
+      ]
+    }
+  ]
+}

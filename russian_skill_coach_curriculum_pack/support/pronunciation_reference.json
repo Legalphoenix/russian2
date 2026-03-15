@@ -1,0 +1,63 @@
+{
+  "id": "reference_pronunciation",
+  "title": "Pronunciation helper notes (reference only)",
+  "scored": false,
+  "defaultHidden": true,
+  "items": [
+    {
+      "id": "pr_stress_o",
+      "kind": "helper_note",
+      "note": "Unstressed о is often reduced toward an 'a'-like sound in speech.",
+      "examples": [
+        "хорошо -> [харашо] rough note only"
+      ],
+      "sourcePages": [
+        24
+      ]
+    },
+    {
+      "id": "pr_stress_e",
+      "kind": "helper_note",
+      "note": "Unstressed е is often reduced; the notes describe it as moving toward an и-like sound.",
+      "examples": [
+        "вечер -> rough learner note"
+      ],
+      "sourcePages": [
+        24
+      ]
+    },
+    {
+      "id": "pr_tsya",
+      "kind": "helper_note",
+      "note": "The notes say '-ться' is often pronounced roughly like 'ца'. Keep this as a listening hint only.",
+      "sourcePages": [
+        24
+      ]
+    },
+    {
+      "id": "pr_gulyayu",
+      "kind": "helper_note",
+      "note": "Tutor note: practice the pronunciation of гуляю, гуляешь, гуляем.",
+      "examples": [
+        "гуляю",
+        "гуляешь",
+        "гуляем"
+      ],
+      "sourcePages": [
+        2
+      ]
+    },
+    {
+      "id": "pr_nya_lya",
+      "kind": "helper_note",
+      "note": "Tutor note: practice ня / ля.",
+      "examples": [
+        "ня",
+        "ля"
+      ],
+      "sourcePages": [
+        2
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1142 @@
+{
+  "moduleId": "days_time_routine",
+  "title": "Days + Time + Routine",
+  "purpose": "Drill calendar words, time phrases, and short routine expressions from the notes.",
+  "defaultStageProfile": "grammar_full",
+  "analytics": {
+    "heatmap": "subdeck x atom",
+    "secondaryPanels": [
+      "weakest time phrases",
+      "weakest day forms"
+    ]
+  },
+  "uiSignature": "Week strip for days, tile board for time phrases, compact routine sentence card for daily-life lines.",
+  "subdeckRules": [
+    "Teach bare day names and on-day forms separately before mixing.",
+    "Treat time phrases as a closed set; do not infer full clock language beyond the canonical list."
+  ],
+  "referenceTable": {
+    "days": [
+      {
+        "day": "понедельник",
+        "onDay": "в понедельник",
+        "translation": "Monday / on Monday",
+        "sourcePages": [
+          2,
+          15,
+          16
+        ]
+      },
+      {
+        "day": "вторник",
+        "onDay": "во вторник",
+        "translation": "Tuesday / on Tuesday",
+        "sourcePages": [
+          2,
+          15,
+          16
+        ]
+      },
+      {
+        "day": "среда",
+        "onDay": "в среду",
+        "translation": "Wednesday / on Wednesday",
+        "sourcePages": [
+          2,
+          15,
+          16
+        ]
+      },
+      {
+        "day": "четверг",
+        "onDay": "в четверг",
+        "translation": "Thursday / on Thursday",
+        "sourcePages": [
+          2,
+          15,
+          16
+        ]
+      },
+      {
+        "day": "пятница",
+        "onDay": "в пятницу",
+        "translation": "Friday / on Friday",
+        "sourcePages": [
+          2,
+          15,
+          16
+        ]
+      },
+      {
+        "day": "суббота",
+        "onDay": "в субботу",
+        "translation": "Saturday / on Saturday",
+        "sourcePages": [
+          2,
+          15,
+          16
+        ]
+      },
+      {
+        "day": "воскресенье",
+        "onDay": "в воскресенье",
+        "translation": "Sunday / on Sunday",
+        "sourcePages": [
+          2,
+          15,
+          16
+        ]
+      }
+    ],
+    "frequency": [
+      {
+        "ru": "всегда",
+        "en": "always",
+        "sourcePages": [
+          3,
+          17
+        ]
+      },
+      {
+        "ru": "обычно",
+        "en": "usually",
+        "sourcePages": [
+          3,
+          17
+        ]
+      },
+      {
+        "ru": "иногда",
+        "en": "sometimes",
+        "sourcePages": [
+          3,
+          17
+        ]
+      },
+      {
+        "ru": "часто",
+        "en": "often",
+        "sourcePages": [
+          3,
+          17
+        ]
+      },
+      {
+        "ru": "редко",
+        "en": "rarely",
+        "sourcePages": [
+          3,
+          17
+        ]
+      },
+      {
+        "ru": "никогда не",
+        "en": "never",
+        "sourcePages": [
+          3,
+          17
+        ]
+      },
+      {
+        "ru": "каждый день",
+        "en": "every day",
+        "sourcePages": [
+          16
+        ]
+      }
+    ],
+    "partsOfDay": [
+      {
+        "ru": "утром",
+        "en": "in the morning",
+        "sourcePages": [
+          6,
+          12
+        ]
+      },
+      {
+        "ru": "днём",
+        "en": "in the afternoon / during the day",
+        "sourcePages": [
+          2,
+          12
+        ]
+      },
+      {
+        "ru": "вечером",
+        "en": "in the evening",
+        "sourcePages": [
+          3,
+          12
+        ]
+      },
+      {
+        "ru": "по вечерам",
+        "en": "in the evenings",
+        "sourcePages": [
+          44
+        ]
+      },
+      {
+        "ru": "по выходным",
+        "en": "on weekends",
+        "sourcePages": [
+          2
+        ]
+      }
+    ],
+    "meals": [
+      {
+        "ru": "завтрак",
+        "en": "breakfast",
+        "kind": "noun",
+        "sourcePages": [
+          12
+        ]
+      },
+      {
+        "ru": "завтракать",
+        "en": "to have breakfast",
+        "kind": "verb",
+        "sourcePages": [
+          12
+        ]
+      },
+      {
+        "ru": "на завтрак",
+        "en": "for breakfast",
+        "kind": "phrase",
+        "sourcePages": [
+          12
+        ]
+      },
+      {
+        "ru": "обед",
+        "en": "lunch",
+        "kind": "noun",
+        "sourcePages": [
+          12
+        ]
+      },
+      {
+        "ru": "обедать",
+        "en": "to have lunch",
+        "kind": "verb",
+        "sourcePages": [
+          12
+        ]
+      },
+      {
+        "ru": "на обед",
+        "en": "for lunch",
+        "kind": "phrase",
+        "sourcePages": [
+          12
+        ]
+      },
+      {
+        "ru": "ужин",
+        "en": "dinner",
+        "kind": "noun",
+        "sourcePages": [
+          9,
+          12
+        ]
+      },
+      {
+        "ru": "ужинать",
+        "en": "to have dinner",
+        "kind": "verb",
+        "sourcePages": [
+          12
+        ]
+      },
+      {
+        "ru": "на ужин",
+        "en": "for dinner",
+        "kind": "phrase",
+        "sourcePages": [
+          12
+        ]
+      }
+    ],
+    "timePhrases": [
+      {
+        "ru": "Который час?",
+        "en": "What time is it?",
+        "sourcePages": [
+          11,
+          14
+        ]
+      },
+      {
+        "ru": "Сколько времени?",
+        "en": "What time is it?",
+        "sourcePages": [
+          11
+        ]
+      },
+      {
+        "ru": "Во сколько?",
+        "en": "At what time?",
+        "sourcePages": [
+          12
+        ]
+      },
+      {
+        "ru": "В час",
+        "en": "At one o'clock",
+        "sourcePages": [
+          12
+        ]
+      },
+      {
+        "ru": "Час",
+        "en": "one o'clock / an hour",
+        "sourcePages": [
+          14
+        ]
+      },
+      {
+        "ru": "Полчаса",
+        "en": "half an hour",
+        "sourcePages": [
+          14
+        ]
+      },
+      {
+        "ru": "Полтора часа",
+        "en": "one and a half hours",
+        "sourcePages": [
+          14
+        ]
+      },
+      {
+        "ru": "Половина",
+        "en": "a half",
+        "sourcePages": [
+          11
+        ]
+      },
+      {
+        "ru": "Пол восьмого",
+        "en": "7:30",
+        "sourcePages": [
+          14
+        ]
+      }
+    ]
+  },
+  "subdecks": [
+    {
+      "id": "dtr_day_names",
+      "title": "Days of the week",
+      "order": 1,
+      "defaultEntry": true,
+      "status": "active",
+      "sourcePages": [
+        2,
+        15,
+        16
+      ],
+      "whyThisExists": "Bare day names should be automatic before the on-day prepositional forms are mixed in.",
+      "atoms": [
+        {
+          "id": "dtr_day_names__понедельник",
+          "kind": "day_mapping",
+          "subdeckId": "dtr_day_names",
+          "stageProfileId": "grammar_full",
+          "day": "понедельник",
+          "onDay": "в понедельник",
+          "translation": "Monday / on Monday",
+          "answer": "понедельник",
+          "mode": "day_name",
+          "sourcePages": [
+            2,
+            15,
+            16
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_day_names__вторник",
+          "kind": "day_mapping",
+          "subdeckId": "dtr_day_names",
+          "stageProfileId": "grammar_full",
+          "day": "вторник",
+          "onDay": "во вторник",
+          "translation": "Tuesday / on Tuesday",
+          "answer": "вторник",
+          "mode": "day_name",
+          "sourcePages": [
+            2,
+            15,
+            16
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_day_names__среда",
+          "kind": "day_mapping",
+          "subdeckId": "dtr_day_names",
+          "stageProfileId": "grammar_full",
+          "day": "среда",
+          "onDay": "в среду",
+          "translation": "Wednesday / on Wednesday",
+          "answer": "среда",
+          "mode": "day_name",
+          "sourcePages": [
+            2,
+            15,
+            16
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_day_names__четверг",
+          "kind": "day_mapping",
+          "subdeckId": "dtr_day_names",
+          "stageProfileId": "grammar_full",
+          "day": "четверг",
+          "onDay": "в четверг",
+          "translation": "Thursday / on Thursday",
+          "answer": "четверг",
+          "mode": "day_name",
+          "sourcePages": [
+            2,
+            15,
+            16
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_day_names__пятница",
+          "kind": "day_mapping",
+          "subdeckId": "dtr_day_names",
+          "stageProfileId": "grammar_full",
+          "day": "пятница",
+          "onDay": "в пятницу",
+          "translation": "Friday / on Friday",
+          "answer": "пятница",
+          "mode": "day_name",
+          "sourcePages": [
+            2,
+            15,
+            16
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_day_names__суббота",
+          "kind": "day_mapping",
+          "subdeckId": "dtr_day_names",
+          "stageProfileId": "grammar_full",
+          "day": "суббота",
+          "onDay": "в субботу",
+          "translation": "Saturday / on Saturday",
+          "answer": "суббота",
+          "mode": "day_name",
+          "sourcePages": [
+            2,
+            15,
+            16
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_day_names__воскресенье",
+          "kind": "day_mapping",
+          "subdeckId": "dtr_day_names",
+          "stageProfileId": "grammar_full",
+          "day": "воскресенье",
+          "onDay": "в воскресенье",
+          "translation": "Sunday / on Sunday",
+          "answer": "воскресенье",
+          "mode": "day_name",
+          "sourcePages": [
+            2,
+            15,
+            16
+          ],
+          "reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "dtr_on_day_forms",
+      "title": "On-day forms (в / во + day)",
+      "order": 2,
+      "defaultEntry": false,
+      "status": "active",
+      "sourcePages": [
+        2,
+        15,
+        16
+      ],
+      "whyThisExists": "The on-day forms are their own tiny target, especially 'во вторник'.",
+      "teachingRules": [
+        "Keep bare day names and on-day forms separate at first.",
+        "во вторник must be drilled explicitly; do not assume the app can infer it from bare day recognition."
+      ],
+      "atoms": [
+        {
+          "id": "dtr_on_day_forms__понедельник",
+          "kind": "day_mapping",
+          "subdeckId": "dtr_on_day_forms",
+          "stageProfileId": "grammar_full",
+          "day": "понедельник",
+          "onDay": "в понедельник",
+          "translation": "Monday / on Monday",
+          "answer": "в понедельник",
+          "mode": "on_day",
+          "sourcePages": [
+            2,
+            15,
+            16
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_on_day_forms__вторник",
+          "kind": "day_mapping",
+          "subdeckId": "dtr_on_day_forms",
+          "stageProfileId": "grammar_full",
+          "day": "вторник",
+          "onDay": "во вторник",
+          "translation": "Tuesday / on Tuesday",
+          "answer": "во вторник",
+          "mode": "on_day",
+          "sourcePages": [
+            2,
+            15,
+            16
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_on_day_forms__среда",
+          "kind": "day_mapping",
+          "subdeckId": "dtr_on_day_forms",
+          "stageProfileId": "grammar_full",
+          "day": "среда",
+          "onDay": "в среду",
+          "translation": "Wednesday / on Wednesday",
+          "answer": "в среду",
+          "mode": "on_day",
+          "sourcePages": [
+            2,
+            15,
+            16
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_on_day_forms__четверг",
+          "kind": "day_mapping",
+          "subdeckId": "dtr_on_day_forms",
+          "stageProfileId": "grammar_full",
+          "day": "четверг",
+          "onDay": "в четверг",
+          "translation": "Thursday / on Thursday",
+          "answer": "в четверг",
+          "mode": "on_day",
+          "sourcePages": [
+            2,
+            15,
+            16
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_on_day_forms__пятница",
+          "kind": "day_mapping",
+          "subdeckId": "dtr_on_day_forms",
+          "stageProfileId": "grammar_full",
+          "day": "пятница",
+          "onDay": "в пятницу",
+          "translation": "Friday / on Friday",
+          "answer": "в пятницу",
+          "mode": "on_day",
+          "sourcePages": [
+            2,
+            15,
+            16
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_on_day_forms__суббота",
+          "kind": "day_mapping",
+          "subdeckId": "dtr_on_day_forms",
+          "stageProfileId": "grammar_full",
+          "day": "суббота",
+          "onDay": "в субботу",
+          "translation": "Saturday / on Saturday",
+          "answer": "в субботу",
+          "mode": "on_day",
+          "sourcePages": [
+            2,
+            15,
+            16
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_on_day_forms__воскресенье",
+          "kind": "day_mapping",
+          "subdeckId": "dtr_on_day_forms",
+          "stageProfileId": "grammar_full",
+          "day": "воскресенье",
+          "onDay": "в воскресенье",
+          "translation": "Sunday / on Sunday",
+          "answer": "в воскресенье",
+          "mode": "on_day",
+          "sourcePages": [
+            2,
+            15,
+            16
+          ],
+          "reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "dtr_frequency_words",
+      "title": "Frequency words",
+      "order": 3,
+      "defaultEntry": false,
+      "status": "active",
+      "sourcePages": [
+        3,
+        17
+      ],
+      "atoms": [
+        {
+          "id": "dtr_frequency_words__001",
+          "kind": "adverb_mapping",
+          "subdeckId": "dtr_frequency_words",
+          "stageProfileId": "vocab_basic",
+          "answer": "всегда",
+          "ru": "всегда",
+          "en": "always",
+          "sourcePages": [
+            3,
+            17
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_frequency_words__002",
+          "kind": "adverb_mapping",
+          "subdeckId": "dtr_frequency_words",
+          "stageProfileId": "vocab_basic",
+          "answer": "обычно",
+          "ru": "обычно",
+          "en": "usually",
+          "sourcePages": [
+            3,
+            17
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_frequency_words__003",
+          "kind": "adverb_mapping",
+          "subdeckId": "dtr_frequency_words",
+          "stageProfileId": "vocab_basic",
+          "answer": "иногда",
+          "ru": "иногда",
+          "en": "sometimes",
+          "sourcePages": [
+            3,
+            17
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_frequency_words__004",
+          "kind": "adverb_mapping",
+          "subdeckId": "dtr_frequency_words",
+          "stageProfileId": "vocab_basic",
+          "answer": "часто",
+          "ru": "часто",
+          "en": "often",
+          "sourcePages": [
+            3,
+            17
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_frequency_words__005",
+          "kind": "adverb_mapping",
+          "subdeckId": "dtr_frequency_words",
+          "stageProfileId": "vocab_basic",
+          "answer": "редко",
+          "ru": "редко",
+          "en": "rarely",
+          "sourcePages": [
+            3,
+            17
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_frequency_words__006",
+          "kind": "adverb_mapping",
+          "subdeckId": "dtr_frequency_words",
+          "stageProfileId": "vocab_basic",
+          "answer": "никогда не",
+          "ru": "никогда не",
+          "en": "never",
+          "sourcePages": [
+            3,
+            17
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_frequency_words__007",
+          "kind": "adverb_mapping",
+          "subdeckId": "dtr_frequency_words",
+          "stageProfileId": "vocab_basic",
+          "answer": "каждый день",
+          "ru": "каждый день",
+          "en": "every day",
+          "sourcePages": [
+            16
+          ],
+          "reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "dtr_parts_of_day",
+      "title": "Parts of day / routine time windows",
+      "order": 4,
+      "defaultEntry": false,
+      "status": "active",
+      "sourcePages": [
+        2,
+        12,
+        44
+      ],
+      "atoms": [
+        {
+          "id": "dtr_parts_of_day__001",
+          "kind": "time_phrase",
+          "subdeckId": "dtr_parts_of_day",
+          "stageProfileId": "vocab_basic",
+          "answer": "утром",
+          "ru": "утром",
+          "en": "in the morning",
+          "sourcePages": [
+            6,
+            12
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_parts_of_day__002",
+          "kind": "time_phrase",
+          "subdeckId": "dtr_parts_of_day",
+          "stageProfileId": "vocab_basic",
+          "answer": "днём",
+          "ru": "днём",
+          "en": "in the afternoon / during the day",
+          "sourcePages": [
+            2,
+            12
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_parts_of_day__003",
+          "kind": "time_phrase",
+          "subdeckId": "dtr_parts_of_day",
+          "stageProfileId": "vocab_basic",
+          "answer": "вечером",
+          "ru": "вечером",
+          "en": "in the evening",
+          "sourcePages": [
+            3,
+            12
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_parts_of_day__004",
+          "kind": "time_phrase",
+          "subdeckId": "dtr_parts_of_day",
+          "stageProfileId": "vocab_basic",
+          "answer": "по вечерам",
+          "ru": "по вечерам",
+          "en": "in the evenings",
+          "sourcePages": [
+            44
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_parts_of_day__005",
+          "kind": "time_phrase",
+          "subdeckId": "dtr_parts_of_day",
+          "stageProfileId": "vocab_basic",
+          "answer": "по выходным",
+          "ru": "по выходным",
+          "en": "on weekends",
+          "sourcePages": [
+            2
+          ],
+          "reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "dtr_meals",
+      "title": "Meals and meal phrases",
+      "order": 5,
+      "defaultEntry": false,
+      "status": "active",
+      "sourcePages": [
+        9,
+        12
+      ],
+      "atoms": [
+        {
+          "id": "dtr_meals__001",
+          "kind": "noun",
+          "subdeckId": "dtr_meals",
+          "stageProfileId": "vocab_basic",
+          "answer": "завтрак",
+          "ru": "завтрак",
+          "en": "breakfast",
+          "sourcePages": [
+            12
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_meals__002",
+          "kind": "verb",
+          "subdeckId": "dtr_meals",
+          "stageProfileId": "vocab_basic",
+          "answer": "завтракать",
+          "ru": "завтракать",
+          "en": "to have breakfast",
+          "sourcePages": [
+            12
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_meals__003",
+          "kind": "phrase",
+          "subdeckId": "dtr_meals",
+          "stageProfileId": "vocab_basic",
+          "answer": "на завтрак",
+          "ru": "на завтрак",
+          "en": "for breakfast",
+          "sourcePages": [
+            12
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_meals__004",
+          "kind": "noun",
+          "subdeckId": "dtr_meals",
+          "stageProfileId": "vocab_basic",
+          "answer": "обед",
+          "ru": "обед",
+          "en": "lunch",
+          "sourcePages": [
+            12
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_meals__005",
+          "kind": "verb",
+          "subdeckId": "dtr_meals",
+          "stageProfileId": "vocab_basic",
+          "answer": "обедать",
+          "ru": "обедать",
+          "en": "to have lunch",
+          "sourcePages": [
+            12
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_meals__006",
+          "kind": "phrase",
+          "subdeckId": "dtr_meals",
+          "stageProfileId": "vocab_basic",
+          "answer": "на обед",
+          "ru": "на обед",
+          "en": "for lunch",
+          "sourcePages": [
+            12
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_meals__007",
+          "kind": "noun",
+          "subdeckId": "dtr_meals",
+          "stageProfileId": "vocab_basic",
+          "answer": "ужин",
+          "ru": "ужин",
+          "en": "dinner",
+          "sourcePages": [
+            9,
+            12
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_meals__008",
+          "kind": "verb",
+          "subdeckId": "dtr_meals",
+          "stageProfileId": "vocab_basic",
+          "answer": "ужинать",
+          "ru": "ужинать",
+          "en": "to have dinner",
+          "sourcePages": [
+            12
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_meals__009",
+          "kind": "phrase",
+          "subdeckId": "dtr_meals",
+          "stageProfileId": "vocab_basic",
+          "answer": "на ужин",
+          "ru": "на ужин",
+          "en": "for dinner",
+          "sourcePages": [
+            12
+          ],
+          "reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "dtr_time_phrases",
+      "title": "Closed-set time phrases",
+      "order": 6,
+      "defaultEntry": false,
+      "status": "active",
+      "sourcePages": [
+        11,
+        12,
+        14
+      ],
+      "whyThisExists": "This page should stay closed to the exact time/telling-time phrases from the notes. Do not extrapolate beyond them.",
+      "atoms": [
+        {
+          "id": "dtr_time_phrases__001",
+          "kind": "time_phrase",
+          "subdeckId": "dtr_time_phrases",
+          "stageProfileId": "vocab_basic",
+          "answer": "Который час?",
+          "ru": "Который час?",
+          "en": "What time is it?",
+          "sourcePages": [
+            11,
+            14
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_time_phrases__002",
+          "kind": "time_phrase",
+          "subdeckId": "dtr_time_phrases",
+          "stageProfileId": "vocab_basic",
+          "answer": "Сколько времени?",
+          "ru": "Сколько времени?",
+          "en": "What time is it?",
+          "sourcePages": [
+            11
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_time_phrases__003",
+          "kind": "time_phrase",
+          "subdeckId": "dtr_time_phrases",
+          "stageProfileId": "vocab_basic",
+          "answer": "Во сколько?",
+          "ru": "Во сколько?",
+          "en": "At what time?",
+          "sourcePages": [
+            12
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_time_phrases__004",
+          "kind": "time_phrase",
+          "subdeckId": "dtr_time_phrases",
+          "stageProfileId": "vocab_basic",
+          "answer": "В час",
+          "ru": "В час",
+          "en": "At one o'clock",
+          "sourcePages": [
+            12
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_time_phrases__005",
+          "kind": "time_phrase",
+          "subdeckId": "dtr_time_phrases",
+          "stageProfileId": "vocab_basic",
+          "answer": "Час",
+          "ru": "Час",
+          "en": "one o'clock / an hour",
+          "sourcePages": [
+            14
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_time_phrases__006",
+          "kind": "time_phrase",
+          "subdeckId": "dtr_time_phrases",
+          "stageProfileId": "vocab_basic",
+          "answer": "Полчаса",
+          "ru": "Полчаса",
+          "en": "half an hour",
+          "sourcePages": [
+            14
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_time_phrases__007",
+          "kind": "time_phrase",
+          "subdeckId": "dtr_time_phrases",
+          "stageProfileId": "vocab_basic",
+          "answer": "Полтора часа",
+          "ru": "Полтора часа",
+          "en": "one and a half hours",
+          "sourcePages": [
+            14
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_time_phrases__008",
+          "kind": "time_phrase",
+          "subdeckId": "dtr_time_phrases",
+          "stageProfileId": "vocab_basic",
+          "answer": "Половина",
+          "ru": "Половина",
+          "en": "a half",
+          "sourcePages": [
+            11
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_time_phrases__009",
+          "kind": "time_phrase",
+          "subdeckId": "dtr_time_phrases",
+          "stageProfileId": "vocab_basic",
+          "answer": "Пол восьмого",
+          "ru": "Пол восьмого",
+          "en": "7:30",
+          "sourcePages": [
+            14
+          ],
+          "reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "dtr_routine_phrases",
+      "title": "Short routine phrases",
+      "order": 7,
+      "defaultEntry": false,
+      "status": "active",
+      "sourcePages": [
+        6,
+        9,
+        10,
+        12,
+        16
+      ],
+      "atoms": [
+        {
+          "id": "dtr_routine_gym_after_dinner",
+          "kind": "routine_phrase",
+          "subdeckId": "dtr_routine_phrases",
+          "stageProfileId": "grammar_full",
+          "answer": "Я иду в спортзал после ужина.",
+          "ru": "Я иду в спортзал после ужина.",
+          "en": "I go to the gym after dinner.",
+          "sourcePages": [
+            9,
+            12
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_routine_breakfast_eggs",
+          "kind": "routine_phrase",
+          "subdeckId": "dtr_routine_phrases",
+          "stageProfileId": "grammar_full",
+          "answer": "Утром я обычно завтракаю яйцами.",
+          "ru": "Утром я обычно завтракаю яйцами.",
+          "en": "In the morning I usually have eggs for breakfast.",
+          "sourcePages": [
+            6
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_routine_question_breakfast",
+          "kind": "routine_phrase",
+          "subdeckId": "dtr_routine_phrases",
+          "stageProfileId": "grammar_full",
+          "answer": "Что ты ел на завтрак?",
+          "ru": "Что ты ел на завтрак?",
+          "en": "What did you eat for breakfast?",
+          "sourcePages": [
+            10
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_routine_question_had_breakfast",
+          "kind": "routine_phrase",
+          "subdeckId": "dtr_routine_phrases",
+          "stageProfileId": "grammar_full",
+          "answer": "Что у тебя было на завтрак?",
+          "ru": "Что у тебя было на завтрак?",
+          "en": "What did you have for breakfast?",
+          "sourcePages": [
+            10
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "dtr_question_day_of_week",
+          "kind": "routine_phrase",
+          "subdeckId": "dtr_routine_phrases",
+          "stageProfileId": "grammar_full",
+          "answer": "Какой сегодня день недели?",
+          "ru": "Какой сегодня день недели?",
+          "en": "What day of the week is it today?",
+          "sourcePages": [
+            16
+          ],
+          "reviewed": true
+        }
+      ]
+    }
+  ]
+}

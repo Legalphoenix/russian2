@@ -1,0 +1,1663 @@
+{
+  "moduleId": "past_tense",
+  "title": "Past Tense",
+  "purpose": "Convert known verbs into past tense with gender/number awareness.",
+  "defaultStageProfile": "grammar_full",
+  "analytics": {
+    "heatmap": "verb x gender-number",
+    "secondaryPanels": [
+      "speaker-gender dependence",
+      "special verbs"
+    ]
+  },
+  "uiSignature": "Four gender/number chips (masc, fem, neut, plural) across the top. For я/ты sentences, show a user gender badge or explicit gender selector.",
+  "subdeckRules": [
+    "Start with endings, then full forms, then sentence conversion.",
+    "Do not force the user to guess speaker gender for я/ты; the UI must supply it.",
+    "Special verbs быть and есть belong in their own subdeck."
+  ],
+  "referenceTable": {
+    "endings": {
+      "masc": "-л",
+      "fem": "-ла",
+      "neut": "-ло",
+      "pl": "-ли"
+    },
+    "specialForms": {
+      "быть": {
+        "masc": "был",
+        "fem": "была",
+        "neut": "было",
+        "pl": "были"
+      },
+      "есть": {
+        "masc": "ел",
+        "fem": "ела",
+        "neut": "ело",
+        "pl": "ели"
+      }
+    },
+    "notes": "For я / ты sentences the app must know or ask for the relevant gender before scoring."
+  },
+  "subdecks": [
+    {
+      "id": "pt_core_transformations",
+      "title": "Core past-tense transformations",
+      "order": 1,
+      "defaultEntry": true,
+      "status": "active",
+      "sourcePages": [
+        2,
+        30
+      ],
+      "whyThisExists": "This is the main present-to-past conversion deck using the verbs that already appeared in the homework and sentence practice.",
+      "verbs": [
+        {
+          "id": "rabotat",
+          "lemma": "работать",
+          "translation": "to work",
+          "forms": {
+            "masc": "работал",
+            "fem": "работала",
+            "neut": "работало",
+            "pl": "работали"
+          },
+          "sourcePages": [
+            2,
+            30
+          ]
+        },
+        {
+          "id": "gulyat",
+          "lemma": "гулять",
+          "translation": "to walk / go for a walk",
+          "forms": {
+            "masc": "гулял",
+            "fem": "гуляла",
+            "neut": "гуляло",
+            "pl": "гуляли"
+          },
+          "sourcePages": [
+            2,
+            30
+          ]
+        },
+        {
+          "id": "chitat",
+          "lemma": "читать",
+          "translation": "to read",
+          "forms": {
+            "masc": "читал",
+            "fem": "читала",
+            "neut": "читало",
+            "pl": "читали"
+          },
+          "sourcePages": [
+            2,
+            30
+          ]
+        },
+        {
+          "id": "pisat",
+          "lemma": "писать",
+          "translation": "to write",
+          "forms": {
+            "masc": "писал",
+            "fem": "писала",
+            "neut": "писало",
+            "pl": "писали"
+          },
+          "sourcePages": [
+            2,
+            30
+          ]
+        },
+        {
+          "id": "slushat",
+          "lemma": "слушать",
+          "translation": "to listen",
+          "forms": {
+            "masc": "слушал",
+            "fem": "слушала",
+            "neut": "слушало",
+            "pl": "слушали"
+          },
+          "sourcePages": [
+            2,
+            30
+          ]
+        },
+        {
+          "id": "igrat",
+          "lemma": "играть",
+          "translation": "to play",
+          "forms": {
+            "masc": "играл",
+            "fem": "играла",
+            "neut": "играло",
+            "pl": "играли"
+          },
+          "sourcePages": [
+            2,
+            30
+          ]
+        },
+        {
+          "id": "govorit",
+          "lemma": "говорить",
+          "translation": "to speak / say",
+          "forms": {
+            "masc": "говорил",
+            "fem": "говорила",
+            "neut": "говорило",
+            "pl": "говорили"
+          },
+          "sourcePages": [
+            2,
+            30
+          ]
+        },
+        {
+          "id": "pomnit",
+          "lemma": "помнить",
+          "translation": "to remember",
+          "forms": {
+            "masc": "помнил",
+            "fem": "помнила",
+            "neut": "помнило",
+            "pl": "помнили"
+          },
+          "sourcePages": [
+            2,
+            30
+          ]
+        },
+        {
+          "id": "slyshat",
+          "lemma": "слышать",
+          "translation": "to hear",
+          "forms": {
+            "masc": "слышал",
+            "fem": "слышала",
+            "neut": "слышало",
+            "pl": "слышали"
+          },
+          "sourcePages": [
+            2,
+            30
+          ]
+        },
+        {
+          "id": "gotovit",
+          "lemma": "готовить",
+          "translation": "to cook / prepare",
+          "forms": {
+            "masc": "готовил",
+            "fem": "готовила",
+            "neut": "готовило",
+            "pl": "готовили"
+          },
+          "sourcePages": [
+            2,
+            30
+          ]
+        }
+      ],
+      "teachingRules": [
+        "Start by drilling past-tense endings in isolation, then full forms, then sentence conversion.",
+        "For sentence conversion, keep every other word fixed and require only the target verb to change."
+      ],
+      "atoms": [
+        {
+          "id": "pt_core_transformations__rabotat__masc",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "работать",
+          "translation": "to work",
+          "slot": "masc",
+          "slotLabel": "он / masculine subject",
+          "answer": "работал",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_core_transformations__rabotat__fem",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "работать",
+          "translation": "to work",
+          "slot": "fem",
+          "slotLabel": "она / feminine subject",
+          "answer": "работала",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_core_transformations__rabotat__neut",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "работать",
+          "translation": "to work",
+          "slot": "neut",
+          "slotLabel": "оно / neuter subject",
+          "answer": "работало",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_core_transformations__rabotat__pl",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "работать",
+          "translation": "to work",
+          "slot": "pl",
+          "slotLabel": "они / plural subject",
+          "answer": "работали",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_core_transformations__gulyat__masc",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "гулять",
+          "translation": "to walk / go for a walk",
+          "slot": "masc",
+          "slotLabel": "он / masculine subject",
+          "answer": "гулял",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_core_transformations__gulyat__fem",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "гулять",
+          "translation": "to walk / go for a walk",
+          "slot": "fem",
+          "slotLabel": "она / feminine subject",
+          "answer": "гуляла",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_core_transformations__gulyat__neut",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "гулять",
+          "translation": "to walk / go for a walk",
+          "slot": "neut",
+          "slotLabel": "оно / neuter subject",
+          "answer": "гуляло",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_core_transformations__gulyat__pl",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "гулять",
+          "translation": "to walk / go for a walk",
+          "slot": "pl",
+          "slotLabel": "они / plural subject",
+          "answer": "гуляли",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_core_transformations__chitat__masc",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "читать",
+          "translation": "to read",
+          "slot": "masc",
+          "slotLabel": "он / masculine subject",
+          "answer": "читал",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_core_transformations__chitat__fem",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "читать",
+          "translation": "to read",
+          "slot": "fem",
+          "slotLabel": "она / feminine subject",
+          "answer": "читала",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_core_transformations__chitat__neut",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "читать",
+          "translation": "to read",
+          "slot": "neut",
+          "slotLabel": "оно / neuter subject",
+          "answer": "читало",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_core_transformations__chitat__pl",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "читать",
+          "translation": "to read",
+          "slot": "pl",
+          "slotLabel": "они / plural subject",
+          "answer": "читали",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_core_transformations__pisat__masc",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "писать",
+          "translation": "to write",
+          "slot": "masc",
+          "slotLabel": "он / masculine subject",
+          "answer": "писал",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_core_transformations__pisat__fem",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "писать",
+          "translation": "to write",
+          "slot": "fem",
+          "slotLabel": "она / feminine subject",
+          "answer": "писала",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_core_transformations__pisat__neut",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "писать",
+          "translation": "to write",
+          "slot": "neut",
+          "slotLabel": "оно / neuter subject",
+          "answer": "писало",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_core_transformations__pisat__pl",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "писать",
+          "translation": "to write",
+          "slot": "pl",
+          "slotLabel": "они / plural subject",
+          "answer": "писали",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_core_transformations__slushat__masc",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "слушать",
+          "translation": "to listen",
+          "slot": "masc",
+          "slotLabel": "он / masculine subject",
+          "answer": "слушал",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_core_transformations__slushat__fem",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "слушать",
+          "translation": "to listen",
+          "slot": "fem",
+          "slotLabel": "она / feminine subject",
+          "answer": "слушала",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_core_transformations__slushat__neut",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "слушать",
+          "translation": "to listen",
+          "slot": "neut",
+          "slotLabel": "оно / neuter subject",
+          "answer": "слушало",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_core_transformations__slushat__pl",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "слушать",
+          "translation": "to listen",
+          "slot": "pl",
+          "slotLabel": "они / plural subject",
+          "answer": "слушали",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_core_transformations__igrat__masc",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "играть",
+          "translation": "to play",
+          "slot": "masc",
+          "slotLabel": "он / masculine subject",
+          "answer": "играл",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_core_transformations__igrat__fem",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "играть",
+          "translation": "to play",
+          "slot": "fem",
+          "slotLabel": "она / feminine subject",
+          "answer": "играла",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_core_transformations__igrat__neut",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "играть",
+          "translation": "to play",
+          "slot": "neut",
+          "slotLabel": "оно / neuter subject",
+          "answer": "играло",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_core_transformations__igrat__pl",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "играть",
+          "translation": "to play",
+          "slot": "pl",
+          "slotLabel": "они / plural subject",
+          "answer": "играли",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_core_transformations__govorit__masc",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "говорить",
+          "translation": "to speak / say",
+          "slot": "masc",
+          "slotLabel": "он / masculine subject",
+          "answer": "говорил",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_core_transformations__govorit__fem",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "говорить",
+          "translation": "to speak / say",
+          "slot": "fem",
+          "slotLabel": "она / feminine subject",
+          "answer": "говорила",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_core_transformations__govorit__neut",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "говорить",
+          "translation": "to speak / say",
+          "slot": "neut",
+          "slotLabel": "оно / neuter subject",
+          "answer": "говорило",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_core_transformations__govorit__pl",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "говорить",
+          "translation": "to speak / say",
+          "slot": "pl",
+          "slotLabel": "они / plural subject",
+          "answer": "говорили",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_core_transformations__pomnit__masc",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "помнить",
+          "translation": "to remember",
+          "slot": "masc",
+          "slotLabel": "он / masculine subject",
+          "answer": "помнил",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_core_transformations__pomnit__fem",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "помнить",
+          "translation": "to remember",
+          "slot": "fem",
+          "slotLabel": "она / feminine subject",
+          "answer": "помнила",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_core_transformations__pomnit__neut",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "помнить",
+          "translation": "to remember",
+          "slot": "neut",
+          "slotLabel": "оно / neuter subject",
+          "answer": "помнило",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_core_transformations__pomnit__pl",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "помнить",
+          "translation": "to remember",
+          "slot": "pl",
+          "slotLabel": "они / plural subject",
+          "answer": "помнили",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_core_transformations__slyshat__masc",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "слышать",
+          "translation": "to hear",
+          "slot": "masc",
+          "slotLabel": "он / masculine subject",
+          "answer": "слышал",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_core_transformations__slyshat__fem",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "слышать",
+          "translation": "to hear",
+          "slot": "fem",
+          "slotLabel": "она / feminine subject",
+          "answer": "слышала",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_core_transformations__slyshat__neut",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "слышать",
+          "translation": "to hear",
+          "slot": "neut",
+          "slotLabel": "оно / neuter subject",
+          "answer": "слышало",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_core_transformations__slyshat__pl",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "слышать",
+          "translation": "to hear",
+          "slot": "pl",
+          "slotLabel": "они / plural subject",
+          "answer": "слышали",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_core_transformations__gotovit__masc",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "готовить",
+          "translation": "to cook / prepare",
+          "slot": "masc",
+          "slotLabel": "он / masculine subject",
+          "answer": "готовил",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_core_transformations__gotovit__fem",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "готовить",
+          "translation": "to cook / prepare",
+          "slot": "fem",
+          "slotLabel": "она / feminine subject",
+          "answer": "готовила",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_core_transformations__gotovit__neut",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "готовить",
+          "translation": "to cook / prepare",
+          "slot": "neut",
+          "slotLabel": "оно / neuter subject",
+          "answer": "готовило",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_core_transformations__gotovit__pl",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_core_transformations",
+          "stageProfileId": "grammar_full",
+          "lemma": "готовить",
+          "translation": "to cook / prepare",
+          "slot": "pl",
+          "slotLabel": "они / plural subject",
+          "answer": "готовили",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        }
+      ],
+      "sentenceIds": [
+        "pt_sent_work_until6",
+        "pt_sent_write_test",
+        "pt_sent_read_book",
+        "pt_sent_walk_park",
+        "pt_sent_listen_music",
+        "pt_sent_read_news",
+        "pt_sent_not_work",
+        "pt_sent_hear_noise",
+        "pt_sent_play_football",
+        "pt_sent_remember_meeting",
+        "pt_sent_guitar",
+        "pt_sent_city_center"
+      ]
+    },
+    {
+      "id": "pt_movement_and_arrival",
+      "title": "Movement / arrival verbs in the past",
+      "order": 2,
+      "defaultEntry": false,
+      "status": "active",
+      "sourcePages": [
+        2,
+        10,
+        30
+      ],
+      "whyThisExists": "Movement verbs deserve their own compact pack because they appear in the notes and are easy to confuse with the present-tense movement subdecks.",
+      "verbs": [
+        {
+          "id": "hodit",
+          "lemma": "ходить",
+          "translation": "to go (on foot, regularly)",
+          "forms": {
+            "masc": "ходил",
+            "fem": "ходила",
+            "neut": "ходило",
+            "pl": "ходили"
+          },
+          "sourcePages": [
+            2,
+            30
+          ]
+        },
+        {
+          "id": "prihodit",
+          "lemma": "приходить",
+          "translation": "to come / arrive",
+          "forms": {
+            "masc": "приходил",
+            "fem": "приходила",
+            "neut": "приходило",
+            "pl": "приходили"
+          },
+          "sourcePages": [
+            2,
+            30
+          ]
+        },
+        {
+          "id": "vyhodit",
+          "lemma": "выходить",
+          "translation": "to go out / leave",
+          "forms": {
+            "masc": "выходил",
+            "fem": "выходила",
+            "neut": "выходило",
+            "pl": "выходили"
+          },
+          "sourcePages": [
+            2,
+            30
+          ]
+        },
+        {
+          "id": "priehat",
+          "lemma": "приехать",
+          "translation": "to arrive by transport",
+          "forms": {
+            "masc": "приехал",
+            "fem": "приехала",
+            "neut": "приехало",
+            "pl": "приехали"
+          },
+          "sourcePages": [
+            10
+          ]
+        }
+      ],
+      "atoms": [
+        {
+          "id": "pt_movement_and_arrival__hodit__masc",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_movement_and_arrival",
+          "stageProfileId": "grammar_full",
+          "lemma": "ходить",
+          "translation": "to go (on foot, regularly)",
+          "slot": "masc",
+          "slotLabel": "он / masculine subject",
+          "answer": "ходил",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_movement_and_arrival__hodit__fem",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_movement_and_arrival",
+          "stageProfileId": "grammar_full",
+          "lemma": "ходить",
+          "translation": "to go (on foot, regularly)",
+          "slot": "fem",
+          "slotLabel": "она / feminine subject",
+          "answer": "ходила",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_movement_and_arrival__hodit__neut",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_movement_and_arrival",
+          "stageProfileId": "grammar_full",
+          "lemma": "ходить",
+          "translation": "to go (on foot, regularly)",
+          "slot": "neut",
+          "slotLabel": "оно / neuter subject",
+          "answer": "ходило",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_movement_and_arrival__hodit__pl",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_movement_and_arrival",
+          "stageProfileId": "grammar_full",
+          "lemma": "ходить",
+          "translation": "to go (on foot, regularly)",
+          "slot": "pl",
+          "slotLabel": "они / plural subject",
+          "answer": "ходили",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_movement_and_arrival__prihodit__masc",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_movement_and_arrival",
+          "stageProfileId": "grammar_full",
+          "lemma": "приходить",
+          "translation": "to come / arrive",
+          "slot": "masc",
+          "slotLabel": "он / masculine subject",
+          "answer": "приходил",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_movement_and_arrival__prihodit__fem",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_movement_and_arrival",
+          "stageProfileId": "grammar_full",
+          "lemma": "приходить",
+          "translation": "to come / arrive",
+          "slot": "fem",
+          "slotLabel": "она / feminine subject",
+          "answer": "приходила",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_movement_and_arrival__prihodit__neut",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_movement_and_arrival",
+          "stageProfileId": "grammar_full",
+          "lemma": "приходить",
+          "translation": "to come / arrive",
+          "slot": "neut",
+          "slotLabel": "оно / neuter subject",
+          "answer": "приходило",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_movement_and_arrival__prihodit__pl",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_movement_and_arrival",
+          "stageProfileId": "grammar_full",
+          "lemma": "приходить",
+          "translation": "to come / arrive",
+          "slot": "pl",
+          "slotLabel": "они / plural subject",
+          "answer": "приходили",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_movement_and_arrival__vyhodit__masc",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_movement_and_arrival",
+          "stageProfileId": "grammar_full",
+          "lemma": "выходить",
+          "translation": "to go out / leave",
+          "slot": "masc",
+          "slotLabel": "он / masculine subject",
+          "answer": "выходил",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_movement_and_arrival__vyhodit__fem",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_movement_and_arrival",
+          "stageProfileId": "grammar_full",
+          "lemma": "выходить",
+          "translation": "to go out / leave",
+          "slot": "fem",
+          "slotLabel": "она / feminine subject",
+          "answer": "выходила",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_movement_and_arrival__vyhodit__neut",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_movement_and_arrival",
+          "stageProfileId": "grammar_full",
+          "lemma": "выходить",
+          "translation": "to go out / leave",
+          "slot": "neut",
+          "slotLabel": "оно / neuter subject",
+          "answer": "выходило",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_movement_and_arrival__vyhodit__pl",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_movement_and_arrival",
+          "stageProfileId": "grammar_full",
+          "lemma": "выходить",
+          "translation": "to go out / leave",
+          "slot": "pl",
+          "slotLabel": "они / plural subject",
+          "answer": "выходили",
+          "sourcePages": [
+            2,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_movement_and_arrival__priehat__masc",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_movement_and_arrival",
+          "stageProfileId": "grammar_full",
+          "lemma": "приехать",
+          "translation": "to arrive by transport",
+          "slot": "masc",
+          "slotLabel": "он / masculine subject",
+          "answer": "приехал",
+          "sourcePages": [
+            10
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_movement_and_arrival__priehat__fem",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_movement_and_arrival",
+          "stageProfileId": "grammar_full",
+          "lemma": "приехать",
+          "translation": "to arrive by transport",
+          "slot": "fem",
+          "slotLabel": "она / feminine subject",
+          "answer": "приехала",
+          "sourcePages": [
+            10
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_movement_and_arrival__priehat__neut",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_movement_and_arrival",
+          "stageProfileId": "grammar_full",
+          "lemma": "приехать",
+          "translation": "to arrive by transport",
+          "slot": "neut",
+          "slotLabel": "оно / neuter subject",
+          "answer": "приехало",
+          "sourcePages": [
+            10
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_movement_and_arrival__priehat__pl",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_movement_and_arrival",
+          "stageProfileId": "grammar_full",
+          "lemma": "приехать",
+          "translation": "to arrive by transport",
+          "slot": "pl",
+          "slotLabel": "они / plural subject",
+          "answer": "приехали",
+          "sourcePages": [
+            10
+          ],
+          "reviewed": true
+        }
+      ],
+      "sentenceIds": []
+    },
+    {
+      "id": "pt_be_and_eat",
+      "title": "Special verbs: быть and есть",
+      "order": 3,
+      "defaultEntry": false,
+      "status": "active",
+      "sourcePages": [
+        9,
+        10,
+        30
+      ],
+      "whyThisExists": "These are core past-tense forms from the notes and should be visible as their own small, high-frequency deck.",
+      "verbs": [
+        {
+          "id": "byt",
+          "lemma": "быть",
+          "translation": "to be",
+          "forms": {
+            "masc": "был",
+            "fem": "была",
+            "neut": "было",
+            "pl": "были"
+          },
+          "sourcePages": [
+            9,
+            30
+          ]
+        },
+        {
+          "id": "est_eat",
+          "lemma": "есть",
+          "translation": "to eat",
+          "forms": {
+            "masc": "ел",
+            "fem": "ела",
+            "neut": "ело",
+            "pl": "ели"
+          },
+          "sourcePages": [
+            10
+          ]
+        }
+      ],
+      "atoms": [
+        {
+          "id": "pt_be_and_eat__byt__masc",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_be_and_eat",
+          "stageProfileId": "grammar_full",
+          "lemma": "быть",
+          "translation": "to be",
+          "slot": "masc",
+          "slotLabel": "он / masculine subject",
+          "answer": "был",
+          "sourcePages": [
+            9,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_be_and_eat__byt__fem",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_be_and_eat",
+          "stageProfileId": "grammar_full",
+          "lemma": "быть",
+          "translation": "to be",
+          "slot": "fem",
+          "slotLabel": "она / feminine subject",
+          "answer": "была",
+          "sourcePages": [
+            9,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_be_and_eat__byt__neut",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_be_and_eat",
+          "stageProfileId": "grammar_full",
+          "lemma": "быть",
+          "translation": "to be",
+          "slot": "neut",
+          "slotLabel": "оно / neuter subject",
+          "answer": "было",
+          "sourcePages": [
+            9,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_be_and_eat__byt__pl",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_be_and_eat",
+          "stageProfileId": "grammar_full",
+          "lemma": "быть",
+          "translation": "to be",
+          "slot": "pl",
+          "slotLabel": "они / plural subject",
+          "answer": "были",
+          "sourcePages": [
+            9,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_be_and_eat__est_eat__masc",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_be_and_eat",
+          "stageProfileId": "grammar_full",
+          "lemma": "есть",
+          "translation": "to eat",
+          "slot": "masc",
+          "slotLabel": "он / masculine subject",
+          "answer": "ел",
+          "sourcePages": [
+            10
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_be_and_eat__est_eat__fem",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_be_and_eat",
+          "stageProfileId": "grammar_full",
+          "lemma": "есть",
+          "translation": "to eat",
+          "slot": "fem",
+          "slotLabel": "она / feminine subject",
+          "answer": "ела",
+          "sourcePages": [
+            10
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_be_and_eat__est_eat__neut",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_be_and_eat",
+          "stageProfileId": "grammar_full",
+          "lemma": "есть",
+          "translation": "to eat",
+          "slot": "neut",
+          "slotLabel": "оно / neuter subject",
+          "answer": "ело",
+          "sourcePages": [
+            10
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_be_and_eat__est_eat__pl",
+          "kind": "past_verb_form",
+          "moduleKind": "past_tense",
+          "subdeckId": "pt_be_and_eat",
+          "stageProfileId": "grammar_full",
+          "lemma": "есть",
+          "translation": "to eat",
+          "slot": "pl",
+          "slotLabel": "они / plural subject",
+          "answer": "ели",
+          "sourcePages": [
+            10
+          ],
+          "reviewed": true
+        }
+      ],
+      "fixedPhrases": [
+        {
+          "id": "pt_special_byl",
+          "ru": "Он был дома.",
+          "en": "He was at home.",
+          "lemma": "быть",
+          "slot": "masc",
+          "answer": "был",
+          "sourcePages": [
+            9,
+            30
+          ],
+          "reviewed": true,
+          "note": "Constructed from note forms and note vocabulary only."
+        },
+        {
+          "id": "pt_special_byla",
+          "ru": "Она была дома.",
+          "en": "She was at home.",
+          "lemma": "быть",
+          "slot": "fem",
+          "answer": "была",
+          "sourcePages": [
+            9,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_special_bylo",
+          "ru": "Оно было здесь.",
+          "en": "It was here.",
+          "lemma": "быть",
+          "slot": "neut",
+          "answer": "было",
+          "sourcePages": [
+            9,
+            18,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_special_byli",
+          "ru": "Они были дома.",
+          "en": "They were at home.",
+          "lemma": "быть",
+          "slot": "pl",
+          "answer": "были",
+          "sourcePages": [
+            9,
+            30
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_special_el",
+          "ru": "Я ел на завтрак яйца.",
+          "en": "I ate eggs for breakfast.",
+          "lemma": "есть",
+          "slot": "masc",
+          "answer": "ел",
+          "sourcePages": [
+            10,
+            12
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_special_ela",
+          "ru": "Ты ела на завтрак яйца.",
+          "en": "You ate eggs for breakfast.",
+          "lemma": "есть",
+          "slot": "fem",
+          "answer": "ела",
+          "sourcePages": [
+            10,
+            12
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_special_eli",
+          "ru": "Мы ели хлеб и сыр.",
+          "en": "We ate bread and cheese.",
+          "lemma": "есть",
+          "slot": "pl",
+          "answer": "ели",
+          "sourcePages": [
+            10
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "pt_special_priehal",
+          "ru": "Я приехал домой.",
+          "en": "I arrived home.",
+          "lemma": "приехать",
+          "slot": "masc",
+          "answer": "приехал",
+          "sourcePages": [
+            10
+          ],
+          "reviewed": true
+        }
+      ]
+    }
+  ],
+  "sentenceBank": [
+    {
+      "id": "pt_sent_work_until6",
+      "present": "В понедельник я обычно работаю до шести вечера.",
+      "pastMasc": "В понедельник я обычно работал до шести вечера.",
+      "pastFem": "В понедельник я обычно работала до шести вечера.",
+      "translation": "On Monday I usually worked until six in the evening.",
+      "lemma": "работать",
+      "sourcePages": [
+        2
+      ]
+    },
+    {
+      "id": "pt_sent_write_test",
+      "present": "В среду мы всегда пишем тест по русскому языку.",
+      "pastPl": "В среду мы всегда писали тест по русскому языку.",
+      "translation": "On Wednesday we always wrote a Russian language test.",
+      "lemma": "писать",
+      "sourcePages": [
+        2
+      ]
+    },
+    {
+      "id": "pt_sent_read_book",
+      "present": "Во вторник она иногда читает интересную книгу.",
+      "pastFem": "Во вторник она иногда читала интересную книгу.",
+      "translation": "On Tuesday she sometimes read an interesting book.",
+      "lemma": "читать",
+      "sourcePages": [
+        2
+      ]
+    },
+    {
+      "id": "pt_sent_walk_park",
+      "present": "В четверг они редко гуляют в парке после уроков.",
+      "pastPl": "В четверг они редко гуляли в парке после уроков.",
+      "translation": "On Thursday they rarely walked in the park after classes.",
+      "lemma": "гулять",
+      "sourcePages": [
+        2
+      ]
+    },
+    {
+      "id": "pt_sent_listen_music",
+      "present": "В пятницу ты иногда слушаешь музыку дома.",
+      "pastMasc": "В пятницу ты иногда слушал музыку дома.",
+      "pastFem": "В пятницу ты иногда слушала музыку дома.",
+      "translation": "On Friday you sometimes listened to music at home.",
+      "lemma": "слушать",
+      "sourcePages": [
+        2
+      ]
+    },
+    {
+      "id": "pt_sent_read_news",
+      "present": "В среду она часто читает новости утром.",
+      "pastFem": "В среду она часто читала новости утром.",
+      "translation": "On Wednesday she often read the news in the morning.",
+      "lemma": "читать",
+      "sourcePages": [
+        2
+      ]
+    },
+    {
+      "id": "pt_sent_not_work",
+      "present": "В воскресенье я никогда не работаю.",
+      "pastMasc": "В воскресенье я никогда не работал.",
+      "pastFem": "В воскресенье я никогда не работала.",
+      "translation": "On Sunday I never worked.",
+      "lemma": "работать",
+      "sourcePages": [
+        2
+      ]
+    },
+    {
+      "id": "pt_sent_hear_noise",
+      "present": "Во вторник мы иногда слышим странный шум.",
+      "pastPl": "Во вторник мы иногда слышали странный шум.",
+      "translation": "On Tuesday we sometimes heard a strange noise.",
+      "lemma": "слышать",
+      "sourcePages": [
+        2
+      ]
+    },
+    {
+      "id": "pt_sent_play_football",
+      "present": "В субботу он обычно играет в футбол с друзьями.",
+      "pastMasc": "В субботу он обычно играл в футбол с друзьями.",
+      "translation": "On Saturday he usually played football with friends.",
+      "lemma": "играть",
+      "sourcePages": [
+        2
+      ]
+    },
+    {
+      "id": "pt_sent_remember_meeting",
+      "present": "В понедельник ты помнишь о встрече?",
+      "pastMasc": "В понедельник ты помнил о встрече?",
+      "pastFem": "В понедельник ты помнила о встрече?",
+      "translation": "On Monday did you remember the meeting?",
+      "lemma": "помнить",
+      "sourcePages": [
+        5
+      ]
+    },
+    {
+      "id": "pt_sent_guitar",
+      "present": "В воскресенье он играет на гитаре.",
+      "pastMasc": "В воскресенье он играл на гитаре.",
+      "translation": "On Sunday he played the guitar.",
+      "lemma": "играть",
+      "sourcePages": [
+        5
+      ]
+    },
+    {
+      "id": "pt_sent_city_center",
+      "present": "В пятницу они гуляют по центру города.",
+      "pastPl": "В пятницу они гуляли по центру города.",
+      "translation": "On Friday they walked around the city center.",
+      "lemma": "гулять",
+      "sourcePages": [
+        5
+      ]
+    }
+  ]
+}

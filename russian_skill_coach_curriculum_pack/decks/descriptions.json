@@ -1,0 +1,4514 @@
+{
+  "moduleId": "descriptions",
+  "title": "Descriptions",
+  "purpose": "Train adjective agreement, colors, and possessive pronouns using only learned nouns and phrases.",
+  "defaultStageProfile": "grammar_full",
+  "analytics": {
+    "heatmap": "lemma x gender-number",
+    "secondaryPanels": [
+      "weakest possessive owners",
+      "weakest color adjectives"
+    ]
+  },
+  "uiSignature": "Agreement matrix (masc, fem, neut, plural) pinned above the practice card. Noun gender badge visible early, hidden later.",
+  "subdeckRules": [
+    "Teach adjective forms and possessive forms separately before combining them into noun phrases.",
+    "Invariant possessives его, её, их must be shown explicitly as invariant across all noun genders."
+  ],
+  "referenceTable": {
+    "adjectiveEndings": {
+      "masc": "-ый / lexical masc form",
+      "fem": "-ая",
+      "neut": "-ое",
+      "pl": "-ые"
+    },
+    "possessives": [
+      {
+        "owner": "я",
+        "forms": {
+          "masc": "мой",
+          "fem": "моя",
+          "neut": "моё",
+          "pl": "мои"
+        },
+        "sourcePages": [
+          35,
+          36,
+          51,
+          52
+        ]
+      },
+      {
+        "owner": "ты",
+        "forms": {
+          "masc": "твой",
+          "fem": "твоя",
+          "neut": "твоё",
+          "pl": "твои"
+        },
+        "sourcePages": [
+          35,
+          36,
+          51,
+          52
+        ]
+      },
+      {
+        "owner": "он / оно",
+        "forms": {
+          "masc": "его",
+          "fem": "его",
+          "neut": "его",
+          "pl": "его"
+        },
+        "invariant": true,
+        "sourcePages": [
+          35,
+          36,
+          51,
+          52
+        ]
+      },
+      {
+        "owner": "она",
+        "forms": {
+          "masc": "её",
+          "fem": "её",
+          "neut": "её",
+          "pl": "её"
+        },
+        "invariant": true,
+        "sourcePages": [
+          35,
+          36,
+          51,
+          52
+        ]
+      },
+      {
+        "owner": "мы",
+        "forms": {
+          "masc": "наш",
+          "fem": "наша",
+          "neut": "наше",
+          "pl": "наши"
+        },
+        "sourcePages": [
+          35,
+          36,
+          51,
+          52
+        ]
+      },
+      {
+        "owner": "вы",
+        "forms": {
+          "masc": "ваш",
+          "fem": "ваша",
+          "neut": "ваше",
+          "pl": "ваши"
+        },
+        "sourcePages": [
+          35,
+          36,
+          51,
+          52
+        ]
+      },
+      {
+        "owner": "они",
+        "forms": {
+          "masc": "их",
+          "fem": "их",
+          "neut": "их",
+          "pl": "их"
+        },
+        "invariant": true,
+        "sourcePages": [
+          35,
+          36,
+          51,
+          52
+        ]
+      }
+    ],
+    "note": "Use the exact adjective paradigms in this file, not a generic string-replacement heuristic, because several learned adjectives end in -ий or -ой."
+  },
+  "subdecks": [
+    {
+      "id": "desc_possessives",
+      "title": "Possessive pronouns",
+      "order": 1,
+      "defaultEntry": true,
+      "status": "active",
+      "sourcePages": [
+        35,
+        36,
+        51,
+        52
+      ],
+      "whyThisExists": "The owner forms should be drilled alone before they are mixed with adjective agreement.",
+      "atoms": [
+        {
+          "id": "desc_possessives__я__masc",
+          "kind": "possessive_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_possessives",
+          "stageProfileId": "grammar_full",
+          "owner": "я",
+          "slot": "masc",
+          "answer": "мой",
+          "invariant": false,
+          "sourcePages": [
+            35,
+            36,
+            51,
+            52
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_possessives__я__fem",
+          "kind": "possessive_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_possessives",
+          "stageProfileId": "grammar_full",
+          "owner": "я",
+          "slot": "fem",
+          "answer": "моя",
+          "invariant": false,
+          "sourcePages": [
+            35,
+            36,
+            51,
+            52
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_possessives__я__neut",
+          "kind": "possessive_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_possessives",
+          "stageProfileId": "grammar_full",
+          "owner": "я",
+          "slot": "neut",
+          "answer": "моё",
+          "invariant": false,
+          "sourcePages": [
+            35,
+            36,
+            51,
+            52
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_possessives__я__pl",
+          "kind": "possessive_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_possessives",
+          "stageProfileId": "grammar_full",
+          "owner": "я",
+          "slot": "pl",
+          "answer": "мои",
+          "invariant": false,
+          "sourcePages": [
+            35,
+            36,
+            51,
+            52
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_possessives__ты__masc",
+          "kind": "possessive_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_possessives",
+          "stageProfileId": "grammar_full",
+          "owner": "ты",
+          "slot": "masc",
+          "answer": "твой",
+          "invariant": false,
+          "sourcePages": [
+            35,
+            36,
+            51,
+            52
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_possessives__ты__fem",
+          "kind": "possessive_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_possessives",
+          "stageProfileId": "grammar_full",
+          "owner": "ты",
+          "slot": "fem",
+          "answer": "твоя",
+          "invariant": false,
+          "sourcePages": [
+            35,
+            36,
+            51,
+            52
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_possessives__ты__neut",
+          "kind": "possessive_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_possessives",
+          "stageProfileId": "grammar_full",
+          "owner": "ты",
+          "slot": "neut",
+          "answer": "твоё",
+          "invariant": false,
+          "sourcePages": [
+            35,
+            36,
+            51,
+            52
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_possessives__ты__pl",
+          "kind": "possessive_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_possessives",
+          "stageProfileId": "grammar_full",
+          "owner": "ты",
+          "slot": "pl",
+          "answer": "твои",
+          "invariant": false,
+          "sourcePages": [
+            35,
+            36,
+            51,
+            52
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_possessives__он_оно__masc",
+          "kind": "possessive_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_possessives",
+          "stageProfileId": "grammar_full",
+          "owner": "он / оно",
+          "slot": "masc",
+          "answer": "его",
+          "invariant": true,
+          "sourcePages": [
+            35,
+            36,
+            51,
+            52
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_possessives__он_оно__fem",
+          "kind": "possessive_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_possessives",
+          "stageProfileId": "grammar_full",
+          "owner": "он / оно",
+          "slot": "fem",
+          "answer": "его",
+          "invariant": true,
+          "sourcePages": [
+            35,
+            36,
+            51,
+            52
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_possessives__он_оно__neut",
+          "kind": "possessive_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_possessives",
+          "stageProfileId": "grammar_full",
+          "owner": "он / оно",
+          "slot": "neut",
+          "answer": "его",
+          "invariant": true,
+          "sourcePages": [
+            35,
+            36,
+            51,
+            52
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_possessives__он_оно__pl",
+          "kind": "possessive_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_possessives",
+          "stageProfileId": "grammar_full",
+          "owner": "он / оно",
+          "slot": "pl",
+          "answer": "его",
+          "invariant": true,
+          "sourcePages": [
+            35,
+            36,
+            51,
+            52
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_possessives__она__masc",
+          "kind": "possessive_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_possessives",
+          "stageProfileId": "grammar_full",
+          "owner": "она",
+          "slot": "masc",
+          "answer": "её",
+          "invariant": true,
+          "sourcePages": [
+            35,
+            36,
+            51,
+            52
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_possessives__она__fem",
+          "kind": "possessive_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_possessives",
+          "stageProfileId": "grammar_full",
+          "owner": "она",
+          "slot": "fem",
+          "answer": "её",
+          "invariant": true,
+          "sourcePages": [
+            35,
+            36,
+            51,
+            52
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_possessives__она__neut",
+          "kind": "possessive_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_possessives",
+          "stageProfileId": "grammar_full",
+          "owner": "она",
+          "slot": "neut",
+          "answer": "её",
+          "invariant": true,
+          "sourcePages": [
+            35,
+            36,
+            51,
+            52
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_possessives__она__pl",
+          "kind": "possessive_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_possessives",
+          "stageProfileId": "grammar_full",
+          "owner": "она",
+          "slot": "pl",
+          "answer": "её",
+          "invariant": true,
+          "sourcePages": [
+            35,
+            36,
+            51,
+            52
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_possessives__мы__masc",
+          "kind": "possessive_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_possessives",
+          "stageProfileId": "grammar_full",
+          "owner": "мы",
+          "slot": "masc",
+          "answer": "наш",
+          "invariant": false,
+          "sourcePages": [
+            35,
+            36,
+            51,
+            52
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_possessives__мы__fem",
+          "kind": "possessive_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_possessives",
+          "stageProfileId": "grammar_full",
+          "owner": "мы",
+          "slot": "fem",
+          "answer": "наша",
+          "invariant": false,
+          "sourcePages": [
+            35,
+            36,
+            51,
+            52
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_possessives__мы__neut",
+          "kind": "possessive_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_possessives",
+          "stageProfileId": "grammar_full",
+          "owner": "мы",
+          "slot": "neut",
+          "answer": "наше",
+          "invariant": false,
+          "sourcePages": [
+            35,
+            36,
+            51,
+            52
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_possessives__мы__pl",
+          "kind": "possessive_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_possessives",
+          "stageProfileId": "grammar_full",
+          "owner": "мы",
+          "slot": "pl",
+          "answer": "наши",
+          "invariant": false,
+          "sourcePages": [
+            35,
+            36,
+            51,
+            52
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_possessives__вы__masc",
+          "kind": "possessive_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_possessives",
+          "stageProfileId": "grammar_full",
+          "owner": "вы",
+          "slot": "masc",
+          "answer": "ваш",
+          "invariant": false,
+          "sourcePages": [
+            35,
+            36,
+            51,
+            52
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_possessives__вы__fem",
+          "kind": "possessive_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_possessives",
+          "stageProfileId": "grammar_full",
+          "owner": "вы",
+          "slot": "fem",
+          "answer": "ваша",
+          "invariant": false,
+          "sourcePages": [
+            35,
+            36,
+            51,
+            52
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_possessives__вы__neut",
+          "kind": "possessive_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_possessives",
+          "stageProfileId": "grammar_full",
+          "owner": "вы",
+          "slot": "neut",
+          "answer": "ваше",
+          "invariant": false,
+          "sourcePages": [
+            35,
+            36,
+            51,
+            52
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_possessives__вы__pl",
+          "kind": "possessive_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_possessives",
+          "stageProfileId": "grammar_full",
+          "owner": "вы",
+          "slot": "pl",
+          "answer": "ваши",
+          "invariant": false,
+          "sourcePages": [
+            35,
+            36,
+            51,
+            52
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_possessives__они__masc",
+          "kind": "possessive_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_possessives",
+          "stageProfileId": "grammar_full",
+          "owner": "они",
+          "slot": "masc",
+          "answer": "их",
+          "invariant": true,
+          "sourcePages": [
+            35,
+            36,
+            51,
+            52
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_possessives__они__fem",
+          "kind": "possessive_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_possessives",
+          "stageProfileId": "grammar_full",
+          "owner": "они",
+          "slot": "fem",
+          "answer": "их",
+          "invariant": true,
+          "sourcePages": [
+            35,
+            36,
+            51,
+            52
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_possessives__они__neut",
+          "kind": "possessive_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_possessives",
+          "stageProfileId": "grammar_full",
+          "owner": "они",
+          "slot": "neut",
+          "answer": "их",
+          "invariant": true,
+          "sourcePages": [
+            35,
+            36,
+            51,
+            52
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_possessives__они__pl",
+          "kind": "possessive_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_possessives",
+          "stageProfileId": "grammar_full",
+          "owner": "они",
+          "slot": "pl",
+          "answer": "их",
+          "invariant": true,
+          "sourcePages": [
+            35,
+            36,
+            51,
+            52
+          ],
+          "reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "desc_colors",
+      "title": "Colors with full agreement",
+      "order": 2,
+      "defaultEntry": false,
+      "status": "active",
+      "sourcePages": [
+        19,
+        21,
+        36,
+        37,
+        52,
+        53
+      ],
+      "whyThisExists": "Color adjectives were covered heavily and need their own agreement deck.",
+      "atoms": [
+        {
+          "id": "desc_colors__красный__masc",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "красный",
+          "translation": "red",
+          "slot": "masc",
+          "answer": "красный",
+          "pair": null,
+          "sourcePages": [
+            36,
+            52,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__красный__fem",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "красный",
+          "translation": "red",
+          "slot": "fem",
+          "answer": "красная",
+          "pair": null,
+          "sourcePages": [
+            36,
+            52,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__красный__neut",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "красный",
+          "translation": "red",
+          "slot": "neut",
+          "answer": "красное",
+          "pair": null,
+          "sourcePages": [
+            36,
+            52,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__красный__pl",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "красный",
+          "translation": "red",
+          "slot": "pl",
+          "answer": "красные",
+          "pair": null,
+          "sourcePages": [
+            36,
+            52,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__оранжевый__masc",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "оранжевый",
+          "translation": "orange",
+          "slot": "masc",
+          "answer": "оранжевый",
+          "pair": null,
+          "sourcePages": [
+            37,
+            47,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__оранжевый__fem",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "оранжевый",
+          "translation": "orange",
+          "slot": "fem",
+          "answer": "оранжевая",
+          "pair": null,
+          "sourcePages": [
+            37,
+            47,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__оранжевый__neut",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "оранжевый",
+          "translation": "orange",
+          "slot": "neut",
+          "answer": "оранжевое",
+          "pair": null,
+          "sourcePages": [
+            37,
+            47,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__оранжевый__pl",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "оранжевый",
+          "translation": "orange",
+          "slot": "pl",
+          "answer": "оранжевые",
+          "pair": null,
+          "sourcePages": [
+            37,
+            47,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__жёлтый__masc",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "жёлтый",
+          "translation": "yellow",
+          "slot": "masc",
+          "answer": "жёлтый",
+          "pair": null,
+          "sourcePages": [
+            37,
+            47,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__жёлтый__fem",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "жёлтый",
+          "translation": "yellow",
+          "slot": "fem",
+          "answer": "жёлтая",
+          "pair": null,
+          "sourcePages": [
+            37,
+            47,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__жёлтый__neut",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "жёлтый",
+          "translation": "yellow",
+          "slot": "neut",
+          "answer": "жёлтое",
+          "pair": null,
+          "sourcePages": [
+            37,
+            47,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__жёлтый__pl",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "жёлтый",
+          "translation": "yellow",
+          "slot": "pl",
+          "answer": "жёлтые",
+          "pair": null,
+          "sourcePages": [
+            37,
+            47,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__зелёный__masc",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "зелёный",
+          "translation": "green",
+          "slot": "masc",
+          "answer": "зелёный",
+          "pair": null,
+          "sourcePages": [
+            19,
+            37,
+            47,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__зелёный__fem",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "зелёный",
+          "translation": "green",
+          "slot": "fem",
+          "answer": "зелёная",
+          "pair": null,
+          "sourcePages": [
+            19,
+            37,
+            47,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__зелёный__neut",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "зелёный",
+          "translation": "green",
+          "slot": "neut",
+          "answer": "зелёное",
+          "pair": null,
+          "sourcePages": [
+            19,
+            37,
+            47,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__зелёный__pl",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "зелёный",
+          "translation": "green",
+          "slot": "pl",
+          "answer": "зелёные",
+          "pair": null,
+          "sourcePages": [
+            19,
+            37,
+            47,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__голубой__masc",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "голубой",
+          "translation": "light blue",
+          "slot": "masc",
+          "answer": "голубой",
+          "pair": null,
+          "sourcePages": [
+            37,
+            48,
+            52,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__голубой__fem",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "голубой",
+          "translation": "light blue",
+          "slot": "fem",
+          "answer": "голубая",
+          "pair": null,
+          "sourcePages": [
+            37,
+            48,
+            52,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__голубой__neut",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "голубой",
+          "translation": "light blue",
+          "slot": "neut",
+          "answer": "голубое",
+          "pair": null,
+          "sourcePages": [
+            37,
+            48,
+            52,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__голубой__pl",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "голубой",
+          "translation": "light blue",
+          "slot": "pl",
+          "answer": "голубые",
+          "pair": null,
+          "sourcePages": [
+            37,
+            48,
+            52,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__синий__masc",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "синий",
+          "translation": "blue",
+          "slot": "masc",
+          "answer": "синий",
+          "pair": null,
+          "sourcePages": [
+            37,
+            48,
+            52,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__синий__fem",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "синий",
+          "translation": "blue",
+          "slot": "fem",
+          "answer": "синяя",
+          "pair": null,
+          "sourcePages": [
+            37,
+            48,
+            52,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__синий__neut",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "синий",
+          "translation": "blue",
+          "slot": "neut",
+          "answer": "синее",
+          "pair": null,
+          "sourcePages": [
+            37,
+            48,
+            52,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__синий__pl",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "синий",
+          "translation": "blue",
+          "slot": "pl",
+          "answer": "синие",
+          "pair": null,
+          "sourcePages": [
+            37,
+            48,
+            52,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__фиолетовый__masc",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "фиолетовый",
+          "translation": "purple",
+          "slot": "masc",
+          "answer": "фиолетовый",
+          "pair": null,
+          "sourcePages": [
+            37,
+            49,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__фиолетовый__fem",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "фиолетовый",
+          "translation": "purple",
+          "slot": "fem",
+          "answer": "фиолетовая",
+          "pair": null,
+          "sourcePages": [
+            37,
+            49,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__фиолетовый__neut",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "фиолетовый",
+          "translation": "purple",
+          "slot": "neut",
+          "answer": "фиолетовое",
+          "pair": null,
+          "sourcePages": [
+            37,
+            49,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__фиолетовый__pl",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "фиолетовый",
+          "translation": "purple",
+          "slot": "pl",
+          "answer": "фиолетовые",
+          "pair": null,
+          "sourcePages": [
+            37,
+            49,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__чёрный__masc",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "чёрный",
+          "translation": "black",
+          "slot": "masc",
+          "answer": "чёрный",
+          "pair": null,
+          "sourcePages": [
+            37,
+            47,
+            48,
+            49,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__чёрный__fem",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "чёрный",
+          "translation": "black",
+          "slot": "fem",
+          "answer": "чёрная",
+          "pair": null,
+          "sourcePages": [
+            37,
+            47,
+            48,
+            49,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__чёрный__neut",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "чёрный",
+          "translation": "black",
+          "slot": "neut",
+          "answer": "чёрное",
+          "pair": null,
+          "sourcePages": [
+            37,
+            47,
+            48,
+            49,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__чёрный__pl",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "чёрный",
+          "translation": "black",
+          "slot": "pl",
+          "answer": "чёрные",
+          "pair": null,
+          "sourcePages": [
+            37,
+            47,
+            48,
+            49,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__белый__masc",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "белый",
+          "translation": "white",
+          "slot": "masc",
+          "answer": "белый",
+          "pair": null,
+          "sourcePages": [
+            21,
+            37,
+            48,
+            49,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__белый__fem",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "белый",
+          "translation": "white",
+          "slot": "fem",
+          "answer": "белая",
+          "pair": null,
+          "sourcePages": [
+            21,
+            37,
+            48,
+            49,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__белый__neut",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "белый",
+          "translation": "white",
+          "slot": "neut",
+          "answer": "белое",
+          "pair": null,
+          "sourcePages": [
+            21,
+            37,
+            48,
+            49,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__белый__pl",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "белый",
+          "translation": "white",
+          "slot": "pl",
+          "answer": "белые",
+          "pair": null,
+          "sourcePages": [
+            21,
+            37,
+            48,
+            49,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__серый__masc",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "серый",
+          "translation": "grey",
+          "slot": "masc",
+          "answer": "серый",
+          "pair": null,
+          "sourcePages": [
+            37,
+            49,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__серый__fem",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "серый",
+          "translation": "grey",
+          "slot": "fem",
+          "answer": "серая",
+          "pair": null,
+          "sourcePages": [
+            37,
+            49,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__серый__neut",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "серый",
+          "translation": "grey",
+          "slot": "neut",
+          "answer": "серое",
+          "pair": null,
+          "sourcePages": [
+            37,
+            49,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__серый__pl",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "серый",
+          "translation": "grey",
+          "slot": "pl",
+          "answer": "серые",
+          "pair": null,
+          "sourcePages": [
+            37,
+            49,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__коричневый__masc",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "коричневый",
+          "translation": "brown",
+          "slot": "masc",
+          "answer": "коричневый",
+          "pair": null,
+          "sourcePages": [
+            21,
+            37,
+            49,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__коричневый__fem",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "коричневый",
+          "translation": "brown",
+          "slot": "fem",
+          "answer": "коричневая",
+          "pair": null,
+          "sourcePages": [
+            21,
+            37,
+            49,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__коричневый__neut",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "коричневый",
+          "translation": "brown",
+          "slot": "neut",
+          "answer": "коричневое",
+          "pair": null,
+          "sourcePages": [
+            21,
+            37,
+            49,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__коричневый__pl",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "коричневый",
+          "translation": "brown",
+          "slot": "pl",
+          "answer": "коричневые",
+          "pair": null,
+          "sourcePages": [
+            21,
+            37,
+            49,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__розовый__masc",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "розовый",
+          "translation": "pink",
+          "slot": "masc",
+          "answer": "розовый",
+          "pair": null,
+          "sourcePages": [
+            21,
+            37,
+            49,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__розовый__fem",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "розовый",
+          "translation": "pink",
+          "slot": "fem",
+          "answer": "розовая",
+          "pair": null,
+          "sourcePages": [
+            21,
+            37,
+            49,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__розовый__neut",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "розовый",
+          "translation": "pink",
+          "slot": "neut",
+          "answer": "розовое",
+          "pair": null,
+          "sourcePages": [
+            21,
+            37,
+            49,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        },
+        {
+          "id": "desc_colors__розовый__pl",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_colors",
+          "stageProfileId": "grammar_full",
+          "lemma": "розовый",
+          "translation": "pink",
+          "slot": "pl",
+          "answer": "розовые",
+          "pair": null,
+          "sourcePages": [
+            21,
+            37,
+            49,
+            53
+          ],
+          "reviewed": true,
+          "group": "colors"
+        }
+      ]
+    },
+    {
+      "id": "desc_qualities",
+      "title": "Descriptive adjective pairs",
+      "order": 3,
+      "defaultEntry": false,
+      "status": "active",
+      "sourcePages": [
+        21,
+        22,
+        47,
+        48,
+        49,
+        50,
+        51,
+        55
+      ],
+      "whyThisExists": "These are the high-frequency descriptive adjectives from the notes, grouped for agreement practice and noun-phrase building.",
+      "atoms": [
+        {
+          "id": "desc_qualities__большой__masc",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "большой",
+          "translation": "big",
+          "slot": "masc",
+          "answer": "большой",
+          "pair": "маленький",
+          "sourcePages": [
+            22,
+            50
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__большой__fem",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "большой",
+          "translation": "big",
+          "slot": "fem",
+          "answer": "большая",
+          "pair": "маленький",
+          "sourcePages": [
+            22,
+            50
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__большой__neut",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "большой",
+          "translation": "big",
+          "slot": "neut",
+          "answer": "большое",
+          "pair": "маленький",
+          "sourcePages": [
+            22,
+            50
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__большой__pl",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "большой",
+          "translation": "big",
+          "slot": "pl",
+          "answer": "большие",
+          "pair": "маленький",
+          "sourcePages": [
+            22,
+            50
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__маленький__masc",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "маленький",
+          "translation": "small",
+          "slot": "masc",
+          "answer": "маленький",
+          "pair": "большой",
+          "sourcePages": [
+            22,
+            47,
+            50
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__маленький__fem",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "маленький",
+          "translation": "small",
+          "slot": "fem",
+          "answer": "маленькая",
+          "pair": "большой",
+          "sourcePages": [
+            22,
+            47,
+            50
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__маленький__neut",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "маленький",
+          "translation": "small",
+          "slot": "neut",
+          "answer": "маленькое",
+          "pair": "большой",
+          "sourcePages": [
+            22,
+            47,
+            50
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__маленький__pl",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "маленький",
+          "translation": "small",
+          "slot": "pl",
+          "answer": "маленькие",
+          "pair": "большой",
+          "sourcePages": [
+            22,
+            47,
+            50
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__длинный__masc",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "длинный",
+          "translation": "long",
+          "slot": "masc",
+          "answer": "длинный",
+          "pair": "короткий",
+          "sourcePages": [
+            22,
+            21,
+            47,
+            50
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__длинный__fem",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "длинный",
+          "translation": "long",
+          "slot": "fem",
+          "answer": "длинная",
+          "pair": "короткий",
+          "sourcePages": [
+            22,
+            21,
+            47,
+            50
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__длинный__neut",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "длинный",
+          "translation": "long",
+          "slot": "neut",
+          "answer": "длинное",
+          "pair": "короткий",
+          "sourcePages": [
+            22,
+            21,
+            47,
+            50
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__длинный__pl",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "длинный",
+          "translation": "long",
+          "slot": "pl",
+          "answer": "длинные",
+          "pair": "короткий",
+          "sourcePages": [
+            22,
+            21,
+            47,
+            50
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__короткий__masc",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "короткий",
+          "translation": "short",
+          "slot": "masc",
+          "answer": "короткий",
+          "pair": "длинный",
+          "sourcePages": [
+            22,
+            50
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__короткий__fem",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "короткий",
+          "translation": "short",
+          "slot": "fem",
+          "answer": "короткая",
+          "pair": "длинный",
+          "sourcePages": [
+            22,
+            50
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__короткий__neut",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "короткий",
+          "translation": "short",
+          "slot": "neut",
+          "answer": "короткое",
+          "pair": "длинный",
+          "sourcePages": [
+            22,
+            50
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__короткий__pl",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "короткий",
+          "translation": "short",
+          "slot": "pl",
+          "answer": "короткие",
+          "pair": "длинный",
+          "sourcePages": [
+            22,
+            50
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__новый__masc",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "новый",
+          "translation": "new",
+          "slot": "masc",
+          "answer": "новый",
+          "pair": "старый",
+          "sourcePages": [
+            22,
+            50
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__новый__fem",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "новый",
+          "translation": "new",
+          "slot": "fem",
+          "answer": "новая",
+          "pair": "старый",
+          "sourcePages": [
+            22,
+            50
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__новый__neut",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "новый",
+          "translation": "new",
+          "slot": "neut",
+          "answer": "новое",
+          "pair": "старый",
+          "sourcePages": [
+            22,
+            50
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__новый__pl",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "новый",
+          "translation": "new",
+          "slot": "pl",
+          "answer": "новые",
+          "pair": "старый",
+          "sourcePages": [
+            22,
+            50
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__старый__masc",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "старый",
+          "translation": "old",
+          "slot": "masc",
+          "answer": "старый",
+          "pair": "новый",
+          "sourcePages": [
+            22,
+            50
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__старый__fem",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "старый",
+          "translation": "old",
+          "slot": "fem",
+          "answer": "старая",
+          "pair": "новый",
+          "sourcePages": [
+            22,
+            50
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__старый__neut",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "старый",
+          "translation": "old",
+          "slot": "neut",
+          "answer": "старое",
+          "pair": "новый",
+          "sourcePages": [
+            22,
+            50
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__старый__pl",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "старый",
+          "translation": "old",
+          "slot": "pl",
+          "answer": "старые",
+          "pair": "новый",
+          "sourcePages": [
+            22,
+            50
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__высокий__masc",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "высокий",
+          "translation": "tall / high",
+          "slot": "masc",
+          "answer": "высокий",
+          "pair": "низкий",
+          "sourcePages": [
+            22,
+            48
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__высокий__fem",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "высокий",
+          "translation": "tall / high",
+          "slot": "fem",
+          "answer": "высокая",
+          "pair": "низкий",
+          "sourcePages": [
+            22,
+            48
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__высокий__neut",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "высокий",
+          "translation": "tall / high",
+          "slot": "neut",
+          "answer": "высокое",
+          "pair": "низкий",
+          "sourcePages": [
+            22,
+            48
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__высокий__pl",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "высокий",
+          "translation": "tall / high",
+          "slot": "pl",
+          "answer": "высокие",
+          "pair": "низкий",
+          "sourcePages": [
+            22,
+            48
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__низкий__masc",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "низкий",
+          "translation": "short / low",
+          "slot": "masc",
+          "answer": "низкий",
+          "pair": "высокий",
+          "sourcePages": [
+            22,
+            48
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__низкий__fem",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "низкий",
+          "translation": "short / low",
+          "slot": "fem",
+          "answer": "низкая",
+          "pair": "высокий",
+          "sourcePages": [
+            22,
+            48
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__низкий__neut",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "низкий",
+          "translation": "short / low",
+          "slot": "neut",
+          "answer": "низкое",
+          "pair": "высокий",
+          "sourcePages": [
+            22,
+            48
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__низкий__pl",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "низкий",
+          "translation": "short / low",
+          "slot": "pl",
+          "answer": "низкие",
+          "pair": "высокий",
+          "sourcePages": [
+            22,
+            48
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__умный__masc",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "умный",
+          "translation": "smart",
+          "slot": "masc",
+          "answer": "умный",
+          "pair": "глупый",
+          "sourcePages": [
+            22,
+            49
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__умный__fem",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "умный",
+          "translation": "smart",
+          "slot": "fem",
+          "answer": "умная",
+          "pair": "глупый",
+          "sourcePages": [
+            22,
+            49
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__умный__neut",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "умный",
+          "translation": "smart",
+          "slot": "neut",
+          "answer": "умное",
+          "pair": "глупый",
+          "sourcePages": [
+            22,
+            49
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__умный__pl",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "умный",
+          "translation": "smart",
+          "slot": "pl",
+          "answer": "умные",
+          "pair": "глупый",
+          "sourcePages": [
+            22,
+            49
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__глупый__masc",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "глупый",
+          "translation": "silly / stupid",
+          "slot": "masc",
+          "answer": "глупый",
+          "pair": "умный",
+          "sourcePages": [
+            22,
+            47,
+            49
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__глупый__fem",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "глупый",
+          "translation": "silly / stupid",
+          "slot": "fem",
+          "answer": "глупая",
+          "pair": "умный",
+          "sourcePages": [
+            22,
+            47,
+            49
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__глупый__neut",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "глупый",
+          "translation": "silly / stupid",
+          "slot": "neut",
+          "answer": "глупое",
+          "pair": "умный",
+          "sourcePages": [
+            22,
+            47,
+            49
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__глупый__pl",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "глупый",
+          "translation": "silly / stupid",
+          "slot": "pl",
+          "answer": "глупые",
+          "pair": "умный",
+          "sourcePages": [
+            22,
+            47,
+            49
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__весёлый__masc",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "весёлый",
+          "translation": "cheerful",
+          "slot": "masc",
+          "answer": "весёлый",
+          "pair": "грустный",
+          "sourcePages": [
+            22,
+            48
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__весёлый__fem",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "весёлый",
+          "translation": "cheerful",
+          "slot": "fem",
+          "answer": "весёлая",
+          "pair": "грустный",
+          "sourcePages": [
+            22,
+            48
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__весёлый__neut",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "весёлый",
+          "translation": "cheerful",
+          "slot": "neut",
+          "answer": "весёлое",
+          "pair": "грустный",
+          "sourcePages": [
+            22,
+            48
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__весёлый__pl",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "весёлый",
+          "translation": "cheerful",
+          "slot": "pl",
+          "answer": "весёлые",
+          "pair": "грустный",
+          "sourcePages": [
+            22,
+            48
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__грустный__masc",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "грустный",
+          "translation": "sad",
+          "slot": "masc",
+          "answer": "грустный",
+          "pair": "весёлый",
+          "sourcePages": [
+            22,
+            48
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__грустный__fem",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "грустный",
+          "translation": "sad",
+          "slot": "fem",
+          "answer": "грустная",
+          "pair": "весёлый",
+          "sourcePages": [
+            22,
+            48
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__грустный__neut",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "грустный",
+          "translation": "sad",
+          "slot": "neut",
+          "answer": "грустное",
+          "pair": "весёлый",
+          "sourcePages": [
+            22,
+            48
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__грустный__pl",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "грустный",
+          "translation": "sad",
+          "slot": "pl",
+          "answer": "грустные",
+          "pair": "весёлый",
+          "sourcePages": [
+            22,
+            48
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__дешёвый__masc",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "дешёвый",
+          "translation": "cheap",
+          "slot": "masc",
+          "answer": "дешёвый",
+          "pair": "дорогой",
+          "sourcePages": [
+            22,
+            49
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__дешёвый__fem",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "дешёвый",
+          "translation": "cheap",
+          "slot": "fem",
+          "answer": "дешёвая",
+          "pair": "дорогой",
+          "sourcePages": [
+            22,
+            49
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__дешёвый__neut",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "дешёвый",
+          "translation": "cheap",
+          "slot": "neut",
+          "answer": "дешёвое",
+          "pair": "дорогой",
+          "sourcePages": [
+            22,
+            49
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__дешёвый__pl",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "дешёвый",
+          "translation": "cheap",
+          "slot": "pl",
+          "answer": "дешёвые",
+          "pair": "дорогой",
+          "sourcePages": [
+            22,
+            49
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__дорогой__masc",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "дорогой",
+          "translation": "expensive",
+          "slot": "masc",
+          "answer": "дорогой",
+          "pair": "дешёвый",
+          "sourcePages": [
+            22,
+            49
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__дорогой__fem",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "дорогой",
+          "translation": "expensive",
+          "slot": "fem",
+          "answer": "дорогая",
+          "pair": "дешёвый",
+          "sourcePages": [
+            22,
+            49
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__дорогой__neut",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "дорогой",
+          "translation": "expensive",
+          "slot": "neut",
+          "answer": "дорогое",
+          "pair": "дешёвый",
+          "sourcePages": [
+            22,
+            49
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__дорогой__pl",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "дорогой",
+          "translation": "expensive",
+          "slot": "pl",
+          "answer": "дорогие",
+          "pair": "дешёвый",
+          "sourcePages": [
+            22,
+            49
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__лёгкий__masc",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "лёгкий",
+          "translation": "light",
+          "slot": "masc",
+          "answer": "лёгкий",
+          "pair": "тяжёлый",
+          "sourcePages": [
+            22,
+            49
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__лёгкий__fem",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "лёгкий",
+          "translation": "light",
+          "slot": "fem",
+          "answer": "лёгкая",
+          "pair": "тяжёлый",
+          "sourcePages": [
+            22,
+            49
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__лёгкий__neut",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "лёгкий",
+          "translation": "light",
+          "slot": "neut",
+          "answer": "лёгкое",
+          "pair": "тяжёлый",
+          "sourcePages": [
+            22,
+            49
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__лёгкий__pl",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "лёгкий",
+          "translation": "light",
+          "slot": "pl",
+          "answer": "лёгкие",
+          "pair": "тяжёлый",
+          "sourcePages": [
+            22,
+            49
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__тяжёлый__masc",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "тяжёлый",
+          "translation": "heavy",
+          "slot": "masc",
+          "answer": "тяжёлый",
+          "pair": "лёгкий",
+          "sourcePages": [
+            22,
+            49
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__тяжёлый__fem",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "тяжёлый",
+          "translation": "heavy",
+          "slot": "fem",
+          "answer": "тяжёлая",
+          "pair": "лёгкий",
+          "sourcePages": [
+            22,
+            49
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__тяжёлый__neut",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "тяжёлый",
+          "translation": "heavy",
+          "slot": "neut",
+          "answer": "тяжёлое",
+          "pair": "лёгкий",
+          "sourcePages": [
+            22,
+            49
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__тяжёлый__pl",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "тяжёлый",
+          "translation": "heavy",
+          "slot": "pl",
+          "answer": "тяжёлые",
+          "pair": "лёгкий",
+          "sourcePages": [
+            22,
+            49
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__быстрый__masc",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "быстрый",
+          "translation": "fast",
+          "slot": "masc",
+          "answer": "быстрый",
+          "pair": "медленный",
+          "sourcePages": [
+            22,
+            47,
+            48
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__быстрый__fem",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "быстрый",
+          "translation": "fast",
+          "slot": "fem",
+          "answer": "быстрая",
+          "pair": "медленный",
+          "sourcePages": [
+            22,
+            47,
+            48
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__быстрый__neut",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "быстрый",
+          "translation": "fast",
+          "slot": "neut",
+          "answer": "быстрое",
+          "pair": "медленный",
+          "sourcePages": [
+            22,
+            47,
+            48
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__быстрый__pl",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "быстрый",
+          "translation": "fast",
+          "slot": "pl",
+          "answer": "быстрые",
+          "pair": "медленный",
+          "sourcePages": [
+            22,
+            47,
+            48
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__медленный__masc",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "медленный",
+          "translation": "slow",
+          "slot": "masc",
+          "answer": "медленный",
+          "pair": "быстрый",
+          "sourcePages": [
+            22,
+            47,
+            48
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__медленный__fem",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "медленный",
+          "translation": "slow",
+          "slot": "fem",
+          "answer": "медленная",
+          "pair": "быстрый",
+          "sourcePages": [
+            22,
+            47,
+            48
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__медленный__neut",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "медленный",
+          "translation": "slow",
+          "slot": "neut",
+          "answer": "медленное",
+          "pair": "быстрый",
+          "sourcePages": [
+            22,
+            47,
+            48
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__медленный__pl",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "медленный",
+          "translation": "slow",
+          "slot": "pl",
+          "answer": "медленные",
+          "pair": "быстрый",
+          "sourcePages": [
+            22,
+            47,
+            48
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__тёплый__masc",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "тёплый",
+          "translation": "warm",
+          "slot": "masc",
+          "answer": "тёплый",
+          "pair": "холодный",
+          "sourcePages": [
+            50
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__тёплый__fem",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "тёплый",
+          "translation": "warm",
+          "slot": "fem",
+          "answer": "тёплая",
+          "pair": "холодный",
+          "sourcePages": [
+            50
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__тёплый__neut",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "тёплый",
+          "translation": "warm",
+          "slot": "neut",
+          "answer": "тёплое",
+          "pair": "холодный",
+          "sourcePages": [
+            50
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__тёплый__pl",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "тёплый",
+          "translation": "warm",
+          "slot": "pl",
+          "answer": "тёплые",
+          "pair": "холодный",
+          "sourcePages": [
+            50
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__холодный__masc",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "холодный",
+          "translation": "cold",
+          "slot": "masc",
+          "answer": "холодный",
+          "pair": "тёплый",
+          "sourcePages": [
+            50
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__холодный__fem",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "холодный",
+          "translation": "cold",
+          "slot": "fem",
+          "answer": "холодная",
+          "pair": "тёплый",
+          "sourcePages": [
+            50
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__холодный__neut",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "холодный",
+          "translation": "cold",
+          "slot": "neut",
+          "answer": "холодное",
+          "pair": "тёплый",
+          "sourcePages": [
+            50
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__холодный__pl",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "холодный",
+          "translation": "cold",
+          "slot": "pl",
+          "answer": "холодные",
+          "pair": "тёплый",
+          "sourcePages": [
+            50
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__добрый__masc",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "добрый",
+          "translation": "kind",
+          "slot": "masc",
+          "answer": "добрый",
+          "pair": "злой",
+          "sourcePages": [
+            50,
+            51
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__добрый__fem",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "добрый",
+          "translation": "kind",
+          "slot": "fem",
+          "answer": "добрая",
+          "pair": "злой",
+          "sourcePages": [
+            50,
+            51
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__добрый__neut",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "добрый",
+          "translation": "kind",
+          "slot": "neut",
+          "answer": "доброе",
+          "pair": "злой",
+          "sourcePages": [
+            50,
+            51
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__добрый__pl",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "добрый",
+          "translation": "kind",
+          "slot": "pl",
+          "answer": "добрые",
+          "pair": "злой",
+          "sourcePages": [
+            50,
+            51
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__злой__masc",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "злой",
+          "translation": "angry / mean",
+          "slot": "masc",
+          "answer": "злой",
+          "pair": "добрый",
+          "sourcePages": [
+            50,
+            51
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__злой__fem",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "злой",
+          "translation": "angry / mean",
+          "slot": "fem",
+          "answer": "злая",
+          "pair": "добрый",
+          "sourcePages": [
+            50,
+            51
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__злой__neut",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "злой",
+          "translation": "angry / mean",
+          "slot": "neut",
+          "answer": "злое",
+          "pair": "добрый",
+          "sourcePages": [
+            50,
+            51
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__злой__pl",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "злой",
+          "translation": "angry / mean",
+          "slot": "pl",
+          "answer": "злые",
+          "pair": "добрый",
+          "sourcePages": [
+            50,
+            51
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__красивый__masc",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "красивый",
+          "translation": "beautiful",
+          "slot": "masc",
+          "answer": "красивый",
+          "pair": null,
+          "sourcePages": [
+            21
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__красивый__fem",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "красивый",
+          "translation": "beautiful",
+          "slot": "fem",
+          "answer": "красивая",
+          "pair": null,
+          "sourcePages": [
+            21
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__красивый__neut",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "красивый",
+          "translation": "beautiful",
+          "slot": "neut",
+          "answer": "красивое",
+          "pair": null,
+          "sourcePages": [
+            21
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__красивый__pl",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "красивый",
+          "translation": "beautiful",
+          "slot": "pl",
+          "answer": "красивые",
+          "pair": null,
+          "sourcePages": [
+            21
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__милый__masc",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "милый",
+          "translation": "cute",
+          "slot": "masc",
+          "answer": "милый",
+          "pair": null,
+          "sourcePages": [
+            48
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__милый__fem",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "милый",
+          "translation": "cute",
+          "slot": "fem",
+          "answer": "милая",
+          "pair": null,
+          "sourcePages": [
+            48
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__милый__neut",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "милый",
+          "translation": "cute",
+          "slot": "neut",
+          "answer": "милое",
+          "pair": null,
+          "sourcePages": [
+            48
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__милый__pl",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "милый",
+          "translation": "cute",
+          "slot": "pl",
+          "answer": "милые",
+          "pair": null,
+          "sourcePages": [
+            48
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__сильный__masc",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "сильный",
+          "translation": "strong",
+          "slot": "masc",
+          "answer": "сильный",
+          "pair": null,
+          "sourcePages": [
+            51
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__сильный__fem",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "сильный",
+          "translation": "strong",
+          "slot": "fem",
+          "answer": "сильная",
+          "pair": null,
+          "sourcePages": [
+            51
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__сильный__neut",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "сильный",
+          "translation": "strong",
+          "slot": "neut",
+          "answer": "сильное",
+          "pair": null,
+          "sourcePages": [
+            51
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__сильный__pl",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "сильный",
+          "translation": "strong",
+          "slot": "pl",
+          "answer": "сильные",
+          "pair": null,
+          "sourcePages": [
+            51
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__сумасшедший__masc",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "сумасшедший",
+          "translation": "crazy",
+          "slot": "masc",
+          "answer": "сумасшедший",
+          "pair": null,
+          "sourcePages": [
+            48
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__сумасшедший__fem",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "сумасшедший",
+          "translation": "crazy",
+          "slot": "fem",
+          "answer": "сумасшедшая",
+          "pair": null,
+          "sourcePages": [
+            48
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__сумасшедший__neut",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "сумасшедший",
+          "translation": "crazy",
+          "slot": "neut",
+          "answer": "сумасшедшее",
+          "pair": null,
+          "sourcePages": [
+            48
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__сумасшедший__pl",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "сумасшедший",
+          "translation": "crazy",
+          "slot": "pl",
+          "answer": "сумасшедшие",
+          "pair": null,
+          "sourcePages": [
+            48
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__хороший__masc",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "хороший",
+          "translation": "good",
+          "slot": "masc",
+          "answer": "хороший",
+          "pair": null,
+          "sourcePages": [
+            48
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__хороший__fem",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "хороший",
+          "translation": "good",
+          "slot": "fem",
+          "answer": "хорошая",
+          "pair": null,
+          "sourcePages": [
+            48
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__хороший__neut",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "хороший",
+          "translation": "good",
+          "slot": "neut",
+          "answer": "хорошее",
+          "pair": null,
+          "sourcePages": [
+            48
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        },
+        {
+          "id": "desc_qualities__хороший__pl",
+          "kind": "adjective_form",
+          "moduleKind": "agreement",
+          "subdeckId": "desc_qualities",
+          "stageProfileId": "grammar_full",
+          "lemma": "хороший",
+          "translation": "good",
+          "slot": "pl",
+          "answer": "хорошие",
+          "pair": null,
+          "sourcePages": [
+            48
+          ],
+          "reviewed": true,
+          "group": "qualities"
+        }
+      ]
+    },
+    {
+      "id": "desc_phrase_builder",
+      "title": "Description phrase builder",
+      "order": 4,
+      "defaultEntry": false,
+      "status": "active",
+      "sourcePages": [
+        19,
+        21,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53
+      ],
+      "whyThisExists": "Once forms are stable, the user needs phrase-level reps that combine possessives, adjective agreement, and noun gender in one phrase.",
+      "atoms": [
+        {
+          "id": "desc_sent_woman_shirt",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Это женщина. Её рубашка белая и чёрная.",
+          "ru": "Это женщина. Её рубашка белая и чёрная.",
+          "en": "This is a woman. Her shirt is white and black.",
+          "sourcePages": [
+            21
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_woman_skirt",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Её юбка длинная и светло-розовая.",
+          "ru": "Её юбка длинная и светло-розовая.",
+          "en": "Her skirt is long and light pink.",
+          "sourcePages": [
+            21
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_woman_bag",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Её сумка большая и розовая, но её туфли маленькие и голубые.",
+          "ru": "Её сумка большая и розовая, но её туфли маленькие и голубые.",
+          "en": "Her bag is big and pink, but her shoes are small and light blue.",
+          "sourcePages": [
+            21
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_woman_glasses",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Её очки тёмно-коричневые. Она красивая!",
+          "ru": "Её очки тёмно-коричневые. Она красивая!",
+          "en": "Her glasses are dark brown. She is beautiful!",
+          "sourcePages": [
+            21
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_silly_orange_bag",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "У него есть глупая оранжевая сумка и штаны.",
+          "ru": "У него есть глупая оранжевая сумка и штаны.",
+          "en": "He has a silly orange bag and pants.",
+          "sourcePages": [
+            47
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_long_green_sweater",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "У него есть длинный зелёный свитер.",
+          "ru": "У него есть длинный зелёный свитер.",
+          "en": "He has a long green sweater.",
+          "sourcePages": [
+            47
+          ],
+          "reviewed": true,
+          "note": "The profanity adjective from the note was removed for the default deck."
+        },
+        {
+          "id": "desc_sent_small_white_glasses",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "У него есть маленькие белые очки.",
+          "ru": "У него есть маленькие белые очки.",
+          "en": "He has small white glasses.",
+          "sourcePages": [
+            47
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_my_big_white_dog",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Моя большая белая собака.",
+          "ru": "Моя большая белая собака.",
+          "en": "My big white dog.",
+          "sourcePages": [
+            50
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_her_small_blue_bag",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Её маленькая синяя сумка.",
+          "ru": "Её маленькая синяя сумка.",
+          "en": "Her small blue bag.",
+          "sourcePages": [
+            50
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_our_big_yellow_house",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Наш большой жёлтый дом.",
+          "ru": "Наш большой жёлтый дом.",
+          "en": "Our big yellow house.",
+          "sourcePages": [
+            50
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_his_small_black_phone",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Его маленький чёрный телефон.",
+          "ru": "Его маленький чёрный телефон.",
+          "en": "His small black phone.",
+          "sourcePages": [
+            50
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_her_long_red_pencil",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Её длинный красный карандаш.",
+          "ru": "Её длинный красный карандаш.",
+          "en": "Her long red pencil.",
+          "sourcePages": [
+            50
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_my_short_pink_dress",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Моё короткое розовое платье.",
+          "ru": "Моё короткое розовое платье.",
+          "en": "My short pink dress.",
+          "sourcePages": [
+            50
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_his_long_green_path",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Его длинная зелёная дорожка.",
+          "ru": "Его длинная зелёная дорожка.",
+          "en": "His long green path.",
+          "sourcePages": [
+            50
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_our_short_blue_bed",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Наша короткая синяя кровать.",
+          "ru": "Наша короткая синяя кровать.",
+          "en": "Our short blue bed.",
+          "sourcePages": [
+            50
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_my_new_grey_car",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Моя новая серая машина.",
+          "ru": "Моя новая серая машина.",
+          "en": "My new grey car.",
+          "sourcePages": [
+            50
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_his_old_brown_book",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Его старая коричневая книга.",
+          "ru": "Его старая коричневая книга.",
+          "en": "His old brown book.",
+          "sourcePages": [
+            50
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_her_new_white_bag",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Её новая белая сумка.",
+          "ru": "Её новая белая сумка.",
+          "en": "Her new white bag.",
+          "sourcePages": [
+            50
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_our_old_black_sofa",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Наш старый чёрный диван.",
+          "ru": "Наш старый чёрный диван.",
+          "en": "Our old black sofa.",
+          "sourcePages": [
+            50
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_my_warm_blue_coat",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Моё тёплое синее пальто.",
+          "ru": "Моё тёплое синее пальто.",
+          "en": "My warm blue coat.",
+          "sourcePages": [
+            50
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_his_cold_white_icecream",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Его холодное белое мороженое.",
+          "ru": "Его холодное белое мороженое.",
+          "en": "His cold white ice cream.",
+          "sourcePages": [
+            50
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_her_warm_brown_coffee",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Её тёплый коричневый кофе.",
+          "ru": "Её тёплый коричневый кофе.",
+          "en": "Her warm brown coffee.",
+          "sourcePages": [
+            50
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_our_cold_yellow_juice",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Наш холодный жёлтый сок.",
+          "ru": "Наш холодный жёлтый сок.",
+          "en": "Our cold yellow juice.",
+          "sourcePages": [
+            50
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_this_gray_cat",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Это серый кот.",
+          "ru": "Это серый кот.",
+          "en": "This is a grey cat.",
+          "sourcePages": [
+            52
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_this_red_jacket",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Это красная куртка.",
+          "ru": "Это красная куртка.",
+          "en": "This is a red jacket.",
+          "sourcePages": [
+            52
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_this_blue_car",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Это синяя машина.",
+          "ru": "Это синяя машина.",
+          "en": "This is a blue car.",
+          "sourcePages": [
+            52
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_this_green_apple",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Это зелёное яблоко.",
+          "ru": "Это зелёное яблоко.",
+          "en": "This is a green apple.",
+          "sourcePages": [
+            52
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_this_yellow_flower",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Это жёлтый цветок.",
+          "ru": "Это жёлтый цветок.",
+          "en": "This is a yellow flower.",
+          "sourcePages": [
+            53
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_this_black_phone",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Это чёрный телефон.",
+          "ru": "Это чёрный телефон.",
+          "en": "This is a black phone.",
+          "sourcePages": [
+            53
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_this_white_shirt",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Это белая рубашка.",
+          "ru": "Это белая рубашка.",
+          "en": "This is a white shirt.",
+          "sourcePages": [
+            53
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_this_brown_bear",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Это коричневый медведь.",
+          "ru": "Это коричневый медведь.",
+          "en": "This is a brown bear.",
+          "sourcePages": [
+            53
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_this_orange_orange",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Это оранжевый апельсин.",
+          "ru": "Это оранжевый апельсин.",
+          "en": "This is an orange orange.",
+          "sourcePages": [
+            53
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_this_pink_bag",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Это розовая сумка.",
+          "ru": "Это розовая сумка.",
+          "en": "This is a pink bag.",
+          "sourcePages": [
+            53
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_this_purple_dress",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Это фиолетовое платье.",
+          "ru": "Это фиолетовое платье.",
+          "en": "This is a purple dress.",
+          "sourcePages": [
+            53
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_this_lightblue_pen",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Это голубая ручка.",
+          "ru": "Это голубая ручка.",
+          "en": "This is a light-blue pen.",
+          "sourcePages": [
+            53
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_this_green_tree",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Это зелёное дерево.",
+          "ru": "Это зелёное дерево.",
+          "en": "This is a green tree.",
+          "sourcePages": [
+            53
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_this_white_sofa",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Это белый диван.",
+          "ru": "Это белый диван.",
+          "en": "This is a white sofa.",
+          "sourcePages": [
+            53
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_this_gray_mouse",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Это серая мышь.",
+          "ru": "Это серая мышь.",
+          "en": "This is a grey mouse.",
+          "sourcePages": [
+            53
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_this_red_scarf",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Это красный шарф.",
+          "ru": "Это красный шарф.",
+          "en": "This is a red scarf.",
+          "sourcePages": [
+            53
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_this_blue_armchair",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Это синее кресло.",
+          "ru": "Это синее кресло.",
+          "en": "This is a blue armchair.",
+          "sourcePages": [
+            53
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_this_yellow_lamp",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Это жёлтая лампа.",
+          "ru": "Это жёлтая лампа.",
+          "en": "This is a yellow lamp.",
+          "sourcePages": [
+            53
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_this_black_boot",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Это чёрный ботинок.",
+          "ru": "Это чёрный ботинок.",
+          "en": "This is a black shoe.",
+          "sourcePages": [
+            53
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "desc_sent_this_pink_notebook",
+          "kind": "description_phrase",
+          "subdeckId": "desc_phrase_builder",
+          "stageProfileId": "grammar_full",
+          "answer": "Это розовая тетрадь.",
+          "ru": "Это розовая тетрадь.",
+          "en": "This is a pink notebook.",
+          "sourcePages": [
+            53
+          ],
+          "reviewed": true
+        }
+      ]
+    }
+  ],
+  "sentenceBank": [
+    {
+      "id": "desc_sent_woman_shirt",
+      "ru": "Это женщина. Её рубашка белая и чёрная.",
+      "en": "This is a woman. Her shirt is white and black.",
+      "sourcePages": [
+        21
+      ]
+    },
+    {
+      "id": "desc_sent_woman_skirt",
+      "ru": "Её юбка длинная и светло-розовая.",
+      "en": "Her skirt is long and light pink.",
+      "sourcePages": [
+        21
+      ]
+    },
+    {
+      "id": "desc_sent_woman_bag",
+      "ru": "Её сумка большая и розовая, но её туфли маленькие и голубые.",
+      "en": "Her bag is big and pink, but her shoes are small and light blue.",
+      "sourcePages": [
+        21
+      ]
+    },
+    {
+      "id": "desc_sent_woman_glasses",
+      "ru": "Её очки тёмно-коричневые. Она красивая!",
+      "en": "Her glasses are dark brown. She is beautiful!",
+      "sourcePages": [
+        21
+      ]
+    },
+    {
+      "id": "desc_sent_silly_orange_bag",
+      "ru": "У него есть глупая оранжевая сумка и штаны.",
+      "en": "He has a silly orange bag and pants.",
+      "sourcePages": [
+        47
+      ]
+    },
+    {
+      "id": "desc_sent_long_green_sweater",
+      "ru": "У него есть длинный зелёный свитер.",
+      "en": "He has a long green sweater.",
+      "sourcePages": [
+        47
+      ],
+      "reviewed": true,
+      "note": "The profanity adjective from the note was removed for the default deck."
+    },
+    {
+      "id": "desc_sent_small_white_glasses",
+      "ru": "У него есть маленькие белые очки.",
+      "en": "He has small white glasses.",
+      "sourcePages": [
+        47
+      ]
+    },
+    {
+      "id": "desc_sent_my_big_white_dog",
+      "ru": "Моя большая белая собака.",
+      "en": "My big white dog.",
+      "sourcePages": [
+        50
+      ]
+    },
+    {
+      "id": "desc_sent_her_small_blue_bag",
+      "ru": "Её маленькая синяя сумка.",
+      "en": "Her small blue bag.",
+      "sourcePages": [
+        50
+      ]
+    },
+    {
+      "id": "desc_sent_our_big_yellow_house",
+      "ru": "Наш большой жёлтый дом.",
+      "en": "Our big yellow house.",
+      "sourcePages": [
+        50
+      ]
+    },
+    {
+      "id": "desc_sent_his_small_black_phone",
+      "ru": "Его маленький чёрный телефон.",
+      "en": "His small black phone.",
+      "sourcePages": [
+        50
+      ]
+    },
+    {
+      "id": "desc_sent_her_long_red_pencil",
+      "ru": "Её длинный красный карандаш.",
+      "en": "Her long red pencil.",
+      "sourcePages": [
+        50
+      ]
+    },
+    {
+      "id": "desc_sent_my_short_pink_dress",
+      "ru": "Моё короткое розовое платье.",
+      "en": "My short pink dress.",
+      "sourcePages": [
+        50
+      ]
+    },
+    {
+      "id": "desc_sent_his_long_green_path",
+      "ru": "Его длинная зелёная дорожка.",
+      "en": "His long green path.",
+      "sourcePages": [
+        50
+      ]
+    },
+    {
+      "id": "desc_sent_our_short_blue_bed",
+      "ru": "Наша короткая синяя кровать.",
+      "en": "Our short blue bed.",
+      "sourcePages": [
+        50
+      ]
+    },
+    {
+      "id": "desc_sent_my_new_grey_car",
+      "ru": "Моя новая серая машина.",
+      "en": "My new grey car.",
+      "sourcePages": [
+        50
+      ]
+    },
+    {
+      "id": "desc_sent_his_old_brown_book",
+      "ru": "Его старая коричневая книга.",
+      "en": "His old brown book.",
+      "sourcePages": [
+        50
+      ]
+    },
+    {
+      "id": "desc_sent_her_new_white_bag",
+      "ru": "Её новая белая сумка.",
+      "en": "Her new white bag.",
+      "sourcePages": [
+        50
+      ]
+    },
+    {
+      "id": "desc_sent_our_old_black_sofa",
+      "ru": "Наш старый чёрный диван.",
+      "en": "Our old black sofa.",
+      "sourcePages": [
+        50
+      ]
+    },
+    {
+      "id": "desc_sent_my_warm_blue_coat",
+      "ru": "Моё тёплое синее пальто.",
+      "en": "My warm blue coat.",
+      "sourcePages": [
+        50
+      ]
+    },
+    {
+      "id": "desc_sent_his_cold_white_icecream",
+      "ru": "Его холодное белое мороженое.",
+      "en": "His cold white ice cream.",
+      "sourcePages": [
+        50
+      ]
+    },
+    {
+      "id": "desc_sent_her_warm_brown_coffee",
+      "ru": "Её тёплый коричневый кофе.",
+      "en": "Her warm brown coffee.",
+      "sourcePages": [
+        50
+      ]
+    },
+    {
+      "id": "desc_sent_our_cold_yellow_juice",
+      "ru": "Наш холодный жёлтый сок.",
+      "en": "Our cold yellow juice.",
+      "sourcePages": [
+        50
+      ]
+    },
+    {
+      "id": "desc_sent_this_gray_cat",
+      "ru": "Это серый кот.",
+      "en": "This is a grey cat.",
+      "sourcePages": [
+        52
+      ]
+    },
+    {
+      "id": "desc_sent_this_red_jacket",
+      "ru": "Это красная куртка.",
+      "en": "This is a red jacket.",
+      "sourcePages": [
+        52
+      ]
+    },
+    {
+      "id": "desc_sent_this_blue_car",
+      "ru": "Это синяя машина.",
+      "en": "This is a blue car.",
+      "sourcePages": [
+        52
+      ]
+    },
+    {
+      "id": "desc_sent_this_green_apple",
+      "ru": "Это зелёное яблоко.",
+      "en": "This is a green apple.",
+      "sourcePages": [
+        52
+      ]
+    },
+    {
+      "id": "desc_sent_this_yellow_flower",
+      "ru": "Это жёлтый цветок.",
+      "en": "This is a yellow flower.",
+      "sourcePages": [
+        53
+      ]
+    },
+    {
+      "id": "desc_sent_this_black_phone",
+      "ru": "Это чёрный телефон.",
+      "en": "This is a black phone.",
+      "sourcePages": [
+        53
+      ]
+    },
+    {
+      "id": "desc_sent_this_white_shirt",
+      "ru": "Это белая рубашка.",
+      "en": "This is a white shirt.",
+      "sourcePages": [
+        53
+      ]
+    },
+    {
+      "id": "desc_sent_this_brown_bear",
+      "ru": "Это коричневый медведь.",
+      "en": "This is a brown bear.",
+      "sourcePages": [
+        53
+      ]
+    },
+    {
+      "id": "desc_sent_this_orange_orange",
+      "ru": "Это оранжевый апельсин.",
+      "en": "This is an orange orange.",
+      "sourcePages": [
+        53
+      ]
+    },
+    {
+      "id": "desc_sent_this_pink_bag",
+      "ru": "Это розовая сумка.",
+      "en": "This is a pink bag.",
+      "sourcePages": [
+        53
+      ]
+    },
+    {
+      "id": "desc_sent_this_purple_dress",
+      "ru": "Это фиолетовое платье.",
+      "en": "This is a purple dress.",
+      "sourcePages": [
+        53
+      ]
+    },
+    {
+      "id": "desc_sent_this_lightblue_pen",
+      "ru": "Это голубая ручка.",
+      "en": "This is a light-blue pen.",
+      "sourcePages": [
+        53
+      ]
+    },
+    {
+      "id": "desc_sent_this_green_tree",
+      "ru": "Это зелёное дерево.",
+      "en": "This is a green tree.",
+      "sourcePages": [
+        53
+      ]
+    },
+    {
+      "id": "desc_sent_this_white_sofa",
+      "ru": "Это белый диван.",
+      "en": "This is a white sofa.",
+      "sourcePages": [
+        53
+      ]
+    },
+    {
+      "id": "desc_sent_this_gray_mouse",
+      "ru": "Это серая мышь.",
+      "en": "This is a grey mouse.",
+      "sourcePages": [
+        53
+      ]
+    },
+    {
+      "id": "desc_sent_this_red_scarf",
+      "ru": "Это красный шарф.",
+      "en": "This is a red scarf.",
+      "sourcePages": [
+        53
+      ]
+    },
+    {
+      "id": "desc_sent_this_blue_armchair",
+      "ru": "Это синее кресло.",
+      "en": "This is a blue armchair.",
+      "sourcePages": [
+        53
+      ]
+    },
+    {
+      "id": "desc_sent_this_yellow_lamp",
+      "ru": "Это жёлтая лампа.",
+      "en": "This is a yellow lamp.",
+      "sourcePages": [
+        53
+      ]
+    },
+    {
+      "id": "desc_sent_this_black_boot",
+      "ru": "Это чёрный ботинок.",
+      "en": "This is a black shoe.",
+      "sourcePages": [
+        53
+      ]
+    },
+    {
+      "id": "desc_sent_this_pink_notebook",
+      "ru": "Это розовая тетрадь.",
+      "en": "This is a pink notebook.",
+      "sourcePages": [
+        53
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1837 @@
+{
+  "moduleId": "nouns_plurals",
+  "title": "Nouns + Plurals",
+  "purpose": "Drill noun gender, regular plural patterns, irregular plurals, and invariant nouns.",
+  "defaultStageProfile": "grammar_full",
+  "analytics": {
+    "heatmap": "noun x rule-group",
+    "secondaryPanels": [
+      "irregular plural watchlist"
+    ]
+  },
+  "uiSignature": "Rule-group board with compact badges for gender and plural type.",
+  "subdeckRules": [
+    "Regular, irregular, and invariant nouns must be in separate subdecks.",
+    "Do not hide plural type labels during Preview."
+  ],
+  "referenceTable": {
+    "pluralRules": {
+      "regularRules": [
+        "Masculine consonant-final nouns often take -ы.",
+        "Masculine nouns ending in -й drop -й and add -и.",
+        "Masculine nouns ending in soft sign often take -и.",
+        "Feminine nouns ending in -а usually change to -ы.",
+        "Feminine nouns ending in -я usually change to -и.",
+        "Feminine nouns ending in soft sign usually take -и.",
+        "Neuter nouns ending in -о usually change to -а.",
+        "Neuter nouns ending in -е usually change to -я."
+      ],
+      "spellingRule": "After г, к, х, ж, ч, ш, щ use -и, not -ы.",
+      "stressChangeExamples": [
+        "стол -> столы",
+        "игра -> игры",
+        "рука -> руки",
+        "сестра -> сёстры",
+        "окно -> окна",
+        "море -> моря"
+      ],
+      "notes": "Because the app is text-only right now, stress shifts should be treated as reference notes unless they change spelling (e.g. сёстры)."
+    }
+  },
+  "subdecks": [
+    {
+      "id": "np_gender_foundation",
+      "title": "Foundation noun gender deck",
+      "order": 1,
+      "defaultEntry": true,
+      "status": "active",
+      "sourcePages": [
+        37,
+        38,
+        39
+      ],
+      "whyThisExists": "These are the noun/gender items explicitly listed together in the notes and form the best foundation for gender reps.",
+      "atoms": [
+        {
+          "id": "np_gender_foundation__книга",
+          "kind": "noun_gender",
+          "moduleKind": "noun",
+          "subdeckId": "np_gender_foundation",
+          "stageProfileId": "grammar_full",
+          "ru": "книга",
+          "en": "book",
+          "gender": "f",
+          "answer": "f",
+          "plural": "книги",
+          "pluralType": "regular_spelling_rule_i",
+          "sourcePages": [
+            37,
+            39
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_gender_foundation__телефон",
+          "kind": "noun_gender",
+          "moduleKind": "noun",
+          "subdeckId": "np_gender_foundation",
+          "stageProfileId": "grammar_full",
+          "ru": "телефон",
+          "en": "phone",
+          "gender": "m",
+          "answer": "m",
+          "plural": "телефоны",
+          "pluralType": "regular_y",
+          "sourcePages": [
+            37,
+            39
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_gender_foundation__окно",
+          "kind": "noun_gender",
+          "moduleKind": "noun",
+          "subdeckId": "np_gender_foundation",
+          "stageProfileId": "grammar_full",
+          "ru": "окно",
+          "en": "window",
+          "gender": "n",
+          "answer": "n",
+          "plural": "окна",
+          "pluralType": "regular_a",
+          "sourcePages": [
+            37,
+            39,
+            40
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_gender_foundation__стол",
+          "kind": "noun_gender",
+          "moduleKind": "noun",
+          "subdeckId": "np_gender_foundation",
+          "stageProfileId": "grammar_full",
+          "ru": "стол",
+          "en": "table",
+          "gender": "m",
+          "answer": "m",
+          "plural": "столы",
+          "pluralType": "regular_y",
+          "sourcePages": [
+            37,
+            39,
+            40
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_gender_foundation__сумка",
+          "kind": "noun_gender",
+          "moduleKind": "noun",
+          "subdeckId": "np_gender_foundation",
+          "stageProfileId": "grammar_full",
+          "ru": "сумка",
+          "en": "bag",
+          "gender": "f",
+          "answer": "f",
+          "plural": "сумки",
+          "pluralType": "regular_spelling_rule_i",
+          "sourcePages": [
+            37,
+            39
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_gender_foundation__море",
+          "kind": "noun_gender",
+          "moduleKind": "noun",
+          "subdeckId": "np_gender_foundation",
+          "stageProfileId": "grammar_full",
+          "ru": "море",
+          "en": "sea",
+          "gender": "n",
+          "answer": "n",
+          "plural": "моря",
+          "pluralType": "regular_ya",
+          "sourcePages": [
+            37,
+            39,
+            40
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_gender_foundation__компьютер",
+          "kind": "noun_gender",
+          "moduleKind": "noun",
+          "subdeckId": "np_gender_foundation",
+          "stageProfileId": "grammar_full",
+          "ru": "компьютер",
+          "en": "computer",
+          "gender": "m",
+          "answer": "m",
+          "plural": "компьютеры",
+          "pluralType": "regular_y",
+          "sourcePages": [
+            37,
+            39
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_gender_foundation__подруга",
+          "kind": "noun_gender",
+          "moduleKind": "noun",
+          "subdeckId": "np_gender_foundation",
+          "stageProfileId": "grammar_full",
+          "ru": "подруга",
+          "en": "female friend",
+          "gender": "f",
+          "answer": "f",
+          "plural": "подруги",
+          "pluralType": "regular_y",
+          "sourcePages": [
+            37,
+            39
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_gender_foundation__автобус",
+          "kind": "noun_gender",
+          "moduleKind": "noun",
+          "subdeckId": "np_gender_foundation",
+          "stageProfileId": "grammar_full",
+          "ru": "автобус",
+          "en": "bus",
+          "gender": "m",
+          "answer": "m",
+          "plural": "автобусы",
+          "pluralType": "regular_y",
+          "sourcePages": [
+            37,
+            39
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_gender_foundation__зеркало",
+          "kind": "noun_gender",
+          "moduleKind": "noun",
+          "subdeckId": "np_gender_foundation",
+          "stageProfileId": "grammar_full",
+          "ru": "зеркало",
+          "en": "mirror",
+          "gender": "n",
+          "answer": "n",
+          "plural": "зеркала",
+          "pluralType": "regular_a",
+          "sourcePages": [
+            37,
+            39
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_gender_foundation__карандаш",
+          "kind": "noun_gender",
+          "moduleKind": "noun",
+          "subdeckId": "np_gender_foundation",
+          "stageProfileId": "grammar_full",
+          "ru": "карандаш",
+          "en": "pencil",
+          "gender": "m",
+          "answer": "m",
+          "plural": "карандаши",
+          "pluralType": "regular_spelling_rule_i",
+          "sourcePages": [
+            37,
+            39
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_gender_foundation__молоко",
+          "kind": "noun_gender",
+          "moduleKind": "noun",
+          "subdeckId": "np_gender_foundation",
+          "stageProfileId": "grammar_full",
+          "ru": "молоко",
+          "en": "milk",
+          "gender": "n",
+          "answer": "n",
+          "plural": null,
+          "pluralType": "mass_uncounted",
+          "sourcePages": [
+            37,
+            39
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_gender_foundation__газета",
+          "kind": "noun_gender",
+          "moduleKind": "noun",
+          "subdeckId": "np_gender_foundation",
+          "stageProfileId": "grammar_full",
+          "ru": "газета",
+          "en": "newspaper",
+          "gender": "f",
+          "answer": "f",
+          "plural": "газеты",
+          "pluralType": "regular_y",
+          "sourcePages": [
+            37,
+            39
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_gender_foundation__кот",
+          "kind": "noun_gender",
+          "moduleKind": "noun",
+          "subdeckId": "np_gender_foundation",
+          "stageProfileId": "grammar_full",
+          "ru": "кот",
+          "en": "cat (male cat)",
+          "gender": "m",
+          "answer": "m",
+          "plural": "коты",
+          "pluralType": "regular_y",
+          "sourcePages": [
+            38,
+            39
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_gender_foundation__кошка",
+          "kind": "noun_gender",
+          "moduleKind": "noun",
+          "subdeckId": "np_gender_foundation",
+          "stageProfileId": "grammar_full",
+          "ru": "кошка",
+          "en": "cat (female cat)",
+          "gender": "f",
+          "answer": "f",
+          "plural": "кошки",
+          "pluralType": "regular_spelling_rule_i",
+          "sourcePages": [
+            38
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_gender_foundation__вино",
+          "kind": "noun_gender",
+          "moduleKind": "noun",
+          "subdeckId": "np_gender_foundation",
+          "stageProfileId": "grammar_full",
+          "ru": "вино",
+          "en": "wine",
+          "gender": "n",
+          "answer": "n",
+          "plural": "вина",
+          "pluralType": "regular_a",
+          "sourcePages": [
+            38,
+            39
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_gender_foundation__письмо",
+          "kind": "noun_gender",
+          "moduleKind": "noun",
+          "subdeckId": "np_gender_foundation",
+          "stageProfileId": "grammar_full",
+          "ru": "письмо",
+          "en": "letter",
+          "gender": "n",
+          "answer": "n",
+          "plural": "письма",
+          "pluralType": "regular_a",
+          "sourcePages": [
+            38,
+            39
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_gender_foundation__школа",
+          "kind": "noun_gender",
+          "moduleKind": "noun",
+          "subdeckId": "np_gender_foundation",
+          "stageProfileId": "grammar_full",
+          "ru": "школа",
+          "en": "school",
+          "gender": "f",
+          "answer": "f",
+          "plural": "школы",
+          "pluralType": "regular_y",
+          "sourcePages": [
+            38,
+            39
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_gender_foundation__дверь",
+          "kind": "noun_gender",
+          "moduleKind": "noun",
+          "subdeckId": "np_gender_foundation",
+          "stageProfileId": "grammar_full",
+          "ru": "дверь",
+          "en": "door",
+          "gender": "f",
+          "answer": "f",
+          "plural": "двери",
+          "pluralType": "regular_soft_sign_i",
+          "sourcePages": [
+            38,
+            39,
+            40
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_gender_foundation__девочка",
+          "kind": "noun_gender",
+          "moduleKind": "noun",
+          "subdeckId": "np_gender_foundation",
+          "stageProfileId": "grammar_full",
+          "ru": "девочка",
+          "en": "girl",
+          "gender": "f",
+          "answer": "f",
+          "plural": "девочки",
+          "pluralType": "regular_spelling_rule_i",
+          "sourcePages": [
+            38,
+            39
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_gender_foundation__солнце",
+          "kind": "noun_gender",
+          "moduleKind": "noun",
+          "subdeckId": "np_gender_foundation",
+          "stageProfileId": "grammar_full",
+          "ru": "солнце",
+          "en": "sun",
+          "gender": "n",
+          "answer": "n",
+          "plural": "солнца",
+          "pluralType": "regular_a",
+          "sourcePages": [
+            38,
+            39
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_gender_foundation__здание",
+          "kind": "noun_gender",
+          "moduleKind": "noun",
+          "subdeckId": "np_gender_foundation",
+          "stageProfileId": "grammar_full",
+          "ru": "здание",
+          "en": "building",
+          "gender": "n",
+          "answer": "n",
+          "plural": "здания",
+          "pluralType": "regular_ya",
+          "sourcePages": [
+            38,
+            39,
+            40
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_gender_foundation__учитель",
+          "kind": "noun_gender",
+          "moduleKind": "noun",
+          "subdeckId": "np_gender_foundation",
+          "stageProfileId": "grammar_full",
+          "ru": "учитель",
+          "en": "teacher (male)",
+          "gender": "m",
+          "answer": "m",
+          "plural": "учителя",
+          "pluralType": "irregular_a",
+          "sourcePages": [
+            38,
+            39,
+            41
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_gender_foundation__учительница",
+          "kind": "noun_gender",
+          "moduleKind": "noun",
+          "subdeckId": "np_gender_foundation",
+          "stageProfileId": "grammar_full",
+          "ru": "учительница",
+          "en": "teacher (female)",
+          "gender": "f",
+          "answer": "f",
+          "plural": "учительницы",
+          "pluralType": "regular_y",
+          "sourcePages": [
+            38,
+            39
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_gender_foundation__яблоко",
+          "kind": "noun_gender",
+          "moduleKind": "noun",
+          "subdeckId": "np_gender_foundation",
+          "stageProfileId": "grammar_full",
+          "ru": "яблоко",
+          "en": "apple",
+          "gender": "n",
+          "answer": "n",
+          "plural": "яблоки",
+          "pluralType": "irregular_i",
+          "sourcePages": [
+            38,
+            39,
+            42
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_gender_foundation__ручка",
+          "kind": "noun_gender",
+          "moduleKind": "noun",
+          "subdeckId": "np_gender_foundation",
+          "stageProfileId": "grammar_full",
+          "ru": "ручка",
+          "en": "pen",
+          "gender": "f",
+          "answer": "f",
+          "plural": "ручки",
+          "pluralType": "regular_spelling_rule_i",
+          "sourcePages": [
+            38,
+            39
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_gender_foundation__город",
+          "kind": "noun_gender",
+          "moduleKind": "noun",
+          "subdeckId": "np_gender_foundation",
+          "stageProfileId": "grammar_full",
+          "ru": "город",
+          "en": "city",
+          "gender": "m",
+          "answer": "m",
+          "plural": "города",
+          "pluralType": "irregular_a",
+          "sourcePages": [
+            38,
+            39,
+            41
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_gender_foundation__кресло",
+          "kind": "noun_gender",
+          "moduleKind": "noun",
+          "subdeckId": "np_gender_foundation",
+          "stageProfileId": "grammar_full",
+          "ru": "кресло",
+          "en": "armchair",
+          "gender": "n",
+          "answer": "n",
+          "plural": "кресла",
+          "pluralType": "regular_a",
+          "sourcePages": [
+            38,
+            39
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_gender_foundation__друг",
+          "kind": "noun_gender",
+          "moduleKind": "noun",
+          "subdeckId": "np_gender_foundation",
+          "stageProfileId": "grammar_full",
+          "ru": "друг",
+          "en": "friend",
+          "gender": "m",
+          "answer": "m",
+          "plural": "друзья",
+          "pluralType": "irregular_ya_family",
+          "sourcePages": [
+            38,
+            39,
+            41
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_gender_foundation__машина",
+          "kind": "noun_gender",
+          "moduleKind": "noun",
+          "subdeckId": "np_gender_foundation",
+          "stageProfileId": "grammar_full",
+          "ru": "машина",
+          "en": "car",
+          "gender": "f",
+          "answer": "f",
+          "plural": "машины",
+          "pluralType": "regular_y",
+          "sourcePages": [
+            38,
+            39
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_gender_foundation__дом",
+          "kind": "noun_gender",
+          "moduleKind": "noun",
+          "subdeckId": "np_gender_foundation",
+          "stageProfileId": "grammar_full",
+          "ru": "дом",
+          "en": "house",
+          "gender": "m",
+          "answer": "m",
+          "plural": "дома",
+          "pluralType": "irregular_a",
+          "sourcePages": [
+            38,
+            39,
+            41
+          ],
+          "reviewed": true
+        }
+      ],
+      "massOrSpecialNotes": [
+        {
+          "ru": "молоко",
+          "en": "milk",
+          "note": "mass noun / usually uncounted"
+        }
+      ]
+    },
+    {
+      "id": "np_regular_plurals",
+      "title": "Regular plural patterns",
+      "order": 2,
+      "defaultEntry": false,
+      "status": "active",
+      "sourcePages": [
+        37,
+        38,
+        39,
+        40
+      ],
+      "whyThisExists": "This subdeck trains the normal plural rules before the user faces irregular endings.",
+      "atoms": [
+        {
+          "id": "np_regular_plurals__книга",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_regular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "книга",
+          "plural": "книги",
+          "translation": "book",
+          "gender": "f",
+          "answer": "книги",
+          "pluralType": "regular_spelling_rule_i",
+          "sourcePages": [
+            37,
+            39
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_regular_plurals__телефон",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_regular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "телефон",
+          "plural": "телефоны",
+          "translation": "phone",
+          "gender": "m",
+          "answer": "телефоны",
+          "pluralType": "regular_y",
+          "sourcePages": [
+            37,
+            39
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_regular_plurals__окно",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_regular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "окно",
+          "plural": "окна",
+          "translation": "window",
+          "gender": "n",
+          "answer": "окна",
+          "pluralType": "regular_a",
+          "sourcePages": [
+            37,
+            39,
+            40
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_regular_plurals__стол",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_regular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "стол",
+          "plural": "столы",
+          "translation": "table",
+          "gender": "m",
+          "answer": "столы",
+          "pluralType": "regular_y",
+          "sourcePages": [
+            37,
+            39,
+            40
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_regular_plurals__сумка",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_regular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "сумка",
+          "plural": "сумки",
+          "translation": "bag",
+          "gender": "f",
+          "answer": "сумки",
+          "pluralType": "regular_spelling_rule_i",
+          "sourcePages": [
+            37,
+            39
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_regular_plurals__море",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_regular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "море",
+          "plural": "моря",
+          "translation": "sea",
+          "gender": "n",
+          "answer": "моря",
+          "pluralType": "regular_ya",
+          "sourcePages": [
+            37,
+            39,
+            40
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_regular_plurals__компьютер",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_regular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "компьютер",
+          "plural": "компьютеры",
+          "translation": "computer",
+          "gender": "m",
+          "answer": "компьютеры",
+          "pluralType": "regular_y",
+          "sourcePages": [
+            37,
+            39
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_regular_plurals__подруга",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_regular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "подруга",
+          "plural": "подруги",
+          "translation": "female friend",
+          "gender": "f",
+          "answer": "подруги",
+          "pluralType": "regular_y",
+          "sourcePages": [
+            37,
+            39
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_regular_plurals__автобус",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_regular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "автобус",
+          "plural": "автобусы",
+          "translation": "bus",
+          "gender": "m",
+          "answer": "автобусы",
+          "pluralType": "regular_y",
+          "sourcePages": [
+            37,
+            39
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_regular_plurals__зеркало",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_regular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "зеркало",
+          "plural": "зеркала",
+          "translation": "mirror",
+          "gender": "n",
+          "answer": "зеркала",
+          "pluralType": "regular_a",
+          "sourcePages": [
+            37,
+            39
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_regular_plurals__карандаш",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_regular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "карандаш",
+          "plural": "карандаши",
+          "translation": "pencil",
+          "gender": "m",
+          "answer": "карандаши",
+          "pluralType": "regular_spelling_rule_i",
+          "sourcePages": [
+            37,
+            39
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_regular_plurals__газета",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_regular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "газета",
+          "plural": "газеты",
+          "translation": "newspaper",
+          "gender": "f",
+          "answer": "газеты",
+          "pluralType": "regular_y",
+          "sourcePages": [
+            37,
+            39
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_regular_plurals__кот",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_regular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "кот",
+          "plural": "коты",
+          "translation": "cat (male cat)",
+          "gender": "m",
+          "answer": "коты",
+          "pluralType": "regular_y",
+          "sourcePages": [
+            38,
+            39
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_regular_plurals__кошка",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_regular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "кошка",
+          "plural": "кошки",
+          "translation": "cat (female cat)",
+          "gender": "f",
+          "answer": "кошки",
+          "pluralType": "regular_spelling_rule_i",
+          "sourcePages": [
+            38
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_regular_plurals__вино",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_regular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "вино",
+          "plural": "вина",
+          "translation": "wine",
+          "gender": "n",
+          "answer": "вина",
+          "pluralType": "regular_a",
+          "sourcePages": [
+            38,
+            39
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_regular_plurals__письмо",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_regular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "письмо",
+          "plural": "письма",
+          "translation": "letter",
+          "gender": "n",
+          "answer": "письма",
+          "pluralType": "regular_a",
+          "sourcePages": [
+            38,
+            39
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_regular_plurals__школа",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_regular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "школа",
+          "plural": "школы",
+          "translation": "school",
+          "gender": "f",
+          "answer": "школы",
+          "pluralType": "regular_y",
+          "sourcePages": [
+            38,
+            39
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_regular_plurals__дверь",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_regular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "дверь",
+          "plural": "двери",
+          "translation": "door",
+          "gender": "f",
+          "answer": "двери",
+          "pluralType": "regular_soft_sign_i",
+          "sourcePages": [
+            38,
+            39,
+            40
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_regular_plurals__девочка",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_regular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "девочка",
+          "plural": "девочки",
+          "translation": "girl",
+          "gender": "f",
+          "answer": "девочки",
+          "pluralType": "regular_spelling_rule_i",
+          "sourcePages": [
+            38,
+            39
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_regular_plurals__солнце",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_regular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "солнце",
+          "plural": "солнца",
+          "translation": "sun",
+          "gender": "n",
+          "answer": "солнца",
+          "pluralType": "regular_a",
+          "sourcePages": [
+            38,
+            39
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_regular_plurals__здание",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_regular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "здание",
+          "plural": "здания",
+          "translation": "building",
+          "gender": "n",
+          "answer": "здания",
+          "pluralType": "regular_ya",
+          "sourcePages": [
+            38,
+            39,
+            40
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_regular_plurals__учительница",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_regular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "учительница",
+          "plural": "учительницы",
+          "translation": "teacher (female)",
+          "gender": "f",
+          "answer": "учительницы",
+          "pluralType": "regular_y",
+          "sourcePages": [
+            38,
+            39
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_regular_plurals__ручка",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_regular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "ручка",
+          "plural": "ручки",
+          "translation": "pen",
+          "gender": "f",
+          "answer": "ручки",
+          "pluralType": "regular_spelling_rule_i",
+          "sourcePages": [
+            38,
+            39
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_regular_plurals__кресло",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_regular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "кресло",
+          "plural": "кресла",
+          "translation": "armchair",
+          "gender": "n",
+          "answer": "кресла",
+          "pluralType": "regular_a",
+          "sourcePages": [
+            38,
+            39
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_regular_plurals__машина",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_regular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "машина",
+          "plural": "машины",
+          "translation": "car",
+          "gender": "f",
+          "answer": "машины",
+          "pluralType": "regular_y",
+          "sourcePages": [
+            38,
+            39
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_regular_plurals__студент",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_regular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "студент",
+          "plural": "студенты",
+          "translation": "student",
+          "gender": "m",
+          "answer": "студенты",
+          "pluralType": "regular_y",
+          "sourcePages": [
+            39,
+            40
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_regular_plurals__музей",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_regular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "музей",
+          "plural": "музеи",
+          "translation": "museum",
+          "gender": "m",
+          "answer": "музеи",
+          "pluralType": "remove_j_add_i",
+          "sourcePages": [
+            40
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_regular_plurals__автомобиль",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_regular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "автомобиль",
+          "plural": "автомобили",
+          "translation": "car / automobile",
+          "gender": "m",
+          "answer": "автомобили",
+          "pluralType": "remove_soft_add_i",
+          "sourcePages": [
+            40
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_regular_plurals__актриса",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_regular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "актриса",
+          "plural": "актрисы",
+          "translation": "actress",
+          "gender": "f",
+          "answer": "актрисы",
+          "pluralType": "regular_y",
+          "sourcePages": [
+            40
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_regular_plurals__неделя",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_regular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "неделя",
+          "plural": "недели",
+          "translation": "week",
+          "gender": "f",
+          "answer": "недели",
+          "pluralType": "remove_ya_add_i",
+          "sourcePages": [
+            40
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_regular_plurals__станция",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_regular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "станция",
+          "plural": "станции",
+          "translation": "station",
+          "gender": "f",
+          "answer": "станции",
+          "pluralType": "remove_ya_add_i",
+          "sourcePages": [
+            40
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_regular_plurals__чашка",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_regular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "чашка",
+          "plural": "чашки",
+          "translation": "cup",
+          "gender": "f",
+          "answer": "чашки",
+          "pluralType": "regular_spelling_rule_i",
+          "sourcePages": [
+            40,
+            49
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_regular_plurals__место",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_regular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "место",
+          "plural": "места",
+          "translation": "place",
+          "gender": "n",
+          "answer": "места",
+          "pluralType": "regular_a",
+          "sourcePages": [
+            40
+          ],
+          "reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "np_irregular_plurals",
+      "title": "Irregular plural watchlist",
+      "order": 3,
+      "defaultEntry": false,
+      "status": "active",
+      "sourcePages": [
+        38,
+        41,
+        42
+      ],
+      "whyThisExists": "Irregular plurals must be isolated so the user can see exactly which nouns still need reps.",
+      "atoms": [
+        {
+          "id": "np_irregular_plurals__учитель",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_irregular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "учитель",
+          "plural": "учителя",
+          "translation": "teacher (male)",
+          "gender": "m",
+          "answer": "учителя",
+          "pluralType": "irregular_a",
+          "sourcePages": [
+            38,
+            39,
+            41
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_irregular_plurals__яблоко",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_irregular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "яблоко",
+          "plural": "яблоки",
+          "translation": "apple",
+          "gender": "n",
+          "answer": "яблоки",
+          "pluralType": "irregular_i",
+          "sourcePages": [
+            38,
+            39,
+            42
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_irregular_plurals__город",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_irregular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "город",
+          "plural": "города",
+          "translation": "city",
+          "gender": "m",
+          "answer": "города",
+          "pluralType": "irregular_a",
+          "sourcePages": [
+            38,
+            39,
+            41
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_irregular_plurals__друг",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_irregular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "друг",
+          "plural": "друзья",
+          "translation": "friend",
+          "gender": "m",
+          "answer": "друзья",
+          "pluralType": "irregular_ya_family",
+          "sourcePages": [
+            38,
+            39,
+            41
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_irregular_plurals__дом",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_irregular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "дом",
+          "plural": "дома",
+          "translation": "house",
+          "gender": "m",
+          "answer": "дома",
+          "pluralType": "irregular_a",
+          "sourcePages": [
+            38,
+            39,
+            41
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_irregular_plurals__адрес",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_irregular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "адрес",
+          "plural": "адреса",
+          "translation": "address",
+          "gender": "m",
+          "answer": "адреса",
+          "pluralType": "irregular_a",
+          "sourcePages": [
+            41
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_irregular_plurals__берег",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_irregular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "берег",
+          "plural": "берега",
+          "translation": "coast / shore",
+          "gender": "m",
+          "answer": "берега",
+          "pluralType": "irregular_a",
+          "sourcePages": [
+            41
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_irregular_plurals__глаз",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_irregular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "глаз",
+          "plural": "глаза",
+          "translation": "eye",
+          "gender": "m",
+          "answer": "глаза",
+          "pluralType": "irregular_a",
+          "sourcePages": [
+            41
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_irregular_plurals__поезд",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_irregular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "поезд",
+          "plural": "поезда",
+          "translation": "train",
+          "gender": "m",
+          "answer": "поезда",
+          "pluralType": "irregular_a",
+          "sourcePages": [
+            11,
+            41
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_irregular_plurals__цвет",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_irregular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "цвет",
+          "plural": "цвета",
+          "translation": "color",
+          "gender": "m",
+          "answer": "цвета",
+          "pluralType": "irregular_a",
+          "sourcePages": [
+            18,
+            41
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_irregular_plurals__брат",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_irregular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "брат",
+          "plural": "братья",
+          "translation": "brother",
+          "gender": "m",
+          "answer": "братья",
+          "pluralType": "irregular_ya_family",
+          "sourcePages": [
+            13,
+            41
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_irregular_plurals__сын",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_irregular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "сын",
+          "plural": "сыновья",
+          "translation": "son",
+          "gender": "m",
+          "answer": "сыновья",
+          "pluralType": "irregular_ya_family",
+          "sourcePages": [
+            13,
+            41
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_irregular_plurals__лист",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_irregular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "лист",
+          "plural": "листья",
+          "translation": "leaf",
+          "gender": "m",
+          "answer": "листья",
+          "pluralType": "irregular_ya_family",
+          "sourcePages": [
+            41
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_irregular_plurals__стул",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_irregular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "стул",
+          "plural": "стулья",
+          "translation": "chair",
+          "gender": "m",
+          "answer": "стулья",
+          "pluralType": "irregular_ya_family",
+          "sourcePages": [
+            41
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_irregular_plurals__дочь",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_irregular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "дочь",
+          "plural": "дочери",
+          "translation": "daughter",
+          "gender": "f",
+          "answer": "дочери",
+          "pluralType": "irregular_special",
+          "sourcePages": [
+            13,
+            41
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_irregular_plurals__мать",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_irregular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "мать",
+          "plural": "матери",
+          "translation": "mother",
+          "gender": "f",
+          "answer": "матери",
+          "pluralType": "irregular_special",
+          "sourcePages": [
+            13,
+            41
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_irregular_plurals__время",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_irregular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "время",
+          "plural": "времена",
+          "translation": "time",
+          "gender": "n",
+          "answer": "времена",
+          "pluralType": "irregular_a",
+          "sourcePages": [
+            35,
+            41
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_irregular_plurals__дерево",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_irregular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "дерево",
+          "plural": "деревья",
+          "translation": "tree",
+          "gender": "n",
+          "answer": "деревья",
+          "pluralType": "irregular_ya_family",
+          "sourcePages": [
+            37,
+            41,
+            53
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_irregular_plurals__имя",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_irregular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "имя",
+          "plural": "имена",
+          "translation": "name",
+          "gender": "n",
+          "answer": "имена",
+          "pluralType": "irregular_a",
+          "sourcePages": [
+            41
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_irregular_plurals__колено",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_irregular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "колено",
+          "plural": "колени",
+          "translation": "knee",
+          "gender": "n",
+          "answer": "колени",
+          "pluralType": "irregular_special",
+          "sourcePages": [
+            41
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_irregular_plurals__плечо",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_irregular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "плечо",
+          "plural": "плечи",
+          "translation": "shoulder",
+          "gender": "n",
+          "answer": "плечи",
+          "pluralType": "irregular_special",
+          "sourcePages": [
+            41
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_irregular_plurals__ухо",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_irregular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "ухо",
+          "plural": "уши",
+          "translation": "ear",
+          "gender": "n",
+          "answer": "уши",
+          "pluralType": "irregular_special",
+          "sourcePages": [
+            41
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_irregular_plurals__ребёнок",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_irregular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "ребёнок",
+          "plural": "дети",
+          "translation": "child",
+          "gender": "m",
+          "answer": "дети",
+          "pluralType": "suppletive",
+          "sourcePages": [
+            42
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_irregular_plurals__человек",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_irregular_plurals",
+          "stageProfileId": "grammar_full",
+          "singular": "человек",
+          "plural": "люди",
+          "translation": "person",
+          "gender": "m",
+          "answer": "люди",
+          "pluralType": "suppletive",
+          "sourcePages": [
+            42
+          ],
+          "reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "np_invariant_nouns",
+      "title": "Invariant nouns",
+      "order": 4,
+      "defaultEntry": false,
+      "status": "active",
+      "sourcePages": [
+        42
+      ],
+      "whyThisExists": "These nouns keep the same form in singular and plural and should be drilled as their own tiny category.",
+      "atoms": [
+        {
+          "id": "np_invariant_nouns__бюро",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_invariant_nouns",
+          "stageProfileId": "grammar_full",
+          "singular": "бюро",
+          "plural": "бюро",
+          "translation": "bureau",
+          "gender": "n",
+          "answer": "бюро",
+          "pluralType": "invariant",
+          "sourcePages": [
+            42
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_invariant_nouns__метро",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_invariant_nouns",
+          "stageProfileId": "grammar_full",
+          "singular": "метро",
+          "plural": "метро",
+          "translation": "metro",
+          "gender": "n",
+          "answer": "метро",
+          "pluralType": "invariant",
+          "sourcePages": [
+            11,
+            42
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_invariant_nouns__такси",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_invariant_nouns",
+          "stageProfileId": "grammar_full",
+          "singular": "такси",
+          "plural": "такси",
+          "translation": "taxi",
+          "gender": "n",
+          "answer": "такси",
+          "pluralType": "invariant",
+          "sourcePages": [
+            42
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_invariant_nouns__пианино",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_invariant_nouns",
+          "stageProfileId": "grammar_full",
+          "singular": "пианино",
+          "plural": "пианино",
+          "translation": "piano",
+          "gender": "n",
+          "answer": "пианино",
+          "pluralType": "invariant",
+          "sourcePages": [
+            42,
+            46
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_invariant_nouns__радио",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_invariant_nouns",
+          "stageProfileId": "grammar_full",
+          "singular": "радио",
+          "plural": "радио",
+          "translation": "radio",
+          "gender": "n",
+          "answer": "радио",
+          "pluralType": "invariant",
+          "sourcePages": [
+            18,
+            42,
+            46
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_invariant_nouns__виски",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_invariant_nouns",
+          "stageProfileId": "grammar_full",
+          "singular": "виски",
+          "plural": "виски",
+          "translation": "whisky",
+          "gender": "n",
+          "answer": "виски",
+          "pluralType": "invariant",
+          "sourcePages": [
+            42
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_invariant_nouns__кафе",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_invariant_nouns",
+          "stageProfileId": "grammar_full",
+          "singular": "кафе",
+          "plural": "кафе",
+          "translation": "cafe",
+          "gender": "n",
+          "answer": "кафе",
+          "pluralType": "invariant",
+          "sourcePages": [
+            42
+          ],
+          "reviewed": true
+        },
+        {
+          "id": "np_invariant_nouns__кофе",
+          "kind": "plural_form",
+          "moduleKind": "plural",
+          "subdeckId": "np_invariant_nouns",
+          "stageProfileId": "grammar_full",
+          "singular": "кофе",
+          "plural": "кофе",
+          "translation": "coffee",
+          "gender": "m",
+          "answer": "кофе",
+          "pluralType": "invariant",
+          "sourcePages": [
+            42,
+            10,
+            44
+          ],
+          "reviewed": true
+        }
+      ]
+    }
+  ]
+}

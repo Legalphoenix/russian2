@@ -1,0 +1,43 @@
+{
+  "moduleId": "mixed_review",
+  "title": "Mixed Review",
+  "purpose": "Daily gym page. Never introduces new atoms. Only draws from atoms already seen in their home modules.",
+  "modes": [
+    {
+      "id": "before_class",
+      "title": "Before class review",
+      "repCount": 20,
+      "selectionRule": "Only atoms previously seen at least once. Bias toward sentenceGuided/typeFull atoms from conjugation, core patterns, days/time/routine, descriptions, and conversation.",
+      "excludes": [
+        "vocab_opt_in_slang_profanity",
+        "reference_pronunciation",
+        "sc_perfective_future_reference"
+      ]
+    },
+    {
+      "id": "weakest_20",
+      "title": "Weakest 20",
+      "repCount": 20,
+      "selectionRule": "Rank all eligible atoms by module-normalized difficulty score and pull the worst ones across modules."
+    },
+    {
+      "id": "production_mix",
+      "title": "Production mix",
+      "repCount": 20,
+      "selectionRule": "Only atoms that have already unlocked at least typeFragment or equivalent. Prefer typeFull and sentenceGuided stages."
+    }
+  ],
+  "normalizationRule": "Difficulty must be normalized inside each module before cross-module comparison so slow full-sentence tasks do not always outrank simple noun cards.",
+  "defaultEligibleModules": [
+    "first_conjugation",
+    "second_conjugation",
+    "past_tense",
+    "core_patterns",
+    "days_time_routine",
+    "descriptions",
+    "nouns_plurals",
+    "numbers",
+    "conversation",
+    "vocabulary"
+  ]
+}
