@@ -59,6 +59,13 @@ const RECOVER_LINES = [
   "Recovered well.",
   "Tracked it down.",
 ];
+const HEAT_COLOR_STOPS = [
+  { at: 0, color: [238, 244, 240] },
+  { at: 0.3, color: [191, 224, 199] },
+  { at: 0.58, color: [204, 222, 110] },
+  { at: 0.82, color: [235, 193, 88] },
+  { at: 1, color: [232, 140, 53] },
+];
 
 const elements = {
   startButton: document.getElementById("start-button"),
@@ -475,12 +482,34 @@ function buildHeatScale(profiles) {
     };
   }
 
-  const heatFloor = percentile(difficultyValues, 0.18);
-  const rawHeatCeiling = percentile(difficultyValues, 0.85);
+  const heatFloor = percentile(difficultyValues, 0.16);
+  const rawHeatCeiling = percentile(difficultyValues, 0.9);
   return {
     heatFloor,
-    heatCeiling: Math.max(rawHeatCeiling, heatFloor + 0.18),
+    heatCeiling: Math.max(rawHeatCeiling, heatFloor + 0.22),
   };
+}
+
+function mixRgb(start, end, amount) {
+  return start.map((channel, index) => Math.round(channel + (end[index] - channel) * amount));
+}
+
+function rgbString(color) {
+  return `rgb(${color[0]} ${color[1]} ${color[2]})`;
+}
+
+function colorFromStops(stops, value) {
+  const boundedValue = clamp(value, 0, 1);
+  for (let index = 1; index < stops.length; index += 1) {
+    const previous = stops[index - 1];
+    const current = stops[index];
+    if (boundedValue <= current.at) {
+      const localAmount = (boundedValue - previous.at) / Math.max(current.at - previous.at, 0.001);
+      return rgbString(mixRgb(previous.color, current.color, localAmount));
+    }
+  }
+
+  return rgbString(stops[stops.length - 1].color);
 }
 
 function formatMs(value) {
@@ -942,11 +971,8 @@ function colorForProfile(profile) {
     0,
     1,
   );
-  const normalized = Math.pow(0.12 * absolute + 0.88 * relative, 0.78);
-  const hue = 172 - normalized * 154;
-  const saturation = 16 + normalized * 72;
-  const lightness = 97 - normalized * 50;
-  return `hsl(${hue} ${saturation}% ${lightness}%)`;
+  const normalized = Math.pow(0.18 * absolute + 0.82 * relative, 0.88);
+  return colorFromStops(HEAT_COLOR_STOPS, normalized);
 }
 
 function renderKeyboard() {
