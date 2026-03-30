@@ -462,6 +462,27 @@ function percentile(sortedValues, fraction) {
   return sortedValues[lowerIndex] + (sortedValues[upperIndex] - sortedValues[lowerIndex]) * mix;
 }
 
+function buildHeatScale(profiles) {
+  const difficultyValues = profiles
+    .filter((profile) => profile.attempts > 0)
+    .map((profile) => profile.difficulty)
+    .sort((a, b) => a - b);
+
+  if (!difficultyValues.length) {
+    return {
+      heatFloor: 0.8,
+      heatCeiling: 2,
+    };
+  }
+
+  const heatFloor = percentile(difficultyValues, 0.18);
+  const rawHeatCeiling = percentile(difficultyValues, 0.85);
+  return {
+    heatFloor,
+    heatCeiling: Math.max(rawHeatCeiling, heatFloor + 0.18),
+  };
+}
+
 function formatMs(value) {
   return `${Math.round(value)} ms`;
 }
@@ -921,22 +942,16 @@ function colorForProfile(profile) {
     0,
     1,
   );
-  const normalized = Math.pow(0.28 * absolute + 0.72 * relative, 0.9);
-  const hue = 162 - normalized * 146;
-  const saturation = 26 + normalized * 56;
-  const lightness = 96 - normalized * 42;
+  const normalized = Math.pow(0.12 * absolute + 0.88 * relative, 0.78);
+  const hue = 172 - normalized * 154;
+  const saturation = 16 + normalized * 72;
+  const lightness = 97 - normalized * 50;
   return `hsl(${hue} ${saturation}% ${lightness}%)`;
 }
 
 function renderKeyboard() {
   const profileList = LETTERS.map(buildLetterProfile);
-  const difficultyValues = profileList
-    .filter((profile) => profile.attempts > 0)
-    .map((profile) => profile.difficulty)
-    .sort((a, b) => a - b);
-  const heatFloor = difficultyValues.length ? percentile(difficultyValues, 0.12) : 0.8;
-  const rawHeatCeiling = difficultyValues.length ? percentile(difficultyValues, 0.9) : 2;
-  const heatCeiling = Math.max(rawHeatCeiling, heatFloor + 0.2);
+  const { heatFloor, heatCeiling } = buildHeatScale(profileList);
   const profiles = Object.fromEntries(
     profileList.map((profile) => [
       profile.letter,
