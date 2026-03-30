@@ -444,6 +444,24 @@ function average(items, selector) {
   return total / items.length;
 }
 
+function percentile(sortedValues, fraction) {
+  if (!sortedValues.length) {
+    return 0;
+  }
+
+  const boundedFraction = clamp(fraction, 0, 1);
+  const index = boundedFraction * (sortedValues.length - 1);
+  const lowerIndex = Math.floor(index);
+  const upperIndex = Math.ceil(index);
+
+  if (lowerIndex === upperIndex) {
+    return sortedValues[lowerIndex];
+  }
+
+  const mix = index - lowerIndex;
+  return sortedValues[lowerIndex] + (sortedValues[upperIndex] - sortedValues[lowerIndex]) * mix;
+}
+
 function formatMs(value) {
   return `${Math.round(value)} ms`;
 }
@@ -897,15 +915,38 @@ function renderFocusLetters() {
 }
 
 function colorForProfile(profile) {
-  const normalized = clamp((profile.difficulty - 0.8) / 1.2, 0, 1);
-  const hue = 148 - normalized * 92;
-  const saturation = 64 + normalized * 12;
-  const lightness = 82 - normalized * 24;
+  const absolute = clamp((profile.difficulty - 0.8) / 1.2, 0, 1);
+  const relative = clamp(
+    (profile.difficulty - profile.heatFloor) / Math.max(profile.heatCeiling - profile.heatFloor, 0.001),
+    0,
+    1,
+  );
+  const normalized = Math.pow(0.28 * absolute + 0.72 * relative, 0.9);
+  const hue = 162 - normalized * 146;
+  const saturation = 26 + normalized * 56;
+  const lightness = 96 - normalized * 42;
   return `hsl(${hue} ${saturation}% ${lightness}%)`;
 }
 
 function renderKeyboard() {
-  const profiles = Object.fromEntries(LETTERS.map((letter) => [letter, buildLetterProfile(letter)]));
+  const profileList = LETTERS.map(buildLetterProfile);
+  const difficultyValues = profileList
+    .filter((profile) => profile.attempts > 0)
+    .map((profile) => profile.difficulty)
+    .sort((a, b) => a - b);
+  const heatFloor = difficultyValues.length ? percentile(difficultyValues, 0.12) : 0.8;
+  const rawHeatCeiling = difficultyValues.length ? percentile(difficultyValues, 0.9) : 2;
+  const heatCeiling = Math.max(rawHeatCeiling, heatFloor + 0.2);
+  const profiles = Object.fromEntries(
+    profileList.map((profile) => [
+      profile.letter,
+      {
+        ...profile,
+        heatFloor,
+        heatCeiling,
+      },
+    ]),
+  );
   elements.keyboardMap.innerHTML = "";
 
   KEYBOARD_ROWS.forEach((row) => {
