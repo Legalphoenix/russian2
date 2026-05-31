@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Russian Key Coach</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" />
-    <link rel="stylesheet" href="styles.css?v=9" />
+    <link rel="stylesheet" href="styles.css?v=10" />
   </head>
   <body>
     <div class="background-orb orb-a"></div>
@@ -69,11 +69,27 @@
               <p class="section-label">Current target</p>
               <h2>Find the matching key</h2>
             </div>
-            <div id="status-pill" class="status-pill idle">Paused</div>
+            <div class="practice-tools">
+              <div class="mode-control" role="group" aria-label="Prompt mode">
+                <button class="mode-button" data-prompt-mode="letter-only" type="button">
+                  Letter
+                </button>
+                <button class="mode-button" data-prompt-mode="letter-audio" type="button">
+                  Both
+                </button>
+                <button class="mode-button" data-prompt-mode="audio-only" type="button">
+                  Audio
+                </button>
+              </div>
+              <div id="status-pill" class="status-pill idle">Paused</div>
+            </div>
           </div>
 
           <div id="target-display" class="target-display idle">
             <span id="target-letter">Ж</span>
+            <button id="replay-audio-button" class="audio-replay" type="button" hidden>
+              Replay
+            </button>
           </div>
 
           <div class="attempt-strip">
@@ -166,7 +182,7 @@
               <h2>Watch weak spots cool down over time</h2>
             </div>
             <span class="focus-caption">
-              Hotter keys need more work. The current target glows.
+              Hotter keys need more work.
             </span>
           </div>
           <div id="keyboard-map" class="keyboard-map"></div>
@@ -214,6 +230,6 @@
       </section>
     </main>
 
-    <script src="app.js?v=9"></script>
+    <script src="app.js?v=10"></script>
   </body>
 </html>

@@ -280,6 +280,38 @@ h3 {
   align-items: flex-start;
 }
 
+.practice-tools {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+
+.mode-control {
+  display: inline-flex;
+  padding: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(23, 48, 64, 0.08);
+}
+
+.mode-button {
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-soft);
+  padding: 8px 11px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.mode-button.is-active {
+  background: var(--ink-accent);
+  color: white;
+  box-shadow: 0 8px 18px rgba(37, 72, 95, 0.16);
+}
+
 .status-pill,
 .session-badge {
   align-self: center;
@@ -346,6 +378,43 @@ h3 {
   line-height: 1;
   letter-spacing: 0.02em;
   text-shadow: 0 10px 30px rgba(23, 48, 64, 0.12);
+}
+
+.target-display.audio-hidden::after {
+  border-style: solid;
+}
+
+.target-display.audio-hidden span {
+  font-family: "Trebuchet MS", "Gill Sans", "Verdana", sans-serif;
+  font-size: clamp(4.5rem, 13vw, 7rem);
+  color: var(--ink-soft);
+}
+
+.audio-replay {
+  position: absolute;
+  z-index: 2;
+  inset: auto 18px 18px auto;
+  border: 0;
+  border-radius: 999px;
+  background: var(--ink-accent);
+  color: white;
+  padding: 10px 14px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 12px 24px rgba(37, 72, 95, 0.16);
+}
+
+.audio-replay:hover {
+  transform: translateY(-1px);
+}
+
+.target-display.audio-hidden .audio-replay {
+  inset: auto 50% 26px auto;
+  transform: translateX(50%);
+}
+
+.target-display.audio-hidden .audio-replay:hover {
+  transform: translateX(50%) translateY(-1px);
 }
 
 .target-display.live {

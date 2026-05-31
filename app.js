@@ -1,10 +1,12 @@
 const API_PROGRESS_URL = "/api/progress";
+const SETTINGS_KEY = "russian-key-coach-settings-v1";
 const SAVE_RETRY_MS = 2500;
 const RECENT_PER_LETTER = 20;
 const HISTORY_LIMIT = 500;
 const PRIOR_ATTEMPTS = 5;
 const PRIOR_TIME_MS = 1600;
 const PRIOR_ERRORS = 0.8;
+const PROMPT_MODES = new Set(["letter-only", "letter-audio", "audio-only"]);
 const LETTERS = [
   "а",
   "б",
@@ -66,6 +68,41 @@ const HEAT_COLOR_STOPS = [
   { at: 0.82, color: [235, 193, 88] },
   { at: 1, color: [232, 140, 53] },
 ];
+const LETTER_AUDIO_SLUGS = {
+  а: "a",
+  б: "be",
+  в: "ve",
+  г: "ge",
+  д: "de",
+  е: "ye",
+  ё: "yo",
+  ж: "zhe",
+  з: "ze",
+  и: "i",
+  й: "short-i",
+  к: "ka",
+  л: "el",
+  м: "em",
+  н: "en",
+  о: "o",
+  п: "pe",
+  р: "er",
+  с: "es",
+  т: "te",
+  у: "u",
+  ф: "ef",
+  х: "kha",
+  ц: "tse",
+  ч: "che",
+  ш: "sha",
+  щ: "shcha",
+  ъ: "hard-sign",
+  ы: "y",
+  ь: "soft-sign",
+  э: "e",
+  ю: "yu",
+  я: "ya",
+};
 
 const elements = {
   startButton: document.getElementById("start-button"),
@@ -81,6 +118,8 @@ const elements = {
   statusPill: document.getElementById("status-pill"),
   targetDisplay: document.getElementById("target-display"),
   targetLetter: document.getElementById("target-letter"),
+  replayAudioButton: document.getElementById("replay-audio-button"),
+  modeButtons: [...document.querySelectorAll("[data-prompt-mode]")],
   liveTimer: document.getElementById("live-timer"),
   attemptErrors: document.getElementById("attempt-errors"),
   currentStreak: document.getElementById("current-streak"),
@@ -108,6 +147,9 @@ let progressEnvelope = createDefaultProgressEnvelope();
 let session = createSession();
 let timerFrame = 0;
 let serverUpdatedAt = 0;
+let promptMode = loadSettings().promptMode;
+let activeLetterAudio = null;
+let activeLetterAudioToken = 0;
 const appState = {
   ready: false,
   saveQueued: false,
@@ -116,6 +158,46 @@ const appState = {
   serverError: false,
   lastSaveOutcome: "idle",
 };
+
+function loadSettings() {
+  try {
+    const parsed = JSON.parse(window.localStorage.getItem(SETTINGS_KEY) || "{}");
+    return {
+      promptMode: PROMPT_MODES.has(parsed.promptMode) ? parsed.promptMode : "letter-only",
+    };
+  } catch {
+    return {
+      promptMode: "letter-only",
+    };
+  }
+}
+
+function saveSettings() {
+  try {
+    window.localStorage.setItem(SETTINGS_KEY, JSON.stringify({ promptMode }));
+  } catch {
+    // Settings are a convenience only; practice should keep working without storage.
+  }
+}
+
+function showsTargetLetter() {
+  return promptMode !== "audio-only";
+}
+
+function playsTargetAudio() {
+  return promptMode !== "letter-only";
+}
+
+function letterAudioSource(letter) {
+  const slug = LETTER_AUDIO_SLUGS[letter];
+  return slug ? `audio/letters/${slug}.mp3` : "";
+}
+
+function readyMessage() {
+  return showsTargetLetter()
+    ? "Press Start, switch your keyboard layout to Russian, and type the letter shown."
+    : "Press Start, then listen and type the matching Russian key.";
+}
 
 function createLetterStats() {
   return {
@@ -615,11 +697,14 @@ function startSession({ fresh = false } = {}) {
     session = createSession();
   }
 
+  stopLetterAudio(false);
   session.active = true;
   session.transitioning = false;
   session.errorsThisAttempt = 0;
   session.layoutHintUntil = 0;
-  session.message = "Find the highlighted letter on your Russian keyboard.";
+  session.message = showsTargetLetter()
+    ? "Find the highlighted letter on your Russian keyboard."
+    : "Listen, then type the matching Russian key.";
 
   if (!session.currentLetter) {
     session.currentLetter = pickWeightedLetter();
@@ -631,9 +716,11 @@ function startSession({ fresh = false } = {}) {
   elements.targetDisplay.classList.add("live");
   render();
   startTimerLoop();
+  playCurrentLetterAudio();
 }
 
 function pauseSession(message = "Paused. Resume when ready.") {
+  stopLetterAudio();
   session.active = false;
   session.transitioning = false;
   session.promptStartedAt = 0;
@@ -662,6 +749,78 @@ function flashStatus(label, variant) {
 function setFeedback(message) {
   session.message = message;
   renderFeedback();
+}
+
+function setPromptMode(mode) {
+  if (!PROMPT_MODES.has(mode) || promptMode === mode) {
+    return;
+  }
+
+  promptMode = mode;
+  if (!session.active && !session.transitioning) {
+    session.message = readyMessage();
+  }
+  saveSettings();
+  render();
+
+  if (!playsTargetAudio()) {
+    stopLetterAudio();
+    return;
+  }
+
+  if (session.active && !session.transitioning) {
+    playCurrentLetterAudio();
+  }
+}
+
+function playCurrentLetterAudio() {
+  if (!playsTargetAudio()) {
+    return;
+  }
+
+  const source = letterAudioSource(session.currentLetter);
+  if (!source) {
+    return;
+  }
+
+  stopLetterAudio(false);
+  const token = ++activeLetterAudioToken;
+  const audio = new Audio(source);
+  activeLetterAudio = audio;
+  audio.preload = "auto";
+  audio.onended = () => {
+    if (token === activeLetterAudioToken) {
+      activeLetterAudio = null;
+    }
+  };
+  audio.onerror = () => {
+    if (token !== activeLetterAudioToken) {
+      return;
+    }
+    activeLetterAudio = null;
+    setFeedback("Letter audio is not ready. Switch to Letter if needed.");
+  };
+  audio.play().catch(() => {
+    if (token !== activeLetterAudioToken) {
+      return;
+    }
+    activeLetterAudio = null;
+    if (session.active && !session.transitioning) {
+      setFeedback("Press Replay to hear the letter.");
+    }
+  });
+}
+
+function stopLetterAudio(updateToken = true) {
+  if (updateToken) {
+    activeLetterAudioToken += 1;
+  }
+  if (!activeLetterAudio) {
+    return;
+  }
+  activeLetterAudio.pause();
+  activeLetterAudio.currentTime = 0;
+  activeLetterAudio = null;
 }
 
 function startTimerLoop() {
@@ -711,11 +870,14 @@ function advancePrompt() {
   session.promptStartedAt = performance.now();
   session.errorsThisAttempt = 0;
   session.layoutHintUntil = 0;
-  session.message = "Find the highlighted letter on your Russian keyboard.";
+  session.message = showsTargetLetter()
+    ? "Find the highlighted letter on your Russian keyboard."
+    : "Listen, then type the matching Russian key.";
   elements.targetDisplay.classList.remove("correct", "wrong", "idle");
   elements.targetDisplay.classList.add("live");
   render();
   startTimerLoop();
+  playCurrentLetterAudio();
 }
 
 function completeCurrentLetter() {
@@ -725,6 +887,7 @@ function completeCurrentLetter() {
 
   const timeMs = performance.now() - session.promptStartedAt;
   const errors = session.errorsThisAttempt;
+  stopLetterAudio();
 
   session.attempts += 1;
   session.totalTimeMs += timeMs;
@@ -773,7 +936,9 @@ function handleWrongKey(rawKey) {
   elements.targetDisplay.classList.add("wrong");
   flashStatus("Miss", "flash-wrong");
   setFeedback(
-    `Not ${session.currentLetter}. Misses this round: ${session.errorsThisAttempt}.`,
+    showsTargetLetter()
+      ? `Not ${session.currentLetter}. Misses this round: ${session.errorsThisAttempt}.`
+      : `Not that key. Misses this round: ${session.errorsThisAttempt}.`,
   );
 
   if (/^[a-z]$/i.test(rawKey)) {
@@ -1003,7 +1168,7 @@ function renderKeyboard() {
         : `${letter}: no attempts yet`;
       const key = document.createElement("div");
       key.className = `keyboard-key ${profile.attempts ? "" : "untouched"} ${
-        session.currentLetter === letter ? "target" : ""
+        session.currentLetter === letter && showsTargetLetter() ? "target" : ""
       }`;
       key.style.background = profile.attempts
         ? colorForProfile(profile)
@@ -1130,10 +1295,19 @@ function renderSummary() {
   elements.exportButton.disabled = !appState.ready;
   elements.importButton.disabled = !appState.ready;
   elements.resetButton.disabled = !appState.ready;
+  elements.modeButtons.forEach((button) => {
+    const active = button.dataset.promptMode === promptMode;
+    button.classList.toggle("is-active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
 }
 
 function renderAttemptPanel() {
-  elements.targetLetter.textContent = session.currentLetter.toUpperCase();
+  elements.targetLetter.textContent = showsTargetLetter()
+    ? session.currentLetter.toUpperCase()
+    : "♪";
+  elements.targetDisplay.classList.toggle("audio-hidden", !showsTargetLetter());
+  elements.replayAudioButton.hidden = !playsTargetAudio();
   elements.attemptErrors.textContent = String(session.errorsThisAttempt);
   elements.currentStreak.textContent = String(session.currentStreak);
   elements.liveTimer.textContent =
@@ -1171,6 +1345,10 @@ function attachEvents() {
     event.target.value = "";
   });
   elements.resetButton.addEventListener("click", resetData);
+  elements.modeButtons.forEach((button) => {
+    button.addEventListener("click", () => setPromptMode(button.dataset.promptMode));
+  });
+  elements.replayAudioButton.addEventListener("click", () => playCurrentLetterAudio());
   document.addEventListener("keydown", handleKeydown);
 }
 
@@ -1181,7 +1359,7 @@ render();
 async function initialize() {
   try {
     await loadServerData();
-    pauseSession("Press Start, switch your keyboard layout to Russian, and type the letter shown.");
+    pauseSession(readyMessage());
     render();
   } catch (error) {
     console.error(error);
